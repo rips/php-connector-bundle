@@ -1,0 +1,14 @@
+{
+    "name": "rips/connector-bundle",
+    "description": "RIPS API Connector bundle for Symfony",
+    "type": "library",
+    "license": "N/A",
+    "authors": [
+        {
+            "name": "Nick Coffey",
+            "email": "ncoffey@ripstech.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
