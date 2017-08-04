@@ -1,0 +1,3 @@
+rips_connector_homepage:
+    path:     /
+    defaults: { _controller: RIPSConnectorBundle:Default:index }

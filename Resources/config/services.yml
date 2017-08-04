@@ -1,0 +1,4 @@
+services:
+#    rips_connector.example:
+#        class: RIPS\ConnectorBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
