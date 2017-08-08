@@ -1,4 +1,22 @@
 services:
-#    rips_connector.example:
-#        class: RIPS\ConnectorBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    rips_connector.api:
+        class: RIPS\ConnectorBundle\Services\APIService
+        arguments:
+            - '%rips_connector.username%'
+            - '%rips_connector.password%'
+            - ['%rips_connector.base_uri%', '%rips_connector.timeout%', '%rips_connector.connect_timeout%']
+
+    rips_connector.users:
+        class: RIPS\ConnectorBundle\Services\UserService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.orgs:
+        class: RIPS\ConnectorBundle\Services\OrgService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.quota:
+        class: RIPS\ConnectorBundle\Services\QuotaService
+        arguments:
+            - '@rips_connector.api'
