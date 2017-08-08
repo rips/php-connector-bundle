@@ -14,30 +14,21 @@
             "RIPS\\ConnectorBundle\\": ""
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "repositories": [
         {
-            "type": "package",
+            "type": "vcs",
+            "url": "ssh://git@source.internal.ripstech.com:7999/rac/php-connector.git",
             "options": {
                 "ssh2": {
                     "username": "jango",
                     "pubkey_file": "/home/jango/.ssh/id_ed25519.pub",
                     "privkey_file": "/home/jango/.ssh/id_ed25519"
                 }
-            },
-            "package": {
-                "name": "rips/api-connector",
-                "version": "0.0.1",
-                "type": "package",
-                "source": {
-                    "url": "ssh://git@source.internal.ripstech.com:7999/rac/php-connector.git",
-                    "type": "git",
-                    "reference": "dev"
-                }
             }
         }
     ],
     "require": {
-        "rips/api-connector": "*"
+        "rips/api_connector": "*"
     }
 }
