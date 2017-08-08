@@ -14,6 +14,7 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class RIPSConnectorExtension extends Extension
 {
+    protected $params = ['username', 'password', 'base_uri', 'timeout', 'connect_timeout'];
     /**
      * {@inheritdoc}
      */
@@ -24,5 +25,11 @@ class RIPSConnectorExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        foreach ($this->params as $param) {
+            if (isset($config[$param])) {
+                $container->setParameter("{$this->getAlias()}.{$param}", $config[$param]);
+            }
+        }
     }
 }

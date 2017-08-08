@@ -20,9 +20,13 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('rips_connector');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode->children()
+            ->scalarNode('username')->end()
+            ->scalarNode('password')->end()
+            ->scalarNode('base_uri')->end()
+            ->integerNode('timeout')->defaultValue(10)->end()
+            ->integerNode('connect_timeout')->defaultValue(10)->end()
+            ->end();
 
         return $treeBuilder;
     }
