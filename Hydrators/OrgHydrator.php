@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Hydrators;
 
 use RIPS\ConnectorBundle\Entities\OrgEntity;
+use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 
 class OrgHydrator
 {
@@ -23,6 +24,10 @@ class OrgHydrator
 
         $hydrated->setId($org->id);
         $hydrated->setName($org->name);
+
+        if (isset($org->quotas) && count($org->quotas) > 0) {
+            $hydrated->setQuotas(QuotaHydrator::hydrateCollection($org->quotas));
+        }
 
         return $hydrated;
     }
