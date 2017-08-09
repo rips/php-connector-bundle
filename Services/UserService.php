@@ -24,11 +24,12 @@ class UserService
     /**
      * Get a collection of user objects
      *
-     * @return Array<>
+     * @param array $queryParams
+     * @return array<UserEntity>
      */
-    public function getAll()
+    public function getAll(array $queryParams = [])
     {
-        $users = $this->api->users()->getAll();
+        $users = $this->api->users()->getAll($queryParams);
 
         return UserHydrator::hydrateCollection($users);
     }
@@ -37,7 +38,7 @@ class UserService
      * Get a user by id
      *
      * @param int $userId
-     * @return
+     * @return UserEntity
      */
     public function getById(int $userId)
     {
@@ -50,10 +51,12 @@ class UserService
      * Invite a new user
      *
      * @param array $input
-     * @return
+     * @return UserEntity
      */
     public function invite(array $input)
     {
-        return $this->api->users()->invite($input);
+        $user = $this->api->users()->invite($input);
+
+        return UserHydrator::hydrate($user);
     }
 }

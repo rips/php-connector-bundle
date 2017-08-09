@@ -243,7 +243,7 @@
             "source": {
                 "type": "git",
                 "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "a5feefe313094157ad4668d8b767af8af35e06e1"
+                "reference": "5154f52ca913d8d2c7f4455b87a367a4611baca9"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -270,7 +270,7 @@
                 "N/A"
             ],
             "description": "...",
-            "time": "2017-08-09 13:55:12"
+            "time": "2017-08-09 17:30:35"
         }
     ],
     "packages-dev": [],
