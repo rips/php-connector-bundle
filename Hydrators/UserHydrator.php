@@ -31,6 +31,10 @@ class UserHydrator
         $hydrated->setRoot($user->root);
         $hydrated->setRoles($user->roles);
 
+        if (isset($user->organisation)) {
+            $hydrated->setOrganisation(OrgHydrator::hydrate($user->organisation));
+        }
+
         return $hydrated;
     }
 }

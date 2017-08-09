@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
+
 class OrgService
 {
     // @var API
@@ -25,6 +27,8 @@ class OrgService
      */
     public function getById(int $orgId)
     {
-        return $this->api->orgs()->getById($orgId);
+        $org = $this->api->orgs()->getById($orgId);
+
+        return OrgHydrator::hydrate($org);
     }
 }
