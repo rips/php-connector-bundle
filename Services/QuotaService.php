@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
+
 class QuotaService
 {
     // @var API
@@ -18,12 +20,15 @@ class QuotaService
     }
 
     /**
-     * Get a collection of quotas objects
+     * Create a new quota
      *
-     * @return Array<>
+     * @param array $input
+     * @return QuotaEntity
      */
-    public function getAll()
+    public function create(array $input)
     {
-        return $this->api->quotas()->getAll();
+        $quota = $this->api->quotas()->create($input);
+
+        return QuotaHydrator::hydrate($quota);
     }
 }
