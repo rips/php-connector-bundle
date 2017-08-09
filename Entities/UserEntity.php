@@ -20,7 +20,7 @@ class UserEntity
     protected $email;
 
     // @var string
-    protected $emptyUsername = false;
+    protected $empty_username = false;
 
     // @var array
     protected $roles;
@@ -86,12 +86,12 @@ class UserEntity
 
     public function setEmptyUsername(bool $emptyUsername)
     {
-        $this->emptyUsername = $emptyUsername;
+        $this->empty_username = $emptyUsername;
     }
 
     public function getEmptyUsername()
     {
-        return $this->emptyUsername;
+        return $this->empty_username;
     }
 
     public function setRoles(array $roles = [])
