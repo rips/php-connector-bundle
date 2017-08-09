@@ -2,6 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Entities\UserEntity;
+use RIPS\ConnectorBundle\Entities\OrgEntity;
+use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+
 class UserService
 {
     // @var API
@@ -24,7 +28,9 @@ class UserService
      */
     public function getAll()
     {
-        return $this->api->users()->getAll();
+        $users = $this->api->users()->getAll();
+
+        return UserHydrator::hydrateCollection($users);
     }
 
     /**
@@ -35,7 +41,9 @@ class UserService
      */
     public function getById(int $userId)
     {
-        return $this->api->users()->getById($userId);
+        $user = $this->api->users()->getById($userId);
+
+        return UserHydrator::hydrate($user);
     }
 
     /**
