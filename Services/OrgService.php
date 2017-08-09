@@ -31,4 +31,31 @@ class OrgService
 
         return OrgHydrator::hydrate($org);
     }
+
+    /**
+     * Update existing organization by id
+     *
+     * @param integer $orgId
+     * @param array $input
+     * @return OrgEntity
+     */
+    public function update(int $orgId, array $input)
+    {
+        $org = $this->api->orgs()->update($orgId, $input);
+
+        return OrgHydrator::hydrate($org);
+    }
+
+    /**
+     * Create a new organization
+     *
+     * @param array $input
+     * @return OrgEntity
+     */
+    public function create(array $input)
+    {
+        $org = $this->api->orgs()->create($input);
+
+        return OrgHydrator::hydrate($org);
+    }
 }
