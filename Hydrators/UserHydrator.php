@@ -6,6 +6,13 @@ use RIPS\ConnectorBundle\Entities\UserEntity;
 
 class UserHydrator
 {
+    /**
+     * Hydrate a collection of user objects into a collection of
+     * UserEntity objects
+     *
+     * @param array<stdClass> $users
+     * @return array<UserEntity>
+     */
     public static function hydrateCollection(array $users)
     {
         $hydrated = [];
@@ -17,6 +24,12 @@ class UserHydrator
         return $hydrated;
     }
 
+    /**
+     * Hydrate a user object into a UserEntity object
+     *
+     * @param stdClass $user
+     * @return UserEntity
+     */
     public static function hydrate(\stdClass $user)
     {
         $hydrated = new UserEntity();

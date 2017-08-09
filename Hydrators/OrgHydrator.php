@@ -7,6 +7,13 @@ use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 
 class OrgHydrator
 {
+    /**
+     * Hydrate a collection of org objects into a collection of
+     * OrgEntity objects
+     *
+     * @param array<stdClass> $orgs
+     * @return array<OrgEntity>
+     */
     public static function hydrateCollection(array $orgs)
     {
         $hydrated = [];
@@ -18,6 +25,12 @@ class OrgHydrator
         return $hydrated;
     }
 
+    /**
+     * Hydrate a single org object into a OrgEntity object
+     *
+     * @param stdClass $org
+     * @return OrgEntity
+     */
     public static function hydrate(\stdClass $org)
     {
         $hydrated = new OrgEntity();

@@ -6,6 +6,13 @@ use RIPS\ConnectorBundle\Entities\QuotaEntity;
 
 class QuotaHydrator
 {
+    /**
+     * Hydrate a collection of of quota objects into a collection of
+     * QuotaEntity objects
+     *
+     * @param array<stdClass> $quotas
+     * @return array<QuotaEntity>
+     */
     public static function hydrateCollection(array $quotas)
     {
         $hydrated = [];
@@ -17,6 +24,12 @@ class QuotaHydrator
         return $hydrated;
     }
 
+    /**
+     * Hydrate a quota object into a QuotaEntity object
+     *
+     * @param stdClass $quota
+     * @return QuotaEntity
+     */
     public static function hydrate(\stdClass $quota)
     {
         $hydrated = new QuotaEntity();
