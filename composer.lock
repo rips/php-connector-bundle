@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e4fadec661694103b96f4282ad44215",
+    "content-hash": "fe6dfb97549c044bb0ce82cacd1a3570",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -73,16 +73,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "dev-master",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "09e549f5534380c68761260a71f847644d8f65aa"
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/09e549f5534380c68761260a71f847644d8f65aa",
-                "reference": "09e549f5534380c68761260a71f847644d8f65aa",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
                 "shasum": ""
             },
             "require": {
@@ -120,20 +120,20 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2017-05-20 23:14:18"
+            "time": "2016-12-20T10:07:11+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "dev-master",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "811b676fbab9c99e359885032e5ebc70e442f5b8"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/811b676fbab9c99e359885032e5ebc70e442f5b8",
-                "reference": "811b676fbab9c99e359885032e5ebc70e442f5b8",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -185,11 +185,11 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-17 09:11:21"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "psr/http-message",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
@@ -235,15 +235,15 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
-            "name": "rips/api_connector",
+            "name": "rips/connector",
             "version": "dev-dev",
             "source": {
                 "type": "git",
-                "url": "ssh://git@source.internal.ripstech.com:7999/rac/php-connector.git",
-                "reference": "66adeb2eafa6da56b116571ca324a029dfc0fb50"
+                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
+                "reference": "a5feefe313094157ad4668d8b767af8af35e06e1"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -255,7 +255,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "RIPS\\APIConnector\\": "src"
+                    "RIPS\\Connector\\": "src"
                 }
             },
             "autoload-dev": {
@@ -270,13 +270,15 @@
                 "N/A"
             ],
             "description": "...",
-            "time": "2017-08-04 13:39:57"
+            "time": "2017-08-09 13:55:12"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "rips/connector": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

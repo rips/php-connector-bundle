@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\APIConnector\API;
+use RIPS\Connector\API;
 
 class APIService
 {
