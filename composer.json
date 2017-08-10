@@ -1,8 +1,10 @@
 {
     "name": "rips/connector-bundle",
     "description": "RIPS API Connector bundle for Symfony",
+    "version": "0.0.1",
     "type": "symfony-bundle",
-    "license": "N/A",
+    "license": "Proprietary",
+    "minimun-stability": "dev",
     "authors": [
         {
             "name": "Nick Coffey",
