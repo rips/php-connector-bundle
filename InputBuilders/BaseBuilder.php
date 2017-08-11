@@ -4,15 +4,25 @@ namespace RIPS\ConnectorBundle\InputBuilders;
 
 abstract class BaseBuilder
 {
-    public function __construct($props)
+    /**
+     * Initialize new BaseBuilder instance
+     *
+     * @param array $props - Properties that will be mapped to class
+     */
+    public function __construct(array $props)
     {
         foreach ($props as $key => $val) {
             $this->{$key} = $val;
         }
     }
 
-    public function toArray()
+    /**
+     * Get an array of class properties
+     *
+     * @return array
+     */
+    public function toArray(): array
     {
-        return get_object_vars($this);
+        return array_filter(get_object_vars($this));
     }
 }
