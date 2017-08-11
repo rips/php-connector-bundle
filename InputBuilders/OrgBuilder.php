@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Org;
+namespace RIPS\ConnectorBundle\InputBuilders;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class Create extends BaseBuilder
+class OrgBuilder extends BaseBuilder
 {
     protected $validUntil;
     protected $name;
