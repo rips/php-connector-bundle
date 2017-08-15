@@ -20,7 +20,7 @@ class UserEntity
     protected $email;
 
     // @var string
-    protected $empty_username = false;
+    protected $emptyUsername = false;
 
     // @var array
     protected $roles;
@@ -50,7 +50,7 @@ class UserEntity
      *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -71,7 +71,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -92,7 +92,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getFirstname()
+    public function getFirstname(): string
     {
         return $this->firstname;
     }
@@ -113,7 +113,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getLastname()
+    public function getLastname(): string
     {
         return $this->lastname;
     }
@@ -134,20 +134,20 @@ class UserEntity
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
     /**
-     * Set empty_username
+     * Set emptyUsername
      *
      * @param boolean $emptyUsername
      * @return void
      */
     public function setEmptyUsername(bool $emptyUsername)
     {
-        $this->empty_username = $emptyUsername;
+        $this->emptyUsername = $emptyUsername;
     }
 
     /**
@@ -155,9 +155,9 @@ class UserEntity
      *
      * @return boolean
      */
-    public function getEmptyUsername()
+    public function getEmptyUsername(): bool
     {
-        return $this->empty_username;
+        return $this->emptyUsername;
     }
 
     /**
@@ -176,7 +176,7 @@ class UserEntity
      *
      * @return array
      */
-    public function getRoles()
+    public function getRoles(): array
     {
         return $this->roles;
     }
@@ -197,7 +197,7 @@ class UserEntity
      *
      * @return boolean
      */
-    public function getRoot()
+    public function getRoot(): bool
     {
         return $this->root;
     }
@@ -218,7 +218,7 @@ class UserEntity
      *
      * @return boolean
      */
-    public function getEnabled()
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
@@ -239,7 +239,7 @@ class UserEntity
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganisation(): OrgEntity
     {
         return $this->organisation;
     }
