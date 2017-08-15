@@ -76,12 +76,12 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set currentUser
      *
-     * @param int $currentScan
+     * @param int $currentUser
      * @return void
      */
-    public function setCurrentScan(int $currentScan)
+    public function setCurrentUser(int $currentUser)
     {
-        $this->currentScan = $currentScan;
+        $this->currentUser = $currentUser;
     }
 
     /**
