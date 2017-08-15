@@ -50,7 +50,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -71,7 +71,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getCurrentApplication()
+    public function getCurrentApplication(): int
     {
         return $this->currentApplication;
     }
@@ -92,7 +92,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getCurrentScan()
+    public function getCurrentScan(): int
     {
         return $this->currentScan;
     }
@@ -113,7 +113,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getCurrentUser(int $currentUser)
+    public function getCurrentUser(): int
     {
         return $this->currentUser;
     }
@@ -134,7 +134,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxApplications()
+    public function getMaxApplications(): int
     {
         return $this->maxApplications;
     }
@@ -155,7 +155,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxScans()
+    public function getMaxScans(): int
     {
         return $this->maxScans;
     }
@@ -176,7 +176,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxUsers()
+    public function getMaxUsers(): int
     {
         return $this->maxUsers;
     }
@@ -197,7 +197,7 @@ class QuotaEntity
      *
      * @return string
      */
-    public function getValidFrom()
+    public function getValidFrom(): string
     {
         return $this->validFrom;
     }
@@ -211,6 +211,16 @@ class QuotaEntity
     public function setValidUntil(string $validUntil)
     {
         $this->validUntil = $validUntil;
+    }
+
+    /**
+     * Get validUntil
+     *
+     * @return string
+     */
+    public function getValidUntil(): string
+    {
+        return $this->validUntil;
     }
 
     /**
@@ -229,7 +239,7 @@ class QuotaEntity
      *
      * @return boolean
      */
-    public function getPublic()
+    public function getPublic(): bool
     {
         return $this->public;
     }
