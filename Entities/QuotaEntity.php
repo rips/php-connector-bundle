@@ -8,28 +8,28 @@ class QuotaEntity
     protected $id;
 
     // @var integer
-    protected $current_application;
+    protected $currentpplication;
 
     // @var integer
-    protected $current_scan;
+    protected $currentScan;
 
     // @var integer
-    protected $current_user;
+    protected $currentUser;
 
     // @var integer
-    protected $max_applications;
+    protected $maxApplications;
 
     // @var integer
-    protected $max_scans;
+    protected $maxScans;
 
     // @var integer
-    protected $max_users;
+    protected $maxUsers;
 
     // @var string
-    protected $valid_from;
+    protected $validFrom;
 
     // @var string
-    protected $valid_until;
+    protected $validUntil;
 
     // @var boolean
     protected $public;
@@ -56,161 +56,161 @@ class QuotaEntity
     }
 
     /**
-     * Set current_application
+     * Set currentApplication
      *
      * @param integer $currentApp
      * @return void
      */
     public function setCurrentApplication(int $currentApp)
     {
-        $this->current_application = $currentApp;
+        $this->currentApplication = $currentApp;
     }
 
     /**
-     * Get current_application
+     * Get currentApplication
      *
      * @return integer
      */
     public function getCurrentApplication()
     {
-        return $this->current_application;
+        return $this->currentApplication;
     }
 
     /**
-     * Set current_scan
+     * Set currentScan
      *
      * @param integer $currentScan
      * @return void
      */
     public function setCurrentScan(int $currentScan)
     {
-        $this->current_scan = $currentScan;
+        $this->currentScan = $currentScan;
     }
 
     /**
-     * Get current_scan
+     * Get currentScan
      *
      * @return integer
      */
     public function getCurrentScan()
     {
-        return $this->current_scan;
+        return $this->currentScan;
     }
 
     /**
-     * Set current_user
+     * Set currentUser
      *
      * @param integer $currentUser
      * @return void
      */
     public function setCurrentUser(int $currentUser)
     {
-        $this->current_user = $currentUser;
+        $this->currentUser = $currentUser;
     }
 
     /**
-     * Get current_user
+     * Get currentUser
      *
      * @return integer
      */
     public function getCurrentUser(int $currentUser)
     {
-        return $this->current_user;
+        return $this->currentUser;
     }
 
     /**
-     * Set max_applications
+     * Set maxApplications
      *
      * @param integer $maxApplications
      * @return void
      */
     public function setMaxApplications(int $maxApplications)
     {
-        $this->max_applications = $maxApplications;
+        $this->maxApplications = $maxApplications;
     }
 
     /**
-     * Get max_applications
+     * Get maxApplications
      *
      * @return integer
      */
     public function getMaxApplications()
     {
-        return $this->max_applications;
+        return $this->maxApplications;
     }
 
     /**
-     * Set max_scans
+     * Set maxScans
      *
      * @param integer $maxScans
      * @return void
      */
     public function setMaxScans(int $maxScans)
     {
-        return $this->max_scans = $maxScans;
+        return $this->maxScans = $maxScans;
     }
 
     /**
-     * Get max_scans
+     * Get maxScans
      *
      * @return integer
      */
     public function getMaxScans()
     {
-        return $this->max_scans;
+        return $this->maxScans;
     }
 
     /**
-     * Set max_users
+     * Set maxUsers
      *
      * @param integer $maxUsers
      * @return void
      */
     public function setMaxUsers(int $maxUsers)
     {
-        $this->max_users = $maxUsers;
+        $this->maxUsers = $maxUsers;
     }
 
     /**
-     * Get max_users
+     * Get maxUsers
      *
      * @return integer
      */
     public function getMaxUsers()
     {
-        return $this->max_users;
+        return $this->maxUsers;
     }
 
     /**
-     * Set valid_from
+     * Set validFrom
      *
      * @param string $validFrom
      * @return void
      */
     public function setValidFrom(string $validFrom)
     {
-        $this->valid_from = $validFrom;
+        $this->validFrom = $validFrom;
     }
 
     /**
-     * Get valid_from
+     * Get validFrom
      *
      * @return string
      */
     public function getValidFrom()
     {
-        return $this->valid_from;
+        return $this->validFrom;
     }
 
     /**
-     * Set valid_until
+     * Set validUntil
      *
      * @param string $validUntil
      * @return void
      */
     public function setValidUntil(string $validUntil)
     {
-        $this->valid_until = $validUntil;
+        $this->validUntil = $validUntil;
     }
 
     /**
