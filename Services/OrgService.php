@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Services;
 
 use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
+use RIPS\ConnectorBundle\InputBuilders\OrgBuilder;
 
 class OrgService
 {
@@ -36,10 +37,10 @@ class OrgService
      * Update existing organization by id
      *
      * @param integer $orgId
-     * @param array $input
+     * @param OrgBuilder $input
      * @return OrgEntity
      */
-    public function update(int $orgId, array $input)
+    public function update(int $orgId, OrgBuilder $input)
     {
         $org = $this->api->orgs()->update($orgId, $input);
 
@@ -49,12 +50,12 @@ class OrgService
     /**
      * Create a new organization
      *
-     * @param array $input
+     * @param OrgBuilder $input
      * @return OrgEntity
      */
-    public function create(array $input)
+    public function create(OrgBuilder $input)
     {
-        $org = $this->api->orgs()->create($input);
+        $org = $this->api->orgs()->create($input->toArray());
 
         return OrgHydrator::hydrate($org);
     }
