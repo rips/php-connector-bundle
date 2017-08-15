@@ -10,8 +10,12 @@ class OrgEntity
     // @var string
     protected $name;
 
+    // @var string
+    protected $validUntil;
+
     // @var Array<QuotaEntities>
     protected $quotas;
+
 
     /**
      * Set id
@@ -29,7 +33,7 @@ class OrgEntity
      *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -50,7 +54,7 @@ class OrgEntity
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -71,8 +75,29 @@ class OrgEntity
      *
      * @return array<QuotaEntity>
      */
-    public function getQuotas()
+    public function getQuotas(): array
     {
         return $this->quotas;
+    }
+
+    /**
+     * Set validUntil
+     *
+     * @param string $validUntil
+     * @return void
+     */
+    public function setValidUntil(string $validUntil)
+    {
+        $this->validUntil = $validUntil;
+    }
+
+    /**
+     * Get validUntil
+     *
+     * @return string
+     */
+    public function getValidUntil(): string
+    {
+        return $this->validUntil;
     }
 }
