@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Services;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\OrgEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;
 
 class UserService
 {
@@ -50,12 +51,12 @@ class UserService
     /**
      * Invite a new user
      *
-     * @param array $input
+     * @param InviteBuilder $input
      * @return UserEntity
      */
-    public function invite(array $input)
+    public function invite(InviteBuilder $input)
     {
-        $user = $this->api->users()->invite($input);
+        $user = $this->api->users()->invite($input->toArray());
 
         return UserHydrator::hydrate($user);
     }
