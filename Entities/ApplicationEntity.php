@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kevin
- * Date: 16.08.17
- * Time: 11:30
- */
+
 
 namespace RIPS\ConnectorBundle\Entities;
 

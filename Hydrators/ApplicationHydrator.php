@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kevin
- * Date: 16.08.17
- * Time: 15:56
- */
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
