@@ -50,7 +50,7 @@ composer.phar
 **/Entity/*~
 
 #Untracked Files
-!/.idea
+/.idea
 
 ### Symfony Patch ###
 /web/css/
