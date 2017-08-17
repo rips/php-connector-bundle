@@ -49,6 +49,9 @@ composer.phar
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
 
+#Untracked Files
+/.idea
+
 ### Symfony Patch ###
 /web/css/
 /web/js/

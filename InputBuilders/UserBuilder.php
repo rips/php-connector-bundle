@@ -34,7 +34,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set email
      *
-     * @param string $email
+     * @param  string $email
      * @return void
      */
     public function setEmail(string $email)
@@ -45,7 +45,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set username
      *
-     * @param string $username
+     * @param  string $username
      * @return void
      */
     public function setUsername(string $username)
@@ -56,7 +56,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set firstname
      *
-     * @param string $firstname
+     * @param  string $firstname
      * @return void
      */
     public function setFirstname(string $firstname)
@@ -67,7 +67,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set lastname
      *
-     * @param string $lastname
+     * @param  string $lastname
      * @return void
      */
     public function setLastname(string $lastname)
@@ -78,7 +78,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set plainPassword
      *
-     * @param sting $plainPassword
+     * @param  sting $plainPassword
      * @return void
      */
     public function setPlainPassword(string $password)
@@ -89,7 +89,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set organisation
      *
-     * @param int $organisation
+     * @param  int $organisation
      * @return void
      */
     public function setOrganisation(int $organisation)
@@ -110,7 +110,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set enabled
      *
-     * @param bool $enabled
+     * @param  bool $enabled
      * @return void
      */
     public function setEnabled(bool $enabled)
@@ -121,7 +121,7 @@ class UserBuilder extends BaseBuilder
     /**
      * Set root
      *
-     * @param bool $root
+     * @param  bool $root
      * @return void
      */
     public function setRoot(bool $root)

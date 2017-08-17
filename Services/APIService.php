@@ -28,4 +28,9 @@ class APIService
     {
         return $this->api->quotas;
     }
+
+    public function applications()
+    {
+        return $this-$this->api->applications;
+    }
 }

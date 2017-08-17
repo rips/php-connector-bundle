@@ -23,7 +23,7 @@ class OrgService
     /**
      * Get an organization by id
      *
-     * @param int $orgId
+     * @param  int $orgId
      * @return
      */
     public function getById(int $orgId)
@@ -36,8 +36,8 @@ class OrgService
     /**
      * Update existing organization by id
      *
-     * @param integer $orgId
-     * @param OrgBuilder $input
+     * @param  integer    $orgId
+     * @param  OrgBuilder $input
      * @return OrgEntity
      */
     public function update(int $orgId, OrgBuilder $input)
@@ -50,7 +50,7 @@ class OrgService
     /**
      * Create a new organization
      *
-     * @param OrgBuilder $input
+     * @param  OrgBuilder $input
      * @return OrgEntity
      */
     public function create(OrgBuilder $input)

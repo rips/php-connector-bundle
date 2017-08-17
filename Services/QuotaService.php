@@ -23,7 +23,7 @@ class QuotaService
     /**
      * Create a new quota
      *
-     * @param QuotaBuilder $input
+     * @param  QuotaBuilder $input
      * @return QuotaEntity
      */
     public function create(QuotaBuilder $input)

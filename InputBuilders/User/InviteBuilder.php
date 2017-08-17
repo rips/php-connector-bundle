@@ -28,7 +28,7 @@ class InviteBuilder extends BaseBuilder
     /**
      * Set email
      *
-     * @param string $email
+     * @param  string $email
      * @return void
      */
     public function setEmail(string $email)
@@ -39,7 +39,7 @@ class InviteBuilder extends BaseBuilder
     /**
      * Set username
      *
-     * @param string $username
+     * @param  string $username
      * @return void
      */
     public function setUsername(string $username)
@@ -50,7 +50,7 @@ class InviteBuilder extends BaseBuilder
     /**
      * Set firstname
      *
-     * @param string $firstname
+     * @param  string $firstname
      * @return void
      */
     public function setFirstname(string $firstname)
@@ -61,7 +61,7 @@ class InviteBuilder extends BaseBuilder
     /**
      * Set lastname
      *
-     * @param string $lastname
+     * @param  string $lastname
      * @return void
      */
     public function setLastname(string $lastname)
@@ -72,7 +72,7 @@ class InviteBuilder extends BaseBuilder
     /**
      * Set organisation
      *
-     * @param int $organisation
+     * @param  int $organisation
      * @return void
      */
     public function setOrganisation(int $organisation)
@@ -93,7 +93,7 @@ class InviteBuilder extends BaseBuilder
     /**
      * Set root
      *
-     * @param bool $root
+     * @param  bool $root
      * @return void
      */
     public function setRoot(bool $root)

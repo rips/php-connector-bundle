@@ -25,7 +25,7 @@ class UserService
     /**
      * Get a collection of user objects
      *
-     * @param array $queryParams
+     * @param  array $queryParams
      * @return array<UserEntity>
      */
     public function getAll(array $queryParams = [])
@@ -38,7 +38,7 @@ class UserService
     /**
      * Get a user by id
      *
-     * @param int $userId
+     * @param  int $userId
      * @return UserEntity
      */
     public function getById(int $userId)
@@ -51,7 +51,7 @@ class UserService
     /**
      * Invite a new user
      *
-     * @param InviteBuilder $input
+     * @param  InviteBuilder $input
      * @return UserEntity
      */
     public function invite(InviteBuilder $input)
