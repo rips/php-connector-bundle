@@ -15,7 +15,7 @@ class OrgBuilder extends BaseBuilder
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return void
      */
     public function setName(string $name)
@@ -26,7 +26,7 @@ class OrgBuilder extends BaseBuilder
     /**
      * Set validUntil
      *
-     * @param string $validUntil
+     * @param  string $validUntil
      * @return void
      */
     public function setValidUntil(string $validUntil)

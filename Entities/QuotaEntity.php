@@ -37,7 +37,7 @@ class QuotaEntity
     /**
      * Set id
      *
-     * @param integer $id
+     * @param  integer $id
      * @return void
      */
     public function setId(int $id)
@@ -58,7 +58,7 @@ class QuotaEntity
     /**
      * Set currentApplication
      *
-     * @param integer $currentApp
+     * @param  integer $currentApp
      * @return void
      */
     public function setCurrentApplication(int $currentApp)
@@ -79,7 +79,7 @@ class QuotaEntity
     /**
      * Set currentScan
      *
-     * @param integer $currentScan
+     * @param  integer $currentScan
      * @return void
      */
     public function setCurrentScan(int $currentScan)
@@ -100,7 +100,7 @@ class QuotaEntity
     /**
      * Set currentUser
      *
-     * @param integer $currentUser
+     * @param  integer $currentUser
      * @return void
      */
     public function setCurrentUser(int $currentUser)
@@ -121,7 +121,7 @@ class QuotaEntity
     /**
      * Set maxApplications
      *
-     * @param integer $maxApplications
+     * @param  integer $maxApplications
      * @return void
      */
     public function setMaxApplications(int $maxApplications)
@@ -142,7 +142,7 @@ class QuotaEntity
     /**
      * Set maxScans
      *
-     * @param integer $maxScans
+     * @param  integer $maxScans
      * @return void
      */
     public function setMaxScans(int $maxScans)
@@ -163,7 +163,7 @@ class QuotaEntity
     /**
      * Set maxUsers
      *
-     * @param integer $maxUsers
+     * @param  integer $maxUsers
      * @return void
      */
     public function setMaxUsers(int $maxUsers)
@@ -184,7 +184,7 @@ class QuotaEntity
     /**
      * Set validFrom
      *
-     * @param string $validFrom
+     * @param  string $validFrom
      * @return void
      */
     public function setValidFrom(string $validFrom)
@@ -205,7 +205,7 @@ class QuotaEntity
     /**
      * Set validUntil
      *
-     * @param string $validUntil
+     * @param  string $validUntil
      * @return void
      */
     public function setValidUntil(string $validUntil)
@@ -226,7 +226,7 @@ class QuotaEntity
     /**
      * Set public
      *
-     * @param boolean $public
+     * @param  boolean $public
      * @return void
      */
     public function setPublic(bool $public)

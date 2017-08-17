@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
-
 class ApplicationBuilder extends BaseBuilder
 {
     // @var string
@@ -12,7 +11,7 @@ class ApplicationBuilder extends BaseBuilder
     /**
      * Set applicationName
      *
-     * @param string
+     * @param  string
      * @return void
      */
     public function setApplicationName(string $applicationName)

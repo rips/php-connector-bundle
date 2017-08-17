@@ -1,30 +1,38 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Entities;
-
 
 class ApplicationEntity
 {
-    // @var int
+    /**
+     * @var int
+     */
     protected $id;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $applicationName;
 
-    // @var integer
+    /**
+     * @var int
+     */
     protected $currentScan;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $creation;
 
-    // @var int
+    /**
+     * @var OrgEntity
+     */
     protected $organisation;
 
     /**
      * Set id
      *
-     * @param int $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -45,7 +53,7 @@ class ApplicationEntity
     /**
      * Set applicationName
      *
-     * @param string $applicationName
+     * @param  string $applicationName
      * @return void
      */
     public function setApplicationName(string $applicationName)
@@ -66,7 +74,7 @@ class ApplicationEntity
     /**
      * Set currentScan
      *
-     * @param int
+     * @param  int
      * @return void
      */
     public function setCurrentScan(int $currentScan)
@@ -88,7 +96,7 @@ class ApplicationEntity
     /**
      * Set creation
      *
-     * @param string
+     * @param  string
      * @return void
      */
     public function setCreation(string $creation)
@@ -109,20 +117,20 @@ class ApplicationEntity
     /**
      * Set organisation
      *
-     * @param int
+     * @param  OrgEntity
      * @return void
      */
-    public function setOrganisation(int $organisation)
+    public function setOrganisation(OrgEntity $org)
     {
-        $this->organisation = $organisation;
+        $this->organisation = $org;
     }
 
     /**
      * Get organisation
      *
-     * @return int
+     * @return OrgEntity
      */
-    public function getOrganisation(): int
+    public function getOrganisation(): OrgEntity
     {
         return $this->organisation;
     }

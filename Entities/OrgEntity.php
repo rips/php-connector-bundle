@@ -20,7 +20,7 @@ class OrgEntity
     /**
      * Set id
      *
-     * @param integer $id
+     * @param  integer $id
      * @return void
      */
     public function setId(int $id)
@@ -41,7 +41,7 @@ class OrgEntity
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return void
      */
     public function setName(string $name)
@@ -62,7 +62,7 @@ class OrgEntity
     /**
      * Set quotas
      *
-     * @param array<QuotaEntity> $quotas
+     * @param  array<QuotaEntity> $quotas
      * @return void
      */
     public function setQuotas(array $quotas = [])
@@ -83,7 +83,7 @@ class OrgEntity
     /**
      * Set validUntil
      *
-     * @param string $validUntil
+     * @param  string $validUntil
      * @return void
      */
     public function setValidUntil(string $validUntil)

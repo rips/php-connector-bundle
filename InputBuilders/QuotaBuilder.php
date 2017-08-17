@@ -43,7 +43,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set allowedMisses
      *
-     * @param int
+     * @param  int
      * @return void
      */
     public function setAllowedMisses(int $allowedMisses)
@@ -54,7 +54,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set currentApplication
      *
-     * @param int $currentApplication
+     * @param  int $currentApplication
      * @return void
      */
     public function setCurrentApplication(int $currentApplication)
@@ -65,7 +65,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set currentScan
      *
-     * @param int $currentScan
+     * @param  int $currentScan
      * @return void
      */
     public function setCurrentScan(int $currentScan)
@@ -76,7 +76,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set currentUser
      *
-     * @param int $currentUser
+     * @param  int $currentUser
      * @return void
      */
     public function setCurrentUser(int $currentUser)
@@ -87,7 +87,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set maxApplications
      *
-     * @param int $maxApplications
+     * @param  int $maxApplications
      * @return void
      */
     public function setMaxApplications(int $maxApplications)
@@ -98,7 +98,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set maxLoc
      *
-     * @param int $maxLoc
+     * @param  int $maxLoc
      * @return void
      */
     public function setMaxLoc(int $maxLoc)
@@ -109,7 +109,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set maxScans
      *
-     * @param int $maxScans
+     * @param  int $maxScans
      * @return void
      */
     public function setMaxScans(int $maxScans)
@@ -120,7 +120,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set maxUsers
      *
-     * @param int $maxUsers
+     * @param  int $maxUsers
      * @return void
      */
     public function setMaxUsers(int $maxUsers)
@@ -131,7 +131,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set organisation
      *
-     * @param int $organisation
+     * @param  int $organisation
      * @return void
      */
     public function setOrganisation(int $organisation)
@@ -142,7 +142,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set public
      *
-     * @param bool $public
+     * @param  bool $public
      * @return void
      */
     public function setPublic(bool $public)
@@ -153,7 +153,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set validFrom
      *
-     * @param string $validFrom
+     * @param  string $validFrom
      * @return void
      */
     public function setValidFrom(string $validFrom)
@@ -164,7 +164,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * Set validUntil
      *
-     * @param string $validUntil
+     * @param  string $validUntil
      * @return void
      */
     public function setValidUntil(string $validUntil)

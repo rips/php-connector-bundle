@@ -37,7 +37,7 @@ class UserEntity
     /**
      * Set id
      *
-     * @param integer $id
+     * @param  integer $id
      * @return void
      */
     public function setId(int $id)
@@ -58,7 +58,7 @@ class UserEntity
     /**
      * Set username
      *
-     * @param string $username
+     * @param  string $username
      * @return void
      */
     public function setUsername(string $username)
@@ -79,7 +79,7 @@ class UserEntity
     /**
      * Set firstname
      *
-     * @param string $firstname
+     * @param  string $firstname
      * @return void
      */
     public function setFirstname(string $firstname)
@@ -100,7 +100,7 @@ class UserEntity
     /**
      * Set lastname
      *
-     * @param string $lastname
+     * @param  string $lastname
      * @return void
      */
     public function setLastname(string $lastname)
@@ -121,7 +121,7 @@ class UserEntity
     /**
      * Set email
      *
-     * @param string $email
+     * @param  string $email
      * @return void
      */
     public function setEmail(string $email)
@@ -142,7 +142,7 @@ class UserEntity
     /**
      * Set emptyUsername
      *
-     * @param boolean $emptyUsername
+     * @param  boolean $emptyUsername
      * @return void
      */
     public function setEmptyUsername(bool $emptyUsername)
@@ -163,7 +163,7 @@ class UserEntity
     /**
      * Set roles
      *
-     * @param array $roles
+     * @param  array $roles
      * @return void
      */
     public function setRoles(array $roles = [])
@@ -184,7 +184,7 @@ class UserEntity
     /**
      * Set root
      *
-     * @param boolean $root
+     * @param  boolean $root
      * @return void
      */
     public function setRoot(bool $root)
@@ -205,7 +205,7 @@ class UserEntity
     /**
      * Set enabled
      *
-     * @param boolean $enabled
+     * @param  boolean $enabled
      * @return void
      */
     public function setEnabled(bool $enabled)
@@ -226,8 +226,8 @@ class UserEntity
     /**
      *  Set organisation
      *
-     *  @param OrgEntity $org
-     *  @return void
+     * @param  OrgEntity $org
+     * @return void
      */
     public function setOrganisation(OrgEntity $org)
     {
