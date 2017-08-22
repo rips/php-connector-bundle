@@ -31,6 +31,11 @@ class APIService
 
     public function applications()
     {
-        return $this-$this->api->applications;
+        return $this->api->applications;
+    }
+
+    public function scans()
+    {
+        return $this->api->scans;
     }
 }

@@ -8,7 +8,9 @@ use RIPS\ConnectorBundle\InputBuilders\ApplicationBuilder;
 
 class ApplicationService
 {
-    // @var API
+    /**
+     * @var API
+     */
     protected $api;
 
     /**

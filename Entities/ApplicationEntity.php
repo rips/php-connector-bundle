@@ -88,7 +88,7 @@ class ApplicationEntity
      * @return int
      */
 
-    public function gettCurrentScan(): int
+    public function getCurrentScan(): int
     {
         return $this->currentScan;
     }
