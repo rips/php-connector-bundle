@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
 
-
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FileEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
@@ -192,4 +191,3 @@ class SourceEntity
         return $this->function;
     }
 }
-

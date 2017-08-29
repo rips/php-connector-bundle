@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
-
 class IssueService
 {
     // @var API
@@ -27,6 +26,5 @@ class IssueService
      */
     public function getAll()
     {
-
     }
 }

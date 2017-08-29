@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
 
-
 class TypeEntity
 {
     /**

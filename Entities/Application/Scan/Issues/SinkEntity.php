@@ -169,4 +169,3 @@ class SinkEntity
         return $this->scan;
     }
 }
-

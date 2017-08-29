@@ -56,12 +56,12 @@ class ScanEntity
     /**
      * @var PhpEntity
      */
-    protected $phpEntity;
+    protected $php;
 
     /**
      * @var ApplicationEntity
      */
-    protected $applicationEntity;
+    protected $application;
 
     /**
      * @var UserEntity
@@ -268,9 +268,9 @@ class ScanEntity
      * @param PHPEntity
      * @return void
      */
-    public function setPhp(PhpEntity $phpEntity)
+    public function setPhp(PhpEntity $php)
     {
-        $this->phpEntity = $phpEntity;
+        $this->php = $php;
     }
 
     /**
@@ -280,18 +280,18 @@ class ScanEntity
      */
     public function getPhp(): PhpEntity
     {
-        return $this->phpEntity;
+        return $this->php;
     }
 
     /**
      * Set applicationEntity
      *
-     * @param $applicationEntity
+     * @param $application
      * @return void
      */
-    public function setApplicationEntity(ApplicationEntity $applicationEntity)
+    public function setApplication(ApplicationEntity $application)
     {
-        $this->applicationEntity = $applicationEntity;
+        $this->application = $application;
     }
 
     /**
@@ -299,9 +299,9 @@ class ScanEntity
      *
      * @return ApplicationEntity
      */
-    public function getApplicationEntity(): ApplicationEntity
+    public function getApplication(): ApplicationEntity
     {
-        return $this->applicationEntity;
+        return $this->application;
     }
 
     /**

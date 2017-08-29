@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
 
-
 class SummarieEntity
 {
     /**
@@ -110,4 +109,3 @@ class SummarieEntity
         return $this->highlightedContent;
     }
 }
-

@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
 
-
 class OriginEntity
 {
     /**
@@ -83,5 +82,4 @@ class OriginEntity
     {
         return $this->name;
     }
-
 }

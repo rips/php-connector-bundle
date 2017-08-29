@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
 
-
 class MarkupEntity
 {
     /**
@@ -43,7 +42,7 @@ class MarkupEntity
      * @param string $markup
      * @return void
      */
-    public function setMarkupt(string $markup)
+    public function setMarkup(string $markup)
     {
         $this->markup = $markup;
     }

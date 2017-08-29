@@ -3,7 +3,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink;
 
-
 class FunctionEntity
 {
     /**
@@ -109,7 +108,4 @@ class FunctionEntity
     {
         return $this->name;
     }
-
-
-
 }

@@ -34,33 +34,74 @@ class IssueHydrator
     /**
      * Hydrate a user object into a IssueEntity object
      *
-     * @param  stdClass $issue
+     * @param  \stdClass $issue
      * @return IssueEntity
      */
     public static function hydrate(\stdClass $issue)
     {
         $hydrated = new IssueEntity();
 
-        $hydrated->setId($issue->id);
-        $hydrated->setComment($issue->comment);
-        $hydrated->setSummarie(SummarieHydrator::hydrate($issue->summarie));
-        $hydrated->setMarkup(MarkupHydrator::hydrate($issue->markup));
-        $hydrated->setOrigin(OriginHydrator::hydrate($issue->origin));
-        $hydrated->setDepth($issue->depth);
-        $hydrated->setType(TypeHydrator::hydrate($issue->type));
-        $hydrated->setReviews($issue->reviews);
-        $hydrated->setReviewed($issue->reviewed);
-        $hydrated->setNegativelyReviewed($issue->negativelyReviewd);
-        $hydrated->setSink(SinkHydrator::hydrate($issue->sink));
-        $hydrated->setScan(ScanHydrator::hydrate($issue->scan));
-        $hydrated->setEffort($issue->effort);
-        $hydrated->setComplete($issue->complete);
+        if (isset($issue->id)) {
+            $hydrated->setId($issue->id);
+        }
 
-        if(isset($issue->source)){
+        if (isset($issue->comment)) {
+            $hydrated->setComment($issue->comment);
+        }
+
+        if (isset($issue->summarie)) {
+            $hydrated->setSummarie(SummarieHydrator::hydrate($issue->summarie));
+        }
+
+        if (isset($issue->markup)) {
+            $hydrated->setMarkup(MarkupHydrator::hydrate($issue->markup));
+        }
+
+        if (isset($issue->origin)) {
+            $hydrated->setOrigin(OriginHydrator::hydrate($issue->origin));
+        }
+
+        if (isset($issue->depth)) {
+            $hydrated->setDepth($issue->depth);
+        }
+
+        if (isset($issue->type)) {
+            $hydrated->setType(TypeHydrator::hydrate($issue->type));
+        }
+
+        if (isset($issue->reviews)) {
+            $hydrated->setReviews($issue->reviews);
+        }
+
+        if (isset($issue->reviewed)) {
+            $hydrated->setReviewed($issue->reviewed);
+        }
+
+        if (isset($issue->negativelyReviewd)) {
+            $hydrated->setNegativelyReviewed($issue->negativelyReviewd);
+        }
+
+        if (isset($issue->sink)) {
+            $hydrated->setSink(SinkHydrator::hydrate($issue->sink));
+        }
+
+        if (isset($issue->scan)) {
+            $hydrated->setScan(ScanHydrator::hydrate($issue->scan));
+        }
+
+        if (isset($issue->effort)) {
+            $hydrated->setEffort($issue->effort);
+        }
+
+        if (isset($issue->complete)) {
+            $hydrated->setComplete($issue->complete);
+        }
+
+        if (isset($issue->source)) {
             $hydrated->setSource(SourceHydrator::hyrdator($issue->source));
         }
 
-        if (isset($issue->concat)){
+        if (isset($issue->concat)) {
             $hydrated->setConcat(ConcatHydrator::hydrator($issue->concat));
         }
 

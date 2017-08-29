@@ -1,10 +1,7 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-
-use MongoDB\BSON\Type;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\ConcatEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\MarkupEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\OriginEntity;
@@ -13,7 +10,6 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\SourceEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\SummarieEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\TypeEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
 
 class IssueEntity
 {
@@ -142,10 +138,10 @@ class IssueEntity
     /**
      * Set summarie
      *
-     * @param SummarieEntity $summarie
+     * @param array $summarie
      * @return void
      */
-    public function setSummarie(SummarieEntity $summarie)
+    public function setSummarie(array $summarie)
     {
         $this->summarie = $summarie;
     }
@@ -153,9 +149,9 @@ class IssueEntity
     /**
      * Get summarie
      *
-     * @return SummarieEntity
+     * @return array
      */
-    public function getSummarie(): SummarieEntity
+    public function getSummarie(): array
     {
         return $this->summarie;
     }
@@ -163,10 +159,10 @@ class IssueEntity
     /**
      * Set markup
      *
-     * @param MarkupEntity $markup
+     * @param array $markup
      * @return void
      */
-    public function setMarkup(MarkupEntity $markup)
+    public function setMarkup(array $markup)
     {
         $this->markup = $markup;
     }
@@ -174,9 +170,9 @@ class IssueEntity
     /**
      * Get summarie
      *
-     * @return MarkupEntity
+     * @return array
      */
-    public function getMarkup(): MarkupEntity
+    public function getMarkup(): array
     {
         return $this->markup;
     }
@@ -364,7 +360,7 @@ class IssueEntity
      *
      * @return ConcatEntity
      */
-    public function getConccat(): ConcatEntity
+    public function getConcat(): ConcatEntity
     {
         return $this->concat;
     }
