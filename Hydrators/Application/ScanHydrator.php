@@ -32,27 +32,64 @@ class ScanHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param  stdClass $scan
+     * @param  \stdClass $scan
      * @return ScanEntity
      */
     public static function hydrate(\stdClass $scan)
     {
         $hydrated = new ScanEntity();
 
-        $hydrated->setId($scan->id);
-        $hydrated->setVersion($scan->version);
-        $hydrated->setPath($scan->path);
-        $hydrated->setPhase($scan->phase);
-        $hydrated->setPercent($scan->percent);
-        $hydrated->setLoc($scan->loc);
-        $hydrated->setCodeStored($scan->codeStored);
-        $hydrated->setUploadRemoved($scan->uploadRemoved);
-        $hydrated->setAnalysisDepth($scan->analysisDepth);
-        $hydrated->setPhp(PHPHydrator::hydrate($scan->php));
-        $hydrated->setApplicationEntity(ApplicationHydrator::hydrate($scan->application));
-        $hydrated->setUserEntity(UserHydrator::hydrate($scan->createdBy));
-        $hydrated->setProcess(ProcessHydrator::hydrate($scan->process));
+        if (isset($scan->id)){
+            $hydrated->setId($scan->id);
+        }
 
+        if (isset($scan->version)){
+            $hydrated->setVersion($scan->version);
+        }
+
+        if (isset($scan->path)){
+            $hydrated->setPath($scan->path);
+        }
+
+        if (isset($scan->phase)){
+            $hydrated->setPhase($scan->phase);
+        }
+
+        if (isset($scan->percent)){
+            $hydrated->setPercent($scan->percent);
+        }
+
+        if (isset($scan->loc)){
+            $hydrated->setLoc($scan->loc);
+        }
+
+        if (isset($scan->codeStored)){
+            $hydrated->setCodeStored($scan->codeStored);
+        }
+
+        if (isset($scan->uploadRemoved)){
+            $hydrated->setUploadRemoved($scan->uploadRemoved);
+        }
+
+        if (isset($scan->analysisDepth)){
+            $hydrated->setAnalysisDepth($scan->analysisDepth);
+        }
+
+        if (isset($scan->php)){
+            $hydrated->setPhp(PHPHydrator::hydrate($scan->php));
+        }
+
+        if (isset($scan->application)){
+            $hydrated->setApplicationEntity(ApplicationHydrator::hydrate($scan->application));
+        }
+
+        if (isset($scan->createdBy)){
+            $hydrated->setUserEntity(UserHydrator::hydrate($scan->createdBy));
+        }
+
+        if (isset($scan->id)){
+            $hydrated->setProcess(ProcessHydrator::hydrate($scan->process));
+        }
 
         return $hydrated;
     }

@@ -27,23 +27,52 @@ class QuotaHydrator
     /**
      * Hydrate a quota object into a QuotaEntity object
      *
-     * @param  stdClass $quota
+     * @param  \stdClass $quota
      * @return QuotaEntity
      */
     public static function hydrate(\stdClass $quota)
     {
         $hydrated = new QuotaEntity();
 
-        $hydrated->setId($quota->id);
-        $hydrated->setCurrentApplication($quota->current_application);
-        $hydrated->setCurrentScan($quota->current_scan);
-        $hydrated->setCurrentUser($quota->current_user);
-        $hydrated->setMaxApplications($quota->max_applications);
-        $hydrated->setMaxScans($quota->max_scans);
-        $hydrated->setMaxUsers($quota->max_users);
-        $hydrated->setValidFrom($quota->valid_from);
-        $hydrated->setValidUntil($quota->valid_until);
-        $hydrated->setPublic($quota->public);
+        if (isset($quota->id)){
+            $hydrated->setId($quota->id);
+        }
+
+        if (isset($quota->current_application)){
+            $hydrated->setCurrentApplication($quota->current_application);
+        }
+
+        if (isset($quota->current_scan)){
+            $hydrated->setCurrentScan($quota->current_scan);
+        }
+
+        if (isset($quota->current_user)){
+            $hydrated->setCurrentUser($quota->current_user);
+        }
+
+        if (isset($quota->max_applications)){
+            $hydrated->setMaxApplications($quota->max_applications);
+        }
+
+        if (isset($quota->max_scans)){
+            $hydrated->setMaxScans($quota->max_scans);
+        }
+
+        if (isset($quota->max_users)){
+            $hydrated->setMaxUsers($quota->max_users);
+        }
+
+        if (isset($quota->valid_from)){
+            $hydrated->setValidFrom($quota->valid_from);
+        }
+
+        if (isset($quota->valid_until)){
+            $hydrated->setValidUntil($quota->valid_until);
+        }
+
+        if (isset($quota->public)){
+            $hydrated->setPublic($quota->public);
+        }
 
         return $hydrated;
     }

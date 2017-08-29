@@ -34,15 +34,41 @@ class UserHydrator
     {
         $hydrated = new UserEntity();
 
-        $hydrated->setId($user->id);
-        $hydrated->setUsername($user->username ?? '');
-        $hydrated->setFirstname($user->firstname ?? '');
-        $hydrated->setLastname($user->lastname ?? '');
-        $hydrated->setEmail($user->email);
-        $hydrated->setEnabled($user->enabled);
-        $hydrated->setEmptyUsername($user->empty_username);
-        $hydrated->setRoot($user->root);
-        $hydrated->setRoles($user->roles);
+        if (isset($user->id)){
+            $hydrated->setId($user->id);
+        }
+
+        if (isset($user->username)){
+            $hydrated->setUsername($user->username ?? '');
+        }
+
+        if (isset($user->firstname)){
+            $hydrated->setFirstname($user->firstname ?? '');
+        }
+
+        if (isset($user->lastname)){
+            $hydrated->setLastname($user->lastname ?? '');
+        }
+
+        if (isset($user->email)){
+            $hydrated->setEmail($user->email);
+        }
+
+        if (isset($user->enabled)){
+            $hydrated->setEnabled($user->enabled);
+        }
+
+        if (isset($user->empty_username)){
+            $hydrated->setEmptyUsername($user->empty_username);
+        }
+
+        if (isset($user->root)){
+            $hydrated->setRoot($user->root);
+        }
+
+        if (isset($user->roles)){
+            $hydrated->setRoles($user->roles);
+        }
 
         if (isset($user->organisation)) {
             $hydrated->setOrganisation(OrgHydrator::hydrate($user->organisation));

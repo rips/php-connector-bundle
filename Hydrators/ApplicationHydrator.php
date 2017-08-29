@@ -34,10 +34,21 @@ class ApplicationHydrator
     {
         $hydrated = new ApplicationEntity();
 
-        $hydrated->setId($application->id);
-        $hydrated->setApplicationName($application->applicationName);
-        $hydrated->setCurrentScan($application->currentScan);
-        $hydrated->setCreation($application->creation);
+        if (isset($application->id)){
+            $hydrated->setId($application->id);
+        }
+
+        if (isset($application->applicationName)){
+            $hydrated->setApplicationName($application->applicationName);
+        }
+
+        if (isset($application->currentScan)){
+            $hydrated->setCurrentScan($application->currentScan);
+        }
+
+        if (isset($application->creation)){
+            $hydrated->setCreation($application->creation);
+        }
 
         if (isset($app->organisation)) {
             $hydrated->setOrganisation(OrgHydrator::hydrate($application->organisation));  //not sure with that one here
