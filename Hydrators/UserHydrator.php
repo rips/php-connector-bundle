@@ -74,8 +74,8 @@ class UserHydrator
             $hydrated->setOrganisation(OrgHydrator::hydrate($user->organisation));
         }
 
-        if (isset($user->validUntil)) {
-            $hydrated->setValidUntil($user->validUntil);
+        if (isset($user->valid_until)) {
+            $hydrated->setValidUntil($user->valid_until);
         }
 
         return $hydrated;
