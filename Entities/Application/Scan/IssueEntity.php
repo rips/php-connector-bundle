@@ -2,13 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\ConcatEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\MarkupEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\OriginEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\SinkEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\SourceEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\SummarieEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\TypeEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ConcatEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\OriginEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SinkEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SourceEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class IssueEntity
@@ -19,19 +18,19 @@ class IssueEntity
     protected $id;
 
     /**
-     * @var array
+     * @var CommentEntity[]
      */
-    protected $comment;
+    protected $comments;
 
     /**
-     * @var SummarieEntity
+     * @var SummaryEntity[]
      */
-    protected $summarie;
+    protected $summaries;
 
     /**
-     * @var MarkupEntity
+     * @var MarkupEntity[]
      */
-    protected $markup;
+    protected $markups;
 
     /**
      * @var OriginEntity
@@ -39,7 +38,7 @@ class IssueEntity
     protected $origin;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $depth;
 
@@ -49,7 +48,7 @@ class IssueEntity
     protected $type;
 
     /**
-     * @var array
+     * @var ReviewEntity[]
      */
     protected $reviews;
 
@@ -74,6 +73,11 @@ class IssueEntity
     protected $sink;
 
     /**
+     * @var IssueEntity
+     */
+    protected $parent;
+
+    /**
      * @var ConcatEntity
      */
     protected $concat;
@@ -92,6 +96,16 @@ class IssueEntity
      * @var bool
      */
     protected $complete;
+
+    /**
+     * @var string
+     */
+    protected $cve;
+
+    /**
+     * @var array
+     */
+    protected $readable;
 
     /**
      * Set id
@@ -115,66 +129,66 @@ class IssueEntity
     }
 
     /**
-     * Set comment
+     * Set comments
      *
-     * @param array $comment
+     * @param CommentEntity[] $comments
      * @return void
      */
-    public function setComment(array $comment)
+    public function setComments(array $comments)
     {
-        $this->comment = $comment;
+        $this->comments = $comments;
     }
 
     /**
-     * Get comment
+     * Get comments
      *
-     * @return array
+     * @return CommentEntity[]
      */
-    public function getComment(): array
+    public function getComments(): array
     {
-        return $this->comment;
+        return $this->comments;
     }
 
     /**
-     * Set summarie
+     * Set summaries
      *
-     * @param array $summarie
+     * @param SummaryEntity[] $summaries
      * @return void
      */
-    public function setSummarie(array $summarie)
+    public function setSummaries(array $summaries)
     {
-        $this->summarie = $summarie;
+        $this->summaries = $summaries;
     }
 
     /**
-     * Get summarie
+     * Get summaries
      *
-     * @return array
+     * @return SummaryEntity[]
      */
-    public function getSummarie(): array
+    public function getSummaries(): array
     {
-        return $this->summarie;
+        return $this->summaries;
     }
 
     /**
-     * Set markup
+     * Set markups
      *
-     * @param array $markup
+     * @param Markup[] $markups
      * @return void
      */
-    public function setMarkup(array $markup)
+    public function setMarkups(array $markups)
     {
-        $this->markup = $markup;
+        $this->markups = $markups;
     }
 
     /**
-     * Get summarie
+     * Get markups
      *
-     * @return array
+     * @return MarkupEntity[]
      */
-    public function getMarkup(): array
+    public function getMarkups(): array
     {
-        return $this->markup;
+        return $this->markups;
     }
 
     /**
@@ -243,7 +257,7 @@ class IssueEntity
     /**
      * Set reviews
      *
-     * @param array $reviews
+     * @param ReviewEntity[] $reviews
      * @return void
      */
     public function setReviews(array $reviews)
@@ -254,7 +268,7 @@ class IssueEntity
     /**
      * Get reviews
      *
-     * @return array
+     * @return ReviewEntity[]
      */
     public function getReviews(): array
     {
@@ -425,5 +439,68 @@ class IssueEntity
     public function getComplete(): bool
     {
         return $this->complete;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param IssueEntity $parent
+     * @return void
+     */
+    public function setParent(IssueEntity $parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return IssueEntity
+     */
+    public function getParent(): IssueEntity
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set cve
+     *
+     * @param string $cve
+     * @return void
+     */
+    public function setCve(string $cve)
+    {
+        $this->cve = $cve;
+    }
+
+    /**
+     * Get cve
+     *
+     * @return string
+     */
+    public function getCve(): string
+    {
+        return $this->cve;
+    }
+
+    /**
+     * Set readable
+     *
+     * @param array $readable
+     * @return void
+     */
+    public function setReadable(array $readable)
+    {
+        $this->readable = $readable;
+    }
+
+    /**
+     * Get readable
+     *
+     * @return array
+     */
+    public function getReadable(): array
+    {
+        return $this->readable;
     }
 }
