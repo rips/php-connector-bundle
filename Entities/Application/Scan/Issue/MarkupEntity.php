@@ -1,7 +1,6 @@
 <?php
 
-
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
 class MarkupEntity
 {

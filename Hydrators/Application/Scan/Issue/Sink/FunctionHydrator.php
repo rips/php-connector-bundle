@@ -3,7 +3,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
 
 class FunctionHydrator
 {
