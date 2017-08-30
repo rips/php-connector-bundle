@@ -4,35 +4,61 @@ namespace RIPS\ConnectorBundle\Entities;
 
 class UserEntity
 {
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $id;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $username;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $firstname = '';
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $lastname = '';
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $email;
 
-    // @var string
+    /**
+     * @var boolean
+     */
     protected $emptyUsername = false;
 
-    // @var array
+    /**
+     * @var array
+     */
     protected $roles;
 
-    // @var boolean
+    /**
+     * @var boolean
+     */
     protected $root;
 
-    // @var boolean
+    /**
+     * @var boolean
+     */
     protected $enabled;
 
-    // @var OrgEntity
+    /**
+     * @var OrgEntity
+     */
     protected $organisation;
+
+    /**
+     * @var string
+     */
+    protected $validUntil;
+
 
     /**
      * Set id
@@ -242,5 +268,26 @@ class UserEntity
     public function getOrganisation(): OrgEntity
     {
         return $this->organisation;
+    }
+
+    /**
+     * Set validUntil
+     *
+     * @param string $validUntil
+     * @return void
+     */
+    public function setValidUntil(string $validUntil)
+    {
+        $this->validUntil = $validUntil;
+    }
+
+    /**
+     * Get validUntil
+     *
+     * @return string
+     */
+    public function getValidUntil(): string
+    {
+        return isset($this->organisation) ? $this->organisation->getValidUntil() : $this->validUntil;
     }
 }
