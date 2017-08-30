@@ -58,7 +58,7 @@ class UploadEntity
      * @param integer $id
      * @return void
      */
-    public function setId(integer $id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -68,7 +68,7 @@ class UploadEntity
      *
      * @return integer
      */
-    public function getId(): integer
+    public function getId(): int
     {
         return $this->id;
     }
@@ -142,7 +142,7 @@ class UploadEntity
      * @param integer $size
      * @return void
      */
-    public function setSize(integer $size)
+    public function setSize(int $size)
     {
         $this->size = $size;
     }
@@ -152,7 +152,7 @@ class UploadEntity
      *
      * @return integer
      */
-    public function getSize(): integer
+    public function getSize(): int
     {
         return $this->size;
     }

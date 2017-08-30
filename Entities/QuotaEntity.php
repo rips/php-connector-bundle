@@ -212,7 +212,7 @@ class QuotaEntity
      * @param integer $maxLoc
      * @return void
      */
-    public function setMaxLoc(integer $maxLoc)
+    public function setMaxLoc(int $maxLoc)
     {
         $this->maxLoc = $maxLoc;
     }
@@ -222,7 +222,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxLoc(): integer
+    public function getMaxLoc(): int
     {
         return $this->maxLoc;
     }
