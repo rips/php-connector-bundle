@@ -92,7 +92,7 @@ class ScanEntity
     protected $upload;
 
     /**
-     * @var TypeEntity
+     * @var TypeEntity[]
      */
     protected $issueTypes;
 
@@ -440,10 +440,10 @@ class ScanEntity
     /**
      * Set issueTypes
      *
-     * @param  TypeEntity $issueTypes
+     * @param  TypeEntity[] $issueTypes
      * @return void
      */
-    public function setIssueTypes(TypeEntity $issueTypes)
+    public function setIssueTypes(array $issueTypes)
     {
         $this->issueTypes = $issueTypes;
     }
@@ -451,9 +451,9 @@ class ScanEntity
     /**
      * Get issueTypes
      *
-     * @return TypeEntity
+     * @return TypeEntity[]
      */
-    public function getIssueTypes(): TypeEntity
+    public function getIssueTypes(): array
     {
         return $this->issueTypes;
     }
