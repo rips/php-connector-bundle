@@ -99,8 +99,8 @@ class ScanHydrator
             $hydrated->setParent(self::hydrate($scan->parent));
         }
 
-        if (isset($scan->issue_types) && count($scan->issue_types) > 0) {
-            $hydrated->setIssueTypes(TypeHydrator::hydrateCollection($scan->issue_types));
+        if (isset($scan->issueTypes) && count($scan->issueTypes) > 0) {
+            $hydrated->setIssueTypes(TypeHydrator::hydrateCollection($scan->issueTypes));
         }
 
         return $hydrated;
