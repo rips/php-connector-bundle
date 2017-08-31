@@ -440,10 +440,10 @@ class ScanEntity
     /**
      * Set issueTypes
      *
-     * @param  TypeEntity[] $issueTypes
+     * @param  TypeEntity $issueTypes
      * @return void
      */
-    public function setIssueTypes(array $issueTypes)
+    public function setIssueTypes(TypeEntity $issueTypes)
     {
         $this->issueTypes = $issueTypes;
     }
@@ -451,9 +451,9 @@ class ScanEntity
     /**
      * Get issueTypes
      *
-     * @return TypeEntity[]
+     * @return TypeEntity
      */
-    public function getIssueTypes(): array
+    public function getIssueTypes(): TypeEntity
     {
         return $this->issueTypes;
     }
