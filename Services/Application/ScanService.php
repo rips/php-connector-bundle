@@ -29,9 +29,9 @@ class ScanService
      * @param array $queryParams
      * @return array <ScanEntity>
      */
-    public function getAll(int $applicationID = null, array $queryParams = [])
+    public function getAll(array $queryParams = [])
     {
-        $scans = $this->api->scans()->getAll($applicationID);
+        $scans = $this->api->scans()->getAll($queryParams);
         return ScanHydrator::hydrateCollection($scans);
     }
 
