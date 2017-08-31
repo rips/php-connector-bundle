@@ -41,7 +41,7 @@ class ApplicationHydrator
         }
 
         if (isset($application->name)) {
-            $hydrated->setApplicationName($application->name);
+            $hydrated->setName($application->name);
         }
 
         if (isset($application->current_scan)) {
