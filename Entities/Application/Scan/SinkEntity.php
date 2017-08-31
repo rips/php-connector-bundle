@@ -3,7 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\CustomFunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class SinkEntity
@@ -39,7 +39,7 @@ class SinkEntity
     protected $scan;
 
     /**
-     * @var FunctionEntity
+     * @var CustomFunctionEntity
      */
     protected $function;
 

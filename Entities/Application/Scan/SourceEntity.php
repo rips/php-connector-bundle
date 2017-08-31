@@ -1,9 +1,9 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class SourceEntity
@@ -39,7 +39,7 @@ class SourceEntity
     protected $scan;
 
     /**
-     * @var FunctionEntity
+     * @var CustomFunctionEntity
      */
     protected $function;
 
@@ -172,7 +172,7 @@ class SourceEntity
     /**
      * Set function
      *
-     * @param  FunctionEntity $function
+     * @param  CustomFunctionEntity $function
      * @return void
      */
     public function setFunction($function)
@@ -183,9 +183,9 @@ class SourceEntity
     /**
      * get function
      *
-     * @return FunctionEntity
+     * @return CustomFunctionEntity
      */
-    public function getFunction(): FunctionEntity
+    public function getFunction(): CustomFunctionEntity
     {
         return $this->function;
     }

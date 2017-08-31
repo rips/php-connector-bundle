@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomCustomFunctionEntity;
 
 class ConcatEntity
 {
@@ -29,7 +29,7 @@ class ConcatEntity
     protected $scan;
 
     /**
-     * @var FunctionEntity
+     * @var CustomFunctionEntity
      */
     protected $function;
 
@@ -79,7 +79,7 @@ class ConcatEntity
      * @param  FileEntity $file
      * @return void
      */
-    public function setFile($file)
+    public function setFile(FileEntity $file)
     {
         $this->file = $file;
     }
@@ -100,7 +100,7 @@ class ConcatEntity
      * @param  ScanEntity $scan
      * @return void
      */
-    public function setScan($scan)
+    public function setScan(ScanEntity $scan)
     {
         $this->scan = $scan;
     }
@@ -118,7 +118,7 @@ class ConcatEntity
     /**
      * Set function
      *
-     * @param  FunctionEntity $function
+     * @param  CustomFunctionEntity $function
      * @return void
      */
     public function setFunction($function)
@@ -129,9 +129,9 @@ class ConcatEntity
     /**
      * Get function
      *
-     * @return FunctionEntity
+     * @return CustomFunctionEntity
      */
-    public function getFunction():FunctionEntity
+    public function getFunction(): CustomFunctionEntity
     {
         return $this->function;
     }

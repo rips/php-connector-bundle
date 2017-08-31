@@ -1,8 +1,8 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Origin;
 
-class OriginEntity
+class TypeEntity
 {
     /**
      * @var int
