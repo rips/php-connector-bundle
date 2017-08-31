@@ -10,7 +10,7 @@ class ProcessHydrator
      * Hydrate a collection of user objects into a collection of
      * ProcessEntity objects
      *
-     * @param  array<stdClass> $processes
+     * @param  array<\stdClass> $processes
      * @return array<ProcessEntity>
      */
     public static function hydrateCollection(array $processes)
@@ -27,7 +27,7 @@ class ProcessHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param  stdClass $process
+     * @param  \stdClass $process
      * @return ProcessEntity
      */
     public static function hydrate(\stdClass $process)

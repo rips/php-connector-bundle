@@ -11,10 +11,10 @@ class OriginHydrator
      * Hydrate a collection of user objects into a collection of
      * OriginEntity objects
      *
-     * @param  array<stdClass> $origin
+     * @param  array<\stdClass> $origin
      * @return array<OriginEntity>
      */
-    public static function hydrateCollection(array $origin)
+    public static function hydrateCollection(array $origins)
     {
         $hydrated = [];
 

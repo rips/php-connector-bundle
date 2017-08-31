@@ -13,7 +13,7 @@ class UploadHydrator
      * Hydrate a collection of upload objects into a collection of
      * UploadEntity objects
      *
-     * @param  stdClass[] $users
+     * @param  \stdClass[] $uploads
      * @return UploadEntity[]
      */
     public static function hydrateCollection(array $uploads)
@@ -30,7 +30,7 @@ class UploadHydrator
     /**
      * Hydrate a upload object into a UploadEntity object
      *
-     * @param  \stdClass $scan
+     * @param  \stdClass $upload
      * @return UploadEntity
      */
     public static function hydrate(\stdClass $upload)

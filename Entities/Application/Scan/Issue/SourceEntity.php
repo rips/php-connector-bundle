@@ -46,7 +46,7 @@ class SourceEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -57,7 +57,7 @@ class SourceEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -67,7 +67,7 @@ class SourceEntity
     /**
      * Set line
      *
-     * @param int $line
+     * @param  int $line
      * @return void
      */
     public function setLine($line)
@@ -88,7 +88,7 @@ class SourceEntity
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return void
      */
     public function setName($name)
@@ -109,7 +109,7 @@ class SourceEntity
     /**
      * Set parameter
      *
-     * @param string $parameter
+     * @param  string $parameter
      * @return void
      */
     public function setParameter($parameter)
@@ -130,7 +130,7 @@ class SourceEntity
     /**
      * Set file
      *
-     * @param FileEntity $file
+     * @param  FileEntity $file
      * @return void
      */
     public function setFile($file)
@@ -151,7 +151,7 @@ class SourceEntity
     /**
      * Set scan
      *
-     * @param ScanEntity $scan
+     * @param  ScanEntity $scan
      * @return void
      */
     public function setScan($scan)
@@ -172,7 +172,7 @@ class SourceEntity
     /**
      * Set function
      *
-     * @param FunctionEntity $function
+     * @param  FunctionEntity $function
      * @return void
      */
     public function setFunction($function)

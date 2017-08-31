@@ -10,7 +10,7 @@ class PHPHydrator
      * Hydrate a collection of php objects into a collection of
      * PhpEntity objects
      *
-     * @param  array<stdClass> $php
+     * @param  array<\stdClass> $php
      * @return array<PhpEntity>
      */
     public static function hydrateCollection(array $phpObjects)

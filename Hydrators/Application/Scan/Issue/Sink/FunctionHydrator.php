@@ -11,10 +11,10 @@ class FunctionHydrator
      * Hydrate a collection of user objects into a collection of
      * FunctionEntity objects
      *
-     * @param  array<stdClass> $function
+     * @param  array<\stdClass> $function
      * @return array<FunctionEntity>
      */
-    public static function hydrateCollection(array $function)
+    public static function hydrateCollection(array $functions)
     {
         $hydrated = [];
 

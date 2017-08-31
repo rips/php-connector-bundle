@@ -44,7 +44,7 @@ class ProcessEntity
     /**
      * Set pid
      *
-     * @param integer $pid
+     * @param  integer $pid
      * @return void
      */
     public function setPId(int $pid)
@@ -65,7 +65,7 @@ class ProcessEntity
     /**
      * Set version
      *
-     * @param string $version
+     * @param  string $version
      * @return void
      */
     public function setVersion(string $version)

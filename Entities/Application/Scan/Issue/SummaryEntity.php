@@ -27,7 +27,7 @@ class SummaryEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -38,7 +38,7 @@ class SummaryEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -48,7 +48,7 @@ class SummaryEntity
     /**
      * Set line
      *
-     * @param int $line
+     * @param  int $line
      * @return void
      */
     public function setLine($line)
@@ -69,7 +69,7 @@ class SummaryEntity
     /**
      * Set content
      *
-     * @param string $content
+     * @param  string $content
      * @return void
      */
     public function setContent($content)
@@ -90,7 +90,7 @@ class SummaryEntity
     /**
      * Set highlightedContent
      *
-     * @param string $highlightedContent
+     * @param  string $highlightedContent
      * @return void
      */
     public function setHighlightedContent($highlightedContent)

@@ -14,10 +14,10 @@ class SourceHydrator
      * Hydrate a collection of user objects into a collection of
      * SourceEntity objects
      *
-     * @param  array<stdClass> $source
+     * @param  array<\stdClass> $source
      * @return array<SourceEntity>
      */
-    public static function hydrateCollection(array $source)
+    public static function hydrateCollection(array $sources)
     {
         $hydrated = [];
 
@@ -46,23 +46,23 @@ class SourceHydrator
             $hydrated->setLine($source->line);
         }
 
-        if (isset($concat->name)) {
+        if (isset($source->name)) {
             $hydrated->setName($source->name);
         }
 
-        if (isset($concat->parameter)) {
+        if (isset($source->parameter)) {
             $hydrated->setParameter($source->parameter);
         }
 
-        if (isset($concat->file)) {
+        if (isset($source->file)) {
             $hydrated->setFile(FileHydrator::hydrate($source->file));
         }
 
-        if (isset($concat->scan)) {
+        if (isset($source->scan)) {
             $hydrated->setScan(ScanHydrator::hydrate($source->scan));
         }
 
-        if (isset($concat->function)) {
+        if (isset($source->function)) {
             $hydrated->setFunction(FunctionHydrator::hydrate($source->function));
         }
     }

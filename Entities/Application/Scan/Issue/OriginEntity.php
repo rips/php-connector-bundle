@@ -22,7 +22,7 @@ class OriginEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -33,7 +33,7 @@ class OriginEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -43,7 +43,7 @@ class OriginEntity
     /**
      * Set tag
      *
-     * @param string $tag
+     * @param  string $tag
      * @return void
      */
     public function setTag(string $tag)
@@ -64,7 +64,7 @@ class OriginEntity
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return void
      */
     public function setName(string $name)

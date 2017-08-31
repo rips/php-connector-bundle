@@ -11,10 +11,10 @@ class MarkupHydrator
      * Hydrate a collection of user objects into a collection of
      * MarkupEntity objects
      *
-     * @param  array <stdClass> $markup
+     * @param  array <\stdClass> $markup
      * @return array<MarkupEntity>
      */
-    public static function hydrateCollection(array $markup)
+    public static function hydrateCollection(array $markups)
     {
         $hydrated = [];
 

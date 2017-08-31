@@ -9,7 +9,7 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\OriginHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SinkHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummarieHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 
 class IssueHydrator
@@ -18,10 +18,10 @@ class IssueHydrator
     * Hydrate a collection of issue objects into a collection of
     * IssueEntity objects
     *
-    * @param  stdClass[] $issue
+    * @param  \stdClass[] $issues
     * @return IssueEntity[]
     */
-    public static function hydrateCollection(array $issue)
+    public static function hydrateCollection(array $issues)
     {
         $hydrated = [];
 
@@ -35,7 +35,7 @@ class IssueHydrator
     /**
      * Hydrate a user object into a IssueEntity object
      *
-     * @param  stdClass $issue
+     * @param  \stdClass $issue
      * @return IssueEntity
      */
     public static function hydrate(\stdClass $issue)

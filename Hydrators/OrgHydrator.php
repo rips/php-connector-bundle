@@ -11,7 +11,7 @@ class OrgHydrator
      * Hydrate a collection of org objects into a collection of
      * OrgEntity objects
      *
-     * @param  stdClass[] $orgs
+     * @param  \stdClass[] $orgs
      * @return OrgEntity[]
      */
     public static function hydrateCollection(array $orgs)
@@ -28,7 +28,7 @@ class OrgHydrator
     /**
      * Hydrate a single org object into a OrgEntity object
      *
-     * @param  stdClass $org
+     * @param  \stdClass $org
      * @return OrgEntity
      */
     public static function hydrate(\stdClass $org)

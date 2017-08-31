@@ -15,7 +15,7 @@ class ScanHydrator
      * Hydrate a collection of scan objects into a collection of
      * ScanEntity objects
      *
-     * @param stdClass[] $scans
+     * @param  \stdClass[] $scans
      * @return ScanEntity[]
      */
     public static function hydrateCollection(array $scans)
@@ -32,7 +32,7 @@ class ScanHydrator
     /**
      * Hydrate a scan object into a ScanEntity object
      *
-     * @param stdClass $scan
+     * @param  \stdClass $scan
      * @return ScanEntity
      */
     public static function hydrate(\stdClass $scan)

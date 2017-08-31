@@ -17,7 +17,7 @@ class TypeEntity
     /**
      * @var string
      */
-    protected $descrition;
+    protected $description;
 
     /**
      * @var string
@@ -82,7 +82,7 @@ class TypeEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -93,7 +93,7 @@ class TypeEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -103,7 +103,7 @@ class TypeEntity
     /**
      * Set tag
      *
-     * @param string $tag
+     * @param  string $tag
      * @return void
      */
     public function setTag($tag)
@@ -124,28 +124,28 @@ class TypeEntity
     /**
      * Set description
      *
-     * @param string $descrition
+     * @param  string $description
      * @return void
      */
-    public function setDescrition($descrition)
+    public function setDescription($description)
     {
-        $this->descrition = $descrition;
+        $this->description = $description;
     }
 
     /**
-     * Get descrition
+     * Get description
      *
      * @return string
      */
-    public function getDescrition(): string
+    public function getDescription(): string
     {
-        return $this->descrition;
+        return $this->description;
     }
 
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return void
      */
     public function setName($name)
@@ -166,7 +166,7 @@ class TypeEntity
     /**
      * Set color
      *
-     * @param string $color
+     * @param  string $color
      * @return void
      */
     public function setColor($color)
@@ -187,7 +187,7 @@ class TypeEntity
     /**
      * Set markup
      *
-     * @param string $markup
+     * @param  string $markup
      * @return void
      */
     public function setMarkup($markup)
@@ -208,7 +208,7 @@ class TypeEntity
     /**
      * Set severity
      *
-     * @param int $severity
+     * @param  int $severity
      * @return void
      */
     public function setSeverity($severity)
@@ -229,7 +229,7 @@ class TypeEntity
     /**
      * Set effort
      *
-     * @param int $effort
+     * @param  int $effort
      * @return void
      */
     public function setEffort($effort)
@@ -250,7 +250,7 @@ class TypeEntity
     /**
      * Set secondOrder
      *
-     * @param bool $secondOrder
+     * @param  bool $secondOrder
      * @return void
      */
     public function setSecondOrder($secondOrder)
@@ -271,7 +271,7 @@ class TypeEntity
     /**
      * Set cwe
      *
-     * @param string $cwe
+     * @param  string $cwe
      * @return void
      */
     public function setCwe($cwe)
@@ -292,7 +292,7 @@ class TypeEntity
     /**
      * Set owasp
      *
-     * @param string $owasp
+     * @param  string $owasp
      * @return void
      */
     public function setOwasp($owasp)
@@ -313,7 +313,7 @@ class TypeEntity
     /**
      * Set sans
      *
-     * @param string $sans
+     * @param  string $sans
      * @return void
      */
     public function setSans($sans)
@@ -334,7 +334,7 @@ class TypeEntity
     /**
      * Set pcidss
      *
-     * @param string $pcidss
+     * @param  string $pcidss
      * @return void
      */
     public function setPcidss($pcidss)
@@ -355,7 +355,7 @@ class TypeEntity
     /**
      * Set enable
      *
-     * @param bool $enable
+     * @param  bool $enable
      * @return void
      */
     public function setEnable($enable)

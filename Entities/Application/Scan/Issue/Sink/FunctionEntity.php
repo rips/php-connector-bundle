@@ -28,7 +28,7 @@ class FunctionEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -39,7 +39,7 @@ class FunctionEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -49,7 +49,7 @@ class FunctionEntity
     /**
      * Set startLine
      *
-     * @param int $startLine
+     * @param  int $startLine
      * @return void
      */
     public function setStartLine($startLine)
@@ -70,7 +70,7 @@ class FunctionEntity
     /**
      * Set endLine
      *
-     * @param int $endLine
+     * @param  int $endLine
      * @return void
      */
     public function setEndLine($endLine)
@@ -91,7 +91,7 @@ class FunctionEntity
     /**
      * Set name
      *
-     * @param mixed $name
+     * @param  mixed $name
      * @return void
      */
     public function setName($name)

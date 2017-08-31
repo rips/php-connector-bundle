@@ -6,6 +6,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SinkEntity;
 
 class SinkHydrator
 {
@@ -13,10 +14,10 @@ class SinkHydrator
      * Hydrate a collection of user objects into a collection of
      * SinkEntity objects
      *
-     * @param  array<stdClass> $sink
+     * @param  array<\stdClass> $sink
      * @return array<SinkEntity>
      */
-    public static function hydrateCollection(array $sink)
+    public static function hydrateCollection(array $sinks)
     {
         $hydrated = [];
 
@@ -30,12 +31,12 @@ class SinkHydrator
     /**
      * Hydrate a user object into a SinkEntity object
      *
-     * @param $sink
+     * @param  \stdClass $sink
      * @return SinkEntity
      */
     public static function hydrate(\stdClass $sink)
     {
-        $hydrated = new SinkHydrator();
+        $hydrated = new SinkEntity();
 
         if (isset($sink->id)) {
             $hydrated->setId($sink->id);
