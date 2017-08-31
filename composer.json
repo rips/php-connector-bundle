@@ -4,7 +4,6 @@
     "version": "0.0.1",
     "type": "symfony-bundle",
     "license": "Proprietary",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Nick Coffey",

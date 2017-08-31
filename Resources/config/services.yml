@@ -4,7 +4,10 @@ services:
         arguments:
             - '%rips_connector.username%'
             - '%rips_connector.password%'
-            - ['%rips_connector.base_uri%', '%rips_connector.timeout%', '%rips_connector.connect_timeout%']
+            -
+              base_uri: '%rips_connector.base_uri%'
+              timeout: '%rips_connector.timeout%'
+              connect_timeout: '%rips_connector.connect_timeout%'
 
     rips_connector.users:
         class: RIPS\ConnectorBundle\Services\UserService
