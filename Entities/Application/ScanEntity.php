@@ -92,7 +92,7 @@ class ScanEntity
     protected $upload;
 
     /**
-     * @var TypeEntity[]
+     * @var TypeEntity
      */
     protected $issueTypes;
 
