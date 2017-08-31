@@ -2,16 +2,16 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ConcatEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\OriginEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SinkEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SourceEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Origin\TypeEntity as OriginTypeEntity;
 
 class IssueEntity
 {
@@ -36,7 +36,7 @@ class IssueEntity
     protected $markups;
 
     /**
-     * @var OriginEntity
+     * @var OriginTypeEntity
      */
     protected $origin;
 
@@ -197,10 +197,10 @@ class IssueEntity
     /**
      * Set Origin
      *
-     * @param  OriginEntity $origin
+     * @param  OriginTypeEntity $origin
      * @return void
      */
-    public function setOrigin(OriginEntity $origin)
+    public function setOrigin(OriginTypeEntity $origin)
     {
         $this->origin  = $origin;
     }
@@ -208,9 +208,9 @@ class IssueEntity
     /**
      * Get origin
      *
-     * @return OriginEntity
+     * @return OriginTypeEntity
      */
-    public function getOrigin(): OriginEntity
+    public function getOrigin(): OriginTypeEntity
     {
         return $this->origin;
     }

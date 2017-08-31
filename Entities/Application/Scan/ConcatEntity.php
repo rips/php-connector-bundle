@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\CustomCustomFunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 
 class ConcatEntity
 {

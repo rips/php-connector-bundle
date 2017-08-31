@@ -2,9 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\CustomFunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 
 class SinkEntity
 {

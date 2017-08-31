@@ -1,6 +1,5 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 class ProcessEntity

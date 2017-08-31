@@ -2,9 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class SourceEntity
 {
