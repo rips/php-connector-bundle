@@ -1,9 +1,8 @@
 <?php
 
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
-
-class SummarieEntity
+class SummaryEntity
 {
     /**
      * @var int

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink;
 
 class FunctionEntity
 {

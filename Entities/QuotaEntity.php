@@ -4,34 +4,59 @@ namespace RIPS\ConnectorBundle\Entities;
 
 class QuotaEntity
 {
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $id;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $currentpplication;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $currentScan;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $currentUser;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $maxApplications;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $maxScans;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $maxUsers;
 
-    // @var string
+    /**
+     * @var integer
+     */
+    protected $maxLoc;
+
+    /**
+     * @var string
+     */
     protected $validFrom;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $validUntil;
 
-    // @var boolean
+    /**
+     * @var boolean
+     */
     protected $public;
 
     /**
@@ -179,6 +204,27 @@ class QuotaEntity
     public function getMaxUsers(): int
     {
         return $this->maxUsers;
+    }
+
+    /**
+     * Set maxLoc
+     *
+     * @param integer $maxLoc
+     * @return void
+     */
+    public function setMaxLoc(int $maxLoc)
+    {
+        $this->maxLoc = $maxLoc;
+    }
+
+    /**
+     * Get maxLoc
+     *
+     * @return integer
+     */
+    public function getMaxLoc(): int
+    {
+        return $this->maxLoc;
     }
 
     /**

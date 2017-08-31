@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\ConcatEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ConcatEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;

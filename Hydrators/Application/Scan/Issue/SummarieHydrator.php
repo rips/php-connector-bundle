@@ -3,7 +3,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\SummarieEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummarieEntity;
 
 class SummarieHydrator
 {

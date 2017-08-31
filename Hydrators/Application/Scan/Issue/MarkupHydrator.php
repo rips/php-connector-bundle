@@ -3,7 +3,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\MarkupEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
 
 class MarkupHydrator
 {

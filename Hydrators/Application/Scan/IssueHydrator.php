@@ -3,22 +3,23 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\OriginEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\OriginHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummarieHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class IssueHydrator
 {
     /**
-    * Hydrate a collection of user objects into a collection of
+    * Hydrate a collection of issue objects into a collection of
     * IssueEntity objects
     *
-    * @param  array<stdClass> $issue
-    * @return array<IssueEntity>
+    * @param  stdClass[] $issue
+    * @return IssueEntity[]
     */
     public static function hydrateCollection(array $issue)
     {
@@ -34,7 +35,7 @@ class IssueHydrator
     /**
      * Hydrate a user object into a IssueEntity object
      *
-     * @param  \stdClass $issue
+     * @param  stdClass $issue
      * @return IssueEntity
      */
     public static function hydrate(\stdClass $issue)
@@ -45,16 +46,16 @@ class IssueHydrator
             $hydrated->setId($issue->id);
         }
 
-        if (isset($issue->comment)) {
-            $hydrated->setComment($issue->comment);
+        if (isset($issue->comments)) {
+            $hydrated->setComments(CommentHydrator::hydrateCollection($issue->comments));
         }
 
-        if (isset($issue->summarie)) {
-            $hydrated->setSummarie(SummarieHydrator::hydrate($issue->summarie));
+        if (isset($issue->summaries)) {
+            $hydrated->setSummaries(SummaryHydrator::hydrateCollection($issue->summaries));
         }
 
-        if (isset($issue->markup)) {
-            $hydrated->setMarkup(MarkupHydrator::hydrate($issue->markup));
+        if (isset($issue->markups)) {
+            $hydrated->setMarkups(MarkupHydrator::hydrateCollection($issue->markups));
         }
 
         if (isset($issue->origin)) {
@@ -70,15 +71,15 @@ class IssueHydrator
         }
 
         if (isset($issue->reviews)) {
-            $hydrated->setReviews($issue->reviews);
+            $hydrated->setReviews(ReviewHydrator::hydrateCollection($issue->reviews));
         }
 
         if (isset($issue->reviewed)) {
             $hydrated->setReviewed($issue->reviewed);
         }
 
-        if (isset($issue->negativelyReviewd)) {
-            $hydrated->setNegativelyReviewed($issue->negativelyReviewd);
+        if (isset($issue->negatively_reviewd)) {
+            $hydrated->setNegativelyReviewed($issue->negatively_reviewd);
         }
 
         if (isset($issue->sink)) {
@@ -103,6 +104,20 @@ class IssueHydrator
 
         if (isset($issue->concat)) {
             $hydrated->setConcat(ConcatHydrator::hydrator($issue->concat));
+        }
+
+        if (isset($issue->cve)) {
+            $hydrated->setCve($issue->cve);
+        }
+
+        if (isset($issue->readable)) {
+            $readableArray = json_decode(json_encode($issue->readable), true);
+
+            $hydrated->setReadable($readableArray);
+        }
+
+        if (isset($issue->parent)) {
+            $hydrated->parent(self::hydrate($issue->parent));
         }
 
         return $hydrated;

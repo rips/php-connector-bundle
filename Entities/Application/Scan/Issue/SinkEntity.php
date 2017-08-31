@@ -1,13 +1,12 @@
 <?php
 
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
-
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
-class SourceEntity
+class SinkEntity
 {
     /**
      * @var int
@@ -22,12 +21,12 @@ class SourceEntity
     /**
      * @var string
      */
-    protected $name;
+    protected $path;
 
     /**
-     * @var string
+     * @var int
      */
-    protected $parameter;
+    protected $phase;
 
     /**
      * @var FileEntity
@@ -77,7 +76,7 @@ class SourceEntity
     }
 
     /**
-     * get line
+     * Get line
      *
      * @return int
      */
@@ -87,45 +86,45 @@ class SourceEntity
     }
 
     /**
-     * Set name
+     * Set path
      *
-     * @param string $name
+     * @param string $path
      * @return void
      */
-    public function setName($name)
+    public function setPath($path)
     {
-        $this->name = $name;
+        $this->path = $path;
     }
 
     /**
-     * Get name
+     * Get path
      *
      * @return string
      */
-    public function getName():string
+    public function getPath(): string
     {
-        return $this->name;
+        return $this->path;
     }
 
     /**
-     * Set parameter
+     * Set phase
      *
-     * @param string $parameter
+     * @param int $phase
      * @return void
      */
-    public function setParameter($parameter)
+    public function setPhase($phase)
     {
-        $this->parameter = $parameter;
+        $this->phase = $phase;
     }
 
     /**
-     * Get parameter
+     * Get phase
      *
-     * @return string
+     * @return int
      */
-    public function getParameter():string
+    public function getPhase(): int
     {
-        return $this->parameter;
+        return $this->phase;
     }
 
     /**
@@ -168,26 +167,5 @@ class SourceEntity
     public function getScan(): ScanEntity
     {
         return $this->scan;
-    }
-
-    /**
-     * Set function
-     *
-     * @param FunctionEntity $function
-     * @return void
-     */
-    public function setFunction($function)
-    {
-        $this->function = $function;
-    }
-
-    /**
-     * get function
-     *
-     * @return FunctionEntity
-     */
-    public function getFunction(): FunctionEntity
-    {
-        return $this->function;
     }
 }

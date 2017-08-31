@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
-use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
+use RIPS\ConnectorBundle\Entities\ApplicationEntity;
+use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
 
 class ScanEntity
@@ -23,6 +24,16 @@ class ScanEntity
      * @var string
      */
     protected $path;
+
+    /**
+     * @var string
+     */
+    protected $start;
+
+    /**
+     * @var string
+     */
+    protected $finish;
 
     /**
      * @var int
@@ -73,6 +84,21 @@ class ScanEntity
      * @var ProcessEntity
      */
     protected $process;
+
+    /**
+     * @var UploadEntity
+     */
+    protected $upload;
+
+    /**
+     * @var TypeEntity[]
+     */
+    protected $issueTypes;
+
+    /**
+     * @var ScanEntity
+     */
+    protected $parent;
 
     /**
      * Set id
@@ -135,6 +161,48 @@ class ScanEntity
     public function getPath(): string
     {
         return $this->path;
+    }
+
+    /**
+     * Set start
+     *
+     * @param string $start
+     * @return void
+     */
+    public function setStart(string $start)
+    {
+        $this->start = $start;
+    }
+
+    /**
+     * Get start
+     *
+     * @return string
+     */
+    public function getStart(): string
+    {
+        return $this->start;
+    }
+
+    /**
+     * Set finish
+     *
+     * @param string $finish
+     * @return void
+     */
+    public function setFinish(string $finish)
+    {
+        $this->finish = $finish;
+    }
+
+    /**
+     * Get finish
+     *
+     * @return string
+     */
+    public function getFinish(): string
+    {
+        return $this->finish;
     }
 
     /**
@@ -345,5 +413,68 @@ class ScanEntity
     public function getProcess(): ProcessEntity
     {
         return $this->process;
+    }
+
+    /**
+     * Set upload
+     *
+     * @param UploadEntity $upload
+     * @return void
+     */
+    public function setUpload(UploadEntity $upload)
+    {
+        $this->upload = $upload;
+    }
+
+    /**
+     * Get upload
+     *
+     * @return UploadEntity
+     */
+    public function getUploadEntity(): UploadEntity
+    {
+        return $this->upload;
+    }
+
+    /**
+     * Set issueTypes
+     *
+     * @param TypeEntity[]
+     * @return void
+     */
+    public function setIssueTypes(array $issueTypes)
+    {
+        $this->issueTypes = $issueTypes;
+    }
+
+    /**
+     * Get issueTypes
+     *
+     * @return TypeEntity[]
+     */
+    public function getIssueTypes(): array
+    {
+        return $this->issueTypes;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param ScanEntity $parent
+     * @return void
+     */
+    public function setParent(ScanEntity $parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return ScanEntity
+     */
+    public function getParent(): ScanEntity
+    {
+        return $this->parent;
     }
 }

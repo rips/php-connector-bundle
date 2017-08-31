@@ -3,6 +3,8 @@
 namespace RIPS\ConnectorBundle\Hydrators;
 
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
+use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 
 class ApplicationHydrator
 {
@@ -34,24 +36,32 @@ class ApplicationHydrator
     {
         $hydrated = new ApplicationEntity();
 
-        if (isset($application->id)){
+        if (isset($application->id)) {
             $hydrated->setId($application->id);
         }
 
-        if (isset($application->applicationName)){
-            $hydrated->setApplicationName($application->applicationName);
+        if (isset($application->name)) {
+            $hydrated->setApplicationName($application->name);
         }
 
-        if (isset($application->currentScan)){
-            $hydrated->setCurrentScan($application->currentScan);
+        if (isset($application->current_scan)) {
+            $hydrated->setCurrentScan($application->current_scan);
         }
 
-        if (isset($application->creation)){
+        if (isset($application->creation)) {
             $hydrated->setCreation($application->creation);
         }
 
-        if (isset($app->organisation)) {
+        if (isset($application->organisation)) {
             $hydrated->setOrganisation(OrgHydrator::hydrate($application->organisation));  //not sure with that one here
+        }
+
+        if (isset($application->created_by)) {
+            $hydrated->setCreatedBy(UserHydrator::hydrate($application->created_by));
+        }
+
+        if (isset($application->charged_quota)) {
+            $hydrated->setChargedQuota(QuotaHydrator::hydrate($application->charged_quota));
         }
 
         return $hydrated;

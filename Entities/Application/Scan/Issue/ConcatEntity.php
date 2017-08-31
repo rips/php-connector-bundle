@@ -1,10 +1,9 @@
 <?php
 
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issues;
-
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class ConcatEntity

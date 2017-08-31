@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issues\Sink\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
 
 class FileHydrator
 {
