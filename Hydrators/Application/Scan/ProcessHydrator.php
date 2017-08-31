@@ -25,9 +25,9 @@ class ProcessHydrator
     }
 
     /**
-     * Hydrate a user object into a UserEntity object
+     * Hydrate a process object into a ProcessEntity object
      *
-     * @param  stdClass $process
+     * @param  \stdClass $process
      * @return ProcessEntity
      */
     public static function hydrate(\stdClass $process)

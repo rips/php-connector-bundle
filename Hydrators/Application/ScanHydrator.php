@@ -2,10 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\Application\UserEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 
@@ -13,10 +10,10 @@ class ScanHydrator
 {
     /**
      * Hydrate a collection of user objects into a collection of
-     * UserEntity objects
+     * ScanEntity objects
      *
      * @param  array<stdClass> $users
-     * @return array<UserEntity>
+     * @return array<ScanEntity>
      */
     public static function hydrateCollection(array $scans)
     {
@@ -30,7 +27,7 @@ class ScanHydrator
     }
 
     /**
-     * Hydrate a user object into a UserEntity object
+     * Hydrate a scan object into a ScanEntity object
      *
      * @param  \stdClass $scan
      * @return ScanEntity

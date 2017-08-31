@@ -38,4 +38,9 @@ class APIService
     {
         return $this->api->scans;
     }
+
+    public function issues()
+    {
+        return $this->api->issues;
+    }
 }

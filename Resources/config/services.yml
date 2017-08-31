@@ -26,12 +26,12 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application:
+    rips_connector.application.scan:
             class: RIPS\ConnectorBundle\Services\Application\ScanService
             arguments:
                 - '@rips_connector.api'
 
-    rips_connector.application:
+    rips_connector.application.scan.issue:
             class: RIPS\ConnectorBundle\Services\Application\Scan\IssueService
             arguments:
                 - '@rips_connector.api'

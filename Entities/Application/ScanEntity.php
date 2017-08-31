@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Entities\Application;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
 
 class ScanEntity
 {

@@ -15,7 +15,7 @@ class ScanService
     /**
      * Initialize new ScanService instance
      *
-     * @param APIService
+     * @param \APIService
      */
     public function __construct(APIService $api)
     {
@@ -25,24 +25,38 @@ class ScanService
     /**
      * Get all Scans
      *
-     * @param  int $id
-     * @return array<ScanEntity>
+     * @param  array $queryParams
+     * @return array <ScanEntity>
      */
-    public function getAll(int $id)
+    public function getAll(array $queryParams = [])
     {
-        $scans = $this->api->scans()->getAll($id);
+        $scans = $this->api->scans()->getAll($queryParams);
         return ScanHydrator::hydrateCollection($scans);
     }
 
     /**
      * Get Scan by ID
      *
-     * @param int $id
-     * @return array <ScanEntity>
+     * @param int $scanID
+     * @param $applicationID
+     * @return array ScanEntity
      */
-    public function getById(int $id)
+    public function getById(int $applicationID,int $scanID)
     {
-        $scans = $this->api->scans()->getById($id);
+        $scans = $this->api->scans()->getById($applicationID,$scanID);
         return ScanHydrator::hydrateCollection($scans);
+    }
+
+    /**
+     * Get Stats
+     *
+     * @param int $applicationID
+     * @param int $scanID
+     * @return array ScanEntity
+     */
+    public function getStats(int $applicationID, int $scanID)
+    {
+        $scans = $this->api->scans()->getStatsById($applicationID,$scanID);
+        return ScanHydrator::hydrateCollection(($scans));
     }
 }
