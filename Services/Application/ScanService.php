@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Services\APIService;
 
@@ -40,12 +41,12 @@ class ScanService
      *
      * @param int $applicationId
      * @param int $scanId
-     * @return array <ScanEntity>
+     * @return ScanEntity
      */
     public function getById(int $applicationId, int $scanId)
     {
         $scans = $this->api->scans()->getById($applicationId, $scanId);
-        return ScanHydrator::hydrateCollection($scans);
+        return ScanHydrator::hydrate($scans);
     }
 
     /**
@@ -53,11 +54,11 @@ class ScanService
      *
      * @param int $applicationID
      * @param int $scanID
-     * @return array ScanEntity
+     * @return ScanEntity
      */
     public function getStats(int $applicationID, int $scanID)
     {
         $scans = $this->api->scans()->getStatsById($applicationID,$scanID);
-        return ScanHydrator::hydrateCollection(($scans));
+        return ScanHydrator::hydrate($scans);
     }
 }
