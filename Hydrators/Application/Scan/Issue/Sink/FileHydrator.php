@@ -10,10 +10,10 @@ class FileHydrator
      * Hydrate a collection of user objects into a collection of
      * FileEntity objects
      *
-     * @param  array<stdClass> $file
+     * @param  array<\stdClass> $file
      * @return array<FileEntity>
      */
-    public static function hydrateCollection(array $file)
+    public static function hydrateCollection(array $files)
     {
         $hydrated = [];
 

@@ -7,6 +7,7 @@ use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class ScanEntity
 {
@@ -145,7 +146,7 @@ class ScanEntity
     /**
      * Set path
      *
-     * @param string
+     * @param  string
      * @return void
      */
     public function setPath(string $path)
@@ -166,7 +167,7 @@ class ScanEntity
     /**
      * Set start
      *
-     * @param string $start
+     * @param  string $start
      * @return void
      */
     public function setStart(string $start)
@@ -187,7 +188,7 @@ class ScanEntity
     /**
      * Set finish
      *
-     * @param string $finish
+     * @param  string $finish
      * @return void
      */
     public function setFinish(string $finish)
@@ -208,7 +209,7 @@ class ScanEntity
     /**
      * Set phase
      *
-     * @param int
+     * @param  int
      * @return void
      */
     public function setPhase(int $phase)
@@ -334,7 +335,7 @@ class ScanEntity
     /**
      * Set php object
      *
-     * @param PHPEntity
+     * @param  PhpEntity $php
      * @return void
      */
     public function setPhp(PhpEntity $php)
@@ -355,7 +356,7 @@ class ScanEntity
     /**
      * Set applicationEntity
      *
-     * @param $application
+     * @param  $application
      * @return void
      */
     public function setApplication(ApplicationEntity $application)
@@ -376,7 +377,7 @@ class ScanEntity
     /**
      * Set createdBy
      *
-     * @param $createdBy
+     * @param  $createdBy
      * @return void
      */
     public function setCreatedBy(UserEntity $createdBy)
@@ -397,7 +398,7 @@ class ScanEntity
     /**
      * Set process
      *
-     * @param $process
+     * @param  $process
      * @return void
      */
     public function setProcess(ProcessEntity $process)
@@ -418,7 +419,7 @@ class ScanEntity
     /**
      * Set upload
      *
-     * @param UploadEntity $upload
+     * @param  UploadEntity $upload
      * @return void
      */
     public function setUpload(UploadEntity $upload)
@@ -439,7 +440,7 @@ class ScanEntity
     /**
      * Set issueTypes
      *
-     * @param TypeEntity[]
+     * @param  TypeEntity[] $issueTypes
      * @return void
      */
     public function setIssueTypes(array $issueTypes)
@@ -460,7 +461,7 @@ class ScanEntity
     /**
      * Set parent
      *
-     * @param ScanEntity $parent
+     * @param  ScanEntity $parent
      * @return void
      */
     public function setParent(ScanEntity $parent)

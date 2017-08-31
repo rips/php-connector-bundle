@@ -36,7 +36,7 @@ class ConcatEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -47,7 +47,7 @@ class ConcatEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -57,7 +57,7 @@ class ConcatEntity
     /**
      * Set comment
      *
-     * @param array $comment
+     * @param  array $comment
      * @return void
      */
     public function setComment($comment)
@@ -76,7 +76,7 @@ class ConcatEntity
     /**
      * Set file
      *
-     * @param FileEntity $file
+     * @param  FileEntity $file
      * @return void
      */
     public function setFile($file)
@@ -97,7 +97,7 @@ class ConcatEntity
     /**
      * Set scan
      *
-     * @param ScanEntity $scan
+     * @param  ScanEntity $scan
      * @return void
      */
     public function setScan($scan)
@@ -118,7 +118,7 @@ class ConcatEntity
     /**
      * Set function
      *
-     * @param FunctionEntity $function
+     * @param  FunctionEntity $function
      * @return void
      */
     public function setFunction($function)

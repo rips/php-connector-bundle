@@ -2,6 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ConcatEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\OriginEntity;
@@ -131,7 +134,7 @@ class IssueEntity
     /**
      * Set comments
      *
-     * @param CommentEntity[] $comments
+     * @param  CommentEntity[] $comments
      * @return void
      */
     public function setComments(array $comments)
@@ -152,7 +155,7 @@ class IssueEntity
     /**
      * Set summaries
      *
-     * @param SummaryEntity[] $summaries
+     * @param  SummaryEntity[] $summaries
      * @return void
      */
     public function setSummaries(array $summaries)
@@ -173,7 +176,7 @@ class IssueEntity
     /**
      * Set markups
      *
-     * @param Markup[] $markups
+     * @param  Markup[] $markups
      * @return void
      */
     public function setMarkups(array $markups)
@@ -194,7 +197,7 @@ class IssueEntity
     /**
      * Set Origin
      *
-     * @param OriginEntity $origin
+     * @param  OriginEntity $origin
      * @return void
      */
     public function setOrigin(OriginEntity $origin)
@@ -215,7 +218,7 @@ class IssueEntity
     /**
      * Set depth
      *
-     * @param int $depth
+     * @param  int $depth
      * @return void
      */
     public function setDepth(int $depth)
@@ -236,7 +239,7 @@ class IssueEntity
     /**
      * Set type
      *
-     * @param TypeEntity $type
+     * @param  TypeEntity $type
      * @return void
      */
     public function setType(TypeEntity $type)
@@ -257,7 +260,7 @@ class IssueEntity
     /**
      * Set reviews
      *
-     * @param ReviewEntity[] $reviews
+     * @param  ReviewEntity[] $reviews
      * @return void
      */
     public function setReviews(array $reviews)
@@ -278,7 +281,7 @@ class IssueEntity
     /**
      * Set reviewed
      *
-     * @param bool $reviewed
+     * @param  bool $reviewed
      * @return void
      */
     public function setReviewed(bool $reviewed)
@@ -297,9 +300,9 @@ class IssueEntity
     }
 
     /**
-     * Set negativleyReviewed
+     * Set negativelyReviewed
      *
-     * @param bool $negativelyReviewed
+     * @param  bool $negativelyReviewed
      * @return void
      */
     public function setNegativelyReviewed($negativelyReviewed)
@@ -340,7 +343,7 @@ class IssueEntity
     /**
      * Set sink
      *
-     * @param SinkEntity $sink
+     * @param  SinkEntity $sink
      * @return void
      */
     public function setSink($sink)
@@ -361,7 +364,7 @@ class IssueEntity
     /**
      * Set concat
      *
-     * @param ConcatEntity $concat
+     * @param  ConcatEntity $concat
      * @return void
      */
     public function setConcat(ConcatEntity $concat)
@@ -382,7 +385,7 @@ class IssueEntity
     /**
      * Set scan
      *
-     * @param ScanEntity $scan
+     * @param  ScanEntity $scan
      * @return void
      */
     public function setScan(ScanEntity $scan)
@@ -403,7 +406,7 @@ class IssueEntity
     /**
      * Set effort
      *
-     * @param int $effort
+     * @param  int $effort
      * @return void
      */
     public function setEffort(int $effort)
@@ -423,7 +426,7 @@ class IssueEntity
     /**
      * Set complete
      *
-     * @param bool
+     * @param  bool
      * @return void
      */
     public function setComplete(bool $complete)
@@ -444,7 +447,7 @@ class IssueEntity
     /**
      * Set parent
      *
-     * @param IssueEntity $parent
+     * @param  IssueEntity $parent
      * @return void
      */
     public function setParent(IssueEntity $parent)
@@ -465,7 +468,7 @@ class IssueEntity
     /**
      * Set cve
      *
-     * @param string $cve
+     * @param  string $cve
      * @return void
      */
     public function setCve(string $cve)
@@ -486,7 +489,7 @@ class IssueEntity
     /**
      * Set readable
      *
-     * @param array $readable
+     * @param  array $readable
      * @return void
      */
     public function setReadable(array $readable)

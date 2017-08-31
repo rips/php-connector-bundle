@@ -10,7 +10,7 @@ class QuotaHydrator
      * Hydrate a collection of of quota objects into a collection of
      * QuotaEntity objects
      *
-     * @param  array<stdClass> $quotas
+     * @param  array<\stdClass> $quotas
      * @return array<QuotaEntity>
      */
     public static function hydrateCollection(array $quotas)

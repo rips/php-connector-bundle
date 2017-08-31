@@ -17,7 +17,7 @@ class MarkupEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -28,7 +28,7 @@ class MarkupEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -38,7 +38,7 @@ class MarkupEntity
     /**
      * Set markup
      *
-     * @param string $markup
+     * @param  string $markup
      * @return void
      */
     public function setMarkup(string $markup)

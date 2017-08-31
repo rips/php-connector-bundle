@@ -23,7 +23,7 @@ class FileEntity
     /**
      * Set id
      *
-     * @param int $id
+     * @param  int $id
      * @return void
      */
     public function setId($id)
@@ -44,7 +44,7 @@ class FileEntity
     /**
      * Set loc (lines of code)
      *
-     * @param int $loc
+     * @param  int $loc
      * @return void
      */
     public function setLoc($loc)
@@ -65,7 +65,7 @@ class FileEntity
     /**
      * Set path
      *
-     * @param string $path
+     * @param  string $path
      * @return void
      */
     public function setPath($path)

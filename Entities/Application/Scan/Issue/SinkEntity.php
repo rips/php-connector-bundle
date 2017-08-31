@@ -46,7 +46,7 @@ class SinkEntity
     /**
      * Set id
      *
-     * @param  integer $id
+     * @param  int $id
      * @return void
      */
     public function setId(int $id)
@@ -57,7 +57,7 @@ class SinkEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -67,7 +67,7 @@ class SinkEntity
     /**
      * Set line
      *
-     * @param int $line
+     * @param  int $line
      * @return void
      */
     public function setLine($line)
@@ -88,7 +88,7 @@ class SinkEntity
     /**
      * Set path
      *
-     * @param string $path
+     * @param  string $path
      * @return void
      */
     public function setPath($path)
@@ -109,7 +109,7 @@ class SinkEntity
     /**
      * Set phase
      *
-     * @param int $phase
+     * @param  int $phase
      * @return void
      */
     public function setPhase($phase)
@@ -130,7 +130,7 @@ class SinkEntity
     /**
      * Set file
      *
-     * @param FileEntity $file
+     * @param  FileEntity $file
      * @return void
      */
     public function setFile($file)
@@ -151,7 +151,7 @@ class SinkEntity
     /**
      * Set scan
      *
-     * @param ScanEntity $scan
+     * @param  ScanEntity $scan
      * @return void
      */
     public function setScan($scan)

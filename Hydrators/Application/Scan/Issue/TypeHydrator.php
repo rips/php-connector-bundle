@@ -11,14 +11,14 @@ class TypeHydrator
      * Hydrate a collection of user objects into a collection of
      * TypeEntity objects
      *
-     * @param  array<stdClass> $type
+     * @param  array<\stdClass> $type
      * @return array<TypeEntity>
      */
-    public static function hydrateCollection(array $type)
+    public static function hydrateCollection(array $types)
     {
         $hydrated = [];
 
-        foreach ($typess as $type) {
+        foreach ($types as $type) {
             $hydrated[] = self::hydrate($type);
         }
 
@@ -43,8 +43,8 @@ class TypeHydrator
             $hydrated->setTag($type->tag);
         }
 
-        if (isset($type->descrition)) {
-            $hydrated->setDescrition($type->descrition);
+        if (isset($type->description)) {
+            $hydrated->setDescription($type->description);
         }
 
         if (isset($type->name)) {

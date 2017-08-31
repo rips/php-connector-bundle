@@ -15,7 +15,7 @@ class ScanHydrator
      * Hydrate a collection of scan objects into a collection of
      * ScanEntity objects
      *
-     * @param stdClass[] $scans
+     * @param  \stdClass[] $scans
      * @return ScanEntity[]
      */
     public static function hydrateCollection(array $scans)
@@ -32,7 +32,7 @@ class ScanHydrator
     /**
      * Hydrate a scan object into a ScanEntity object
      *
-     * @param stdClass $scan
+     * @param  \stdClass $scan
      * @return ScanEntity
      */
     public static function hydrate(\stdClass $scan)
@@ -80,14 +80,14 @@ class ScanHydrator
         }
 
         if (isset($scan->application)) {
-            $hydrated->setApplicationEntity(ApplicationHydrator::hydrate($scan->application));
+            $hydrated->setApplication(ApplicationHydrator::hydrate($scan->application));
         }
 
         if (isset($scan->created_by)) {
-            $hydrated->setUserEntity(UserHydrator::hydrate($scan->created_by));
+            $hydrated->setCreatedBy(UserHydrator::hydrate($scan->created_by));
         }
 
-        if (isset($scan->id)) {
+        if (isset($scan->process)) {
             $hydrated->setProcess(ProcessHydrator::hydrate($scan->process));
         }
 
@@ -96,7 +96,7 @@ class ScanHydrator
         }
 
         if (isset($scan->parent)) {
-            $hdyrated->setParent(self::hydrate($scan->parent));
+            $hydrated->setParent(self::hydrate($scan->parent));
         }
 
         if (isset($scan->issue_types) && count($scan->issue_types) > 0) {

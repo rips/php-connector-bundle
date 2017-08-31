@@ -12,7 +12,7 @@ class ApplicationHydrator
      * Hydrate a collection of user objects into a collection of
      * UserEntity objects
      *
-     * @param  array<stdClass> $users
+     * @param  array<\stdClass> $users
      * @return array<UserEntity>
      */
     public static function hydrateCollection(array $applications)
@@ -29,7 +29,7 @@ class ApplicationHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param  stdClass $application
+     * @param  \stdClass $application
      * @return ApplicationEntity
      */
     public static function hydrate(\stdClass $application)

@@ -63,7 +63,7 @@ class PhpEntity
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -73,7 +73,7 @@ class PhpEntity
     /**
      * Set majorVersion
      *
-     * @param int $majorVersion
+     * @param  int $majorVersion
      * @return void
      */
     public function setMajorVersion(int $majorVersion)
@@ -94,7 +94,7 @@ class PhpEntity
     /**
      * Set minorVersion
      *
-     * @param int $minorVersion
+     * @param  int $minorVersion
      * @return void
      */
     public function setMinorVersion(int $minorVersion)
@@ -115,7 +115,7 @@ class PhpEntity
     /**
      * Set majorVersion
      *
-     * @param  int $majorVersion
+     * @param  int $releaseVersion
      * @return void
      */
 
@@ -137,7 +137,7 @@ class PhpEntity
     /**
      * Set magicQuotesGpc
      *
-     * @param boolean
+     * @param  boolean
      * @return void
      */
     public function setMagicQuotesGpc(bool $magicQuotesGpc)
@@ -158,7 +158,7 @@ class PhpEntity
     /**
      * Set registerGlobals
      *
-     * @param bool
+     * @param  bool
      * @return void
      */
     public function setRegisterGlobals(bool $registerGlobals)
@@ -179,7 +179,7 @@ class PhpEntity
     /**
      * Set allowUrlFOpen
      *
-     * @param bool
+     * @param  bool
      * @return void
      */
     public function setAllowUrlFOpen(bool $allowUrlFOpen)
@@ -200,7 +200,7 @@ class PhpEntity
     /**
      * Set allowUrlInclude
      *
-     * @param bool
+     * @param  bool
      * @return void
      */
     public function setAllowUrlInclude(bool $allowUrlInclude)
@@ -221,7 +221,7 @@ class PhpEntity
     /**
      * Set filterDefault
      *
-     * @param string
+     * @param  string
      * @return void
      */
     public function setFilterDefault(string $filterDefault)

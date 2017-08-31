@@ -55,7 +55,7 @@ class UploadEntity
     /**
      * Set id
      *
-     * @param integer $id
+     * @param  integer $id
      * @return void
      */
     public function setId(int $id)
@@ -76,7 +76,7 @@ class UploadEntity
     /**
      * Set submission
      *
-     * @param string $submission
+     * @param  string $submission
      * @return void
      */
     public function setSubmission(string $submission)
@@ -97,7 +97,7 @@ class UploadEntity
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return void
      */
     public function setName(string $name)
@@ -118,7 +118,7 @@ class UploadEntity
     /**
      * Set extension
      *
-     * @param string $extension
+     * @param  string $extension
      * @return void
      */
     public function setExtension(string $extension)
@@ -139,7 +139,7 @@ class UploadEntity
     /**
      * Set size
      *
-     * @param integer $size
+     * @param  integer $size
      * @return void
      */
     public function setSize(int $size)
@@ -160,7 +160,7 @@ class UploadEntity
     /**
      * Set file
      *
-     * @param string $file
+     * @param  string $file
      * @return void
      */
     public function setFile(string $file)
@@ -181,7 +181,7 @@ class UploadEntity
     /**
      * Set createdBy
      *
-     * @param UserEntity $createdBy
+     * @param  UserEntity $createdBy
      * @return void
      */
     public function setCreatedBy(UserEntity $createdBy)
@@ -202,7 +202,7 @@ class UploadEntity
     /**
      * Set scans
      *
-     * @param ScanEntity[] $scans
+     * @param  ScanEntity[] $scans
      * @return void
      */
     public function setScans(array $scans)
@@ -223,7 +223,7 @@ class UploadEntity
     /**
      * Set application
      *
-     * @param ApplicationEntity $applicaiton
+     * @param  ApplicationEntity $application
      * @return void
      */
     public function setApplication(ApplicationEntity $application)
