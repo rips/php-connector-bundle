@@ -1,9 +1,8 @@
 <?php
 
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-namespace RIPS\ConnectorBundle\Hydrators\Application;
-
-use RIPS\ConnectorBundle\Entities\Application\PhpEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
 
 class PHPHydrator
 {
@@ -14,7 +13,7 @@ class PHPHydrator
      * @param  array<stdClass> $php
      * @return array<PhpEntity>
      */
-    public static function hydrateCollection(array $PhpObjects)
+    public static function hydrateCollection(array $phpObjects)
     {
         $hydrated = [];
 
@@ -35,39 +34,39 @@ class PHPHydrator
     {
         $hydrated = new PhpEntity();
 
-        if (isset($php->id)){
+        if (isset($php->id)) {
             $hydrated->setId($php->id);
         }
 
-        if (isset($php->majorVersion)){
+        if (isset($php->majorVersion)) {
             $hydrated->setMajorVersion($php->majorVersion);
         }
 
-        if (isset($php->minorVersion)){
+        if (isset($php->minorVersion)) {
             $hydrated->setMinorVersion($php->minorVersion);
         }
 
-        if (isset($php->releaseVersion)){
+        if (isset($php->releaseVersion)) {
             $hydrated->setReleaseVersion($php->releaseVersion);
         }
 
-        if (isset($php->magicQuotesGpc)){
+        if (isset($php->magicQuotesGpc)) {
             $hydrated->setMagicQuotesGpc($php->magicQuotesGpc);
         }
 
-        if (isset($php->registerGlobals)){
+        if (isset($php->registerGlobals)) {
             $hydrated->setRegisterGlobals($php->registerGlobals);
         }
 
-        if (isset($php->allowUrlFOpen)){
+        if (isset($php->allowUrlFOpen)) {
             $hydrated->setAllowUrlFOpen($php->allowUrlFOpen);
         }
 
-        if (isset($php->allowUrlInclude)){
+        if (isset($php->allowUrlInclude)) {
             $hydrated->setAllowUrlInclude($php->allowUrlInclude);
         }
 
-        if (isset($php->filterDefault)){
+        if (isset($php->filterDefault)) {
             $hydrated->setFilterDefault($php->filterDefault);
         }
 

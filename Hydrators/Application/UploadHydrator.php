@@ -31,7 +31,7 @@ class UploadHydrator
      * Hydrate a upload object into a UploadEntity object
      *
      * @param  \stdClass $scan
-     * @return ScanEntity
+     * @return UploadEntity
      */
     public static function hydrate(\stdClass $upload)
     {
