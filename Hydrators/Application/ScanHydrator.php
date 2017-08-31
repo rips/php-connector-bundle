@@ -100,7 +100,7 @@ class ScanHydrator
         }
 
         if (isset($scan->issue_types) && count($scan->issue_types) > 0) {
-            $hydrated->setIssueTypes(TypeHydrator::hydrateCollection($scan->issue_types));
+            $hydrated->setIssueTypes(TypeHydrator::hydrateCollection($scan->issue_types[]));
         }
 
         return $hydrated;
