@@ -24,11 +24,12 @@ class OrgService
     /**
      * Get all organizations
      *
+     * @param  array $queryParams
      * @return array<OrgEntity>
      */
-    public function getAll()
+    public function getAll(array $queryParams = [])
     {
-        $org = $this->api->orgs()->getAll();
+        $org = $this->api->orgs()->getAll($queryParams);
 
         return OrgHydrator::hydrateCollection($org);
     }
