@@ -35,12 +35,16 @@ class OrgHydrator
     {
         $hydrated = new OrgEntity();
 
+        if (isset($org->id)) {
+            $hydrated->setId($org->id);
+        }
+
         if (isset($org->name)) {
             $hydrated->setName($org->name);
         }
 
-        if (isset($org->id)) {
-            $hydrated->setId($org->id);
+        if (isset($org->valid_until)) {
+            $hydrated->setValidUntil($org->valid_until);
         }
 
         if (isset($org->quotas) && count($org->quotas) > 0) {
