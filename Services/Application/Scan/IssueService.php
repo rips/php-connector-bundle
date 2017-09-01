@@ -36,7 +36,7 @@ class IssueService
         return IssueHydrator::hydrateCollection($issues);
     }
 
-    /**
+    /*
      * Get Issues by ID
      *
      * @param int $applicationID

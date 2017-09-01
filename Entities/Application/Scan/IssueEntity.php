@@ -200,7 +200,7 @@ class IssueEntity
      * @param  OriginEntity $origin
      * @return void
      */
-    public function setOrigin(OriginEntity $origin)
+    public function setOrigin(OriginEntity $origin = null)
     {
         $this->origin  = $origin;
     }
@@ -242,7 +242,7 @@ class IssueEntity
      * @param  TypeEntity $type
      * @return void
      */
-    public function setType(TypeEntity $type)
+    public function setType(TypeEntity $type = null)
     {
         $this->type = $type;
     }
@@ -367,7 +367,7 @@ class IssueEntity
      * @param  ConcatEntity $concat
      * @return void
      */
-    public function setConcat(ConcatEntity $concat)
+    public function setConcat(ConcatEntity $concat = null)
     {
         $this->concat = $concat;
     }

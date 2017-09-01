@@ -10,7 +10,9 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\OriginHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ConcatHydrator;
 
 class IssueHydrator
 {
@@ -99,11 +101,11 @@ class IssueHydrator
         }
 
         if (isset($issue->source)) {
-            $hydrated->setSource(SourceHydrator::hyrdator($issue->source));
+            $hydrated->setSource(SourceHydrator::hydrate($issue->source));
         }
 
         if (isset($issue->concat)) {
-            $hydrated->setConcat(ConcatHydrator::hydrator($issue->concat));
+            $hydrated->setConcat(ConcatHydrator::hydrate($issue->concat));
         }
 
         if (isset($issue->cve)) {

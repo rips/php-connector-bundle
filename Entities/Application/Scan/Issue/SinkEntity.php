@@ -168,4 +168,25 @@ class SinkEntity
     {
         return $this->scan;
     }
+
+    /**
+     * Set function
+     *
+     * @param  FunctionEntity $function
+     * @return void
+     */
+    public function setFunction($function)
+    {
+        $this->function = $function;
+    }
+
+    /**
+     * Get function
+     *
+     * @return FunctionEntity
+     */
+    public function getFunction(): FunctionEntity
+    {
+        return $this->function;
+    }
 }

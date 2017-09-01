@@ -8,7 +8,7 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
 class SummaryHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of summary objects into a collection of
      * SummarieEntity objects
      *
      * @param  array<\stdClass> $summaries
@@ -26,7 +26,7 @@ class SummaryHydrator
     }
 
     /**
-     * Hydrate a user object into a SummaryEntity object
+     * Hydrate a Summary object into a SummaryEntity object
      *
      * @param  \stdClass $summary
      * @return SummaryEntity
@@ -47,7 +47,7 @@ class SummaryHydrator
             $hydrated->setContent($summary->content);
         }
 
-        if (isset($summary->id)) {
+        if (isset($summary->highlightedContent)) {
             $hydrated->setHighlightedContent($summary->highlightedContent);
         }
     }

@@ -13,7 +13,7 @@ class ConcatHydrator
      * Hydrate a collection of user objects into a collection of
      * ConcatEntity objects
      *
-     * @param  array<\stdClass> $issue
+     * @param  array<\stdClass> $concats
      * @return array<ConcatEntity>
      */
     public static function hydrateCollection(array $concats)

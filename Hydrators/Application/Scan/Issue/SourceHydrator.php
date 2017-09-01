@@ -11,7 +11,7 @@ use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 class SourceHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of source objects into a collection of
      * SourceEntity objects
      *
      * @param  array<\stdClass> $source
@@ -29,7 +29,7 @@ class SourceHydrator
     }
 
     /**
-     * Hydrate a user object into a SourceEntity object
+     * Hydrate a source object into a SourceEntity object
      *
      * @param  \stdClass $source
      * @return SourceEntity
