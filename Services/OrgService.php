@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Services;
 
 use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 use RIPS\ConnectorBundle\InputBuilders\OrgBuilder;
+use RIPS\ConnectorBundle\Entities\OrgEntity;
 
 class OrgService
 {
@@ -21,10 +22,22 @@ class OrgService
     }
 
     /**
+     * Get all organizations
+     *
+     * @return array<OrgEntity>
+     */
+    public function getAll()
+    {
+        $org = $this->api->orgs()->getAll();
+
+        return OrgHydrator::hydrateCollection($org);
+    }
+
+    /**
      * Get an organization by id
      *
      * @param  int $orgId
-     * @return
+     * @return OrgEntity
      */
     public function getById(int $orgId)
     {
