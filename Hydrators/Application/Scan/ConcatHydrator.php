@@ -1,20 +1,20 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ConcatEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FunctionHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class ConcatHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of concat objects into a collection of
      * ConcatEntity objects
      *
-     * @param  array<\stdClass> $issue
-     * @return array<ConcatEntity>
+     * @param stdClass[] $issue
+     * @return ConcatEntity[]
      */
     public static function hydrateCollection(array $concats)
     {
@@ -28,7 +28,7 @@ class ConcatHydrator
     }
 
     /**
-     * Hydrate a user object into a ConcatEntity object
+     * Hydrate a concat object into a ConcatEntity object
      *
      * @param  \stdClass $concat
      * @return ConcatEntity
@@ -54,7 +54,9 @@ class ConcatHydrator
         }
 
         if (isset($concat->function)) {
-            $hydrated->setFunction(FunctionHydrator::hydrate($concat->function));
+            $hydrated->setFunction(CustomFunctionHydrator::hydrate($concat->function));
         }
+
+        return $hydrated;
     }
 }

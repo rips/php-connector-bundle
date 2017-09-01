@@ -1,17 +1,17 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
 
 class FileHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of file objects into a collection of
      * FileEntity objects
      *
-     * @param  array<\stdClass> $file
-     * @return array<FileEntity>
+     * @param stdClass[] $file
+     * @return FileEntity[]
      */
     public static function hydrateCollection(array $files)
     {
@@ -45,5 +45,7 @@ class FileHydrator
         if (isset($file->path)) {
             $hydrated->setPath($file->path);
         }
+
+        return $hydrated;
     }
 }

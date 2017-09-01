@@ -1,21 +1,21 @@
 <?php
 
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FunctionHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SinkEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 
 class SinkHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of sink objects into a collection of
      * SinkEntity objects
      *
-     * @param  array<\stdClass> $sink
-     * @return array<SinkEntity>
+     * @param stdClass[] $sink
+     * @return SinkEntity[]
      */
     public static function hydrateCollection(array $sinks)
     {
@@ -63,7 +63,9 @@ class SinkHydrator
         }
 
         if (isset($sink->function)) {
-            $hydrated->setFunction(FunctionHydrator::hydrate($sink->function));
+            $hydrated->setFunction(CustomFunctionHydrator::hydrate($sink->function));
         }
+
+        return $hydrated;
     }
 }

@@ -4,14 +4,14 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
 
-class PHPHydrator
+class PhpHydrator
 {
     /**
      * Hydrate a collection of php objects into a collection of
      * PhpEntity objects
      *
-     * @param  array<\stdClass> $php
-     * @return array<PhpEntity>
+     * @param stdClass[] $php
+     * @return PhpEntity[]
      */
     public static function hydrateCollection(array $phpObjects)
     {
@@ -27,7 +27,7 @@ class PHPHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param  \stdClass $php
+     * @param stdClass $php
      * @return PhpEntity
      */
     public static function hydrate(\stdClass $php)

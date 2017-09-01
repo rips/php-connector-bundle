@@ -7,11 +7,11 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
 class ProcessHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of process objects into a collection of
      * ProcessEntity objects
      *
-     * @param  array<\stdClass> $processes
-     * @return array<ProcessEntity>
+     * @param stdClass[] $processes
+     * @return ProcessEntity[]
      */
     public static function hydrateCollection(array $processes)
     {
@@ -34,15 +34,15 @@ class ProcessHydrator
     {
         $hydrated = new ProcessEntity();
 
-        if (isset($process->id)){
+        if (isset($process->id)) {
             $hydrated->setId($process->id);
         }
 
-        if (isset($process->pid)){
+        if (isset($process->pid)) {
             $hydrated->setPId($process->pid);
         }
 
-        if (isset($process->version)){
+        if (isset($process->version)) {
             $hydrated->setVersion($process->version);
         }
 
