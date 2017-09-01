@@ -4,7 +4,9 @@ namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 
 class ConcatEntity
 {
@@ -14,9 +16,9 @@ class ConcatEntity
     protected $id;
 
     /**
-     * @var array
+     * @var int
      */
-    protected $comment;
+    protected $line;
 
     /**
      * @var FileEntity
@@ -32,6 +34,16 @@ class ConcatEntity
      * @var CustomFunctionEntity
      */
     protected $function;
+
+    /**
+     * @var CustomClassEntity
+     */
+    protected $class;
+
+    /**
+     * @var IssueEntity
+     */
+    protected $issue;
 
     /**
      * Set id
@@ -55,22 +67,24 @@ class ConcatEntity
     }
 
     /**
-     * Set comment
+     * Set line
      *
-     * @param  array $comment
+     * @param int $line
      * @return void
      */
-    public function setComment($comment)
+    public function setLine(int $line)
     {
-        $this->comment = $comment;
+        $this->line = $line;
     }
 
     /**
-     * @return array
+     * Get line
+     *
+     * @return int
      */
-    public function getComment():array
+    public function getLine(): int
     {
-        return $this->comment;
+        return $this->line;
     }
 
     /**
@@ -118,10 +132,10 @@ class ConcatEntity
     /**
      * Set function
      *
-     * @param  CustomFunctionEntity $function
+     * @param CustomFunctionEntity $function
      * @return void
      */
-    public function setFunction($function)
+    public function setFunction(CustomFunctionEntity $function)
     {
         $this->function = $function;
     }
@@ -134,5 +148,47 @@ class ConcatEntity
     public function getFunction(): CustomFunctionEntity
     {
         return $this->function;
+    }
+
+    /**
+     * Set class
+     *
+     * @param CustomClassEntity $class
+     * @return void
+     */
+    public function setClass(CustomClassEntity $class)
+    {
+        $this->class = $class;
+    }
+
+    /**
+     * Get class
+     *
+     * @return CustomClassEntity
+     */
+    public function getClass(): CustomClassEntity
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set issue
+     *
+     * @param IssueEntity $issue
+     * @return void
+     */
+    public function setIssue(IssueEntity $issue)
+    {
+        $this->issue = $issue;
+    }
+
+    /**
+     * Get issue
+     *
+     * @return IssueEntity
+     */
+    public function getIssue(): IssueEntity
+    {
+        return $this->issue;
     }
 }
