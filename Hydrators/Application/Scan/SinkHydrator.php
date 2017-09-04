@@ -1,12 +1,13 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 
 class SinkHydrator
 {
@@ -17,7 +18,7 @@ class SinkHydrator
      * @param stdClass[] $sink
      * @return SinkEntity[]
      */
-    public static function hydrateCollection(array $sinks)
+    public static function hydrateCollection($sinks)
     {
         $hydrated = [];
 
@@ -29,12 +30,12 @@ class SinkHydrator
     }
 
     /**
-     * Hydrate a user object into a SinkEntity object
+     * Hydrate a sink object into a SinkEntity object
      *
-     * @param  \stdClass $sink
+     * @param  stdClass $sink
      * @return SinkEntity
      */
-    public static function hydrate(\stdClass $sink)
+    public static function hydrate(stdClass $sink)
     {
         $hydrated = new SinkEntity();
 
@@ -46,12 +47,8 @@ class SinkHydrator
             $hydrated->setLine($sink->line);
         }
 
-        if (isset($sink->path)) {
-            $hydrated->setPath($sink->path);
-        }
-
-        if (isset($sink->phase)) {
-            $hydrated->setPhase($sink->phase);
+        if (isset($sink->name)) {
+            $hydrated->setName($sink->name);
         }
 
         if (isset($sink->file)) {
@@ -64,6 +61,14 @@ class SinkHydrator
 
         if (isset($sink->function)) {
             $hydrated->setFunction(CustomFunctionHydrator::hydrate($sink->function));
+        }
+
+        if (isset($sink->class)) {
+            $hydrated->setClass(CustomClassHydrator::hydrate($sink->class));
+        }
+
+        if (isset($sink->issues)) {
+            $hydrated->setIssues(IssueHydrator::hydrateCollection($sink->issues));
         }
 
         return $hydrated;
