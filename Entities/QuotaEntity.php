@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use RIPS\ConnectorBundle\Entities\OrgEntity;
+
 class QuotaEntity
 {
     /**
@@ -12,7 +14,7 @@ class QuotaEntity
     /**
      * @var integer
      */
-    protected $currentpplication;
+    protected $currentApplication;
 
     /**
      * @var integer
@@ -58,6 +60,11 @@ class QuotaEntity
      * @var boolean
      */
     protected $public;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $org;
 
     /**
      * Set id
@@ -172,7 +179,7 @@ class QuotaEntity
      */
     public function setMaxScans(int $maxScans)
     {
-        return $this->maxScans = $maxScans;
+        $this->maxScans = $maxScans;
     }
 
     /**
@@ -288,5 +295,25 @@ class QuotaEntity
     public function getPublic(): bool
     {
         return $this->public;
+    }
+
+    /**
+     * Set org
+     *
+     * @param OrgEntity $org
+     */
+    public function setOrg(OrgEntity $org)
+    {
+        $this->org = $org;
+    }
+
+    /**
+     * Get org
+     *
+     * @return OrgEntity
+     */
+    public function getOrg(): OrgEntity
+    {
+        return $this->org;
     }
 }

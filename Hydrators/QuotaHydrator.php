@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Hydrators;
 
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
+use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 
 class QuotaHydrator
 {
@@ -76,6 +77,10 @@ class QuotaHydrator
 
         if (isset($quota->public)) {
             $hydrated->setPublic($quota->public);
+        }
+
+        if (isset($quota->organisation)) {
+            $hydrated->setOrg(OrgHydrator::hydrate($quota->organisation));
         }
 
         return $hydrated;
