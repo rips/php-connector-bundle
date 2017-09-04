@@ -2,7 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class ProcessHydrator
 {
@@ -13,7 +16,7 @@ class ProcessHydrator
      * @param stdClass[] $processes
      * @return ProcessEntity[]
      */
-    public static function hydrateCollection(array $processes)
+    public static function hydrateCollection($processes)
     {
         $hydrated = [];
 
@@ -30,7 +33,7 @@ class ProcessHydrator
      * @param  \stdClass $process
      * @return ProcessEntity
      */
-    public static function hydrate(\stdClass $process)
+    public static function hydrate(stdClass $process)
     {
         $hydrated = new ProcessEntity();
 
@@ -44,6 +47,18 @@ class ProcessHydrator
 
         if (isset($process->version)) {
             $hydrated->setVersion($process->version);
+        }
+
+        if (isset($process->start)) {
+            $hydrated->setStart(new DateTime($process->start));
+        }
+
+        if (isset($process->finish)) {
+            $hydrated->setFinish(new DateTime($process->finish));
+        }
+
+        if (isset($process->scan)) {
+            $hydrated->setScan(ScanHydrator::hydrate($process->scan));
         }
 
         return $hydrated;
