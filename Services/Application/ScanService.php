@@ -58,7 +58,7 @@ class ScanService
      */
     public function getStats(int $applicationID, int $scanID)
     {
-        $scans = $this->api->scans()->getStatsById($applicationID,$scanID);
+        $scans = $this->api->scans()->getStatsById($applicationID, $scanID);
         return ScanHydrator::hydrate($scans);
     }
 }

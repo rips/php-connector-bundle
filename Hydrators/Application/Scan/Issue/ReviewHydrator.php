@@ -34,7 +34,7 @@ class ReviewHydrator
     {
         $hydrated = new ReviewEntity();
 
-        if (isset($review->review)){
+        if (isset($review->review)) {
             $hydrated->setReview($review->review);
         }
     }

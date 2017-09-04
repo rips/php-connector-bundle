@@ -34,7 +34,7 @@ class CommentHydrator
     {
         $hydrated = new CommentEntity();
 
-        if (isset($comment)){
+        if (isset($comment)) {
             $hydrated->setComment($comment->comment);
         }
     }
