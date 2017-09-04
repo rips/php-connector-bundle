@@ -4,6 +4,8 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
 class SummaryHydrator
 {
@@ -11,10 +13,10 @@ class SummaryHydrator
      * Hydrate a collection of summary objects into a collection of
      * SummarieEntity objects
      *
-     * @param  array<\stdClass> $summaries
-     * @return array<SummaryEntity>
+     * @param stdClass[] $summaries
+     * @return SummaryEntity[]
      */
-    public static function hydrateCollection(array $summaries)
+    public static function hydrateCollection($summaries)
     {
         $hydrated = [];
 
@@ -26,12 +28,12 @@ class SummaryHydrator
     }
 
     /**
-     * Hydrate a Summary object into a SummaryEntity object
+     * Hydrate a summary object into a SummaryEntity object
      *
-     * @param  \stdClass $summary
+     * @param stdClass $summary
      * @return SummaryEntity
      */
-    public static function hydrate(\stdClass $summary)
+    public static function hydrate(stdClass $summary)
     {
         $hydrated = new SummaryEntity();
 
@@ -47,8 +49,18 @@ class SummaryHydrator
             $hydrated->setContent($summary->content);
         }
 
-        if (isset($summary->highlightedContent)) {
-            $hydrated->setHighlightedContent($summary->highlightedContent);
+        if (isset($summary->highlighted_content)) {
+            $hydrated->setHighlightedContent($summary->highlighted_content);
         }
+
+        if (isset($summary->issue)) {
+            $hydrated->setIssue(IssueHydrator::hydrate($summary->issue));
+        }
+
+        if (isset($summary->file)) {
+            $hydrated->setFile(FileHydrator::hydrate($summary->file));
+        }
+
+        return $hydrated;
     }
 }
