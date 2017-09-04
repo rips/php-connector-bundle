@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 
 class SourceEntity
 {
@@ -44,12 +45,22 @@ class SourceEntity
     protected $function;
 
     /**
+     * @var CustomClassEntity
+     */
+    protected $class;
+
+    /**
+     * @var IssueEntity[]
+     */
+    protected $issues;
+
+    /**
      * Set id
      *
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -59,7 +70,7 @@ class SourceEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -76,11 +87,11 @@ class SourceEntity
     }
 
     /**
-     * get line
+     * Get line
      *
      * @return int
      */
-    public function getLine(): int
+    public function getLine()
     {
         return $this->line;
     }
@@ -101,7 +112,7 @@ class SourceEntity
      *
      * @return string
      */
-    public function getName():string
+    public function getName()
     {
         return $this->name;
     }
@@ -122,7 +133,7 @@ class SourceEntity
      *
      * @return string
      */
-    public function getParameter():string
+    public function getParameter()
     {
         return $this->parameter;
     }
@@ -133,7 +144,7 @@ class SourceEntity
      * @param  FileEntity $file
      * @return void
      */
-    public function setFile($file)
+    public function setFile(FileEntity $file)
     {
         $this->file = $file;
     }
@@ -143,7 +154,7 @@ class SourceEntity
      *
      * @return FileEntity
      */
-    public function getFile(): FileEntity
+    public function getFile()
     {
         return $this->file;
     }
@@ -154,7 +165,7 @@ class SourceEntity
      * @param  ScanEntity $scan
      * @return void
      */
-    public function setScan($scan)
+    public function setScan(ScanEntity $scan)
     {
         $this->scan = $scan;
     }
@@ -164,7 +175,7 @@ class SourceEntity
      *
      * @return ScanEntity
      */
-    public function getScan(): ScanEntity
+    public function getScan()
     {
         return $this->scan;
     }
@@ -175,18 +186,60 @@ class SourceEntity
      * @param  CustomFunctionEntity $function
      * @return void
      */
-    public function setFunction($function)
+    public function setFunction(CustomFunctionEntity $function)
     {
         $this->function = $function;
     }
 
     /**
-     * get function
+     * Get function
      *
      * @return CustomFunctionEntity
      */
-    public function getFunction(): CustomFunctionEntity
+    public function getFunction()
     {
         return $this->function;
+    }
+
+    /**
+     * Set class
+     *
+     * @param CustomClassEntity $class
+     * @return void
+     */
+    public function setClass(CustomClassEntity $class)
+    {
+        $this->class = $class;
+    }
+
+    /**
+     * Get class
+     *
+     * @return CustomClassEntity
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set issues
+     *
+     * @param IssueEntity[] $issues
+     * @return void
+     */
+    public function setIssues($issues)
+    {
+        $this->issues = $issues;
+    }
+
+    /**
+     * Get issues
+     *
+     * @return IssueEntity[]
+     */
+    public function getIssues()
+    {
+        return $this->issues;
     }
 }

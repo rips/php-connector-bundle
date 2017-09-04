@@ -2,9 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SourceEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class SourceHydrator
@@ -16,7 +19,7 @@ class SourceHydrator
      * @param stdClass[] $source
      * @return SourceEntity[]
      */
-    public static function hydrateCollection(array $sources)
+    public static function hydrateCollection($sources)
     {
         $hydrated = [];
 
@@ -33,7 +36,7 @@ class SourceHydrator
      * @param  \stdClass $source
      * @return SourceEntity
      */
-    public static function hydrate(\stdClass $source)
+    public static function hydrate(stdClass $source)
     {
         $hydrated = new SourceEntity();
 
@@ -63,6 +66,14 @@ class SourceHydrator
 
         if (isset($source->function)) {
             $hydrated->setFunction(CustomFunctionHydrator::hydrate($source->function));
+        }
+
+        if (isset($source->class)) {
+            $hydrated->setClass(CustomClassHydrator::hydrate($source->class));
+        }
+
+        if (isset($source->issues)) {
+            $hydrated->setIssues(IssueHydrator::hydrateCollection($source->issues));
         }
 
         return $hydrated;
