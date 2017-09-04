@@ -19,22 +19,27 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.quota:
+    rips_connector.quotas:
         class: RIPS\ConnectorBundle\Services\QuotaService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application:
+    rips_connector.logs:
+        class: RIPS\ConnectorBundle\Services\LogService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.applications:
         class: RIPS\ConnectorBundle\Services\ApplicationService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.scan:
-            class: RIPS\ConnectorBundle\Services\Application\ScanService
-            arguments:
-                - '@rips_connector.api'
+    rips_connector.application.scans:
+        class: RIPS\ConnectorBundle\Services\Application\ScanService
+        arguments:
+            - '@rips_connector.api'
 
-    rips_connector.application.scan.issue:
-            class: RIPS\ConnectorBundle\Services\Application\Scan\IssueService
-            arguments:
-                - '@rips_connector.api'
+    rips_connector.application.scan.issues:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\IssueService
+        arguments:
+            - '@rips_connector.api'
