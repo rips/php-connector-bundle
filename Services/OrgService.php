@@ -48,6 +48,28 @@ class OrgService
     }
 
     /**
+     * Delete all organizations
+     *
+     * @param  array $queryParams
+     * @return void
+     */
+    public function deleteAll(array $queryParams = [])
+    {
+        $this->api->orgs()->deleteAll($queryParams);
+    }
+
+    /**
+     * Delete an organization by id
+     *
+     * @param  int $orgId
+     * @return void
+     */
+    public function deleteById(int $orgId)
+    {
+        $this->api->orgs()->deleteById($orgId);
+    }
+
+    /**
      * Update existing organization by id
      *
      * @param  integer    $orgId

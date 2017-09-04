@@ -5,7 +5,6 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
-
 class IssueService
 {
     /**
@@ -32,7 +31,7 @@ class IssueService
      */
     public function getAll(int $applicationID, int $scanID)
     {
-        $issues = $this->api->issues()->getAll($applicationID,$scanID);
+        $issues = $this->api->issues()->getAll($applicationID, $scanID);
         return IssueHydrator::hydrateCollection($issues);
     }
 
