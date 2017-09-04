@@ -25,13 +25,13 @@ class LogService
      * Get all logs
      *
      * @param  array $queryParams
-     * @return array<OrgEntity>
+     * @return LogEntity[]
      */
     public function getAll(array $queryParams = [])
     {
-        $orgs = $this->api->logs()->getAll($queryParams);
+        $logs = $this->api->logs()->getAll($queryParams);
 
-        return LogHydrator::hydrateCollection($orgs);
+        return LogHydrator::hydrateCollection($logs);
     }
 
     /**
