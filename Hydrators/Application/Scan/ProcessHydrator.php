@@ -34,15 +34,15 @@ class ProcessHydrator
     {
         $hydrated = new ProcessEntity();
 
-        if (isset($process->id)){
+        if (isset($process->id)) {
             $hydrated->setId($process->id);
         }
 
-        if (isset($process->pid)){
+        if (isset($process->pid)) {
             $hydrated->setPId($process->pid);
         }
 
-        if (isset($process->version)){
+        if (isset($process->version)) {
             $hydrated->setVersion($process->version);
         }
 
