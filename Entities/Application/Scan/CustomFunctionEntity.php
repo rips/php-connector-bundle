@@ -1,9 +1,8 @@
 <?php
 
+namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink;
-
-class FunctionEntity
+class CustomFunctionEntity
 {
     /**
      * @var int

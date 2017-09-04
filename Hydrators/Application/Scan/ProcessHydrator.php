@@ -7,11 +7,11 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
 class ProcessHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of process objects into a collection of
      * ProcessEntity objects
      *
-     * @param  array<\stdClass> $processes
-     * @return array<ProcessEntity>
+     * @param stdClass[] $processes
+     * @return ProcessEntity[]
      */
     public static function hydrateCollection(array $processes)
     {

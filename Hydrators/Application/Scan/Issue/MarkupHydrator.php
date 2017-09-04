@@ -8,11 +8,11 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
 class MarkupHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of markup objects into a collection of
      * MarkupEntity objects
      *
-     * @param  array <\stdClass> $markup
-     * @return array<MarkupEntity>
+     * @param stdClass[] $markup
+     * @return MarkupEntity[]
      */
     public static function hydrateCollection(array $markups)
     {
@@ -28,7 +28,7 @@ class MarkupHydrator
     /**
      * Hydrate a user object into a MarkupEntity object
      *
-     * @param  \stdClass $markup
+     * @param stdClass $markup
      * @return MarkupEntity
      */
     public static function hydrate(\stdClass $markup)

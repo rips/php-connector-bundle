@@ -4,11 +4,11 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\OriginHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SinkHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Origin\TypeHydrator as OriginTypeHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
@@ -35,7 +35,7 @@ class IssueHydrator
     }
 
     /**
-     * Hydrate a user object into a IssueEntity object
+     * Hydrate an issue object into a IssueEntity object
      *
      * @param  \stdClass $issue
      * @return IssueEntity
@@ -61,7 +61,7 @@ class IssueHydrator
         }
 
         if (isset($issue->origin)) {
-            $hydrated->setOrigin(OriginHydrator::hydrate($issue->origin));
+            $hydrated->setOrigin(OriginTypeHydrator::hydrate($issue->origin));
         }
 
         if (isset($issue->depth)) {
@@ -113,6 +113,7 @@ class IssueHydrator
         }
 
         if (isset($issue->readable)) {
+            // cast the stdClass object into an array
             $readableArray = json_decode(json_encode($issue->readable), true);
 
             $hydrated->setReadable($readableArray);

@@ -1,18 +1,17 @@
 <?php
 
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
-
-class FunctionHydrator
+class CustomFunctionHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
-     * FunctionEntity objects
+     * Hydrate a collection of custom-function objects into a collection of
+     * CustomFunctionEntity objects
      *
-     * @param  array<\stdClass> $function
-     * @return array<FunctionEntity>
+     * @param stdClass[] $function
+     * @return CustomFunctionEntity[]
      */
     public static function hydrateCollection(array $functions)
     {
@@ -26,14 +25,14 @@ class FunctionHydrator
     }
 
     /**
-     * Hydrate a user object into a FunctionEntity object
+     * Hydrate a custom-function object into a CustomFunctionEntity object
      *
      * @param  \stdClass $function
-     * @return FunctionEntity
+     * @return CustomFunctionEntity
      */
     public static function hydrate(\stdClass $function)
     {
-        $hydrated = new FunctionEntity();
+        $hydrated = new CustomFunctionEntity();
 
         if (isset($function->id)) {
             $hydrated->setId($function->id);
@@ -50,5 +49,7 @@ class FunctionHydrator
         if (isset($function->name)) {
             $hydrated->setName($function->name);
         }
+
+        return $hydrated;
     }
 }

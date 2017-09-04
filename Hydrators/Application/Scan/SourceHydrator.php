@@ -1,11 +1,10 @@
 <?php
 
-
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SourceEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink\FunctionHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class SourceHydrator
@@ -14,8 +13,8 @@ class SourceHydrator
      * Hydrate a collection of source objects into a collection of
      * SourceEntity objects
      *
-     * @param  array<\stdClass> $source
-     * @return array<SourceEntity>
+     * @param stdClass[] $source
+     * @return SourceEntity[]
      */
     public static function hydrateCollection(array $sources)
     {
@@ -63,7 +62,9 @@ class SourceHydrator
         }
 
         if (isset($source->function)) {
-            $hydrated->setFunction(FunctionHydrator::hydrate($source->function));
+            $hydrated->setFunction(CustomFunctionHydrator::hydrate($source->function));
         }
+
+        return $hydrated;
     }
 }

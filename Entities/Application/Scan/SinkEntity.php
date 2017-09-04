@@ -2,11 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\FunctionEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 
-class ConcatEntity
+class SinkEntity
 {
     /**
      * @var int
@@ -14,9 +14,19 @@ class ConcatEntity
     protected $id;
 
     /**
-     * @var array
+     * @var int
      */
-    protected $comment;
+    protected $line;
+
+    /**
+     * @var string
+     */
+    protected $path;
+
+    /**
+     * @var int
+     */
+    protected $phase;
 
     /**
      * @var FileEntity
@@ -29,7 +39,7 @@ class ConcatEntity
     protected $scan;
 
     /**
-     * @var FunctionEntity
+     * @var CustomFunctionEntity
      */
     protected $function;
 
@@ -55,22 +65,66 @@ class ConcatEntity
     }
 
     /**
-     * Set comment
+     * Set line
      *
-     * @param  array $comment
+     * @param  int $line
      * @return void
      */
-    public function setComment($comment)
+    public function setLine($line)
     {
-        $this->comment = $comment;
+        $this->line = $line;
     }
 
     /**
-     * @return array
+     * Get line
+     *
+     * @return int
      */
-    public function getComment():array
+    public function getLine(): int
     {
-        return $this->comment;
+        return $this->line;
+    }
+
+    /**
+     * Set path
+     *
+     * @param  string $path
+     * @return void
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
+    /**
+     * Set phase
+     *
+     * @param  int $phase
+     * @return void
+     */
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
+    }
+
+    /**
+     * Get phase
+     *
+     * @return int
+     */
+    public function getPhase(): int
+    {
+        return $this->phase;
     }
 
     /**
@@ -131,7 +185,7 @@ class ConcatEntity
      *
      * @return FunctionEntity
      */
-    public function getFunction():FunctionEntity
+    public function getFunction(): FunctionEntity
     {
         return $this->function;
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review;
 
-class OriginEntity
+class TypeEntity
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $id;
 
@@ -22,7 +22,7 @@ class OriginEntity
     /**
      * Set id
      *
-     * @param  int $id
+     * @param integer $id
      * @return void
      */
     public function setId(int $id)
@@ -33,7 +33,7 @@ class OriginEntity
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId(): int
     {
@@ -43,7 +43,7 @@ class OriginEntity
     /**
      * Set tag
      *
-     * @param  string $tag
+     * @param string $tag
      * @return void
      */
     public function setTag(string $tag)
@@ -64,7 +64,7 @@ class OriginEntity
     /**
      * Set name
      *
-     * @param  string $name
+     * @param string $name
      * @return void
      */
     public function setName(string $name)
@@ -75,7 +75,7 @@ class OriginEntity
     /**
      * Get name
      *
-     * @return string $name
+     * @return string
      */
     public function getName(): string
     {
