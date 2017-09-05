@@ -337,7 +337,7 @@ class QuotaEntity
      *
      * @return bool
      */
-    public function isNotify(): bool
+    public function getNotify(): bool
     {
         return $this->notify;
     }
