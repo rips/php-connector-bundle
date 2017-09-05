@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+
 class PhpEntity
 {
     /**
@@ -37,7 +39,7 @@ class PhpEntity
     /**
      * @var boolean
      */
-    protected $allowUrlFOpen;
+    protected $allowUrlFopen;
 
     /**
      * @var boolean
@@ -50,12 +52,17 @@ class PhpEntity
     protected $filterDefault;
 
     /**
+     * @var ScanEntity
+     */
+    protected $scan;
+
+    /**
      * Set id
      *
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -65,7 +72,7 @@ class PhpEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -76,7 +83,7 @@ class PhpEntity
      * @param  int $majorVersion
      * @return void
      */
-    public function setMajorVersion(int $majorVersion)
+    public function setMajorVersion($majorVersion)
     {
         $this->majorVersion = $majorVersion;
     }
@@ -86,7 +93,7 @@ class PhpEntity
      *
      * @return int
      */
-    public function getMajorVersion(): int
+    public function getMajorVersion()
     {
         return $this->majorVersion;
     }
@@ -97,7 +104,7 @@ class PhpEntity
      * @param  int $minorVersion
      * @return void
      */
-    public function setMinorVersion(int $minorVersion)
+    public function setMinorVersion($minorVersion)
     {
         $this->minorVersion = $minorVersion;
     }
@@ -107,7 +114,7 @@ class PhpEntity
      *
      * @return int
      */
-    public function getMinorVersion(): int
+    public function getMinorVersion()
     {
         return $this->minorVersion;
     }
@@ -119,7 +126,7 @@ class PhpEntity
      * @return void
      */
 
-    public function setReleaseVersion(int $releaseVersion)
+    public function setReleaseVersion($releaseVersion)
     {
         $this->releaseVersion = $releaseVersion;
     }
@@ -129,7 +136,7 @@ class PhpEntity
      *
      * @return int
      */
-    public function getReleaseVersion(): int
+    public function getReleaseVersion()
     {
         return $this->releaseVersion;
     }
@@ -140,7 +147,7 @@ class PhpEntity
      * @param  boolean
      * @return void
      */
-    public function setMagicQuotesGpc(bool $magicQuotesGpc)
+    public function setMagicQuotesGpc($magicQuotesGpc)
     {
         $this->magicQuotesGpc = $magicQuotesGpc;
     }
@@ -150,7 +157,7 @@ class PhpEntity
      *
      * @return bool
      */
-    public function getMagicQuotesGpc(): bool
+    public function getMagicQuotesGpc()
     {
         return $this->magicQuotesGpc;
     }
@@ -161,7 +168,7 @@ class PhpEntity
      * @param  bool
      * @return void
      */
-    public function setRegisterGlobals(bool $registerGlobals)
+    public function setRegisterGlobals($registerGlobals)
     {
         $this->registerGlobals = $registerGlobals;
     }
@@ -171,30 +178,30 @@ class PhpEntity
      *
      * @return bool
      */
-    public function getRegisterGlobals(): bool
+    public function getRegisterGlobals()
     {
         return $this->registerGlobals;
     }
 
     /**
-     * Set allowUrlFOpen
+     * Set allowUrlFopen
      *
      * @param  bool
      * @return void
      */
-    public function setAllowUrlFOpen(bool $allowUrlFOpen)
+    public function setAllowUrlFopen($allowUrlFopen)
     {
-        $this->allowUrlFOpen = $allowUrlFOpen;
+        $this->allowUrlFopen = $allowUrlFopen;
     }
 
     /**
-     * Get allowUrlFOpen
+     * Get allowUrlFopen
      *
      * @return bool
      */
-    public function getAllowUrlFOpen(): bool
+    public function getAllowUrlFopen()
     {
-        return $this->allowUrlFOpen;
+        return $this->allowUrlFopen;
     }
 
     /**
@@ -203,7 +210,7 @@ class PhpEntity
      * @param  bool
      * @return void
      */
-    public function setAllowUrlInclude(bool $allowUrlInclude)
+    public function setAllowUrlInclude($allowUrlInclude)
     {
         $this->allowUrlInclude = $allowUrlInclude;
     }
@@ -213,7 +220,7 @@ class PhpEntity
      *
      * @return bool
      */
-    public function getAllowUrlInclude(): bool
+    public function getAllowUrlInclude()
     {
         return $this->allowUrlInclude;
     }
@@ -224,7 +231,7 @@ class PhpEntity
      * @param  string
      * @return void
      */
-    public function setFilterDefault(string $filterDefault)
+    public function setFilterDefault($filterDefault)
     {
         $this->filterDefault = $filterDefault;
     }
@@ -234,8 +241,29 @@ class PhpEntity
      *
      * @return string
      */
-    public function getFilterDefault(): string
+    public function getFilterDefault()
     {
         return $this->filterDefault;
+    }
+
+    /**
+     * Set scan
+     *
+     * @param ScanEntity $scan
+     * @return void
+     */
+    public function setScan(ScanEntity $scan)
+    {
+        $this->scan = $scan;
+    }
+
+    /**
+     * Get scan
+     *
+     * @return ScanEntity
+     */
+    public function getScan()
+    {
+        return $this->scan;
     }
 }

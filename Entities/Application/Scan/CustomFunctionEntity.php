@@ -25,6 +25,36 @@ class CustomFunctionEntity
     protected $name;
 
     /**
+     * @var FileEntity
+     */
+    protected $file;
+
+    /**
+     * @var CustomClassEntity
+     */
+    protected $class;
+
+    /**
+     * @var ScanEntity
+     */
+    protected $scan;
+
+    /**
+     * @var SourceEntity[]
+     */
+    protected $sources;
+
+    /**
+     * @var SinkEntity[]
+     */
+    protected $sinks;
+
+    /**
+     * @var CocnatEntity[]
+     */
+    protected $concats;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -40,7 +70,7 @@ class CustomFunctionEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -51,7 +81,7 @@ class CustomFunctionEntity
      * @param  int $startLine
      * @return void
      */
-    public function setStartLine($startLine)
+    public function setStartLine(int $startLine)
     {
         $this->startLine = $startLine;
     }
@@ -72,7 +102,7 @@ class CustomFunctionEntity
      * @param  int $endLine
      * @return void
      */
-    public function setEndLine($endLine)
+    public function setEndLine(int $endLine)
     {
         $this->endLine = $endLine;
     }
@@ -90,10 +120,10 @@ class CustomFunctionEntity
     /**
      * Set name
      *
-     * @param  mixed $name
+     * @param  string $name
      * @return void
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -101,10 +131,136 @@ class CustomFunctionEntity
     /**
      * Get name
      *
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set file
+     *
+     * @param FileEntity $file
+     * @return void
+     */
+    public function setFile($file)
+    {
+        $this->file;
+    }
+
+    /**
+     * Get file
+     *
+     * @return FileEntity
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * Set class
+     *
+     * @param CustomClassEntity $class
+     * @return void
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+    }
+
+    /**
+     * Get class
+     *
+     * @return CustomClassEntity
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set scan
+     *
+     * @param ScanEntity $scan
+     * @return void
+     */
+    public function setScan($scan)
+    {
+        $this->scan = $scan;
+    }
+
+    /**
+     * Get scan
+     *
+     * @return ScanEntity
+     */
+    public function getScan()
+    {
+        return $this->scan;
+    }
+
+    /**
+     * Set sources
+     *
+     * @param SourceEntity[] $sources
+     * @return void
+     */
+    public function setSources(array $sources)
+    {
+        $this->sources;
+    }
+
+    /**
+     * Get sources
+     *
+     * @return SourceEntity[]
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
+
+    /**
+     * Set sinks
+     *
+     * @param SinkEntity[] $sinks
+     * @return void
+     */
+    public function setSinks(array $sinks)
+    {
+        $this->sinks = $sinks;
+    }
+
+    /**
+     * Get sinks
+     *
+     * @return SinkEntity[]
+     */
+    public function getSinks()
+    {
+        return $this->sinks;
+    }
+
+    /**
+     * Set concats
+     *
+     * @param ConcatEntity[] $concats
+     * @return void
+     */
+    public function setConcats(array $concats)
+    {
+        $this->concats = $concats;
+    }
+
+    /**
+     * Get concats
+     *
+     * @return ConcatEntity[]
+     */
+    public function getConcats()
+    {
+        return $this->concats;
     }
 }

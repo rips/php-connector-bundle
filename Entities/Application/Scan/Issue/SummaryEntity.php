@@ -25,12 +25,22 @@ class SummaryEntity
     protected $highlightedContent;
 
     /**
+     * @var FileEntity
+     */
+    protected $file;
+
+    /**
+     * @var IssueEntity
+     */
+    protected $issue;
+
+    /**
      * Set id
      *
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -40,7 +50,7 @@ class SummaryEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -61,7 +71,7 @@ class SummaryEntity
      *
      * @return int
      */
-    public function getLine():int
+    public function getLine()
     {
         return $this->line;
     }
@@ -82,7 +92,7 @@ class SummaryEntity
      *
      * @return string
      */
-    public function getContent():string
+    public function getContent()
     {
         return $this->content;
     }
@@ -103,8 +113,50 @@ class SummaryEntity
      *
      * @return string
      */
-    public function getHighlightedContent(): string
+    public function getHighlightedContent()
     {
         return $this->highlightedContent;
+    }
+
+    /**
+     * Set file
+     *
+     * @param FileEntity $file
+     * @return void
+     */
+    public function setFile(FileEntity $file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file
+     *
+     * @return FileEntity
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * Set issue
+     *
+     * @param IssueEntity $issue
+     * @return void
+     */
+    public function setIssue(IssueEntity $issue)
+    {
+        $this->issue = $issue;
+    }
+
+    /**
+     * Get issue
+     *
+     * @return IssueEntity
+     */
+    public function getIssue()
+    {
+        return $this->issue;
     }
 }

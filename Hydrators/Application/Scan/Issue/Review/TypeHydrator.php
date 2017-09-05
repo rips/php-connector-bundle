@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Review;
 
-use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;
 
 class TypeHydrator
@@ -14,7 +13,7 @@ class TypeHydrator
      * @param stdClass[] $type
      * @return TypeEntity[]
      */
-    public static function hydrateCollection(array $types)
+    public static function hydrateCollection($types)
     {
         $hydrated = [];
 
@@ -45,6 +44,10 @@ class TypeHydrator
 
         if (isset($type->name)) {
             $hydrated->setName($type->name);
+        }
+
+        if (isset($type->negative)) {
+            $hydrated->setNegative($type->negative);
         }
 
         return $hydrated;

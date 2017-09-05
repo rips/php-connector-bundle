@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
+
 class MarkupEntity
 {
     /**
@@ -15,12 +17,17 @@ class MarkupEntity
     protected $markup;
 
     /**
+     * @var IssueEntity
+     */
+    protected $issue;
+
+    /**
      * Set id
      *
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -30,7 +37,7 @@ class MarkupEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -41,7 +48,7 @@ class MarkupEntity
      * @param  string $markup
      * @return void
      */
-    public function setMarkup(string $markup)
+    public function setMarkup($markup)
     {
         $this->markup = $markup;
     }
@@ -51,8 +58,29 @@ class MarkupEntity
      *
      * @return string
      */
-    public function getMarkup(): string
+    public function getMarkup()
     {
         return $this->markup;
+    }
+
+    /**
+     * Set issue
+     *
+     * @param IssueEntity $issue
+     * @return void
+     */
+    public function setIssue(IssueEntity $issue)
+    {
+        $this->issue = $issue;
+    }
+
+    /**
+     * Get issue
+     *
+     * @return IssueEntity
+     */
+    public function getIssue()
+    {
+        return $this->issue;
     }
 }

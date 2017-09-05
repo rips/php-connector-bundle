@@ -21,12 +21,7 @@ class SinkEntity
     /**
      * @var string
      */
-    protected $path;
-
-    /**
-     * @var int
-     */
-    protected $phase;
+    protected $name;
 
     /**
      * @var FileEntity
@@ -44,12 +39,22 @@ class SinkEntity
     protected $function;
 
     /**
+     * @var CustomClassEntity
+     */
+    protected $class;
+
+    /**
+     * @var IssueEntity[]
+     */
+    protected $issues;
+
+    /**
      * Set id
      *
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -59,7 +64,7 @@ class SinkEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -80,51 +85,30 @@ class SinkEntity
      *
      * @return int
      */
-    public function getLine(): int
+    public function getLine()
     {
         return $this->line;
     }
 
     /**
-     * Set path
+     * Set name
      *
-     * @param  string $path
+     * @param string $name
      * @return void
      */
-    public function setPath($path)
+    public function setName($name)
     {
-        $this->path = $path;
+        $this->name = $name;
     }
 
     /**
-     * Get path
+     * Get name
      *
      * @return string
      */
-    public function getPath(): string
+    public function getName()
     {
-        return $this->path;
-    }
-
-    /**
-     * Set phase
-     *
-     * @param  int $phase
-     * @return void
-     */
-    public function setPhase($phase)
-    {
-        $this->phase = $phase;
-    }
-
-    /**
-     * Get phase
-     *
-     * @return int
-     */
-    public function getPhase(): int
-    {
-        return $this->phase;
+        return $this->name;
     }
 
     /**
@@ -133,7 +117,7 @@ class SinkEntity
      * @param  FileEntity $file
      * @return void
      */
-    public function setFile($file)
+    public function setFile(FileEntity $file)
     {
         $this->file = $file;
     }
@@ -143,7 +127,7 @@ class SinkEntity
      *
      * @return FileEntity
      */
-    public function getFile(): FileEntity
+    public function getFile()
     {
         return $this->file;
     }
@@ -154,7 +138,7 @@ class SinkEntity
      * @param  ScanEntity $scan
      * @return void
      */
-    public function setScan($scan)
+    public function setScan(ScanEntity $scan)
     {
         $this->scan = $scan;
     }
@@ -164,7 +148,7 @@ class SinkEntity
      *
      * @return ScanEntity
      */
-    public function getScan(): ScanEntity
+    public function getScan()
     {
         return $this->scan;
     }
@@ -172,10 +156,10 @@ class SinkEntity
     /**
      * Set function
      *
-     * @param  FunctionEntity $function
+     * @param CustomFunctionEntity $function
      * @return void
      */
-    public function setFunction($function)
+    public function setFunction(FileEntity $function)
     {
         $this->function = $function;
     }
@@ -185,8 +169,40 @@ class SinkEntity
      *
      * @return FunctionEntity
      */
-    public function getFunction(): FunctionEntity
+    public function getFunction()
     {
         return $this->function;
+    }
+
+    /**
+     * Set class
+     *
+     * @param CustomClassEntity $class
+     * @return void
+     */
+    public function setClass(CustomClassEntity $class)
+    {
+        $this->class = $class;
+    }
+
+    /**
+     * Set issues
+     *
+     * @param IssueEntity[] $issues
+     * @return void
+     */
+    public function setIssues($issues)
+    {
+        $this->issues = $issues;
+    }
+
+    /**
+     * Get issues
+     *
+     * @return IssueEntity[]
+     */
+    public function getIssues()
+    {
+        return $this->issues;
     }
 }

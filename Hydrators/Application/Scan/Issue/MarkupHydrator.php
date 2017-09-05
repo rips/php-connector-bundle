@@ -1,9 +1,10 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
 class MarkupHydrator
 {
@@ -14,7 +15,7 @@ class MarkupHydrator
      * @param stdClass[] $markup
      * @return MarkupEntity[]
      */
-    public static function hydrateCollection(array $markups)
+    public static function hydrateCollection($markups)
     {
         $hydrated = [];
 
@@ -26,12 +27,12 @@ class MarkupHydrator
     }
 
     /**
-     * Hydrate a user object into a MarkupEntity object
+     * Hydrate a markup object into a MarkupEntity object
      *
      * @param stdClass $markup
      * @return MarkupEntity
      */
-    public static function hydrate(\stdClass $markup)
+    public static function hydrate(stdClass $markup)
     {
         $hydrated = new MarkupEntity();
 
@@ -42,5 +43,11 @@ class MarkupHydrator
         if (isset($markup->markup)) {
             $hydrated->setMarkup($markup->markup);
         }
+
+        if (isset($markup->issue)) {
+            $hydrated->setIssue(IssueHydrator::hydrate($markup->issue));
+        }
+
+        return $hydrated;
     }
 }
