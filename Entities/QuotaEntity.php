@@ -67,6 +67,11 @@ class QuotaEntity
     protected $org;
 
     /**
+     * @var boolean
+     */
+    protected $notify;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -315,5 +320,25 @@ class QuotaEntity
     public function getOrg(): OrgEntity
     {
         return $this->org;
+    }
+
+    /**
+     * Set notify
+     *
+     * @param bool $notify
+     */
+    public function setNotify(bool $notify)
+    {
+        $this->notify = $notify;
+    }
+
+    /**
+     * Get notify
+     *
+     * @return bool
+     */
+    public function isNotify(): bool
+    {
+        return $this->notify;
     }
 }
