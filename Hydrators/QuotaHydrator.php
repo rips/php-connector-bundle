@@ -83,6 +83,10 @@ class QuotaHydrator
             $hydrated->setOrg(OrgHydrator::hydrate($quota->organisation));
         }
 
+        if (isset($quota->notify)) {
+            $hydrated->setNotify($quota->notify);
+        }
+
         return $hydrated;
     }
 }

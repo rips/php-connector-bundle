@@ -40,6 +40,9 @@ class QuotaBuilder extends BaseBuilder
     // @var string
     protected $validUntil;
 
+    // @var bool
+    protected $notify;
+
     /**
      * Set allowedMisses
      *
@@ -147,7 +150,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setPublic(bool $public)
     {
-        $this->public = $public
+        $this->public = $public;
     }
 
     /**
@@ -170,5 +173,16 @@ class QuotaBuilder extends BaseBuilder
     public function setValidUntil(string $validUntil)
     {
         $this->validUntil = $validUntil;
+    }
+
+    /**
+     * Set notify
+     *
+     * @param  bool $notify
+     * @return void
+     */
+    public function setNotify(bool $notify)
+    {
+        $this->notify = $notify;
     }
 }
