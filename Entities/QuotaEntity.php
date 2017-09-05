@@ -305,7 +305,8 @@ class QuotaEntity
     /**
      * Set org
      *
-     * @param OrgEntity $org
+     * @param  OrgEntity $org
+     * @return void
      */
     public function setOrg(OrgEntity $org)
     {
@@ -325,7 +326,8 @@ class QuotaEntity
     /**
      * Set notify
      *
-     * @param bool $notify
+     * @param  bool $notify
+     * @return void
      */
     public function setNotify(bool $notify)
     {
