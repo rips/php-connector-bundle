@@ -29,8 +29,23 @@ class APIService
         return $this->api->quotas;
     }
 
+    public function logs()
+    {
+        return $this->api->logs;
+    }
+
     public function applications()
     {
-        return $this-$this->api->applications;
+        return $this->api->applications;
+    }
+
+    public function scans()
+    {
+        return $this->api->scans;
+    }
+
+    public function issues()
+    {
+        return $this->api->issues;
     }
 }

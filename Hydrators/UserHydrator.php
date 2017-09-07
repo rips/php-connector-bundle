@@ -10,7 +10,7 @@ class UserHydrator
      * Hydrate a collection of user objects into a collection of
      * UserEntity objects
      *
-     * @param  array<stdClass> $users
+     * @param  array<\stdClass> $users
      * @return array<UserEntity>
      */
     public static function hydrateCollection(array $users)
@@ -27,25 +27,55 @@ class UserHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param  stdClass $user
+     * @param  \stdClass $user
      * @return UserEntity
      */
     public static function hydrate(\stdClass $user)
     {
         $hydrated = new UserEntity();
 
-        $hydrated->setId($user->id);
-        $hydrated->setUsername($user->username ?? '');
-        $hydrated->setFirstname($user->firstname ?? '');
-        $hydrated->setLastname($user->lastname ?? '');
-        $hydrated->setEmail($user->email);
-        $hydrated->setEnabled($user->enabled);
-        $hydrated->setEmptyUsername($user->empty_username);
-        $hydrated->setRoot($user->root);
-        $hydrated->setRoles($user->roles);
+        if (isset($user->id)) {
+            $hydrated->setId($user->id);
+        }
+
+        if (isset($user->username)) {
+            $hydrated->setUsername($user->username);
+        }
+
+        if (isset($user->firstname)) {
+            $hydrated->setFirstname($user->firstname);
+        }
+
+        if (isset($user->lastname)) {
+            $hydrated->setLastname($user->lastname);
+        }
+
+        if (isset($user->email)) {
+            $hydrated->setEmail($user->email);
+        }
+
+        if (isset($user->enabled)) {
+            $hydrated->setEnabled($user->enabled);
+        }
+
+        if (isset($user->empty_username)) {
+            $hydrated->setEmptyUsername($user->empty_username);
+        }
+
+        if (isset($user->root)) {
+            $hydrated->setRoot($user->root);
+        }
+
+        if (isset($user->roles)) {
+            $hydrated->setRoles($user->roles);
+        }
 
         if (isset($user->organisation)) {
             $hydrated->setOrganisation(OrgHydrator::hydrate($user->organisation));
+        }
+
+        if (isset($user->valid_until)) {
+            $hydrated->setValidUntil($user->valid_until);
         }
 
         return $hydrated;

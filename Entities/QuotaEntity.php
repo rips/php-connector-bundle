@@ -2,37 +2,74 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use RIPS\ConnectorBundle\Entities\OrgEntity;
+
 class QuotaEntity
 {
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $id;
 
-    // @var integer
-    protected $currentpplication;
+    /**
+     * @var integer
+     */
+    protected $currentApplication;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $currentScan;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $currentUser;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $maxApplications;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $maxScans;
 
-    // @var integer
+    /**
+     * @var integer
+     */
     protected $maxUsers;
 
-    // @var string
+    /**
+     * @var integer
+     */
+    protected $maxLoc;
+
+    /**
+     * @var string
+     */
     protected $validFrom;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $validUntil;
 
-    // @var boolean
+    /**
+     * @var boolean
+     */
     protected $public;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $org;
+
+    /**
+     * @var boolean
+     */
+    protected $notify;
 
     /**
      * Set id
@@ -147,7 +184,7 @@ class QuotaEntity
      */
     public function setMaxScans(int $maxScans)
     {
-        return $this->maxScans = $maxScans;
+        $this->maxScans = $maxScans;
     }
 
     /**
@@ -179,6 +216,27 @@ class QuotaEntity
     public function getMaxUsers(): int
     {
         return $this->maxUsers;
+    }
+
+    /**
+     * Set maxLoc
+     *
+     * @param integer $maxLoc
+     * @return void
+     */
+    public function setMaxLoc(int $maxLoc)
+    {
+        $this->maxLoc = $maxLoc;
+    }
+
+    /**
+     * Get maxLoc
+     *
+     * @return integer
+     */
+    public function getMaxLoc(): int
+    {
+        return $this->maxLoc;
     }
 
     /**
@@ -242,5 +300,47 @@ class QuotaEntity
     public function getPublic(): bool
     {
         return $this->public;
+    }
+
+    /**
+     * Set org
+     *
+     * @param  OrgEntity $org
+     * @return void
+     */
+    public function setOrg(OrgEntity $org)
+    {
+        $this->org = $org;
+    }
+
+    /**
+     * Get org
+     *
+     * @return OrgEntity
+     */
+    public function getOrg(): OrgEntity
+    {
+        return $this->org;
+    }
+
+    /**
+     * Set notify
+     *
+     * @param  bool $notify
+     * @return void
+     */
+    public function setNotify(bool $notify)
+    {
+        $this->notify = $notify;
+    }
+
+    /**
+     * Get notify
+     *
+     * @return bool
+     */
+    public function getNotify(): bool
+    {
+        return $this->notify;
     }
 }

@@ -4,16 +4,24 @@ namespace RIPS\ConnectorBundle\Entities;
 
 class OrgEntity
 {
-    // @var int
+    /**
+     * @var integer
+     */
     protected $id;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $name;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $validUntil;
 
-    // @var Array<QuotaEntities>
+    /**
+     * @var QuotaEntity[]
+     */
     protected $quotas;
 
 
@@ -62,7 +70,7 @@ class OrgEntity
     /**
      * Set quotas
      *
-     * @param  array<QuotaEntity> $quotas
+     * @param  QuotaEntity[] $quotas
      * @return void
      */
     public function setQuotas(array $quotas = [])
@@ -73,7 +81,7 @@ class OrgEntity
     /**
      * Get quotas
      *
-     * @return array<QuotaEntity>
+     * @return QuotaEntity[]
      */
     public function getQuotas(): array
     {

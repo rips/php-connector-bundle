@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Services;
 
 use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 use RIPS\ConnectorBundle\InputBuilders\OrgBuilder;
+use RIPS\ConnectorBundle\Entities\OrgEntity;
 
 class OrgService
 {
@@ -21,16 +22,51 @@ class OrgService
     }
 
     /**
+     * Get all organizations
+     *
+     * @param  array $queryParams
+     * @return array<OrgEntity>
+     */
+    public function getAll(array $queryParams = [])
+    {
+        $org = $this->api->orgs()->getAll($queryParams);
+
+        return OrgHydrator::hydrateCollection($org);
+    }
+
+    /**
      * Get an organization by id
      *
      * @param  int $orgId
-     * @return
+     * @return OrgEntity
      */
     public function getById(int $orgId)
     {
         $org = $this->api->orgs()->getById($orgId);
 
         return OrgHydrator::hydrate($org);
+    }
+
+    /**
+     * Delete all organizations
+     *
+     * @param  array $queryParams
+     * @return void
+     */
+    public function deleteAll(array $queryParams = [])
+    {
+        $this->api->orgs()->deleteAll($queryParams);
+    }
+
+    /**
+     * Delete an organization by id
+     *
+     * @param  int $orgId
+     * @return void
+     */
+    public function deleteById(int $orgId)
+    {
+        $this->api->orgs()->deleteById($orgId);
     }
 
     /**

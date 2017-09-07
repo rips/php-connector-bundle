@@ -11,8 +11,8 @@ class OrgHydrator
      * Hydrate a collection of org objects into a collection of
      * OrgEntity objects
      *
-     * @param  array<stdClass> $orgs
-     * @return array<OrgEntity>
+     * @param  \stdClass[] $orgs
+     * @return OrgEntity[]
      */
     public static function hydrateCollection(array $orgs)
     {
@@ -28,15 +28,24 @@ class OrgHydrator
     /**
      * Hydrate a single org object into a OrgEntity object
      *
-     * @param  stdClass $org
+     * @param  \stdClass $org
      * @return OrgEntity
      */
     public static function hydrate(\stdClass $org)
     {
         $hydrated = new OrgEntity();
 
-        $hydrated->setId($org->id);
-        $hydrated->setName($org->name);
+        if (isset($org->id)) {
+            $hydrated->setId($org->id);
+        }
+
+        if (isset($org->name)) {
+            $hydrated->setName($org->name);
+        }
+
+        if (isset($org->valid_until)) {
+            $hydrated->setValidUntil($org->valid_until);
+        }
 
         if (isset($org->quotas) && count($org->quotas) > 0) {
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($org->quotas));

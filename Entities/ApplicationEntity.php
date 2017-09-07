@@ -12,7 +12,7 @@ class ApplicationEntity
     /**
      * @var string
      */
-    protected $applicationName;
+    protected $name;
 
     /**
      * @var int
@@ -28,6 +28,16 @@ class ApplicationEntity
      * @var OrgEntity
      */
     protected $organisation;
+
+    /**
+     * @var UserEntity
+     */
+    protected $createdBy;
+
+    /**
+     * @var QuotaEntity
+     */
+    protected $chargedQuota;
 
     /**
      * Set id
@@ -51,24 +61,24 @@ class ApplicationEntity
     }
 
     /**
-     * Set applicationName
+     * Set name
      *
-     * @param  string $applicationName
+     * @param  string $name
      * @return void
      */
-    public function setApplicationName(string $applicationName)
+    public function setName(string $name)
     {
-        $this->applicationName = $applicationName;
+        $this->name = $name;
     }
 
     /**
-     * Get applicationName
+     * Get name
      *
      * @return string
      */
-    public function getApplicationName(): string
+    public function getName(): string
     {
-        return $this->applicationName;
+        return $this->name;
     }
 
     /**
@@ -88,7 +98,7 @@ class ApplicationEntity
      * @return int
      */
 
-    public function gettCurrentScan(): int
+    public function getCurrentScan(): int
     {
         return $this->currentScan;
     }
@@ -133,5 +143,47 @@ class ApplicationEntity
     public function getOrganisation(): OrgEntity
     {
         return $this->organisation;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param UserEntity $createdBy
+     * @return void
+     */
+    public function setCreatedBy(UserEntity $createdBy)
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return UserEntity
+     */
+    public function getCreatedBy(): UserEntity
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set chargedQuota
+     *
+     * @param QuotaEntity $chargedQuota
+     * @return void
+     */
+    public function setChargedQuota(QuotaEntity $chargedQuota)
+    {
+        $this->chargedQuota = $chargedQuota;
+    }
+
+    /**
+     * Get chargedQuota
+     *
+     * @return QuotaEntity
+     */
+    public function getChargedQuota(): QuotaEntity
+    {
+        return $this->chargedQuota;
     }
 }
