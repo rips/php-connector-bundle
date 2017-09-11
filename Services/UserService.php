@@ -6,6 +6,7 @@ use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\OrgEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;
+use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
 
 class UserService
 {
