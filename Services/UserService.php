@@ -60,4 +60,18 @@ class UserService
 
         return UserHydrator::hydrate($user);
     }
+
+    /**
+     * Update a user by id
+     *
+     * @param int $userId
+     * @param UserBuilder $input
+     * @return UserEntity
+     */
+    public function update($userId, UserBuilder $input)
+    {
+        $user = $this->api->users()->update($userId, $input->toArray());
+
+        return UserHydrator::hydrate($user);
+    }
 }
