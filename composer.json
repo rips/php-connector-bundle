@@ -22,6 +22,6 @@
         }
     ],
     "require": {
-        "rips/connector": "1.*"
+        "rips/connector": "dev-dev"
     }
 }
