@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders\User;
 
+use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
+
 class InviteBuilder extends BaseBuilder
 {
     // @var string
