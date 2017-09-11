@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c7ce54ccef645a7169b89bb390c4eb5",
+    "content-hash": "5869fe3722e5bd526db92870db94d425",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -239,11 +239,11 @@
         },
         {
             "name": "rips/connector",
-            "version": "dev-dev",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "a7fae5336fb5360bce4f115a2f42dd724acd90ab"
+                "reference": "57c969d19ab387fb618cab795d8f7d36aa3eedda"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -271,15 +271,13 @@
                 "Proprietary"
             ],
             "description": "RIPS API connector package",
-            "time": "2017-09-11 15:48:06"
+            "time": "2017-09-11T16:08:40+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "rips/connector": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
