@@ -78,7 +78,7 @@ class OrgService
      */
     public function update(int $orgId, OrgBuilder $input)
     {
-        $org = $this->api->orgs()->update($orgId, $input);
+        $org = $this->api->orgs()->update($orgId, $input->toArray());
 
         return OrgHydrator::hydrate($org);
     }
