@@ -4,32 +4,35 @@ namespace RIPS\ConnectorBundle\InputBuilders;
 
 class UserBuilder extends BaseBuilder
 {
-    // @var string
+    /** @var string */
     protected $email;
 
-    // @var string
+    /** @var string */
     protected $username;
 
-    // @var string
+    /** @var string */
     protected $firstname;
 
-    // @var string
+    /** @var string */
     protected $lastname;
 
-    // @var string
+    /** @var string */
     protected $plainPassword;
 
-    // @var int
+    /** @var int */
     protected $organisation;
 
-    // @var array
+    /** @var array */
     protected $roles;
 
-    // @var bool
+    /** @var bool */
     protected $root;
 
-    // @var bool
+    /** @var bool */
     protected $enabled;
+
+    /** @var array */
+    protected $callbacks;
 
     /**
      * Set email
@@ -78,10 +81,10 @@ class UserBuilder extends BaseBuilder
     /**
      * Set plainPassword
      *
-     * @param  sting $plainPassword
+     * @param  string $plainPassword
      * @return void
      */
-    public function setPlainPassword(string $password)
+    public function setPlainPassword(string $plainPassword)
     {
         $this->plainPassword = $plainPassword;
     }
@@ -127,5 +130,13 @@ class UserBuilder extends BaseBuilder
     public function setRoot(bool $root)
     {
         $this->root = $root;
+    }
+
+    /**
+     * @param array $callbacks
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->callbacks = $callbacks;
     }
 }
