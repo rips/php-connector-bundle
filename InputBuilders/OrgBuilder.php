@@ -2,15 +2,16 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
-use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
-
 class OrgBuilder extends BaseBuilder
 {
-    // @var string
+    /** @var string */
     protected $validUntil;
 
-    // @var string
+    /** @var string */
     protected $name;
+
+    /** @var array */
+    protected $callbacks;
 
     /**
      * Set name
@@ -32,5 +33,13 @@ class OrgBuilder extends BaseBuilder
     public function setValidUntil(string $validUntil)
     {
         $this->validUntil = $validUntil;
+    }
+
+    /**
+     * @param array $callbacks
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->callbacks = $callbacks;
     }
 }
