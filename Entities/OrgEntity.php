@@ -31,7 +31,7 @@ class OrgEntity
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -41,7 +41,7 @@ class OrgEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -52,7 +52,7 @@ class OrgEntity
      * @param  string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -62,7 +62,7 @@ class OrgEntity
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -83,7 +83,7 @@ class OrgEntity
      *
      * @return QuotaEntity[]
      */
-    public function getQuotas(): array
+    public function getQuotas()
     {
         return $this->quotas;
     }
@@ -94,7 +94,7 @@ class OrgEntity
      * @param  string $validUntil
      * @return void
      */
-    public function setValidUntil(string $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
     }
@@ -104,7 +104,7 @@ class OrgEntity
      *
      * @return string
      */
-    public function getValidUntil(): string
+    public function getValidUntil()
     {
         return $this->validUntil;
     }

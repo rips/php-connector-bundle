@@ -60,7 +60,7 @@ class CustomFunctionEntity
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -81,7 +81,7 @@ class CustomFunctionEntity
      * @param  int $startLine
      * @return void
      */
-    public function setStartLine(int $startLine)
+    public function setStartLine($startLine)
     {
         $this->startLine = $startLine;
     }
@@ -102,7 +102,7 @@ class CustomFunctionEntity
      * @param  int $endLine
      * @return void
      */
-    public function setEndLine(int $endLine)
+    public function setEndLine($endLine)
     {
         $this->endLine = $endLine;
     }
@@ -123,7 +123,7 @@ class CustomFunctionEntity
      * @param  string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }

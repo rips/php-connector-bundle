@@ -75,7 +75,7 @@ class LogEntity
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -85,7 +85,7 @@ class LogEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -96,7 +96,7 @@ class LogEntity
      * @param  string $text
      * @return void
      */
-    public function setText(string $text)
+    public function setText($text)
     {
         $this->text = $text;
     }
@@ -106,7 +106,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->text;
     }
@@ -117,7 +117,7 @@ class LogEntity
      * @param  int $level
      * @return void
      */
-    public function setLevel(int $level)
+    public function setLevel($level)
     {
         $this->level = $level;
     }
@@ -127,7 +127,7 @@ class LogEntity
      *
      * @return int
      */
-    public function getLevel(): int
+    public function getLevel()
     {
         return $this->level;
     }
@@ -138,7 +138,7 @@ class LogEntity
      * @param  string $channel
      * @return void
      */
-    public function setChannel(string $channel)
+    public function setChannel($channel)
     {
         $this->channel = $channel;
     }
@@ -148,7 +148,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getChannel(): string
+    public function getChannel()
     {
         return $this->channel;
     }
@@ -159,7 +159,7 @@ class LogEntity
      * @param  string $requestUri
      * @return void
      */
-    public function setRequestUri(string $requestUri)
+    public function setRequestUri($requestUri)
     {
         $this->requestUri = $requestUri;
     }
@@ -169,7 +169,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getRequestUri(): string
+    public function getRequestUri()
     {
         return $this->requestUri;
     }
@@ -180,7 +180,7 @@ class LogEntity
      * @param  string $requestMethod
      * @return void
      */
-    public function setRequestMethod(string $requestMethod)
+    public function setRequestMethod($requestMethod)
     {
         $this->requestMethod = $requestMethod;
     }
@@ -190,7 +190,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getRequestMethod(): string
+    public function getRequestMethod()
     {
         return $this->requestMethod;
     }
@@ -201,7 +201,7 @@ class LogEntity
      * @param  string $ip
      * @return void
      */
-    public function setIp(string $ip)
+    public function setIp($ip)
     {
         $this->ip = $ip;
     }
@@ -211,7 +211,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getIp(): string
+    public function getIp()
     {
         return $this->ip;
     }
@@ -232,7 +232,7 @@ class LogEntity
      *
      * @return UserEntity
      */
-    public function getUser(): UserEntity
+    public function getUser()
     {
         return $this->user;
     }
@@ -243,7 +243,7 @@ class LogEntity
      * @param  string $username
      * @return void
      */
-    public function setUsername(string $username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
@@ -253,7 +253,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->username;
     }
@@ -285,7 +285,7 @@ class LogEntity
      * @param  string $orgName
      * @return void
      */
-    public function setOrgName(string $orgName)
+    public function setOrgName($orgName)
     {
         $this->orgName = $orgName;
     }
@@ -295,7 +295,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getOrgName(): string
+    public function getOrgName()
     {
         return $this->orgName;
     }
@@ -306,7 +306,7 @@ class LogEntity
      * @param  string $context
      * @return void
      */
-    public function setContext(string $context)
+    public function setContext($context)
     {
         $this->context = $context;
     }
@@ -316,7 +316,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getContext(): string
+    public function getContext()
     {
         return $this->context;
     }
@@ -327,7 +327,7 @@ class LogEntity
      * @param  string $created
      * @return void
      */
-    public function setCreated(string $created)
+    public function setCreated($created)
     {
         $this->created = $created;
     }
@@ -337,7 +337,7 @@ class LogEntity
      *
      * @return string
      */
-    public function getCreated(): string
+    public function getCreated()
     {
         return $this->created;
     }
