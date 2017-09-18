@@ -7,14 +7,13 @@ class ApplicationBuilder extends BaseBuilder
     // @var string
     protected $applicationName;
 
-
     /**
      * Set applicationName
      *
      * @param  string
      * @return void
      */
-    public function setApplicationName(string $applicationName)
+    public function setApplicationName($applicationName)
     {
         $this->applicationName = $applicationName;
     }

@@ -45,7 +45,7 @@ class ApplicationEntity
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -55,7 +55,7 @@ class ApplicationEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -66,7 +66,7 @@ class ApplicationEntity
      * @param  string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -76,7 +76,7 @@ class ApplicationEntity
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -87,7 +87,7 @@ class ApplicationEntity
      * @param  int
      * @return void
      */
-    public function setCurrentScan(int $currentScan)
+    public function setCurrentScan($currentScan)
     {
         $this->currentScan = $currentScan;
     }
@@ -98,7 +98,7 @@ class ApplicationEntity
      * @return int
      */
 
-    public function getCurrentScan(): int
+    public function getCurrentScan()
     {
         return $this->currentScan;
     }
@@ -109,7 +109,7 @@ class ApplicationEntity
      * @param  string
      * @return void
      */
-    public function setCreation(string $creation)
+    public function setCreation($creation)
     {
         $this->creation = $creation;
     }
@@ -119,7 +119,7 @@ class ApplicationEntity
      *
      * @return string
      */
-    public function getCreation(): string
+    public function getCreation()
     {
         return $this->creation;
     }
@@ -140,7 +140,7 @@ class ApplicationEntity
      *
      * @return OrgEntity
      */
-    public function getOrganisation(): OrgEntity
+    public function getOrganisation()
     {
         return $this->organisation;
     }
@@ -161,7 +161,7 @@ class ApplicationEntity
      *
      * @return UserEntity
      */
-    public function getCreatedBy(): UserEntity
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -182,7 +182,7 @@ class ApplicationEntity
      *
      * @return QuotaEntity
      */
-    public function getChargedQuota(): QuotaEntity
+    public function getChargedQuota()
     {
         return $this->chargedQuota;
     }

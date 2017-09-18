@@ -66,7 +66,7 @@ class UserEntity
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -76,7 +76,7 @@ class UserEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -87,7 +87,7 @@ class UserEntity
      * @param  string $username
      * @return void
      */
-    public function setUsername(string $username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
@@ -97,7 +97,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->username;
     }
@@ -108,7 +108,7 @@ class UserEntity
      * @param  string $firstname
      * @return void
      */
-    public function setFirstname(string $firstname)
+    public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
     }
@@ -118,7 +118,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getFirstname(): string
+    public function getFirstname()
     {
         return $this->firstname;
     }
@@ -129,7 +129,7 @@ class UserEntity
      * @param  string $lastname
      * @return void
      */
-    public function setLastname(string $lastname)
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
     }
@@ -139,7 +139,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getLastname(): string
+    public function getLastname()
     {
         return $this->lastname;
     }
@@ -150,7 +150,7 @@ class UserEntity
      * @param  string $email
      * @return void
      */
-    public function setEmail(string $email)
+    public function setEmail($email)
     {
         return $this->email = $email;
     }
@@ -160,7 +160,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -171,7 +171,7 @@ class UserEntity
      * @param  boolean $emptyUsername
      * @return void
      */
-    public function setEmptyUsername(bool $emptyUsername)
+    public function setEmptyUsername($emptyUsername)
     {
         $this->emptyUsername = $emptyUsername;
     }
@@ -181,7 +181,7 @@ class UserEntity
      *
      * @return boolean
      */
-    public function getEmptyUsername(): bool
+    public function getEmptyUsername()
     {
         return $this->emptyUsername;
     }
@@ -202,7 +202,7 @@ class UserEntity
      *
      * @return array
      */
-    public function getRoles(): array
+    public function getRoles()
     {
         return $this->roles;
     }
@@ -213,7 +213,7 @@ class UserEntity
      * @param  boolean $root
      * @return void
      */
-    public function setRoot(bool $root)
+    public function setRoot($root)
     {
         $this->root = $root;
     }
@@ -223,7 +223,7 @@ class UserEntity
      *
      * @return boolean
      */
-    public function getRoot(): bool
+    public function getRoot()
     {
         return $this->root;
     }
@@ -234,7 +234,7 @@ class UserEntity
      * @param  boolean $enabled
      * @return void
      */
-    public function setEnabled(bool $enabled)
+    public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
     }
@@ -244,7 +244,7 @@ class UserEntity
      *
      * @return boolean
      */
-    public function getEnabled(): bool
+    public function getEnabled()
     {
         return $this->enabled;
     }
@@ -265,7 +265,7 @@ class UserEntity
      *
      * @return OrgEntity
      */
-    public function getOrganisation(): OrgEntity
+    public function getOrganisation()
     {
         return $this->organisation;
     }
@@ -276,7 +276,7 @@ class UserEntity
      * @param string $validUntil
      * @return void
      */
-    public function setValidUntil(string $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
     }
@@ -286,7 +286,7 @@ class UserEntity
      *
      * @return string
      */
-    public function getValidUntil(): string
+    public function getValidUntil()
     {
         return isset($this->organisation) ? $this->organisation->getValidUntil() : $this->validUntil;
     }

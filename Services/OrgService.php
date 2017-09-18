@@ -40,7 +40,7 @@ class OrgService
      * @param  int $orgId
      * @return OrgEntity
      */
-    public function getById(int $orgId)
+    public function getById($orgId)
     {
         $org = $this->api->orgs()->getById($orgId);
 
@@ -64,7 +64,7 @@ class OrgService
      * @param  int $orgId
      * @return void
      */
-    public function deleteById(int $orgId)
+    public function deleteById($orgId)
     {
         $this->api->orgs()->deleteById($orgId);
     }
@@ -76,7 +76,7 @@ class OrgService
      * @param  OrgBuilder $input
      * @return OrgEntity
      */
-    public function update(int $orgId, OrgBuilder $input)
+    public function update($orgId, OrgBuilder $input)
     {
         $org = $this->api->orgs()->update($orgId, $input->toArray());
 

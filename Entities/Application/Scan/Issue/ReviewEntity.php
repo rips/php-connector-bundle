@@ -40,7 +40,7 @@ class ReviewEntity
      * @param integer
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -50,7 +50,7 @@ class ReviewEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -71,7 +71,7 @@ class ReviewEntity
      *
      * @return DateTime
      */
-    public function getSubmission(): DateTime
+    public function getSubmission()
     {
         return $this->submission;
     }
@@ -92,7 +92,7 @@ class ReviewEntity
      *
      * @return Type
      */
-    public function getType(): Type
+    public function getType()
     {
         return $this->type;
     }
@@ -113,7 +113,7 @@ class ReviewEntity
      *
      * @return void
      */
-    public function getCreatedBy(): UserEntity
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -134,7 +134,7 @@ class ReviewEntity
      *
      * @return IssueEntity
      */
-    public function getIssue(): IssueEntity
+    public function getIssue()
     {
         return $this->issue;
     }

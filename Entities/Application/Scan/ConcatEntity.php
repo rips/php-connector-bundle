@@ -51,7 +51,7 @@ class ConcatEntity
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -61,7 +61,7 @@ class ConcatEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -72,7 +72,7 @@ class ConcatEntity
      * @param int $line
      * @return void
      */
-    public function setLine(int $line)
+    public function setLine($line)
     {
         $this->line = $line;
     }
@@ -82,7 +82,7 @@ class ConcatEntity
      *
      * @return int
      */
-    public function getLine(): int
+    public function getLine()
     {
         return $this->line;
     }
@@ -103,7 +103,7 @@ class ConcatEntity
      *
      * @return FileEntity
      */
-    public function getFile(): FileEntity
+    public function getFile()
     {
         return $this->file;
     }
@@ -124,7 +124,7 @@ class ConcatEntity
      *
      * @return ScanEntity
      */
-    public function getScan(): ScanEntity
+    public function getScan()
     {
         return $this->scan;
     }
@@ -145,7 +145,7 @@ class ConcatEntity
      *
      * @return CustomFunctionEntity
      */
-    public function getFunction(): CustomFunctionEntity
+    public function getFunction()
     {
         return $this->function;
     }
@@ -166,7 +166,7 @@ class ConcatEntity
      *
      * @return CustomClassEntity
      */
-    public function getClass(): CustomClassEntity
+    public function getClass()
     {
         return $this->class;
     }
@@ -187,7 +187,7 @@ class ConcatEntity
      *
      * @return IssueEntity
      */
-    public function getIssue(): IssueEntity
+    public function getIssue()
     {
         return $this->issue;
     }
