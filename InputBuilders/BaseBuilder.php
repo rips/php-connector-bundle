@@ -21,7 +21,7 @@ abstract class BaseBuilder
      *
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return array_filter(get_object_vars($this));
     }

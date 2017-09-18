@@ -21,7 +21,7 @@ class LogBuilder extends BaseBuilder
      * @param  string $text
      * @return void
      */
-    public function setText(string $text)
+    public function setText($text)
     {
         $this->text = $text;
     }
@@ -32,7 +32,7 @@ class LogBuilder extends BaseBuilder
      * @param  string $context
      * @return void
      */
-    public function setContext(string $context)
+    public function setContext($context)
     {
         $this->context = $context;
     }
@@ -43,7 +43,7 @@ class LogBuilder extends BaseBuilder
      * @param  int $level
      * @return void
      */
-    public function setLevel(int $level)
+    public function setLevel($level)
     {
         $this->level = $level;
     }
