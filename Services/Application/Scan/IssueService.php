@@ -29,7 +29,7 @@ class IssueService
      * @param int $scanID
      * @return array <IssueEntity>
      */
-    public function getAll(int $applicationID, int $scanID)
+    public function getAll($applicationID, $scanID)
     {
         $issues = $this->api->issues()->getAll($applicationID, $scanID);
         return IssueHydrator::hydrateCollection($issues);
