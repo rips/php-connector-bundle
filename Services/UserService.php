@@ -42,7 +42,7 @@ class UserService
      * @param  int $userId
      * @return UserEntity
      */
-    public function getById(int $userId)
+    public function getById($userId)
     {
         $user = $this->api->users()->getById($userId);
 

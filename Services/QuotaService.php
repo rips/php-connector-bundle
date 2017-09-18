@@ -40,7 +40,7 @@ class QuotaService
      * @param  int $quotaId
      * @return QuotaEntity
      */
-    public function getById(int $quotaId)
+    public function getById($quotaId)
     {
         $org = $this->api->quotas()->getById($quotaId);
 

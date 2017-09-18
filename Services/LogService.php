@@ -40,7 +40,7 @@ class LogService
      * @param  int $logId
      * @return LogEntity
      */
-    public function getById(int $logId)
+    public function getById($logId)
     {
         $log = $this->api->logs()->getById($logId);
 

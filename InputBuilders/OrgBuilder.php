@@ -19,7 +19,7 @@ class OrgBuilder extends BaseBuilder
      * @param  string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -30,7 +30,7 @@ class OrgBuilder extends BaseBuilder
      * @param  string $validUntil
      * @return void
      */
-    public function setValidUntil(string $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
     }

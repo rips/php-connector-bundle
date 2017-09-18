@@ -49,7 +49,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int
      * @return void
      */
-    public function setAllowedMisses(int $allowedMisses)
+    public function setAllowedMisses($allowedMisses)
     {
         $this->allowedMisses = $allowedMisses;
     }
@@ -60,7 +60,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $currentApplication
      * @return void
      */
-    public function setCurrentApplication(int $currentApplication)
+    public function setCurrentApplication($currentApplication)
     {
         $this->currentApplication = $currentApplication;
     }
@@ -71,7 +71,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $currentScan
      * @return void
      */
-    public function setCurrentScan(int $currentScan)
+    public function setCurrentScan($currentScan)
     {
         $this->currentScan = $currentScan;
     }
@@ -82,7 +82,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $currentUser
      * @return void
      */
-    public function setCurrentUser(int $currentUser)
+    public function setCurrentUser($currentUser)
     {
         $this->currentUser = $currentUser;
     }
@@ -93,7 +93,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $maxApplications
      * @return void
      */
-    public function setMaxApplications(int $maxApplications)
+    public function setMaxApplications($maxApplications)
     {
         $this->maxApplications = $maxApplications;
     }
@@ -104,7 +104,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $maxLoc
      * @return void
      */
-    public function setMaxLoc(int $maxLoc)
+    public function setMaxLoc($maxLoc)
     {
         $this->maxLoc = $maxLoc;
     }
@@ -115,7 +115,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $maxScans
      * @return void
      */
-    public function setMaxScans(int $maxScans)
+    public function setMaxScans($maxScans)
     {
         $this->maxScans = $maxScans;
     }
@@ -126,7 +126,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $maxUsers
      * @return void
      */
-    public function setMaxUsers(int $maxUsers)
+    public function setMaxUsers($maxUsers)
     {
         $this->maxUsers = $maxUsers;
     }
@@ -137,7 +137,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  int $organisation
      * @return void
      */
-    public function setOrganisation(int $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
     }
@@ -159,7 +159,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  string $validFrom
      * @return void
      */
-    public function setValidFrom(string $validFrom)
+    public function setValidFrom($validFrom)
     {
         $this->validFrom = $validFrom;
     }
@@ -170,7 +170,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  string $validUntil
      * @return void
      */
-    public function setValidUntil(string $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
     }
@@ -181,7 +181,7 @@ class QuotaBuilder extends BaseBuilder
      * @param  bool $notify
      * @return void
      */
-    public function setNotify(bool $notify)
+    public function setNotify($notify)
     {
         $this->notify = $notify;
     }

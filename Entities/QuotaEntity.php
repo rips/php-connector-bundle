@@ -77,7 +77,7 @@ class QuotaEntity
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -87,7 +87,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -98,7 +98,7 @@ class QuotaEntity
      * @param  integer $currentApp
      * @return void
      */
-    public function setCurrentApplication(int $currentApp)
+    public function setCurrentApplication($currentApp)
     {
         $this->currentApplication = $currentApp;
     }
@@ -108,7 +108,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getCurrentApplication(): int
+    public function getCurrentApplication()
     {
         return $this->currentApplication;
     }
@@ -119,7 +119,7 @@ class QuotaEntity
      * @param  integer $currentScan
      * @return void
      */
-    public function setCurrentScan(int $currentScan)
+    public function setCurrentScan($currentScan)
     {
         $this->currentScan = $currentScan;
     }
@@ -129,7 +129,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getCurrentScan(): int
+    public function getCurrentScan()
     {
         return $this->currentScan;
     }
@@ -140,7 +140,7 @@ class QuotaEntity
      * @param  integer $currentUser
      * @return void
      */
-    public function setCurrentUser(int $currentUser)
+    public function setCurrentUser($currentUser)
     {
         $this->currentUser = $currentUser;
     }
@@ -150,7 +150,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getCurrentUser(): int
+    public function getCurrentUser()
     {
         return $this->currentUser;
     }
@@ -161,7 +161,7 @@ class QuotaEntity
      * @param  integer $maxApplications
      * @return void
      */
-    public function setMaxApplications(int $maxApplications)
+    public function setMaxApplications($maxApplications)
     {
         $this->maxApplications = $maxApplications;
     }
@@ -171,7 +171,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxApplications(): int
+    public function getMaxApplications()
     {
         return $this->maxApplications;
     }
@@ -182,7 +182,7 @@ class QuotaEntity
      * @param  integer $maxScans
      * @return void
      */
-    public function setMaxScans(int $maxScans)
+    public function setMaxScans($maxScans)
     {
         $this->maxScans = $maxScans;
     }
@@ -192,7 +192,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxScans(): int
+    public function getMaxScans()
     {
         return $this->maxScans;
     }
@@ -203,7 +203,7 @@ class QuotaEntity
      * @param  integer $maxUsers
      * @return void
      */
-    public function setMaxUsers(int $maxUsers)
+    public function setMaxUsers($maxUsers)
     {
         $this->maxUsers = $maxUsers;
     }
@@ -213,7 +213,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxUsers(): int
+    public function getMaxUsers()
     {
         return $this->maxUsers;
     }
@@ -224,7 +224,7 @@ class QuotaEntity
      * @param integer $maxLoc
      * @return void
      */
-    public function setMaxLoc(int $maxLoc)
+    public function setMaxLoc($maxLoc)
     {
         $this->maxLoc = $maxLoc;
     }
@@ -234,7 +234,7 @@ class QuotaEntity
      *
      * @return integer
      */
-    public function getMaxLoc(): int
+    public function getMaxLoc()
     {
         return $this->maxLoc;
     }
@@ -245,7 +245,7 @@ class QuotaEntity
      * @param  string $validFrom
      * @return void
      */
-    public function setValidFrom(string $validFrom)
+    public function setValidFrom($validFrom)
     {
         $this->validFrom = $validFrom;
     }
@@ -255,7 +255,7 @@ class QuotaEntity
      *
      * @return string
      */
-    public function getValidFrom(): string
+    public function getValidFrom()
     {
         return $this->validFrom;
     }
@@ -266,7 +266,7 @@ class QuotaEntity
      * @param  string $validUntil
      * @return void
      */
-    public function setValidUntil(string $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
     }
@@ -276,7 +276,7 @@ class QuotaEntity
      *
      * @return string
      */
-    public function getValidUntil(): string
+    public function getValidUntil()
     {
         return $this->validUntil;
     }
@@ -287,7 +287,7 @@ class QuotaEntity
      * @param  boolean $public
      * @return void
      */
-    public function setPublic(bool $public)
+    public function setPublic($public)
     {
         $this->public = $public;
     }
@@ -297,7 +297,7 @@ class QuotaEntity
      *
      * @return boolean
      */
-    public function getPublic(): bool
+    public function getPublic()
     {
         return $this->public;
     }
@@ -318,7 +318,7 @@ class QuotaEntity
      *
      * @return OrgEntity
      */
-    public function getOrg(): OrgEntity
+    public function getOrg()
     {
         return $this->org;
     }
@@ -329,7 +329,7 @@ class QuotaEntity
      * @param  bool $notify
      * @return void
      */
-    public function setNotify(bool $notify)
+    public function setNotify($notify)
     {
         $this->notify = $notify;
     }
@@ -339,7 +339,7 @@ class QuotaEntity
      *
      * @return bool
      */
-    public function getNotify(): bool
+    public function getNotify()
     {
         return $this->notify;
     }

@@ -85,7 +85,7 @@ class TypeEntity
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -95,7 +95,7 @@ class TypeEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -116,7 +116,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getTag(): string
+    public function getTag()
     {
         return $this->tag;
     }
@@ -137,7 +137,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
@@ -158,7 +158,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getName():string
+    public function getName()
     {
         return $this->name;
     }
@@ -179,7 +179,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getColor():string
+    public function getColor()
     {
         return $this->color;
     }
@@ -200,7 +200,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getMarkup():string
+    public function getMarkup()
     {
         return $this->markup;
     }
@@ -221,7 +221,7 @@ class TypeEntity
      *
      * @return int
      */
-    public function getSeverity():int
+    public function getSeverity()
     {
         return $this->severity;
     }
@@ -242,7 +242,7 @@ class TypeEntity
      *
      * @return int
      */
-    public function getEffort():int
+    public function getEffort()
     {
         return $this->effort;
     }
@@ -263,7 +263,7 @@ class TypeEntity
      *
      * @return bool
      */
-    public function isSecondOrder():bool
+    public function isSecondOrder()
     {
         return $this->secondOrder;
     }
@@ -284,7 +284,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getCwe():string
+    public function getCwe()
     {
         return $this->cwe;
     }
@@ -305,7 +305,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getOwasp():string
+    public function getOwasp()
     {
         return $this->owasp;
     }
@@ -326,7 +326,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getSans():string
+    public function getSans()
     {
         return $this->sans;
     }
@@ -347,7 +347,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getPcidss():string
+    public function getPcidss()
     {
         return $this->pcidss;
     }
@@ -368,7 +368,7 @@ class TypeEntity
      *
      * @return bool
      */
-    public function isEnable():bool
+    public function isEnable()
     {
         return $this->enable;
     }
@@ -379,7 +379,7 @@ class TypeEntity
      * @param  TypeEntity $parent
      * @return void
      */
-    public function setParent($parent)
+    public function setParent(TypeEntity $parent)
     {
         $this->parent = $parent;
     }
@@ -388,7 +388,7 @@ class TypeEntity
      * Get parent
      * @return TypeEntity
      */
-    public function getParent(): TypeEntity
+    public function getParent()
     {
         return $this->parent;
     }

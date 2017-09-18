@@ -39,7 +39,7 @@ class CommentEntity
      * @param integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -49,7 +49,7 @@ class CommentEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -60,7 +60,7 @@ class CommentEntity
      * @param string $comment
      * @return void
      */
-    public function setComment(string $comment)
+    public function setComment($comment)
     {
         $this->comment = $comment;
     }
@@ -70,7 +70,7 @@ class CommentEntity
      *
      * @return array
      */
-    public function getComment(): array
+    public function getComment()
     {
         return $this->comment;
     }
@@ -91,7 +91,7 @@ class CommentEntity
      *
      * @return DateTime
      */
-    public function getSubmission(): DateTime
+    public function getSubmission()
     {
         return $this->submission;
     }
@@ -112,7 +112,7 @@ class CommentEntity
      *
      * @return UserEntity
      */
-    public function getCreatedBy(): UserEntity
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -133,7 +133,7 @@ class CommentEntity
      *
      * @return IssueEntity
      */
-    public function getIssue(): IssueEntity
+    public function getIssue()
     {
         return $this->issue;
     }

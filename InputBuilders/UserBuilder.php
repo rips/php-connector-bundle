@@ -40,7 +40,7 @@ class UserBuilder extends BaseBuilder
      * @param  string $email
      * @return void
      */
-    public function setEmail(string $email)
+    public function setEmail($email)
     {
         $this->email = $email;
     }
@@ -51,7 +51,7 @@ class UserBuilder extends BaseBuilder
      * @param  string $username
      * @return void
      */
-    public function setUsername(string $username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
@@ -62,7 +62,7 @@ class UserBuilder extends BaseBuilder
      * @param  string $firstname
      * @return void
      */
-    public function setFirstname(string $firstname)
+    public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
     }
@@ -73,7 +73,7 @@ class UserBuilder extends BaseBuilder
      * @param  string $lastname
      * @return void
      */
-    public function setLastname(string $lastname)
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
     }
@@ -84,7 +84,7 @@ class UserBuilder extends BaseBuilder
      * @param  string $plainPassword
      * @return void
      */
-    public function setPlainPassword(string $plainPassword)
+    public function setPlainPassword($plainPassword)
     {
         $this->plainPassword = $plainPassword;
     }
@@ -95,7 +95,7 @@ class UserBuilder extends BaseBuilder
      * @param  int $organisation
      * @return void
      */
-    public function setOrganisation(int $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
     }
@@ -116,7 +116,7 @@ class UserBuilder extends BaseBuilder
      * @param  bool $enabled
      * @return void
      */
-    public function setEnabled(bool $enabled)
+    public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
     }
@@ -127,7 +127,7 @@ class UserBuilder extends BaseBuilder
      * @param  bool $root
      * @return void
      */
-    public function setRoot(bool $root)
+    public function setRoot($root)
     {
         $this->root = $root;
     }

@@ -30,7 +30,7 @@ class ScanService
      * @param  array $queryParams
      * @return array<ScanEntity>
      */
-    public function getAll(int $applicationId = null, array $queryParams = [])
+    public function getAll($applicationId = null, array $queryParams = [])
     {
         $scans = $this->api->scans()->getAll($applicationId, $queryParams);
         return ScanHydrator::hydrateCollection($scans);
@@ -43,7 +43,7 @@ class ScanService
      * @param int $scanId
      * @return ScanEntity
      */
-    public function getById(int $applicationId, int $scanId)
+    public function getById($applicationId, $scanId)
     {
         $scans = $this->api->scans()->getById($applicationId, $scanId);
         return ScanHydrator::hydrate($scans);
@@ -56,7 +56,7 @@ class ScanService
      * @param int $scanID
      * @return ScanEntity
      */
-    public function getStats(int $applicationID, int $scanID)
+    public function getStats($applicationID, $scanID)
     {
         $scans = $this->api->scans()->getStatsById($applicationID, $scanID);
         return ScanHydrator::hydrate($scans);

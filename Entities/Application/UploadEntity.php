@@ -58,7 +58,7 @@ class UploadEntity
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -68,7 +68,7 @@ class UploadEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -79,7 +79,7 @@ class UploadEntity
      * @param  string $submission
      * @return void
      */
-    public function setSubmission(string $submission)
+    public function setSubmission($submission)
     {
         $this->submission = $submission;
     }
@@ -89,7 +89,7 @@ class UploadEntity
      *
      * @return string
      */
-    public function getSubmission(): string
+    public function getSubmission()
     {
         return $this->submission;
     }
@@ -100,7 +100,7 @@ class UploadEntity
      * @param  string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -110,7 +110,7 @@ class UploadEntity
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -121,7 +121,7 @@ class UploadEntity
      * @param  string $extension
      * @return void
      */
-    public function setExtension(string $extension)
+    public function setExtension($extension)
     {
         $this->extension = $extension;
     }
@@ -131,7 +131,7 @@ class UploadEntity
      *
      * @return string
      */
-    public function getExtension(): string
+    public function getExtension()
     {
         return $this->extension;
     }
@@ -142,7 +142,7 @@ class UploadEntity
      * @param  integer $size
      * @return void
      */
-    public function setSize(int $size)
+    public function setSize($size)
     {
         $this->size = $size;
     }
@@ -152,7 +152,7 @@ class UploadEntity
      *
      * @return integer
      */
-    public function getSize(): int
+    public function getSize()
     {
         return $this->size;
     }
@@ -163,7 +163,7 @@ class UploadEntity
      * @param  string $file
      * @return void
      */
-    public function setFile(string $file)
+    public function setFile($file)
     {
         $this->file = $file;
     }
@@ -173,7 +173,7 @@ class UploadEntity
      *
      * @return string
      */
-    public function getFile(): string
+    public function getFile()
     {
         return $this->file;
     }
@@ -194,7 +194,7 @@ class UploadEntity
      *
      * @return UserEntity
      */
-    public function getCreatedBy(): UserEntity
+    public function getCreatedBy()
     {
         return $this->createdBy;
     }
@@ -215,7 +215,7 @@ class UploadEntity
      *
      * @return ScanEntity[]
      */
-    public function getScans(): array
+    public function getScans()
     {
         return $this->scans;
     }
@@ -236,7 +236,7 @@ class UploadEntity
      *
      * @return ApplicationEntity
      */
-    public function getApplication(): ApplicationEntity
+    public function getApplication()
     {
         return $this->application;
     }

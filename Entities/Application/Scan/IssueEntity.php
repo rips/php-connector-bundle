@@ -116,7 +116,7 @@ class IssueEntity
      * @param  integer $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -126,7 +126,7 @@ class IssueEntity
      *
      * @return integer
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -147,7 +147,7 @@ class IssueEntity
      *
      * @return CommentEntity[]
      */
-    public function getComments(): array
+    public function getComments()
     {
         return $this->comments;
     }
@@ -168,7 +168,7 @@ class IssueEntity
      *
      * @return SummaryEntity[]
      */
-    public function getSummaries(): array
+    public function getSummaries()
     {
         return $this->summaries;
     }
@@ -189,7 +189,7 @@ class IssueEntity
      *
      * @return MarkupEntity[]
      */
-    public function getMarkups(): array
+    public function getMarkups()
     {
         return $this->markups;
     }
@@ -210,7 +210,7 @@ class IssueEntity
      *
      * @return OriginTypeEntity
      */
-    public function getOrigin(): OriginTypeEntity
+    public function getOrigin()
     {
         return $this->origin;
     }
@@ -221,7 +221,7 @@ class IssueEntity
      * @param  int $depth
      * @return void
      */
-    public function setDepth(int $depth)
+    public function setDepth($depth)
     {
         $this->depth = $depth;
     }
@@ -231,7 +231,7 @@ class IssueEntity
      *
      * @return int
      */
-    public function getDepth(): int
+    public function getDepth()
     {
         return $this->depth;
     }
@@ -242,7 +242,7 @@ class IssueEntity
      * @param  TypeEntity $type
      * @return void
      */
-    public function setType(TypeEntity $type = null)
+    public function setType(TypeEntity $type)
     {
         $this->type = $type;
     }
@@ -252,7 +252,7 @@ class IssueEntity
      *
      * @return TypeEntity
      */
-    public function getType(): TypeEntity
+    public function getType()
     {
         return $this->type;
     }
@@ -273,7 +273,7 @@ class IssueEntity
      *
      * @return ReviewEntity[]
      */
-    public function getReviews(): array
+    public function getReviews()
     {
         return $this->reviews;
     }
@@ -284,7 +284,7 @@ class IssueEntity
      * @param  bool $reviewed
      * @return void
      */
-    public function setReviewed(bool $reviewed)
+    public function setReviewed($reviewed)
     {
         $this->reviewed = $reviewed;
     }
@@ -294,7 +294,7 @@ class IssueEntity
      *
      *@return bool
      */
-    public function getReviewed(): bool
+    public function getReviewed()
     {
         return $this->reviewed;
     }
@@ -315,7 +315,7 @@ class IssueEntity
      *
      * @return bool
      */
-    public function getNegativelyReviewed(): bool
+    public function getNegativelyReviewed()
     {
         return $this->negativelyReviewed;
     }
@@ -325,7 +325,7 @@ class IssueEntity
      *
      * @param SourceEntity $source
      */
-    public function setSource($source)
+    public function setSource(SourceEntity $source)
     {
         $this->source = $source;
     }
@@ -335,7 +335,7 @@ class IssueEntity
      *
      * @return SourceEntity
      */
-    public function getSource(): SourceEntity
+    public function getSource()
     {
         return $this->source;
     }
@@ -346,7 +346,7 @@ class IssueEntity
      * @param  SinkEntity $sink
      * @return void
      */
-    public function setSink($sink)
+    public function setSink(SinkEntity $sink)
     {
         $this->sink = $sink;
     }
@@ -356,7 +356,7 @@ class IssueEntity
      *
      * @return SinkEntity
      */
-    public function getSink(): SinkEntity
+    public function getSink()
     {
         return $this->sink;
     }
@@ -367,7 +367,7 @@ class IssueEntity
      * @param  ConcatEntity $concat
      * @return void
      */
-    public function setConcat(ConcatEntity $concat = null)
+    public function setConcat(ConcatEntity $concat)
     {
         $this->concat = $concat;
     }
@@ -377,7 +377,7 @@ class IssueEntity
      *
      * @return ConcatEntity
      */
-    public function getConcat(): ConcatEntity
+    public function getConcat()
     {
         return $this->concat;
     }
@@ -398,7 +398,7 @@ class IssueEntity
      *
      * @return ScanEntity
      */
-    public function getScan(): ScanEntity
+    public function getScan()
     {
         return $this->scan;
     }
@@ -409,7 +409,7 @@ class IssueEntity
      * @param  int $effort
      * @return void
      */
-    public function setEffort(int $effort)
+    public function setEffort($effort)
     {
         $this->effort = $effort;
     }
@@ -418,7 +418,7 @@ class IssueEntity
      *
      * @return int
      */
-    public function getEffort(): int
+    public function getEffort()
     {
         return $this->effort;
     }
@@ -429,7 +429,7 @@ class IssueEntity
      * @param  bool
      * @return void
      */
-    public function setComplete(bool $complete)
+    public function setComplete($complete)
     {
         $this->complete = $complete;
     }
@@ -439,7 +439,7 @@ class IssueEntity
      *
      * @return bool
      */
-    public function getComplete(): bool
+    public function getComplete()
     {
         return $this->complete;
     }
@@ -460,7 +460,7 @@ class IssueEntity
      *
      * @return IssueEntity
      */
-    public function getParent(): IssueEntity
+    public function getParent()
     {
         return $this->parent;
     }
@@ -471,7 +471,7 @@ class IssueEntity
      * @param  string $cve
      * @return void
      */
-    public function setCve(string $cve)
+    public function setCve($cve)
     {
         $this->cve = $cve;
     }
@@ -481,7 +481,7 @@ class IssueEntity
      *
      * @return string
      */
-    public function getCve(): string
+    public function getCve()
     {
         return $this->cve;
     }
@@ -502,7 +502,7 @@ class IssueEntity
      *
      * @return array
      */
-    public function getReadable(): array
+    public function getReadable()
     {
         return $this->readable;
     }

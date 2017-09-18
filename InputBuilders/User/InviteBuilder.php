@@ -33,7 +33,7 @@ class InviteBuilder extends BaseBuilder
      * @param  string $email
      * @return void
      */
-    public function setEmail(string $email)
+    public function setEmail($email)
     {
         $this->email = $email;
     }
@@ -44,7 +44,7 @@ class InviteBuilder extends BaseBuilder
      * @param  string $username
      * @return void
      */
-    public function setUsername(string $username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
@@ -55,7 +55,7 @@ class InviteBuilder extends BaseBuilder
      * @param  string $firstname
      * @return void
      */
-    public function setFirstname(string $firstname)
+    public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
     }
@@ -66,7 +66,7 @@ class InviteBuilder extends BaseBuilder
      * @param  string $lastname
      * @return void
      */
-    public function setLastname(string $lastname)
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
     }
@@ -77,7 +77,7 @@ class InviteBuilder extends BaseBuilder
      * @param  int $organisation
      * @return void
      */
-    public function setOrganisation(int $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
     }
@@ -98,7 +98,7 @@ class InviteBuilder extends BaseBuilder
      * @param  bool $root
      * @return void
      */
-    public function setRoot(bool $root)
+    public function setRoot($root)
     {
         $this->root = $root;
     }

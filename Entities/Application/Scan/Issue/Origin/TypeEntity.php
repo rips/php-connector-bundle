@@ -25,7 +25,7 @@ class TypeEntity
      * @param  int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -35,7 +35,7 @@ class TypeEntity
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -46,7 +46,7 @@ class TypeEntity
      * @param  string $tag
      * @return void
      */
-    public function setTag(string $tag)
+    public function setTag($tag)
     {
         $this->tag = $tag;
     }
@@ -56,7 +56,7 @@ class TypeEntity
      *
      * @return string
      */
-    public function getTag(): string
+    public function getTag()
     {
         return $this->tag;
     }
@@ -67,7 +67,7 @@ class TypeEntity
      * @param  string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -77,7 +77,7 @@ class TypeEntity
      *
      * @return string $name
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }

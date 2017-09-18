@@ -60,7 +60,7 @@ class CustomClassEntity
      * @param int $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -70,7 +70,7 @@ class CustomClassEntity
      *
      * @return void
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -81,7 +81,7 @@ class CustomClassEntity
      * @param int $startLine
      * @return void
      */
-    public function setStartLine(int $startLine)
+    public function setStartLine($startLine)
     {
         $this->startLine = $startLine;
     }
@@ -91,7 +91,7 @@ class CustomClassEntity
      *
      * @return int
      */
-    public function getStartLine(): int
+    public function getStartLine()
     {
         return $this->startLine;
     }
@@ -102,7 +102,7 @@ class CustomClassEntity
      * @param int $endLine
      * @return void
      */
-    public function setEndLine(int $endLine)
+    public function setEndLine($endLine)
     {
         $this->endLine = $endLine;
     }
@@ -112,7 +112,7 @@ class CustomClassEntity
      *
      * @return int
      */
-    public function getEndLine(): int
+    public function getEndLine()
     {
         return $this->endLine;
     }
@@ -123,7 +123,7 @@ class CustomClassEntity
      * @param string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -133,7 +133,7 @@ class CustomClassEntity
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -154,7 +154,7 @@ class CustomClassEntity
      *
      * @return FileEntity
      */
-    public function getFile(): FileEntity
+    public function getFile()
     {
         return $this->file;
     }
@@ -175,7 +175,7 @@ class CustomClassEntity
      *
      * @return ScanEntity
      */
-    public function getScan(): ScanEntity
+    public function getScan()
     {
         return $this->scan;
     }
@@ -196,7 +196,7 @@ class CustomClassEntity
      *
      * @return CustomFunctionEntity[]
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
         return $this->functions;
     }
@@ -217,7 +217,7 @@ class CustomClassEntity
      *
      * @return SourceEntity[]
      */
-    public function getSources(): array
+    public function getSources()
     {
         return $this->sources;
     }
@@ -238,7 +238,7 @@ class CustomClassEntity
      *
      * @return SinkEntity[]
      */
-    public function getSinks(): array
+    public function getSinks()
     {
         return $this->sinks;
     }
@@ -259,7 +259,7 @@ class CustomClassEntity
      *
      * @return ConcatEntity[]
      */
-    public function getConcats(): array
+    public function getConcats()
     {
         return $this->concats;
     }
