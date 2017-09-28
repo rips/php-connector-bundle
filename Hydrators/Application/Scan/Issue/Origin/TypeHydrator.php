@@ -1,11 +1,11 @@
 <?php
 
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Origin;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\OriginEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Origin\TypeEntity;
 
-class OriginHydrator
+class TypeHydrator
 {
     /**
      * Hydrate a collection of user objects into a collection of
@@ -29,11 +29,11 @@ class OriginHydrator
      * Hydrate a user object into a OriginEntity object
      *
      * @param  \stdClass $origin
-     * @return OriginEntity
+     * @return TypeEntity
      */
     public static function hydrate(\stdClass $origin)
     {
-        $hydrated = new OriginEntity();
+        $hydrated = new TypeEntity();
 
         if (isset($origin->id)) {
             $hydrated->setId($origin->id);
@@ -46,5 +46,6 @@ class OriginHydrator
         if (isset($origin->name)) {
             $hydrated->setName($origin->name);
         }
+        return $hydrated;
     }
 }

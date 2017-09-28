@@ -3,9 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
@@ -176,7 +174,7 @@ class IssueEntity
     /**
      * Set markups
      *
-     * @param  Markup[] $markups
+     * @param  MarkupEntity[] $markups
      * @return void
      */
     public function setMarkups(array $markups)

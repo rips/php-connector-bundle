@@ -11,7 +11,7 @@ class PhpHydrator
      * Hydrate a collection of php objects into a collection of
      * PhpEntity objects
      *
-     * @param stdClass[] $php
+     * @param \stdClass[] $php
      * @return PhpEntity[]
      */
     public static function hydrateCollection(array $phpObjects)
@@ -28,7 +28,7 @@ class PhpHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param stdClass $php
+     * @param \stdClass $php
      * @return PhpEntity
      */
     public static function hydrate(\stdClass $php)

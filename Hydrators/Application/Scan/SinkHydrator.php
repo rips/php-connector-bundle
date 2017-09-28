@@ -15,7 +15,7 @@ class SinkHydrator
      * Hydrate a collection of sink objects into a collection of
      * SinkEntity objects
      *
-     * @param stdClass[] $sink
+     * @param \stdClass[] $sink
      * @return SinkEntity[]
      */
     public static function hydrateCollection($sinks)

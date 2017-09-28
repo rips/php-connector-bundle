@@ -10,9 +10,9 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Origin\TypeHydrator as OriginTypeHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SourceHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ConcatHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
 
 class IssueHydrator
 {
