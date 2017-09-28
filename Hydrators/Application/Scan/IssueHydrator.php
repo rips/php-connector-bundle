@@ -120,7 +120,7 @@ class IssueHydrator
         }
 
         if (isset($issue->parent)) {
-            $hydrated->parent(self::hydrate($issue->parent));
+            $hydrated->SetParent(self::hydrate($issue->parent));
         }
 
         return $hydrated;
