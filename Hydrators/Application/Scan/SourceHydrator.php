@@ -2,6 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SourceEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 

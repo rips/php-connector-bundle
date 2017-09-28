@@ -3,6 +3,12 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 
 
