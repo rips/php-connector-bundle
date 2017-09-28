@@ -11,7 +11,6 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 
-
 class CustomClassHydrator
 {
     /**
