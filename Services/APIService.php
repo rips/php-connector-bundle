@@ -11,6 +11,11 @@ class APIService
 
     public function __construct($username, $password, $config)
     {
+        $this->initialize($username, $password, $config);
+    }
+
+    public function initialize($username, $password, $config)
+    {
         $this->api = new API($username, $password, $config);
     }
 

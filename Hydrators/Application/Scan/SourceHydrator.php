@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SourceEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
@@ -16,7 +15,7 @@ class SourceHydrator
      * Hydrate a collection of source objects into a collection of
      * SourceEntity objects
      *
-     * @param \stdClass[] $source
+     * @param \stdClass[] $sources
      * @return SourceEntity[]
      */
     public static function hydrateCollection($sources)
