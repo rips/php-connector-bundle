@@ -5,7 +5,7 @@ namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\Type;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;
 
 class ReviewEntity
 {
@@ -79,10 +79,10 @@ class ReviewEntity
     /**
      * Set type
      *
-     * @param Type $type
+     * @param TypeEntity $type
      * @return void
      */
-    public function setType(Type $type)
+    public function setType(TypeEntity $type)
     {
         $this->type = $type;
     }
@@ -90,7 +90,7 @@ class ReviewEntity
     /**
      * Get type
      *
-     * @return Type
+     * @return TypeEntity
      */
     public function getType()
     {
@@ -111,7 +111,7 @@ class ReviewEntity
     /**
      * Get createdBy
      *
-     * @return void
+     * @return UserEntity
      */
     public function getCreatedBy()
     {

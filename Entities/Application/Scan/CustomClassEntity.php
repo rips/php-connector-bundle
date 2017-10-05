@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+
 class CustomClassEntity
 {
     /**
@@ -68,7 +70,7 @@ class CustomClassEntity
     /**
      * Get id
      *
-     * @return void
+     * @return int
      */
     public function getId()
     {

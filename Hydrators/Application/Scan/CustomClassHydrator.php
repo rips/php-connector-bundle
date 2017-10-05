@@ -5,7 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
@@ -17,14 +16,14 @@ class CustomClassHydrator
      * Hydrate a collection of customClass objects into a collection of
      * CustomClassEntity objects
      *
-     * @param  \stdClass[] $customClasss
+     * @param  \stdClass[] $customClasses
      * @return CustomClassEntity[]
      */
-    public static function hydrateCollection(array $customClasss)
+    public static function hydrateCollection(array $customClasses)
     {
         $hydrated = [];
 
-        foreach ($customClasss as $customClass) {
+        foreach ($customClasses as $customClass) {
             $hydrated[] = self::hydrate($customClass);
         }
 

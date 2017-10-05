@@ -14,7 +14,7 @@ class ReviewHydrator
      * Hydrate a collection of review objects into a collection of
      * ReviewEntity objects
      *
-     * @param stdClass[] $review
+     * @param \stdClass[] $reviews
      * @return ReviewEntity[]
      */
     public static function hydrateCollection(array $reviews)
@@ -31,7 +31,7 @@ class ReviewHydrator
     /**
      * Hydrate a review object into a ReviewEntity object
      *
-     * @param stdClass $review
+     * @param \stdClass $review
      * @return ReviewEntity
      */
     public static function hydrate(\stdClass $review)
