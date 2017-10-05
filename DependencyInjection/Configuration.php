@@ -21,9 +21,9 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('rips_connector');
 
         $rootNode->children()
-            ->scalarNode('username')->end()
-            ->scalarNode('password')->end()
-            ->scalarNode('base_uri')->end()
+            ->scalarNode('username')->defaultValue('')->end()
+            ->scalarNode('password')->defaultValue('')->end()
+            ->scalarNode('base_uri')->defaultValue('')->end()
             ->integerNode('timeout')->defaultValue(10)->end()
             ->integerNode('connect_timeout')->defaultValue(10)->end()
             ->end();
