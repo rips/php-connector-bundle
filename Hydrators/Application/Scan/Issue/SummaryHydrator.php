@@ -13,7 +13,7 @@ class SummaryHydrator
      * Hydrate a collection of summary objects into a collection of
      * SummarieEntity objects
      *
-     * @param stdClass[] $summaries
+     * @param \stdClass[] $summaries
      * @return SummaryEntity[]
      */
     public static function hydrateCollection($summaries)
@@ -30,10 +30,10 @@ class SummaryHydrator
     /**
      * Hydrate a summary object into a SummaryEntity object
      *
-     * @param stdClass $summary
+     * @param \stdClass $summary
      * @return SummaryEntity
      */
-    public static function hydrate(stdClass $summary)
+    public static function hydrate(\stdClass $summary)
     {
         $hydrated = new SummaryEntity();
 

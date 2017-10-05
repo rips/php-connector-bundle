@@ -176,7 +176,7 @@ class IssueEntity
     /**
      * Set markups
      *
-     * @param  Markup[] $markups
+     * @param  MarkupEntity[] $markups
      * @return void
      */
     public function setMarkups(array $markups)

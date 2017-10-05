@@ -1,6 +1,6 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
@@ -159,7 +159,7 @@ class SinkEntity
      * @param CustomFunctionEntity $function
      * @return void
      */
-    public function setFunction(FileEntity $function)
+    public function setFunction(CustomFunctionEntity $function)
     {
         $this->function = $function;
     }
@@ -167,7 +167,7 @@ class SinkEntity
     /**
      * Get function
      *
-     * @return FunctionEntity
+     * @return CustomFunctionEntity
      */
     public function getFunction()
     {

@@ -94,5 +94,7 @@ class TypeHydrator
         if (isset($type->parent)) {
             $hydrated->setParent(TypeHydrator::hydrate($type->parent));
         }
+
+        return $hydrated;
     }
 }

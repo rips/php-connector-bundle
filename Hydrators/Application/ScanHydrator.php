@@ -6,7 +6,7 @@ use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\PHPHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\PhpHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 
 class ScanHydrator
@@ -76,7 +76,7 @@ class ScanHydrator
         }
 
         if (isset($scan->php)) {
-            $hydrated->setPhp(PHPHydrator::hydrate($scan->php));
+            $hydrated->setPhp(PhpHydrator::hydrate($scan->php));
         }
 
         if (isset($scan->application)) {
