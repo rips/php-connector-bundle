@@ -2,18 +2,24 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use \stdClass;
+use \DateTime;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
 
 class ApplicationHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
-     * UserEntity objects
+     * Hydrate a collection of application objects into a collection of
+     * ApplicationEntity objects
      *
-     * @param  array<\stdClass> $users
-     * @return array<UserEntity>
+     * @param stdClass[] $users
+     * @return ApplicationEntity[]
      */
     public static function hydrateCollection(array $applications)
     {
@@ -27,12 +33,12 @@ class ApplicationHydrator
     }
 
     /**
-     * Hydrate a user object into a UserEntity object
+     * Hydrate a application object into a ApplicationEntity object
      *
-     * @param  \stdClass $application
+     * @param stdClass $application
      * @return ApplicationEntity
      */
-    public static function hydrate(\stdClass $application)
+    public static function hydrate(stdClass $application)
     {
         $hydrated = new ApplicationEntity();
 
@@ -44,16 +50,16 @@ class ApplicationHydrator
             $hydrated->setName($application->name);
         }
 
+        if (isset($application->scans) && is_array($application->scans)) {
+            $hydrated->setScans(ScanHydrator::hydrateCollection($application->scans));
+        }
+
         if (isset($application->current_scan)) {
             $hydrated->setCurrentScan($application->current_scan);
         }
 
-        if (isset($application->creation)) {
-            $hydrated->setCreation($application->creation);
-        }
-
-        if (isset($application->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($application->organisation));  //not sure with that one here
+        if (isset($application->customs) && is_array($application->customs)) {
+            $hydrated->setCustoms(CustomHydrator::hydrateCollection($application->customs));
         }
 
         if (isset($application->created_by)) {
@@ -62,6 +68,30 @@ class ApplicationHydrator
 
         if (isset($application->charged_quota)) {
             $hydrated->setChargedQuota(QuotaHydrator::hydrate($application->charged_quota));
+        }
+
+        if (isset($application->uploads) && is_array($application->uploads)) {
+            $hydrated->setUploads(UploadHydrator::hydrateCollection($application->uploads));
+        }
+
+        if (isset($application->acls) && is_array($application->acls)) {
+            $hydrated->setAcls(AclHydrator::hydrateCollection($application->acls));
+        }
+
+        if (isset($application->creation)) {
+            $hydrated->setCreation(new DateTime($application->creation));
+        }
+
+        if (isset($application->lastModification)) {
+            $hydrated->setLastModification(new DateTime($application->lastModification));
+        }
+
+        if (isset($application->organisation)) {
+            $hydrated->setOrganisation(OrgHydrator::hydrate($application->organisation));
+        }
+
+        if (isset($application->trial)) {
+            $hydrated->setTrial($application->trial);
         }
 
         return $hydrated;
