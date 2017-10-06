@@ -2,10 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use \DateTime;
+
 class UserEntity
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $id;
 
@@ -13,6 +15,16 @@ class UserEntity
      * @var string
      */
     protected $username;
+
+    /**
+     * @var boolean
+     */
+    protected $emptyUsername = false;
+
+    /**
+     * @var string
+     */
+    protected $email;
 
     /**
      * @var string
@@ -27,12 +39,102 @@ class UserEntity
     /**
      * @var string
      */
-    protected $email;
+    protected $plainPassword;
 
     /**
-     * @var boolean
+     * @var DateTime
      */
-    protected $emptyUsername = false;
+    protected $validUntil;
+
+    /**
+     * @var CommentEntity[]
+     */
+    protected $createdComments;
+
+    /**
+     * @var ReviewEntity[]
+     */
+    protected $createdReviews;
+
+    /**
+     * @var ApplicationEntity[]
+     */
+    protected $createdApplications;
+
+    /**
+     * @var ScanEntity[]
+     */
+    protected $createdScans;
+
+    /**
+     * @var Application\AclEntity[]
+     */
+    protected $createdApplicationAcls;
+
+    /**
+     * @var Quota\AclEntity[]
+     */
+    protected $createdQuotaAcls;
+
+    /**
+     * @var LicenseEntity[]
+     */
+    protected $createdLicenses;
+
+    /**
+     * @var UserEntity[]
+     */
+    protected $createdUsers;
+
+    /**
+     * @var TeamEntity[]
+     */
+    protected $createdTeams;
+
+    /**
+     * @var UploadEntity[]
+     */
+    protected $createdUploads;
+
+    /**
+     * @var Application\AclEntity[]
+     */
+    protected $applicationAcls;
+
+    /**
+     * @var Quota\AclEntity[]
+     */
+    protected $quotaAcls;
+
+    /**
+     * @var LogEntity[]
+     */
+    protected $logs;
+
+    /**
+     * @var UserEntity
+     */
+    protected $createdBy;
+
+    /**
+     * @var DateTime
+     */
+    protected $lastModification;
+
+    /**
+     * @var QuotaEntity
+     */
+    protected $chargedQuota;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $organisation;
+
+    /**
+     * @var TeamEntity[]
+     */
+    protected $teams;
 
     /**
      * @var array
@@ -42,39 +144,25 @@ class UserEntity
     /**
      * @var boolean
      */
-    protected $root;
-
-    /**
-     * @var boolean
-     */
-    protected $enabled;
-
-    /**
-     * @var OrgEntity
-     */
-    protected $organisation;
-
-    /**
-     * @var string
-     */
-    protected $validUntil;
-
+    protected $root = false;
 
     /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -84,12 +172,14 @@ class UserEntity
     /**
      * Set username
      *
-     * @param  string $username
-     * @return void
+     * @param string $username
+     * @return $this
      */
     public function setUsername($username)
     {
         $this->username = $username;
+
+        return $this;
     }
 
     /**
@@ -103,14 +193,62 @@ class UserEntity
     }
 
     /**
+     * Set emptyUsername
+     *
+     * @param boolean $emptyUsername
+     * @return $this
+     */
+    public function setEmptyUsername($emptyUsername)
+    {
+        $this->emptyUsername = $emptyUsername;
+
+        return $this;
+    }
+
+    /**
+     * Get emptyUsername
+     *
+     * @return boolean
+     */
+    public function getEmptyUsername()
+    {
+        return $this->emptyUsername;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * Set firstname
      *
-     * @param  string $firstname
-     * @return void
+     * @param string $firstname
+     * @return $this
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+
+        return $this;
     }
 
     /**
@@ -126,12 +264,14 @@ class UserEntity
     /**
      * Set lastname
      *
-     * @param  string $lastname
-     * @return void
+     * @param string $lastname
+     * @return $this
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+
+        return $this;
     }
 
     /**
@@ -145,115 +285,422 @@ class UserEntity
     }
 
     /**
-     * Set email
+     * Set plainPassword
      *
-     * @param  string $email
-     * @return void
+     * @param string $plainPassword
+     * @return $this
      */
-    public function setEmail($email)
+    public function setPlainPassword($plainPassword)
     {
-        return $this->email = $email;
+        $this->plainPassword = $plainPassword;
+
+        return $this;
     }
 
     /**
-     * Get email
+     * Get plainPassword
      *
      * @return string
      */
-    public function getEmail()
+    public function getPlainPassword()
     {
-        return $this->email;
+        return $this->plainPassword;
     }
 
     /**
-     * Set emptyUsername
+     * Set validUntil
      *
-     * @param  boolean $emptyUsername
-     * @return void
+     * @param DateTime $validUntil
+     * @return $this
      */
-    public function setEmptyUsername($emptyUsername)
+    public function setValidUntil(DateTime $validUntil)
     {
-        $this->emptyUsername = $emptyUsername;
+        $this->validUntil = $validUntil;
     }
 
     /**
-     * Get empty_username
+     * Get validUntil
      *
-     * @return boolean
+     * @return DateTime
      */
-    public function getEmptyUsername()
+    public function getValidUntil()
     {
-        return $this->emptyUsername;
+        return isset($this->organisation) ? $this->organisation->getValidUntil() : $this->validUntil;
     }
 
     /**
-     * Set roles
+     * Set createdComments
      *
-     * @param  array $roles
-     * @return void
+     * @param CommentEntity[] $createdComments
+     * @return $this
      */
-    public function setRoles(array $roles = [])
+    public function setCreatedComments(array $createdComments)
     {
-        $this->roles = $roles;
+        $this->createdComments = $createdComments;
+
+        return $this;
     }
 
     /**
-     * Get roles
+     * Get createdComments
      *
-     * @return array
+     * @return CommentEntity[]
      */
-    public function getRoles()
+    public function getCreatedComments()
     {
-        return $this->roles;
+        return $this->createdComments;
     }
 
     /**
-     * Set root
+     * Set createdReviews
      *
-     * @param  boolean $root
-     * @return void
+     * @param ReviewEntity[] $createdReviews
+     * @return $this
      */
-    public function setRoot($root)
+    public function setCreatedReviews(array $createdReviews)
     {
-        $this->root = $root;
+        $this->createdReviews = $createdReviews;
+
+        return $this;
     }
 
     /**
-     * Get root
+     * Get createdReviews
      *
-     * @return boolean
+     * @return ReviewEntity[]
      */
-    public function getRoot()
+    public function getCreatedReviews()
     {
-        return $this->root;
+        return $this->createdReviews;
     }
 
     /**
-     * Set enabled
+     * Set createdApplications
      *
-     * @param  boolean $enabled
-     * @return void
+     * @param ApplicationEntity[] $createdApplications
+     * @return $this
      */
-    public function setEnabled($enabled)
+    public function setCreatedApplications(array $createdApplications)
     {
-        $this->enabled = $enabled;
+        $this->createdApplications = $createdApplications;
     }
 
     /**
-     * Get enabled
+     * Get createdApplications
      *
-     * @return boolean
+     * @return ApplicationEntity[]
      */
-    public function getEnabled()
+    public function getCreatedApplications()
     {
-        return $this->enabled;
+        return $this->createdApplications;
+    }
+
+    /**
+     * Set createdScans
+     *
+     * @param ScanEntity[] $createdScans
+     * @return $this
+     */
+    public function setCreatedScans(array $createdScans)
+    {
+        $this->createdScans = $createdScans;
+
+        return $this;
+    }
+
+    /**
+     * Get createdScans
+     *
+     * @return ScanEntity[]
+     */
+    public function getCreatedScans()
+    {
+        return $this->createdScans;
+    }
+
+    /**
+     * Set createdApplicationAcls
+     *
+     * @param Application\AclEntity[] $createdApplicationAcls
+     * @return $this
+     */
+    public function setCreatedApplicationAcls(array $createdApplicationAcls)
+    {
+        $this->createdApplicationAcls = $createdApplicationAcls;
+
+        return $this;
+    }
+
+    /**
+     * Get createdApplicationAcls
+     *
+     * @return Application\AclEntity[]
+     */
+    public function getCreatedApplicationAcls()
+    {
+        return $this->createdApplicationAcls;
+    }
+
+    /**
+     * Set createdQuotaAcls
+     *
+     * @param Quota\AclEntity[] $createdQuotaAcls
+     * @return $this
+     */
+    public function setCreatedQuotaAcls(array $createdQuotaAcls)
+    {
+        $this->createdQuotaAcls = $createdQuotaAcls;
+
+        return $this;
+    }
+
+    /**
+     * Get createdQuotaAcls
+     *
+     * @return Quota\AclEntity[]
+     */
+    public function getCreatedQuotaAcls()
+    {
+        return $this->createdQuotaAcls;
+    }
+
+    /**
+     * Set createdLicenses
+     *
+     * @param LicenseEntity[] $createdLicenses
+     * @return $this
+     */
+    public function setCreatedLicenses(array $createdLicenses)
+    {
+        $this->createdLicenses = $createdLicenses;
+
+        return $this;
+    }
+
+    /**
+     * Get createdLicenses
+     *
+     * @return LicenseEntity[]
+     */
+    public function getCreatedLicenses()
+    {
+        return $this->createdLicenses;
+    }
+
+    /**
+     * Set createdUsers
+     *
+     * @param UserEntity[] $createdUsers
+     * @return $this
+     */
+    public function setCreatedUsers(array $createdUsers)
+    {
+        $this->createdUsers = $createdUsers;
+
+        return $this;
+    }
+
+    /**
+     * Get createdUsers
+     *
+     * @return UserEntity[]
+     */
+    public function getCreatedUsers()
+    {
+        return $this->createdUsers;
+    }
+
+    /**
+     * Set createdTeams
+     *
+     * @param TeamEntity[] $createdTeams
+     * @return $this
+     */
+    public function setCreatedTeams(array $createdTeams)
+    {
+        $this->createdTeams = $createdTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get createdTeams
+     *
+     * @return TeamEntity[]
+     */
+    public function getCreatedTeams()
+    {
+        return $this->createdTeams;
+    }
+
+    /**
+     * Set createdUploads
+     *
+     * @param UploadEntity[] $createdUploads
+     * @return $this
+     */
+    public function setCreatedUploads(array $createdUploads)
+    {
+        $this->createdUploads = $createdUploads;
+
+        return $this;
+    }
+
+    /**
+     * Get createdUploads
+     *
+     * @return UploadEntity[]
+     */
+    public function getCreatedUploads()
+    {
+        return $this->createdUploads;
+    }
+
+    /**
+     * Set applicationAcls
+     *
+     * @param Application\AclEntity[] $applicationAcls
+     * @return $this
+     */
+    public function setApplicationAcls(array $applicationAcls)
+    {
+        $this->applicationAcls = $applicationAcls;
+
+        return $this;
+    }
+
+    /**
+     * Get applicationAcls
+     *
+     * @param Quota\AclEntity[] $quotaAcls
+     * @return $this
+     */
+    public function getApplicationAcls()
+    {
+        return $this->applicationAcls;
+    }
+
+    /**
+     * Set applicationAcls
+     *
+     * @param Quota\AclEntity[] $applicationAcls
+     * @return $this
+     */
+    public function setQuotaAcls(array $applicationAcls)
+    {
+        $this->applicationAcls = $applicationAcls;
+
+        return $this;
+    }
+
+    /**
+     * Get applicationAcls
+     *
+     * @param Quota\AclEntity[] $quotaAcls
+     * @return $this
+     */
+    public function getQuotaAcls()
+    {
+        return $this->applicationAcls;
+    }
+
+    /**
+     * Set logs
+     *
+     * @param LogEntity[] $logs
+     * @return $this
+     */
+    public function setLogs(array $logs)
+    {
+        $this->logs = $logs;
+
+        return $this;
+    }
+
+    /**
+     * Get logs
+     *
+     * @return LogEntity[]
+     */
+    public function getLogs()
+    {
+        return $this->logs;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param UserEntity $createdBy
+     * @return $this
+     */
+    public function setCreatedBy(UserEntity $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return UserEntity
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set lastModification
+     *
+     * @param DateTime $lastModification
+     * @return $this
+     */
+    public function setLastModification(DateTime $lastModification)
+    {
+        $this->lastModification = $lastModification;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModification
+     *
+     * @return DateTime
+     */
+    public function getLastModification()
+    {
+        return $this->lastModification;
+    }
+
+    /**
+     * Set chargedQuota
+     *
+     * @param QuotaEntity $chargedQuota
+     * @return $this
+     */
+    public function setChargedQuota(QuotaEntity $chargedQuota)
+    {
+        $this->chargedQuota = $chargedQuota;
+
+        return $this;
+    }
+
+    /**
+     * Get chargedQuota
+     *
+     * @return QuotaEntity
+     */
+    public function getChargedQuota()
+    {
+        return $this->chargedQuota;
     }
 
     /**
      *  Set organisation
      *
-     * @param  OrgEntity $org
-     * @return void
+     * @param OrgEntity $org
+     * @return $this
      */
     public function setOrganisation(OrgEntity $org)
     {
@@ -271,23 +718,71 @@ class UserEntity
     }
 
     /**
-     * Set validUntil
+     * Set teams
      *
-     * @param string $validUntil
-     * @return void
+     * @param TeamEntity[]
+     * @return $this
      */
-    public function setValidUntil($validUntil)
+    public function setTeams(array $teams)
     {
-        $this->validUntil = $validUntil;
+        $this->teams = $teams;
+
+        return $this;
     }
 
     /**
-     * Get validUntil
+     * Get teams
      *
-     * @return string
+     * @return TeamEntity[]
      */
-    public function getValidUntil()
+    public function getTeams()
     {
-        return isset($this->organisation) ? $this->organisation->getValidUntil() : $this->validUntil;
+        return $this->teams;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return $this
+     */
+    public function setRoles(array $roles = [])
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set root
+     *
+     * @param boolean $root
+     * @return $this
+     */
+    public function setRoot($root)
+    {
+        $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Get root
+     *
+     * @return boolean
+     */
+    public function getRoot()
+    {
+        return $this->root;
     }
 }
