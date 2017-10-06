@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use \DateTime;
+
 class LogEntity
 {
     /**
@@ -52,12 +54,12 @@ class LogEntity
     /**
      * @var OrgEntity
      */
-    protected $org;
+    protected $organisation;
 
     /**
      * @var string
      */
-    protected $orgName;
+    protected $organisationName;
 
     /**
      * @var string
@@ -65,19 +67,21 @@ class LogEntity
     protected $context;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $created;
 
     /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -93,12 +97,14 @@ class LogEntity
     /**
      * Set text
      *
-     * @param  string $text
-     * @return void
+     * @param string $text
+     * @return $this
      */
     public function setText($text)
     {
         $this->text = $text;
+
+        return $this;
     }
 
     /**
@@ -114,12 +120,14 @@ class LogEntity
     /**
      * Set level
      *
-     * @param  int $level
-     * @return void
+     * @param int $level
+     * @return $this
      */
     public function setLevel($level)
     {
         $this->level = $level;
+
+        return $this;
     }
 
     /**
@@ -135,12 +143,14 @@ class LogEntity
     /**
      * Set channel
      *
-     * @param  string $channel
-     * @return void
+     * @param string $channel
+     * @return $this
      */
     public function setChannel($channel)
     {
         $this->channel = $channel;
+
+        return $this;
     }
 
     /**
@@ -154,18 +164,20 @@ class LogEntity
     }
 
     /**
-     * Set request URI
+     * Set requestUri
      *
-     * @param  string $requestUri
-     * @return void
+     * @param string $requestUri
+     * @return $this
      */
     public function setRequestUri($requestUri)
     {
         $this->requestUri = $requestUri;
+
+        return $this;
     }
 
     /**
-     * Get request URI
+     * Get requestUri
      *
      * @return string
      */
@@ -175,14 +187,16 @@ class LogEntity
     }
 
     /**
-     * Set request method
+     * Set requestMethod
      *
      * @param  string $requestMethod
-     * @return void
+     * @return $this
      */
     public function setRequestMethod($requestMethod)
     {
         $this->requestMethod = $requestMethod;
+
+        return $this;
     }
 
     /**
@@ -198,12 +212,14 @@ class LogEntity
     /**
      * Set ip
      *
-     * @param  string $ip
-     * @return void
+     * @param string $ip
+     * @return $this
      */
     public function setIp($ip)
     {
         $this->ip = $ip;
+
+        return $this;
     }
 
     /**
@@ -220,11 +236,13 @@ class LogEntity
      * Set user
      *
      * @param  UserEntity $user
-     * @return void
+     * @return $this
      */
     public function setUser(UserEntity $user)
     {
         $this->user = $user;
+
+        return $this;
     }
 
     /**
@@ -240,12 +258,14 @@ class LogEntity
     /**
      * Set username
      *
-     * @param  string $username
-     * @return void
+     * @param string $username
+     * @return $this
      */
     public function setUsername($username)
     {
         $this->username = $username;
+
+        return $this;
     }
 
     /**
@@ -259,43 +279,47 @@ class LogEntity
     }
 
     /**
-     * Set org
+     * Set organisation
      *
-     * @param  OrgEntity $org
-     * @return void
+     * @param OrgEntity $org
+     * @return $this
      */
-    public function setOrg(OrgEntity $org)
+    public function setOrganisation(OrgEntity $organisation)
     {
-        $this->org = $org;
+        $this->organisation = $organisation;
+
+        return $this;
     }
 
     /**
-     * Get org
+     * Get organisation
      *
      * @return OrgEntity
      */
-    public function getOrg(): OrgEntity
+    public function getOrganisation()
     {
         return $this->org;
     }
 
     /**
-     * Set org name
+     * Set organisationName
      *
-     * @param  string $orgName
-     * @return void
+     * @param  string $organisationName
+     * @return $this
      */
-    public function setOrgName($orgName)
+    public function setOrgName($organisationName)
     {
-        $this->orgName = $orgName;
+        $this->organisationName = $organisationName;
+
+        return $this;
     }
 
     /**
-     * Get org name
+     * Get organisationName
      *
      * @return string
      */
-    public function getOrgName()
+    public function getOrganisationName()
     {
         return $this->orgName;
     }
@@ -303,12 +327,14 @@ class LogEntity
     /**
      * Set context
      *
-     * @param  string $context
-     * @return void
+     * @param string $context
+     * @return $this
      */
     public function setContext($context)
     {
         $this->context = $context;
+
+        return $this;
     }
 
     /**
@@ -324,10 +350,10 @@ class LogEntity
     /**
      * Set created
      *
-     * @param  string $created
-     * @return void
+     * @param DateTime $created
+     * @return $this
      */
-    public function setCreated($created)
+    public function setCreated(DateTime $created)
     {
         $this->created = $created;
     }
@@ -335,7 +361,7 @@ class LogEntity
     /**
      * Get created
      *
-     * @return string
+     * @return DateTime
      */
     public function getCreated()
     {
