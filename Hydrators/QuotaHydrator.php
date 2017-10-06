@@ -2,8 +2,14 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use \stdClass;
+use \DateTime;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
 use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
+use RIPS\ConnectorBundle\Hydrators\LicenseHydrator;
+use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class QuotaHydrator
 {
@@ -11,8 +17,8 @@ class QuotaHydrator
      * Hydrate a collection of of quota objects into a collection of
      * QuotaEntity objects
      *
-     * @param  array<\stdClass> $quotas
-     * @return array<QuotaEntity>
+     * @param stdClass[] $quotas
+     * @return QuotaEntity[]
      */
     public static function hydrateCollection(array $quotas)
     {
@@ -28,10 +34,10 @@ class QuotaHydrator
     /**
      * Hydrate a quota object into a QuotaEntity object
      *
-     * @param  \stdClass $quota
+     * @param stdClass $quota
      * @return QuotaEntity
      */
-    public static function hydrate(\stdClass $quota)
+    public static function hydrate(stdClass $quota)
     {
         $hydrated = new QuotaEntity();
 
@@ -68,23 +74,43 @@ class QuotaHydrator
         }
 
         if (isset($quota->valid_from)) {
-            $hydrated->setValidFrom($quota->valid_from);
+            $hydrated->setValidFrom(new DateTime($quota->valid_from));
         }
 
         if (isset($quota->valid_until)) {
-            $hydrated->setValidUntil($quota->valid_until);
+            $hydrated->setValidUntil(new DateTime($quota->valid_until));
+        }
+
+        if (isset($quota->last_modification)) {
+            $hydrated->setLastModification(new DateTime($quota->last_modification));
+        }
+
+        if (isset($quota->allowed_misses)) {
+            $hydrated->setAllowedMisses($quota->allowed_misses);
         }
 
         if (isset($quota->public)) {
             $hydrated->setPublic($quota->public);
         }
 
-        if (isset($quota->organisation)) {
-            $hydrated->setOrg(OrgHydrator::hydrate($quota->organisation));
+        if (isset($quota->license)) {
+            $hydrated->setLicense(LicenseHydrator::hydrate($quota->license));
         }
 
-        if (isset($quota->notify)) {
-            $hydrated->setNotify($quota->notify);
+        if (isset($quota->scans) && is_array($quota->scans)) {
+            $hydrated->setScans(ScanHydrator::hydrateCollection($quota->scans));
+        }
+
+        if (isset($quota->users) && is_array($quota->users)) {
+            $hydrated->setUsers(UserHydrator::hydrateCollection($quota->users));
+        }
+
+        if (isset($quota->acls) && is_array($quota->acls)) {
+            $hydrated->setAcls(AclHydrator::hydrateCollection($quota->acls));
+        }
+
+        if (isset($quota->organisation)) {
+            $hydrated->setOrganisation(OrgHydrator::hydrate($quota->organisation));
         }
 
         return $hydrated;
