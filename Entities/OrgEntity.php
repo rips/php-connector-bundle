@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use \DateTime;
+
 class OrgEntity
 {
     /**
@@ -15,7 +17,7 @@ class OrgEntity
     protected $name;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $validUntil;
 
@@ -28,12 +30,14 @@ class OrgEntity
     /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -49,12 +53,14 @@ class OrgEntity
     /**
      * Set name
      *
-     * @param  string $name
-     * @return void
+     * @param string $name
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -68,9 +74,101 @@ class OrgEntity
     }
 
     /**
+     * Set validUntil
+     *
+     * @param DateTime $validUntil
+     * @return $this
+     */
+    public function setValidUntil(DateTime $validUntil)
+    {
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
+    /**
+     * Get validUntil
+     *
+     * @return DateTime
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
+    }
+
+    /**
+     * Set users
+     *
+     * @param UserEntity[] $user
+     * @return $this
+     */
+    public function setUsers(array $users)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return UserEntity[]
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set teams
+     *
+     * @param TeamEntity[]
+     * @return $this
+     */
+    public function setTeams(array $teams)
+    {
+        $this->teams = $teams;
+
+        return $this;
+    }
+
+    /**
+     * Get teams
+     *
+     * @return TeamEntity[]
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
+
+    /**
+     * Set applications
+     *
+     * @param ApplicationEntity[]
+     * @return $this
+     */
+    public function setApplications(array $applications)
+    {
+        $this->applications = $applications;
+
+        return $this;
+    }
+
+    /**
+     * Get applications
+     *
+     * @return ApplicationEntity[]
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
+
+    /**
      * Set quotas
      *
-     * @param  QuotaEntity[] $quotas
+     * @param QuotaEntity[] $quotas
      * @return void
      */
     public function setQuotas(array $quotas = [])
@@ -89,23 +187,25 @@ class OrgEntity
     }
 
     /**
-     * Set validUntil
+     * Set logs
      *
-     * @param  string $validUntil
-     * @return void
+     * @param LogEntity[] $logs
+     * @return $this
      */
-    public function setValidUntil($validUntil)
+    public function setLogs(array $logs)
     {
-        $this->validUntil = $validUntil;
+        $this->logs = $logs;
+
+        return $this;
     }
 
     /**
-     * Get validUntil
+     * Get logs
      *
-     * @return string
+     * @return LogEntity[]
      */
-    public function getValidUntil()
+    public function getLogs()
     {
-        return $this->validUntil;
+        return $this->logs;
     }
 }

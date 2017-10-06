@@ -2,53 +2,80 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use \stdClass;
+use \DateTime;
 use RIPS\ConnectorBundle\Entities\OrgEntity;
+use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
+use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
+use RIPS\ConnectorBundle\Hydrators\LicenseHydrator;
+use RIPS\ConnectorBundle\Hydrators\LogHydrator;
 
 class OrgHydrator
 {
     /**
-     * Hydrate a collection of org objects into a collection of
+     * Hydrate a collection of organisation objects into a collection of
      * OrgEntity objects
      *
-     * @param  \stdClass[] $orgs
+     * @param stdClass[] $organisations
      * @return OrgEntity[]
      */
-    public static function hydrateCollection(array $orgs)
+    public static function hydrateCollection(array $organisations)
     {
         $hydrated = [];
 
-        foreach ($orgs as $org) {
-            $hydrated[] = self::hydrate($org);
+        foreach ($organisations as $organisation) {
+            $hydrated[] = self::hydrate($organisation);
         }
 
         return $hydrated;
     }
 
     /**
-     * Hydrate a single org object into a OrgEntity object
+     * Hydrate a organisation object into a OrgEntity object
      *
-     * @param  \stdClass $org
+     * @param stdClass $org
      * @return OrgEntity
      */
-    public static function hydrate(\stdClass $org)
+    public static function hydrate(stdClass $organisation)
     {
         $hydrated = new OrgEntity();
 
-        if (isset($org->id)) {
-            $hydrated->setId($org->id);
+        if (isset($organisation->id)) {
+            $hydrated->setId($organisation->id);
         }
 
-        if (isset($org->name)) {
-            $hydrated->setName($org->name);
+        if (isset($organisation->name)) {
+            $hydrated->setName($organisation->name);
         }
 
-        if (isset($org->valid_until)) {
-            $hydrated->setValidUntil($org->valid_until);
+        if (isset($organisation->valid_until)) {
+            $hydrated->setValidUntil(new DateTime($organisation->valid_until));
         }
 
-        if (isset($org->quotas) && count($org->quotas) > 0) {
-            $hydrated->setQuotas(QuotaHydrator::hydrateCollection($org->quotas));
+        if (isset($organisation->users) && is_array($organisation->users)) {
+            $hydrated->setUsers(UserHydrator::hydrateCollection($organisation->users));
+        }
+
+        if (isset($organisation->teams) && is_array($organisation->teams)) {
+            $hydrated->setTeams(TeamHydrator::hydrateCollection($organisation->teams));
+        }
+
+        if (isset($organisation->applications) && is_array($organisation->applications)) {
+            $hydrated->setApplications(ApplicationHydrator::hydrateCollection($organisation->applications));
+        }
+
+        if (isset($organisation->quotas) && is_array($organisation->quotas)) {
+            $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organisation->quotas));
+        }
+
+        if (isset($organsiation->licenses) && is_array($organisation->licenses)) {
+            $hydrated->setLicenses(LicenseHydrator::hydrateCollection($organisation->licenses));
+        }
+
+        if (isset($organisation->logs) && is_array($organisation->logs)) {
+            $hydrated->setLogs(LogHydrator::hydrateCollection($organsiation->logs));
         }
 
         return $hydrated;
