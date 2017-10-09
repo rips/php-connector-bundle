@@ -65,12 +65,16 @@ class UploadHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($upload->created_by));
         }
 
-        if (isset($upload->scans) && count($upload->scans) > 0) {
+        if (isset($upload->scan) && is_array($upload->scans)) {
             $hydrated->setScans(ScanHydrator::hydrateCollection($upload->scans));
         }
 
         if (isset($upload->application)) {
             $hydrated->setApplication(ApplicationHydrator::hydrate($upload->application));
+        }
+
+        if (isset($upload->consumed)) {
+            $hydrated->setConsumed($upload->consumed);
         }
 
         return $hydrated;
