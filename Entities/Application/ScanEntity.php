@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
+use \DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
@@ -27,14 +28,19 @@ class ScanEntity
     protected $path;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $start;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $finish;
+
+    /**
+     * @var DateTime
+     */
+    protected $lastModification;
 
     /**
      * @var int
@@ -62,14 +68,64 @@ class ScanEntity
     protected $uploadRemoved;
 
     /**
-     * @var  int
+     * @var boolean
      */
-    protected $analysisDepth;
+    protected $fullCodeCompared;
+
+    /**
+     * @var boolean
+     */
+    protected $historyInherited;
+
+    /**
+     * @var ProcessEntity
+     */
+    protected $process;
 
     /**
      * @var PhpEntity
      */
     protected $php;
+
+    /**
+     * @var SourceEntity[]
+     */
+    protected $sources;
+
+    /**
+     * @var SinkEntity[]
+     */
+    protected $sinks;
+
+    /**
+     * @var ConcatEntity[]
+     */
+    protected $concats;
+
+    /**
+     * @var FileEntity[]
+     */
+    protected $files;
+
+    /**
+     * @var CustomFunctionEntity[]
+     */
+    protected $functions;
+
+    /**
+     * @var CustomClass[]
+     */
+    protected $classes;
+
+    /**
+     * @var IssueEntity[]
+     */
+    protected $issues;
+
+    /**
+     * @var UploadEntity
+     */
+    protected $upload;
 
     /**
      * @var ApplicationEntity
@@ -82,17 +138,17 @@ class ScanEntity
     protected $createdBy;
 
     /**
-     * @var ProcessEntity
+     * @var QuotaEntity
      */
-    protected $process;
+    protected $chargedQuota;
 
     /**
-     * @var UploadEntity
+     * @var CustomEntity
      */
-    protected $upload;
+    protected $custom;
 
     /**
-     * @var TypeEntity
+     * @var TypeEntity[]
      */
     protected $issueTypes;
 
@@ -102,22 +158,34 @@ class ScanEntity
     protected $parent;
 
     /**
+     * @var ScanEntity[]
+     */
+    protected $children;
+
+    /**
+     * @var array
+     */
+    protected $severityDistributions;
+
+    /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -125,12 +193,14 @@ class ScanEntity
     /**
      * Set Version
      *
-     * @param  string $version
-     * @return void
+     * @param string $version
+     * @return $this
      */
-    public function setVersion(string $version)
+    public function setVersion($version)
     {
         $this->version = $version;
+
+        return $this;
     }
 
     /**
@@ -138,7 +208,7 @@ class ScanEntity
      *
      * @return string
      */
-    public function getVersion(): string
+    public function getVersion()
     {
         return $this->version;
     }
@@ -146,12 +216,14 @@ class ScanEntity
     /**
      * Set path
      *
-     * @param  string
-     * @return void
+     * @param string
+     * @return $this
      */
-    public function setPath(string $path)
+    public function setPath($path)
     {
         $this->path = $path;
+
+        return $this;
     }
 
     /**
@@ -159,7 +231,7 @@ class ScanEntity
      *
      * @return string
      */
-    public function getPath(): string
+    public function getPath()
     {
         return $this->path;
     }
@@ -167,20 +239,22 @@ class ScanEntity
     /**
      * Set start
      *
-     * @param  string $start
-     * @return void
+     * @param DateTime $start
+     * @return $this
      */
-    public function setStart(string $start)
+    public function setStart(DateTime $start)
     {
         $this->start = $start;
+
+        return $this;
     }
 
     /**
      * Get start
      *
-     * @return string
+     * @return DateTime
      */
-    public function getStart(): string
+    public function getStart()
     {
         return $this->start;
     }
@@ -188,33 +262,60 @@ class ScanEntity
     /**
      * Set finish
      *
-     * @param  string $finish
-     * @return void
+     * @param DateTime $finish
+     * @return $this
      */
-    public function setFinish(string $finish)
+    public function setFinish(DateTime $finish)
     {
         $this->finish = $finish;
+
+        return $this;
     }
 
     /**
      * Get finish
      *
-     * @return string
+     * @return DateTime
      */
-    public function getFinish(): string
+    public function getFinish()
     {
         return $this->finish;
     }
 
     /**
+     * Set lastModification
+     *
+     * @param DateTime $lastModification
+     * @return $this
+     */
+    public function setLastModification(DateTime $lastModification)
+    {
+        $this->lastModification = $lastModification;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModification
+     *
+     * @return DateTime
+     */
+    public function getLastModification()
+    {
+        return $this->lastModification;
+    }
+
+    /**
      * Set phase
      *
-     * @param  int
-     * @return void
+     * @param int
+     * @return $this
      */
-    public function setPhase(int $phase)
+    public function setPhase($phase)
     {
         $this->phase = $phase;
+
+        return $this;
     }
 
     /**
@@ -222,7 +323,7 @@ class ScanEntity
      *
      * @return int
      */
-    public function getPhase(): int
+    public function getPhase()
     {
         return $this->phase;
     }
@@ -230,20 +331,22 @@ class ScanEntity
     /**
      * Set Percentage
      *
-     * @param  integer $percent
-     * @return void
+     * @param int $percent
+     * @return $this
      */
-    public function setPercent(int $percent)
+    public function setPercent($percent)
     {
         $this->percent = $percent;
+
+        return $this;
     }
 
     /**
      * Get Percentage
      *
-     * @return integer
+     * @return int
      */
-    public function getPercent(): int
+    public function getPercent()
     {
         return $this->percent;
     }
@@ -251,20 +354,22 @@ class ScanEntity
     /**
      * Set loc (Lines of Code)
      *
-     * @param  integer $loc
-     * @return void
+     * @param int $loc
+     * @return $this
      */
-    public function setLoc(int $loc)
+    public function setLoc($loc)
     {
         $this->loc = $loc;
+
+        return $this;
     }
 
     /**
      * Get loc (Lines of Code)
      *
-     * @return integer
+     * @return int
      */
-    public function getLoc(): int
+    public function getLoc()
     {
         return $this->loc;
     }
@@ -272,12 +377,14 @@ class ScanEntity
     /**
      * Set codeStored
      *
-     * @param  boolean $codeStored
-     * @return void
+     * @param boolean $codeStored
+     * @return $this
      */
-    public function setCodeStored(bool $codeStored)
+    public function setCodeStored($codeStored)
     {
         $this->codeStored = $codeStored;
+
+        return $this;
     }
 
     /**
@@ -285,7 +392,7 @@ class ScanEntity
      *
      * @return boolean
      */
-    public function getCodeStored(): bool
+    public function getCodeStored()
     {
         return $this->codeStored;
     }
@@ -293,12 +400,14 @@ class ScanEntity
     /**
      * Set uploadRemoved
      *
-     * @param  boolean $uploadRemoved
-     * @return void
+     * @param boolean $uploadRemoved
+     * @return $this
      */
-    public function setUploadRemoved(bool $uploadRemoved)
+    public function setUploadRemoved($uploadRemoved)
     {
         $this->uploadRemoved = $uploadRemoved;
+
+        return $this;
     }
 
     /**
@@ -306,104 +415,68 @@ class ScanEntity
      *
      * @return boolean
      */
-    public function getUploadRemoved(): bool
+    public function getUploadRemoved()
     {
         return $this->uploadRemoved;
     }
 
     /**
-     * Set analysisDepth
+     * Set fullCodeCompared
      *
-     * @param  integer $analysisDepth
-     * @return void
+     * @param boolean $fullCodeCompared
+     * @return $this
      */
-    public function setAnalysisDepth(int $analysisDepth)
+    public function setFullCodeCompared($fullCodeCompared)
     {
-        $this->analysisDepth = $analysisDepth;
+        $this->fullCodeCompared = $fullCodeCompared;
+
+        return $this;
     }
 
     /**
-     * Get analysisDepth
+     * Get fullCodeCompared
      *
-     * @return integer
+     * @return boolean
      */
-    public function getAnalysisDepth(): int
+    public function getFullCodeCompared()
     {
-        return $this->analysisDepth;
+        return $this->fullCodeCompared;
     }
 
     /**
-     * Set php object
+     * Set historyInherited
      *
-     * @param  PhpEntity $php
-     * @return void
+     * @param boolean $historyInherited
+     * @return $this
      */
-    public function setPhp(PhpEntity $php)
+    public function setHistoryInherited($historyInherited)
     {
-        $this->php = $php;
+        $this->historyInherited = $historyInherited;
+
+        return $this;
     }
 
     /**
-     * Get php object
+     * Get historyInherited
      *
-     * @return PhpEntity
+     * @return boolean
      */
-    public function getPhp(): PhpEntity
+    public function getHistoryInherited()
     {
-        return $this->php;
-    }
-
-    /**
-     * Set applicationEntity
-     *
-     * @param  $application
-     * @return void
-     */
-    public function setApplication(ApplicationEntity $application)
-    {
-        $this->application = $application;
-    }
-
-    /**
-     * Get applicationEntity
-     *
-     * @return ApplicationEntity
-     */
-    public function getApplication(): ApplicationEntity
-    {
-        return $this->application;
-    }
-
-    /**
-     * Set createdBy
-     *
-     * @param  $createdBy
-     * @return void
-     */
-    public function setCreatedBy(UserEntity $createdBy)
-    {
-        $this->createdBy = $createdBy;
-    }
-
-    /**
-     * Get createdBy
-     *
-     * @return UserEntity
-     */
-    public function getCreatedBy(): UserEntity
-    {
-        return $this->createdBy;
+        return $this->historyInherited;
     }
 
     /**
      * Set process
      *
-     * @param  $process
-     * @return void
+     * @param $process
+     * @return $this
      */
     public function setProcess(ProcessEntity $process)
     {
         $this->process = $process;
+
+        return $this;
     }
 
     /**
@@ -411,20 +484,206 @@ class ScanEntity
      *
      * @return ProcessEntity
      */
-    public function getProcess(): ProcessEntity
+    public function getProcess()
     {
         return $this->process;
     }
 
     /**
+     * Set php object
+     *
+     * @param PhpEntity $php
+     * @return $this
+     */
+    public function setPhp(PhpEntity $php)
+    {
+        $this->php = $php;
+
+        return $this;
+    }
+
+    /**
+     * Get php object
+     *
+     * @return PhpEntity
+     */
+    public function getPhp()
+    {
+        return $this->php;
+    }
+
+    /**
+     * Set sources
+     *
+     * @param SourceEntity[] $sources
+     * @return $this
+     */
+    public function setSources(array $sources)
+    {
+        $this->sources = $sources;
+
+        return $this;
+    }
+
+    /**
+     * Get sources
+     *
+     * @return SourceEntity[]
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
+
+    /**
+     * Set sinks
+     *
+     * @param SinkEntity[] $sinks
+     * @return $this
+     */
+    public function setSinks(array $sinks)
+    {
+        $this->sinks = $sinks;
+
+        return $this;
+    }
+
+    /**
+     * Get sinks
+     *
+     * @return SinkEntity[]
+     */
+    public function getSinks()
+    {
+        return $this->sinks;
+    }
+
+    /**
+     * Set concats
+     *
+     * @param ConcatEntity[] $concats
+     * @return $this
+     */
+    public function setConcats(array $concats)
+    {
+        $this->concats = $concats;
+
+        return $this;
+    }
+
+    /**
+     * Get concats
+     *
+     * @return ConcatEntity[]
+     */
+    public function getConcats()
+    {
+        return $this->concats;
+    }
+
+    /**
+     * Set files
+     *
+     * @param FileEntity[] $files
+     * @return $this
+     */
+    public function setFiles(array $files)
+    {
+        $this->files = $files;
+
+        return $this;
+    }
+
+    /**
+     * Get files
+     *
+     * @return FileEntity[]
+     */
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * Set functions
+     *
+     * @param CustomFunctionEntity[] $functions
+     * @return $this
+     */
+    public function setFunctions(array $functions)
+    {
+        $this->functions = $functions;
+
+        return $this;
+    }
+
+    /**
+     * Get functions
+     *
+     * @return CustomFunctionEntity[]
+     */
+    public function getFunctions()
+    {
+        return $this->functions;
+    }
+
+    /**
+     * Set classes
+     *
+     * @param CustomClassEntity[] $classes
+     * @return $this
+     */
+    public function setClasses(array $classes)
+    {
+        $this->classes = $classes;
+
+        return $this;
+    }
+
+    /**
+     * Get classes
+     *
+     * @return CustomClassEntity[]
+     */
+    public function getClasses()
+    {
+        return $this->classes;
+    }
+
+    /**
+     * Set issues
+     *
+     * @param IssueEntity[] $issues
+     * @return $this
+     */
+    public function setIssues(array $issues)
+    {
+        $this->issues = $issues;
+
+        return $this;
+    }
+
+    /**
+     * Get issues
+     *
+     * @return IssueEntity[]
+     */
+    public function getIssues()
+    {
+        return $this->issues;
+    }
+
+    /**
      * Set upload
      *
-     * @param  UploadEntity $upload
-     * @return void
+     * @param UploadEntity $upload
+     * @return $this
      */
     public function setUpload(UploadEntity $upload)
     {
         $this->upload = $upload;
+
+        return $this;
     }
 
     /**
@@ -432,20 +691,114 @@ class ScanEntity
      *
      * @return UploadEntity
      */
-    public function getUploadEntity(): UploadEntity
+    public function getUpload()
     {
         return $this->upload;
     }
 
     /**
+     * Set applicationEntity
+     *
+     * @param $application
+     * @return $this
+     */
+    public function setApplication(ApplicationEntity $application)
+    {
+        $this->application = $application;
+
+        return $this;
+    }
+
+    /**
+     * Get applicationEntity
+     *
+     * @return ApplicationEntity
+     */
+    public function getApplication()
+    {
+        return $this->application;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param $createdBy
+     * @return $this
+     */
+    public function setCreatedBy(UserEntity $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return UserEntity
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set chargedQuota
+     *
+     * @param QuotaEntity $chargedQuota
+     * @return $this
+     */
+    public function setChargedQuota($chargedQuota)
+    {
+        $this->chargedQuota = $chargedQuota;
+
+        return $this;
+    }
+
+    /**
+     * Get chargedQuota
+     *
+     * @return QuotaEntity
+     */
+    public function getChargedQuota()
+    {
+        return $this->chargedQuota;
+    }
+
+    /**
+     * Set custom
+     *
+     * @param CustomEntity $custom
+     * @return $this
+     */
+    public function setCustom(CustomEntity $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * Get custom
+     *
+     * @return CustomEntity
+     */
+    public function getCustom()
+    {
+        return $this->custom;
+    }
+
+    /**
      * Set issueTypes
      *
-     * @param  TypeEntity[] $issueTypes
-     * @return void
+     * @param TypeEntity[] $issueTypes
+     * @return $this
      */
     public function setIssueTypes(array $issueTypes)
     {
         $this->issueTypes = $issueTypes;
+
+        return $this;
     }
 
     /**
@@ -453,7 +806,7 @@ class ScanEntity
      *
      * @return TypeEntity[]
      */
-    public function getIssueTypes(): array
+    public function getIssueTypes()
     {
         return $this->issueTypes;
     }
@@ -461,12 +814,14 @@ class ScanEntity
     /**
      * Set parent
      *
-     * @param  ScanEntity $parent
-     * @return void
+     * @param ScanEntity $parent
+     * @return $this
      */
     public function setParent(ScanEntity $parent)
     {
         $this->parent = $parent;
+
+        return $this;
     }
 
     /**
@@ -474,8 +829,54 @@ class ScanEntity
      *
      * @return ScanEntity
      */
-    public function getParent(): ScanEntity
+    public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set children
+     *
+     * @param ScanEntity[] $children
+     * @return $this
+     */
+    public function setChildren(array $children)
+    {
+        $this->setChildren($children);
+
+        return $this;
+    }
+
+    /**
+     * Get children
+     *
+     * @return ScanEntity[]
+     */
+    public function getChildren()
+    {
+        return $this;
+    }
+
+    /**
+     * Set severityDistributions
+     *
+     * @param array $severityDistributions
+     * @return $this
+     */
+    public function setSeverityDistributions(array $severityDistributions)
+    {
+        $this->severityDistributions = $severityDistributions;
+
+        return $this;
+    }
+
+    /**
+     * Get severityDistributions
+     *
+     * @return array
+     */
+    public function getSeverityDistributions()
+    {
+        return $this->severityDistributions;
     }
 }
