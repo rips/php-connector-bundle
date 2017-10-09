@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
@@ -32,10 +33,10 @@ class ConcatHydrator
     /**
      * Hydrate a concat object into a ConcatEntity object
      *
-     * @param  \stdClass $concat
+     * @param stdClass $concat
      * @return ConcatEntity
      */
-    public static function hydrate(\stdClass $concat)
+    public static function hydrate(stdClass $concat)
     {
         $hydrated = new ConcatEntity();
 
@@ -63,8 +64,8 @@ class ConcatHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($concat->class));
         }
 
-        if (isset($concat->issue)) {
-            $hydrated->setIssue(IssueHydrator::hydrate($concat->issue));
+        if (isset($concat->issues) && is_array($concat->issues)) {
+            $hydrated->setIssues(IssueHydrator::hydrateCollection($concat->issues));
         }
 
         return $hydrated;

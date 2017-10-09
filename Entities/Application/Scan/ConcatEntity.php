@@ -41,19 +41,21 @@ class ConcatEntity
     protected $class;
 
     /**
-     * @var IssueEntity
+     * @var IssueEntity[]
      */
-    protected $issue;
+    protected $issues;
 
     /**
      * Set id
      *
-     * @param  int $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -70,11 +72,13 @@ class ConcatEntity
      * Set line
      *
      * @param int $line
-     * @return void
+     * @return $this
      */
     public function setLine($line)
     {
         $this->line = $line;
+
+        return $this;
     }
 
     /**
@@ -90,12 +94,14 @@ class ConcatEntity
     /**
      * Set file
      *
-     * @param  FileEntity $file
-     * @return void
+     * @param FileEntity $file
+     * @return $this
      */
     public function setFile(FileEntity $file)
     {
         $this->file = $file;
+
+        return $this;
     }
 
     /**
@@ -111,12 +117,14 @@ class ConcatEntity
     /**
      * Set scan
      *
-     * @param  ScanEntity $scan
-     * @return void
+     * @param ScanEntity $scan
+     * @return $this
      */
     public function setScan(ScanEntity $scan)
     {
         $this->scan = $scan;
+
+        return $this;
     }
 
     /**
@@ -133,11 +141,13 @@ class ConcatEntity
      * Set function
      *
      * @param CustomFunctionEntity $function
-     * @return void
+     * @return $this
      */
     public function setFunction(CustomFunctionEntity $function)
     {
         $this->function = $function;
+
+        return $this;
     }
 
     /**
@@ -154,11 +164,13 @@ class ConcatEntity
      * Set class
      *
      * @param CustomClassEntity $class
-     * @return void
+     * @return $this
      */
     public function setClass(CustomClassEntity $class)
     {
         $this->class = $class;
+
+        return $this;
     }
 
     /**
@@ -172,22 +184,24 @@ class ConcatEntity
     }
 
     /**
-     * Set issue
+     * Set issues
      *
-     * @param IssueEntity $issue
-     * @return void
+     * @param IssueEntity[] $issue
+     * @return $this
      */
-    public function setIssue(IssueEntity $issue)
+    public function setIssues(array $issue)
     {
         $this->issue = $issue;
+
+        return $this;
     }
 
     /**
      * Get issue
      *
-     * @return IssueEntity
+     * @return IssueEntity[]
      */
-    public function getIssue()
+    public function getIssues()
     {
         return $this->issue;
     }
