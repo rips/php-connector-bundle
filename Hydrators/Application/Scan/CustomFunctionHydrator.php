@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
@@ -33,10 +34,10 @@ class CustomFunctionHydrator
     /**
      * Hydrate a custom-function object into a CustomFunctionEntity object
      *
-     * @param  \stdClass $function
+     * @param stdClass $function
      * @return CustomFunctionEntity
      */
-    public static function hydrate(\stdClass $function)
+    public static function hydrate(stdClass $function)
     {
         $hydrated = new CustomFunctionEntity();
 
@@ -68,11 +69,11 @@ class CustomFunctionHydrator
             $hydrated->setScan(ScanHydrator::hydrate($function->scan));
         }
 
-        if (isset($function->sources)) {
+        if (isset($function->sources) && is_array($function->sources)) {
             $hydrated->setSources(SourceHydrator::hydrateCollection($function->sources));
         }
 
-        if (isset($function->sinks)) {
+        if (isset($function->sinks) && is_array($funciton->sinks)) {
             $hydrated->setSinks(SinkHydrator::hydrateCollection($function->sinks));
         }
 
