@@ -24,8 +24,8 @@ class OrgService
     /**
      * Get all organizations
      *
-     * @param  array $queryParams
-     * @return array<OrgEntity>
+     * @param array $queryParams
+     * @return OrgEntity[]
      */
     public function getAll(array $queryParams = [])
     {
@@ -37,7 +37,7 @@ class OrgService
     /**
      * Get an organization by id
      *
-     * @param  int $orgId
+     * @param int $orgId
      * @return OrgEntity
      */
     public function getById($orgId)
@@ -50,7 +50,7 @@ class OrgService
     /**
      * Delete all organizations
      *
-     * @param  array $queryParams
+     * @param array $queryParams
      * @return void
      */
     public function deleteAll(array $queryParams = [])
@@ -61,7 +61,7 @@ class OrgService
     /**
      * Delete an organization by id
      *
-     * @param  int $orgId
+     * @param int $orgId
      * @return void
      */
     public function deleteById($orgId)
@@ -72,8 +72,8 @@ class OrgService
     /**
      * Update existing organization by id
      *
-     * @param  integer    $orgId
-     * @param  OrgBuilder $input
+     * @param integer $orgId
+     * @param OrgBuilder $input
      * @return OrgEntity
      */
     public function update($orgId, OrgBuilder $input)
@@ -86,7 +86,7 @@ class OrgService
     /**
      * Create a new organization
      *
-     * @param  OrgBuilder $input
+     * @param OrgBuilder $input
      * @return OrgEntity
      */
     public function create(OrgBuilder $input)
