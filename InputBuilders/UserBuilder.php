@@ -4,139 +4,129 @@ namespace RIPS\ConnectorBundle\InputBuilders;
 
 class UserBuilder extends BaseBuilder
 {
-    /** @var string */
-    protected $email;
-
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $username;
 
-    /** @var string */
-    protected $firstname;
-
-    /** @var string */
-    protected $lastname;
-
-    /** @var string */
-    protected $plainPassword;
-
-    /** @var int */
-    protected $organisation;
-
-    /** @var array */
-    protected $roles;
-
-    /** @var bool */
-    protected $root;
-
-    /** @var bool */
-    protected $enabled;
-
-    /** @var array */
-    protected $callbacks;
+    /**
+     * @var string
+     */
+    protected $email;
 
     /**
-     * Set email
-     *
-     * @param  string $email
-     * @return void
+     * @var string
      */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
+    protected $firstname = '';
 
+    /**
+     * @var string
+     */
+    protected $lastname = '';
+
+    /**
+     * @var DateTime
+     */
+    protected $validUntil;
+
+    /**
+     * @var array
+     */
+    protected $roles;
+
+    /**
+     * @var boolean
+     */
+    protected $root = false;
+    
     /**
      * Set username
      *
-     * @param  string $username
-     * @return void
+     * @param string $username
+     * @return $this
      */
     public function setUsername($username)
     {
         $this->username = $username;
+    
+        return $this;
     }
-
+    
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+    
     /**
      * Set firstname
      *
-     * @param  string $firstname
-     * @return void
+     * @param string $firstname
+     * @return $this
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+    
+        return $this;
     }
-
+    
     /**
      * Set lastname
      *
-     * @param  string $lastname
-     * @return void
+     * @param string $lastname
+     * @return $this
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+    
+        return $this;
     }
-
+    
     /**
-     * Set plainPassword
+     * Set validUntil
      *
-     * @param  string $plainPassword
-     * @return void
+     * @param string $validUntil
+     * @return $this
      */
-    public function setPlainPassword($plainPassword)
+    public function setValidUntil($validUntil)
     {
-        $this->plainPassword = $plainPassword;
+        $this->validUntil = $validUntil;
+    
+        return $this;
     }
-
-    /**
-     * Set organisation
-     *
-     * @param  int $organisation
-     * @return void
-     */
-    public function setOrganisation($organisation)
-    {
-        $this->organisation = $organisation;
-    }
-
+    
     /**
      * Set roles
      *
-     * @param array<string> $roles
+     * @param array $roles
+     * @return $this
      */
-    public function setRoles(array $roles)
+    public function setRoles($roles)
     {
         $this->roles = $roles;
+    
+        return $this;
     }
-
-    /**
-     * Set enabled
-     *
-     * @param  bool $enabled
-     * @return void
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-    }
-
+    
     /**
      * Set root
      *
-     * @param  bool $root
-     * @return void
+     * @param boolean $root
+     * @return $this
      */
     public function setRoot($root)
     {
         $this->root = $root;
-    }
-
-    /**
-     * @param array $callbacks
-     */
-    public function setCallbacks(array $callbacks)
-    {
-        $this->callbacks = $callbacks;
+    
+        return $this;
     }
 }

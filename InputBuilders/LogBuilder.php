@@ -6,45 +6,39 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
 class LogBuilder extends BaseBuilder
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $text;
 
-    /** @var string */
-    protected $context;
-
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $level;
-
+    
     /**
      * Set text
      *
-     * @param  string $text
-     * @return void
+     * @param string $text
+     * @return $this
      */
     public function setText($text)
     {
         $this->text = $text;
+    
+        return $this;
     }
-
-    /**
-     * Set context
-     *
-     * @param  string $context
-     * @return void
-     */
-    public function setContext($context)
-    {
-        $this->context = $context;
-    }
-
+    
     /**
      * Set level
      *
-     * @param  int $level
-     * @return void
+     * @param int $level
+     * @return $this
      */
     public function setLevel($level)
     {
         $this->level = $level;
+    
+        return $this;
     }
 }

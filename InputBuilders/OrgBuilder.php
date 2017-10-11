@@ -4,42 +4,39 @@ namespace RIPS\ConnectorBundle\InputBuilders;
 
 class OrgBuilder extends BaseBuilder
 {
-    /** @var string */
-    protected $validUntil;
-
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $name;
 
-    /** @var array */
-    protected $callbacks;
-
+    /**
+     * @var string
+     */
+    protected $validUntil;
+    
     /**
      * Set name
      *
-     * @param  string $name
-     * @return void
+     * @param string $name
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+    
+        return $this;
     }
-
+    
     /**
      * Set validUntil
      *
-     * @param  string $validUntil
-     * @return void
+     * @param string $validUntil
+     * @return $this
      */
     public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
-    }
-
-    /**
-     * @param array $callbacks
-     */
-    public function setCallbacks(array $callbacks)
-    {
-        $this->callbacks = $callbacks;
+    
+        return $this;
     }
 }
