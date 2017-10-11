@@ -2,13 +2,15 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 use RIPS\ConnectorBundle\InputBuilders\OrgBuilder;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
 
 class OrgService
 {
-    // @var API
+    /**
+     * @var API
+     */
     protected $api;
 
     /**

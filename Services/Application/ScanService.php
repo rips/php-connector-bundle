@@ -8,6 +8,9 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\InputBuilders\Application\ScanBuilder;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\CustomFunctionBuilder;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\CustomClassBuilder;
 
 class ScanService
 {

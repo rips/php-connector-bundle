@@ -2,13 +2,15 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 use RIPS\ConnectorBundle\InputBuilders\QuotaBuilder;
-use RIPS\ConnectorBundle\Entities\QuotaEntity;
 
 class QuotaService
 {
-    /** @var API */
+    /**
+     * @var API
+     */
     protected $api;
 
     /**

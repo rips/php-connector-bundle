@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\ValidatorHydrator;
+use RIPS\ConnectorBundle\InputBuilders\Application\Custom\ValidatorBuilder;
 
 class ValidatorService
 {

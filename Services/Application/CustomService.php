@@ -1,9 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Services\Application\Custom;
+namespace RIPS\ConnectorBundle\Services\Application;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\CustomHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
+use RIPS\ConnectorBundle\InputBuilders\Application\CustomBuilder;
 
 class CustomService
 {

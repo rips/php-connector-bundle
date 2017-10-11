@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue\ReviewBuilder;
 
 class ReviewService
 {

@@ -2,8 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
+use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;

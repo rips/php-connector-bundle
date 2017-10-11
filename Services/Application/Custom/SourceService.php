@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SourceHydrator;
+use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SourceBuilder;
 
 class SourceService
 {

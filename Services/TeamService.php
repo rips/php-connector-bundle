@@ -2,10 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Entities\TeamEntity;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
+use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
-use RIPS\ConnectorBundle\InputBuilders\Team\InviteBuilder;
 use RIPS\ConnectorBundle\InputBuilders\TeamBuilder;
 
 class TeamService

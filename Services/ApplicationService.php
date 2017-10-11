@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Entities\ApplicationEntity;
+use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\InputBuilders\ApplicationBuilder;
 

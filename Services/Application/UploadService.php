@@ -70,7 +70,7 @@ class UploadService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return vod
+     * @return void
      */
     public function deleteAll($appId, array $queryParams = [])
     {
