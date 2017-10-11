@@ -6,7 +6,9 @@ use RIPS\Connector\API;
 
 class APIService
 {
-    // @var API
+    /**
+     * @var API
+     */
     protected $api;
 
     public function __construct($username, $password, $config)
@@ -19,9 +21,14 @@ class APIService
         $this->api = new API($username, $password, $config);
     }
 
-    public function users()
+    public function applications()
     {
-        return $this->api->users;
+        return $this->api->applications;
+    }
+
+    public function logs()
+    {
+        return $this->api->logs;
     }
 
     public function orgs()
@@ -34,14 +41,14 @@ class APIService
         return $this->api->quotas;
     }
 
-    public function logs()
+    public function teams()
     {
-        return $this->api->logs;
+        return $this->api->teams;
     }
 
-    public function applications()
+    public function users()
     {
-        return $this->api->applications;
+        return $this->api->users;
     }
 
     public function scans()
@@ -49,8 +56,18 @@ class APIService
         return $this->api->scans;
     }
 
+    public function uploads()
+    {
+        return $this->api->uploads;
+    }
+
     public function issues()
     {
         return $this->api->issues;
+    }
+
+    public function pdfs()
+    {
+        return $this->api->pdfs;
     }
 }

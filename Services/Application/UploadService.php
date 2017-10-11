@@ -1,0 +1,91 @@
+<?php
+
+namespace RIPS\ConnectorBundle\Services\Application;
+
+use RIPS\ConnectorBundle\Services\APIService;
+use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
+
+class UploadService
+{
+    /**
+     * @var API
+     */
+    protected $api;
+
+    /**
+     * Initialize new UploadService instance
+     *
+     * @param APIService $api
+     */
+    public function __construct(APIService $api)
+    {
+        $this->api = $api;
+    }
+
+    /**
+     * Get all uploads for an application
+     *
+     * @param int $appId
+     * @param array $queryParams
+     * @return UploadEntity[]
+     */
+    public function getAll($appId, array $queryParams = [])
+    {
+        $uploads = $this->api->uploads()->getAll($appId, $queryParams);
+
+        return UploadHydrator::hydrateCollection($uploads);
+    }
+
+    /**
+     * Get upload for application by id
+     *
+     * @param int $appId
+     * @param int $uploadId
+     * @return UploadEntity
+     */
+    public function getById($appId, $uploadId)
+    {
+        $upload = $this->api->uploads()->getById($appId, $uploadId);
+
+        return UploadHydrator::hydrate($upload);
+    }
+
+    /**
+     * Upload a new file
+     *
+     * @param int $appId
+     * @param string $filename
+     * @param File $contents
+     * @return UploadEntity
+     */
+    public function create($appId, $filename, $contents)
+    {
+        $upload = $this->api->uploads()->create($appId, $filename, $contents);
+
+        return UploadHydrator::hydrate($upload);
+    }
+
+    /**
+     * Delete all uploads for an application
+     *
+     * @param int $appId
+     * @param array $queryParams
+     * @return vod
+     */
+    public function deleteAll($appId, array $queryParams = [])
+    {
+        $this->api->uploads()->deleteAll($appId, $queryParams);
+    }
+
+    /**
+     * Delete upload for an application by id
+     *
+     * @param int $appId
+     * @param int $uploadId
+     * @return void
+     */
+    public function deleteById($appId, $uploadId)
+    {
+        $this->api->uploads()->deleteById($appId, $uploadId);
+    }
+}
