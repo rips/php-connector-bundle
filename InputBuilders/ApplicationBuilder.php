@@ -2,22 +2,24 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
+use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
+
 class ApplicationBuilder extends BaseBuilder
 {
     /**
      * @var string
      */
-    protected $applicationName;
+    protected $name;
 
     /**
-     * Set applicationName
+     * Set name
      *
-     * @param string $applicationName
+     * @param string $name
      * @return $this
      */
-    public function setApplicationName($applicationName)
+    public function setApplicationName($name)
     {
-        $this->applicationName = $applicationName;
+        $this->name = $name;
 
         return $this;
     }

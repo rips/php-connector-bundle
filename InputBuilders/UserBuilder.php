@@ -38,6 +38,11 @@ class UserBuilder extends BaseBuilder
      * @var boolean
      */
     protected $root = false;
+
+    /**
+     * @var int
+     */
+    protected $organisation;
     
     /**
      * Set username
@@ -126,6 +131,19 @@ class UserBuilder extends BaseBuilder
     public function setRoot($root)
     {
         $this->root = $root;
+    
+        return $this;
+    }
+    
+    /**
+     * Set organisation
+     *
+     * @param int $organisation
+     * @return $this
+     */
+    public function setOrganisation($organisation)
+    {
+        $this->organisation = $organisation;
     
         return $this;
     }

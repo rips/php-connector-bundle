@@ -58,6 +58,11 @@ class QuotaBuilder extends BaseBuilder
      * @var boolean
      */
     protected $public;
+
+    /**
+     * @var int
+     */
+    protected $organisation;
     
     /**
      * Set currentApplication
@@ -198,6 +203,19 @@ class QuotaBuilder extends BaseBuilder
     public function setPublic($public)
     {
         $this->public = $public;
+    
+        return $this;
+    }
+    
+    /**
+     * Set organisation
+     *
+     * @param int $organisation
+     * @return $this
+     */
+    public function setOrganisation($organisation)
+    {
+        $this->organisation = $organisation;
     
         return $this;
     }

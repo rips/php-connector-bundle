@@ -15,6 +15,11 @@ class LogBuilder extends BaseBuilder
      * @var int
      */
     protected $level;
+
+    /**
+     * @var string
+     */
+    protected $context;
     
     /**
      * Set text
@@ -38,6 +43,19 @@ class LogBuilder extends BaseBuilder
     public function setLevel($level)
     {
         $this->level = $level;
+    
+        return $this;
+    }
+    
+    /**
+     * Set context
+     *
+     * @param string $context
+     * @return $this
+     */
+    public function setContext($context)
+    {
+        $this->context = $context;
     
         return $this;
     }
