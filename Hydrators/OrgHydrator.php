@@ -2,15 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\OrgEntity;
-use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
-use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
-use RIPS\ConnectorBundle\Hydrators\LicenseHydrator;
-use RIPS\ConnectorBundle\Hydrators\LogHydrator;
 
 class OrgHydrator
 {
@@ -35,7 +29,7 @@ class OrgHydrator
     /**
      * Hydrate a organisation object into a OrgEntity object
      *
-     * @param stdClass $org
+     * @param stdClass $organisation
      * @return OrgEntity
      */
     public static function hydrate(stdClass $organisation)
@@ -70,12 +64,8 @@ class OrgHydrator
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organisation->quotas));
         }
 
-        if (isset($organsiation->licenses) && is_array($organisation->licenses)) {
-            $hydrated->setLicenses(LicenseHydrator::hydrateCollection($organisation->licenses));
-        }
-
         if (isset($organisation->logs) && is_array($organisation->logs)) {
-            $hydrated->setLogs(LogHydrator::hydrateCollection($organsiation->logs));
+            $hydrated->setLogs(LogHydrator::hydrateCollection($organisation->logs));
         }
 
         return $hydrated;

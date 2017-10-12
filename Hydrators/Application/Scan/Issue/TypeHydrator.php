@@ -1,8 +1,8 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class TypeHydrator
@@ -11,8 +11,8 @@ class TypeHydrator
      * Hydrate a collection of user objects into a collection of
      * TypeEntity objects
      *
-     * @param  array<\stdClass> $type
-     * @return array<TypeEntity>
+     * @param stdClass[] $types
+     * @return TypeEntity[]
      */
     public static function hydrateCollection(array $types)
     {
@@ -28,10 +28,10 @@ class TypeHydrator
     /**
      * Hydrate a user object into a TypeEntity object
      *
-     * @param  \stdClass $type
+     * @param stdClass $type
      * @return TypeEntity
      */
-    public static function hydrate(\stdClass $type)
+    public static function hydrate(stdClass $type)
     {
         $hydrated = new TypeEntity();
 
@@ -92,7 +92,7 @@ class TypeHydrator
         }
 
         if (isset($type->parent)) {
-            $hydrated->setParent(TypeHydrator::hydrate($type->parent));
+            $hydrated->setParent(self::hydrate($type->parent));
         }
 
         return $hydrated;

@@ -154,7 +154,7 @@ class CustomClassEntity
      * @param FileEntity $file
      * @return $this
      */
-    public function setFile(FileEntity $file)
+    public function setFile($file)
     {
         $this->file = $file;
 
@@ -177,7 +177,7 @@ class CustomClassEntity
      * @param ScanEntity $scan
      * @return $this
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
 
@@ -220,7 +220,7 @@ class CustomClassEntity
     /**
      * Set sources
      *
-     * @param SourceEntity[]
+     * @param SourceEntity[] $sources
      * @return $this
      */
     public function setSources(array $sources)

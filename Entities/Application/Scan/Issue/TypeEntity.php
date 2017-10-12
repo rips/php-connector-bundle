@@ -379,7 +379,7 @@ class TypeEntity
      * @param  TypeEntity $parent
      * @return void
      */
-    public function setParent(TypeEntity $parent)
+    public function setParent($parent)
     {
         $this->parent = $parent;
     }

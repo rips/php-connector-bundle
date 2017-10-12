@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
+use DateTime;
 
 class OrgEntity
 {
@@ -22,10 +22,29 @@ class OrgEntity
     protected $validUntil;
 
     /**
+     * @var UserEntity[]
+     */
+    protected $users;
+
+    /**
+     * @var TeamEntity[]
+     */
+    protected $teams;
+
+    /**
+     * @var ApplicationEntity[]
+     */
+    protected $applications;
+
+    /**
      * @var QuotaEntity[]
      */
     protected $quotas;
 
+    /**
+     * @var LogEntity[]
+     */
+    protected $logs;
 
     /**
      * Set id
@@ -79,7 +98,7 @@ class OrgEntity
      * @param DateTime $validUntil
      * @return $this
      */
-    public function setValidUntil(DateTime $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
 
@@ -99,7 +118,7 @@ class OrgEntity
     /**
      * Set users
      *
-     * @param UserEntity[] $user
+     * @param UserEntity[] $users
      * @return $this
      */
     public function setUsers(array $users)
@@ -122,7 +141,7 @@ class OrgEntity
     /**
      * Set teams
      *
-     * @param TeamEntity[]
+     * @param TeamEntity[] $teams
      * @return $this
      */
     public function setTeams(array $teams)
@@ -145,7 +164,7 @@ class OrgEntity
     /**
      * Set applications
      *
-     * @param ApplicationEntity[]
+     * @param ApplicationEntity[] $applications
      * @return $this
      */
     public function setApplications(array $applications)

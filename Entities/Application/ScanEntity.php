@@ -2,13 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
-use \DateTime;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
-use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
+use RIPS\ConnectorBundle\Entities\QuotaEntity;
 
 class ScanEntity
 {
@@ -58,12 +55,12 @@ class ScanEntity
     protected $loc;
 
     /**
-     * @var  boolean
+     * @var boolean
      */
     protected $codeStored;
 
     /**
-     * @var  boolean
+     * @var boolean
      */
     protected $uploadRemoved;
 
@@ -78,47 +75,47 @@ class ScanEntity
     protected $historyInherited;
 
     /**
-     * @var ProcessEntity
+     * @var Scan\ProcessEntity
      */
     protected $process;
 
     /**
-     * @var PhpEntity
+     * @var Scan\PhpEntity
      */
     protected $php;
 
     /**
-     * @var SourceEntity[]
+     * @var Scan\SourceEntity[]
      */
     protected $sources;
 
     /**
-     * @var SinkEntity[]
+     * @var Scan\SinkEntity[]
      */
     protected $sinks;
 
     /**
-     * @var ConcatEntity[]
+     * @var Scan\ConcatEntity[]
      */
     protected $concats;
 
     /**
-     * @var FileEntity[]
+     * @var Scan\FileEntity[]
      */
     protected $files;
 
     /**
-     * @var CustomFunctionEntity[]
+     * @var Scan\CustomFunctionEntity[]
      */
     protected $functions;
 
     /**
-     * @var CustomClass[]
+     * @var Scan\CustomClassEntity[]
      */
     protected $classes;
 
     /**
-     * @var IssueEntity[]
+     * @var Scan\IssueEntity[]
      */
     protected $issues;
 
@@ -148,7 +145,7 @@ class ScanEntity
     protected $custom;
 
     /**
-     * @var TypeEntity[]
+     * @var Scan\Issue\TypeEntity[]
      */
     protected $issueTypes;
 
@@ -242,7 +239,7 @@ class ScanEntity
      * @param DateTime $start
      * @return $this
      */
-    public function setStart(DateTime $start)
+    public function setStart($start)
     {
         $this->start = $start;
 
@@ -265,7 +262,7 @@ class ScanEntity
      * @param DateTime $finish
      * @return $this
      */
-    public function setFinish(DateTime $finish)
+    public function setFinish($finish)
     {
         $this->finish = $finish;
 
@@ -288,7 +285,7 @@ class ScanEntity
      * @param DateTime $lastModification
      * @return $this
      */
-    public function setLastModification(DateTime $lastModification)
+    public function setLastModification($lastModification)
     {
         $this->lastModification = $lastModification;
 
@@ -469,10 +466,10 @@ class ScanEntity
     /**
      * Set process
      *
-     * @param $process
+     * @param Scan\ProcessEntity $process
      * @return $this
      */
-    public function setProcess(ProcessEntity $process)
+    public function setProcess($process)
     {
         $this->process = $process;
 
@@ -482,7 +479,7 @@ class ScanEntity
     /**
      * Get process
      *
-     * @return ProcessEntity
+     * @return Scan\ProcessEntity
      */
     public function getProcess()
     {
@@ -492,10 +489,10 @@ class ScanEntity
     /**
      * Set php object
      *
-     * @param PhpEntity $php
+     * @param Scan\PhpEntity $php
      * @return $this
      */
-    public function setPhp(PhpEntity $php)
+    public function setPhp($php)
     {
         $this->php = $php;
 
@@ -505,7 +502,7 @@ class ScanEntity
     /**
      * Get php object
      *
-     * @return PhpEntity
+     * @return Scan\PhpEntity
      */
     public function getPhp()
     {
@@ -515,7 +512,7 @@ class ScanEntity
     /**
      * Set sources
      *
-     * @param SourceEntity[] $sources
+     * @param Scan\SourceEntity[] $sources
      * @return $this
      */
     public function setSources(array $sources)
@@ -528,7 +525,7 @@ class ScanEntity
     /**
      * Get sources
      *
-     * @return SourceEntity[]
+     * @return Scan\SourceEntity[]
      */
     public function getSources()
     {
@@ -538,7 +535,7 @@ class ScanEntity
     /**
      * Set sinks
      *
-     * @param SinkEntity[] $sinks
+     * @param Scan\SinkEntity[] $sinks
      * @return $this
      */
     public function setSinks(array $sinks)
@@ -551,7 +548,7 @@ class ScanEntity
     /**
      * Get sinks
      *
-     * @return SinkEntity[]
+     * @return Scan\SinkEntity[]
      */
     public function getSinks()
     {
@@ -561,7 +558,7 @@ class ScanEntity
     /**
      * Set concats
      *
-     * @param ConcatEntity[] $concats
+     * @param Scan\ConcatEntity[] $concats
      * @return $this
      */
     public function setConcats(array $concats)
@@ -574,7 +571,7 @@ class ScanEntity
     /**
      * Get concats
      *
-     * @return ConcatEntity[]
+     * @return Scan\ConcatEntity[]
      */
     public function getConcats()
     {
@@ -584,7 +581,7 @@ class ScanEntity
     /**
      * Set files
      *
-     * @param FileEntity[] $files
+     * @param Scan\FileEntity[] $files
      * @return $this
      */
     public function setFiles(array $files)
@@ -597,7 +594,7 @@ class ScanEntity
     /**
      * Get files
      *
-     * @return FileEntity[]
+     * @return Scan\FileEntity[]
      */
     public function getFiles()
     {
@@ -607,7 +604,7 @@ class ScanEntity
     /**
      * Set functions
      *
-     * @param CustomFunctionEntity[] $functions
+     * @param Scan\CustomFunctionEntity[] $functions
      * @return $this
      */
     public function setFunctions(array $functions)
@@ -620,7 +617,7 @@ class ScanEntity
     /**
      * Get functions
      *
-     * @return CustomFunctionEntity[]
+     * @return Scan\CustomFunctionEntity[]
      */
     public function getFunctions()
     {
@@ -630,7 +627,7 @@ class ScanEntity
     /**
      * Set classes
      *
-     * @param CustomClassEntity[] $classes
+     * @param Scan\CustomClassEntity[] $classes
      * @return $this
      */
     public function setClasses(array $classes)
@@ -643,7 +640,7 @@ class ScanEntity
     /**
      * Get classes
      *
-     * @return CustomClassEntity[]
+     * @return Scan\CustomClassEntity[]
      */
     public function getClasses()
     {
@@ -653,7 +650,7 @@ class ScanEntity
     /**
      * Set issues
      *
-     * @param IssueEntity[] $issues
+     * @param Scan\IssueEntity[] $issues
      * @return $this
      */
     public function setIssues(array $issues)
@@ -666,7 +663,7 @@ class ScanEntity
     /**
      * Get issues
      *
-     * @return IssueEntity[]
+     * @return Scan\IssueEntity[]
      */
     public function getIssues()
     {
@@ -679,7 +676,7 @@ class ScanEntity
      * @param UploadEntity $upload
      * @return $this
      */
-    public function setUpload(UploadEntity $upload)
+    public function setUpload($upload)
     {
         $this->upload = $upload;
 
@@ -699,10 +696,10 @@ class ScanEntity
     /**
      * Set applicationEntity
      *
-     * @param $application
+     * @param ApplicationEntity $application
      * @return $this
      */
-    public function setApplication(ApplicationEntity $application)
+    public function setApplication($application)
     {
         $this->application = $application;
 
@@ -722,10 +719,10 @@ class ScanEntity
     /**
      * Set createdBy
      *
-     * @param $createdBy
+     * @param UserEntity $createdBy
      * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -771,7 +768,7 @@ class ScanEntity
      * @param CustomEntity $custom
      * @return $this
      */
-    public function setCustom(CustomEntity $custom)
+    public function setCustom($custom)
     {
         $this->custom = $custom;
 
@@ -791,7 +788,7 @@ class ScanEntity
     /**
      * Set issueTypes
      *
-     * @param TypeEntity[] $issueTypes
+     * @param Scan\Issue\TypeEntity[] $issueTypes
      * @return $this
      */
     public function setIssueTypes(array $issueTypes)
@@ -804,7 +801,7 @@ class ScanEntity
     /**
      * Get issueTypes
      *
-     * @return TypeEntity[]
+     * @return Scan\Issue\TypeEntity[]
      */
     public function getIssueTypes()
     {
@@ -817,7 +814,7 @@ class ScanEntity
      * @param ScanEntity $parent
      * @return $this
      */
-    public function setParent(ScanEntity $parent)
+    public function setParent($parent)
     {
         $this->parent = $parent;
 
@@ -842,7 +839,7 @@ class ScanEntity
      */
     public function setChildren(array $children)
     {
-        $this->setChildren($children);
+        $this->children = $children;
 
         return $this;
     }
@@ -854,7 +851,7 @@ class ScanEntity
      */
     public function getChildren()
     {
-        return $this;
+        return $this->children;
     }
 
     /**

@@ -5,11 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
 
 class FileHydrator
@@ -18,7 +13,7 @@ class FileHydrator
      * Hydrate a collection of file objects into a collection of
      * FileEntity objects
      *
-     * @param stdClass[] $file
+     * @param stdClass[] $files
      * @return FileEntity[]
      */
     public static function hydrateCollection(array $files)

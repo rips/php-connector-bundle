@@ -2,15 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
-use RIPS\ConnectorBundle\Hydrators\LicenseHydrator;
-use RIPS\ConnectorBundle\Hydrators\LogHydrator;
-use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
-use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator as ApplicationAclHydrator;
@@ -41,10 +35,10 @@ class UserHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param  \stdClass $user
+     * @param stdClass $user
      * @return UserEntity
      */
-    public static function hydrate(\stdClass $user)
+    public static function hydrate(stdClass $user)
     {
         $hydrated = new UserEntity();
 
@@ -92,7 +86,7 @@ class UserHydrator
             $hydrated->setCreatedApplications(ApplicationHydrator::hydrateCollection($user->created_applications));
         }
 
-        if (isset($user->created_scans) && is_array($$user->created_scans)) {
+        if (isset($user->created_scans) && is_array($user->created_scans)) {
             $hydrated->setCreatedScans(ScanHydrator::hydrateCollection($user->created_scans));
         }
 

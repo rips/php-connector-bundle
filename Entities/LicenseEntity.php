@@ -2,9 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
-use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
+use DateTime;
 
 class LicenseEntity
 {
@@ -148,7 +146,7 @@ class LicenseEntity
      * @param DateTime $submission
      * @return $this
      */
-    public function setSubmission(DateTime $submission)
+    public function setSubmission($submission)
     {
         $this->submission = $submission;
     
@@ -171,7 +169,7 @@ class LicenseEntity
      * @param DateTime $validUntil
      * @return $this
      */
-    public function setValidUntil(DateTime $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
     
@@ -240,7 +238,7 @@ class LicenseEntity
      * @param UserEntity $createdBy
      * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
     
@@ -263,7 +261,7 @@ class LicenseEntity
      * @param LicenseEntity $parent
      * @return $this
      */
-    public function setParent(LicenseEntity $parent)
+    public function setParent($parent)
     {
         $this->parent = $parent;
     
@@ -286,7 +284,7 @@ class LicenseEntity
      * @param LicenseEntity $child
      * @return $this
      */
-    public function setChild(LicenseEntity $child)
+    public function setChild($child)
     {
         $this->child = $child;
     
@@ -309,7 +307,7 @@ class LicenseEntity
      * @param OrgEntity $organisation
      * @return $this
      */
-    public function setOrganisation(OrgEntity $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
     

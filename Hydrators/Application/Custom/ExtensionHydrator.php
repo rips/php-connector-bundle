@@ -1,9 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use RIPS\ConnectorBundle\Entities\Application\Custom\ExtensionEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 
 class ExtensionHydrator
 {
@@ -39,16 +40,12 @@ class ExtensionHydrator
             $hydrated->setId($extension->id);
         }
 
-        if (isset($extension->application_id)) {
-            $hydrated->setApplicationId($extension->application_id);
+        if (isset($extension->extension)) {
+            $hydrated->setExtension($extension->extension);
         }
 
-        if (isset($extension->organisation_id)) {
-            $hydrated->setOrganisationId($extension->organisation_id);
-        }
-
-        if (isset($extension->at)) {
-            $hydrated->setAt(new DateTime($extension->at));
+        if (isset($extension->custom)) {
+            $hydrated->setCustom(CustomHydrator::hydrate($extension->custom));
         }
 
         return $hydrated;

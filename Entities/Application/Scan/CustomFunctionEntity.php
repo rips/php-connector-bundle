@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+
 class CustomFunctionEntity
 {
     /**
@@ -50,7 +52,7 @@ class CustomFunctionEntity
     protected $sinks;
 
     /**
-     * @var CocnatEntity[]
+     * @var ConcatEntity[]
      */
     protected $concats;
 
@@ -154,7 +156,7 @@ class CustomFunctionEntity
      */
     public function setFile($file)
     {
-        $this->file;
+        $this->file = $file;
 
         return $this;
     }
@@ -223,7 +225,7 @@ class CustomFunctionEntity
      */
     public function setSources(array $sources)
     {
-        $this->sources;
+        $this->sources = $sources;
 
         return $this;
     }

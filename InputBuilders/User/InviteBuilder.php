@@ -6,25 +6,39 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
 class InviteBuilder extends BaseBuilder
 {
-    // @var string
+    /**
+     * @var string
+     */
     protected $email;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $username;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $firstname;
 
-    // @var string
+    /**
+     * @var string
+     */
     protected $lastname;
 
-    // @var int
+    /**
+     * @var int
+     */
     protected $organisation;
 
-    // @var array
+    /**
+     * @var array
+     */
     protected $roles;
 
-    // @var bool
+    /**
+     * @var bool
+     */
     protected $root;
 
     /**

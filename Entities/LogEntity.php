@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
+use DateTime;
 
 class LogEntity
 {
@@ -238,7 +238,7 @@ class LogEntity
      * @param  UserEntity $user
      * @return $this
      */
-    public function setUser(UserEntity $user)
+    public function setUser($user)
     {
         $this->user = $user;
 
@@ -281,10 +281,10 @@ class LogEntity
     /**
      * Set organisation
      *
-     * @param OrgEntity $org
+     * @param OrgEntity $organisation
      * @return $this
      */
-    public function setOrganisation(OrgEntity $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
 
@@ -298,7 +298,7 @@ class LogEntity
      */
     public function getOrganisation()
     {
-        return $this->org;
+        return $this->organisation;
     }
 
     /**
@@ -307,7 +307,7 @@ class LogEntity
      * @param  string $organisationName
      * @return $this
      */
-    public function setOrgName($organisationName)
+    public function setOrganisationName($organisationName)
     {
         $this->organisationName = $organisationName;
 
@@ -321,7 +321,7 @@ class LogEntity
      */
     public function getOrganisationName()
     {
-        return $this->orgName;
+        return $this->organisationName;
     }
 
     /**
@@ -353,9 +353,11 @@ class LogEntity
      * @param DateTime $created
      * @return $this
      */
-    public function setCreated(DateTime $created)
+    public function setCreated($created)
     {
         $this->created = $created;
+
+        return $this;
     }
 
     /**

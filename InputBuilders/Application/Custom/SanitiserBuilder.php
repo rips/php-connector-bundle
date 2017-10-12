@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders\Application\Custom;
 
-use RIPS\ConcatHydrator\InputBuilders\BaseBuilder;
+use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
 class SanitiserBuilder extends BaseBuilder
 {

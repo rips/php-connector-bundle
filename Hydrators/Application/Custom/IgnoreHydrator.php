@@ -1,9 +1,9 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 
-use \stdClass;
-use RIPS\ConnectorBundle\Entities\Application\IgnoreEntity;
+use stdClass;
+use RIPS\ConnectorBundle\Entities\Application\Custom\IgnoreEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 
 class IgnoreHydrator

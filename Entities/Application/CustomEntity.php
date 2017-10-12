@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
+use RIPS\ConnectorBundle\Entities\ApplicationEntity;
+
 class CustomEntity
 {
     /**
@@ -20,32 +22,32 @@ class CustomEntity
     protected $global;
 
     /**
-     * @var SourceEntity[]
+     * @var Custom\SourceEntity[]
      */
     protected $sources;
 
     /**
-     * @var SinkEntity[]
+     * @var Custom\SinkEntity[]
      */
     protected $sinks;
 
     /**
-     * @var ValidatorEntity[]
+     * @var Custom\ValidatorEntity[]
      */
     protected $validators;
 
     /**
-     * @var SanitiserEntity[]
+     * @var Custom\SanitiserEntity[]
      */
     protected $sanitisers;
 
     /**
-     * @var IgnoreEntity[]
+     * @var Custom\IgnoreEntity[]
      */
     protected $ignores;
 
     /**
-     * @var ExtensionEntity[]
+     * @var Custom\ExtensionEntity[]
      */
     protected $extensions;
 
@@ -131,7 +133,7 @@ class CustomEntity
     /**
      * Get sources
      *
-     * @return SourceEntity[]
+     * @return Custom\SourceEntity[]
      */
     public function getSources()
     {
@@ -141,7 +143,7 @@ class CustomEntity
     /**
      * Set sources
      *
-     * @param SourceEntity $sources
+     * @param Custom\SourceEntity[] $sources
      * @return $this
      */
     public function setSources(array $sources)
@@ -154,7 +156,7 @@ class CustomEntity
     /**
      * Get sinks
      *
-     * @return SinkEntity[]
+     * @return Custom\SinkEntity[]
      */
     public function getSinks()
     {
@@ -164,7 +166,7 @@ class CustomEntity
     /**
      * Set sinks
      *
-     * @param SinkEntity[] $sinks
+     * @param Custom\SinkEntity[] $sinks
      * @return $this
      */
     public function setSinks(array $sinks)
@@ -177,7 +179,7 @@ class CustomEntity
     /**
      * Get validators
      *
-     * @return ValidatorEntity[]
+     * @return Custom\ValidatorEntity[]
      */
     public function getValidators()
     {
@@ -187,7 +189,7 @@ class CustomEntity
     /**
      * Set validators
      *
-     * @param ValidatorEntity[] $validators
+     * @param Custom\ValidatorEntity[] $validators
      * @return $this
      */
     public function setValidators(array $validators)
@@ -200,7 +202,7 @@ class CustomEntity
     /**
      * Get sanitisers
      *
-     * @return SanitiserEntity[]
+     * @return Custom\SanitiserEntity[]
      */
     public function getSanitisers()
     {
@@ -210,7 +212,7 @@ class CustomEntity
     /**
      * Set sanitisers
      *
-     * @param SanitiserEntity[] $sanitisers
+     * @param Custom\SanitiserEntity[] $sanitisers
      * @return $this
      */
     public function setSanitisers(array $sanitisers)
@@ -223,7 +225,7 @@ class CustomEntity
     /**
      * Get ignores
      *
-     * @return IgnoreEntity[]
+     * @return Custom\IgnoreEntity[]
      */
     public function getIgnores()
     {
@@ -233,7 +235,7 @@ class CustomEntity
     /**
      * Set ignores
      *
-     * @param IgnoreEntity[] $ignores
+     * @param Custom\IgnoreEntity[] $ignores
      * @return $this
      */
     public function setIgnores($ignores)
@@ -246,7 +248,7 @@ class CustomEntity
     /**
      * Get extensions
      *
-     * @return ExtensionEntity[]
+     * @return Custom\ExtensionEntity[]
      */
     public function getExtensions()
     {
@@ -256,7 +258,7 @@ class CustomEntity
     /**
      * Set extensions
      *
-     * @param ExtensionEntity[] $extensions
+     * @param Custom\ExtensionEntity[] $extensions
      * @return $this
      */
     public function setExtensions(array $extensions)
@@ -305,7 +307,7 @@ class CustomEntity
      * @param ApplicationEntity $application
      * @return $this
      */
-    public function setApplication(ApplicationEntity $application)
+    public function setApplication($application)
     {
         $this->application = $application;
     

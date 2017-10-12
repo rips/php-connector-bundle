@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
-use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
-
 class ApplicationBuilder extends BaseBuilder
 {
     /**

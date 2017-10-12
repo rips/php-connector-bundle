@@ -1,11 +1,11 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 
-use \stdClass;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Custom\SinkEntity;
-use RIPS\ConnectorBundle\Entities\Application\CustomHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 
 class SinkHydrator
 {

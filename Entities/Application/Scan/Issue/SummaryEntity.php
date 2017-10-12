@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan;
+
 class SummaryEntity
 {
     /**
@@ -25,12 +27,12 @@ class SummaryEntity
     protected $highlightedContent;
 
     /**
-     * @var FileEntity
+     * @var Scan\FileEntity
      */
     protected $file;
 
     /**
-     * @var IssueEntity
+     * @var Scan\IssueEntity
      */
     protected $issue;
 
@@ -59,11 +61,13 @@ class SummaryEntity
      * Set line
      *
      * @param  int $line
-     * @return void
+     * @return $this
      */
     public function setLine($line)
     {
         $this->line = $line;
+
+        return $this;
     }
 
     /**
@@ -80,11 +84,13 @@ class SummaryEntity
      * Set content
      *
      * @param  string $content
-     * @return void
+     * @return $this
      */
     public function setContent($content)
     {
         $this->content = $content;
+
+        return $this;
     }
 
     /**
@@ -101,11 +107,13 @@ class SummaryEntity
      * Set highlightedContent
      *
      * @param  string $highlightedContent
-     * @return void
+     * @return $this
      */
     public function setHighlightedContent($highlightedContent)
     {
         $this->highlightedContent = $highlightedContent;
+
+        return $this;
     }
 
     /**
@@ -121,18 +129,20 @@ class SummaryEntity
     /**
      * Set file
      *
-     * @param FileEntity $file
-     * @return void
+     * @param Scan\FileEntity $file
+     * @return $this
      */
-    public function setFile(FileEntity $file)
+    public function setFile($file)
     {
         $this->file = $file;
+
+        return $this;
     }
 
     /**
      * Get file
      *
-     * @return FileEntity
+     * @return Scan\FileEntity
      */
     public function getFile()
     {
@@ -142,18 +152,20 @@ class SummaryEntity
     /**
      * Set issue
      *
-     * @param IssueEntity $issue
-     * @return void
+     * @param Scan\IssueEntity $issue
+     * @return $this
      */
-    public function setIssue(IssueEntity $issue)
+    public function setIssue($issue)
     {
         $this->issue = $issue;
+
+        return $this;
     }
 
     /**
      * Get issue
      *
-     * @return IssueEntity
+     * @return Scan\IssueEntity
      */
     public function getIssue()
     {

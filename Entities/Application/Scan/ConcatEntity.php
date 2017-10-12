@@ -3,10 +3,6 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 
 class ConcatEntity
 {
@@ -97,7 +93,7 @@ class ConcatEntity
      * @param FileEntity $file
      * @return $this
      */
-    public function setFile(FileEntity $file)
+    public function setFile($file)
     {
         $this->file = $file;
 
@@ -120,7 +116,7 @@ class ConcatEntity
      * @param ScanEntity $scan
      * @return $this
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
 
@@ -143,7 +139,7 @@ class ConcatEntity
      * @param CustomFunctionEntity $function
      * @return $this
      */
-    public function setFunction(CustomFunctionEntity $function)
+    public function setFunction($function)
     {
         $this->function = $function;
 
@@ -166,7 +162,7 @@ class ConcatEntity
      * @param CustomClassEntity $class
      * @return $this
      */
-    public function setClass(CustomClassEntity $class)
+    public function setClass($class)
     {
         $this->class = $class;
 
@@ -186,12 +182,12 @@ class ConcatEntity
     /**
      * Set issues
      *
-     * @param IssueEntity[] $issue
+     * @param IssueEntity[] $issues
      * @return $this
      */
-    public function setIssues(array $issue)
+    public function setIssues(array $issues)
     {
-        $this->issue = $issue;
+        $this->issues = $issues;
 
         return $this;
     }
@@ -203,6 +199,6 @@ class ConcatEntity
      */
     public function getIssues()
     {
-        return $this->issue;
+        return $this->issues;
     }
 }

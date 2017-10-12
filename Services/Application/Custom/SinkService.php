@@ -5,11 +5,12 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SinkHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SinkBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Custom\SinkEntity;
 
 class SinkService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -65,16 +66,17 @@ class SinkService
     {
         $sink = $this->api->customs()->sinks()->create($appId, $customId, $input->toArray());
 
-        return SinkHydrator::hydrateCollection($sink);
+        return SinkHydrator::hydrate($sink);
     }
 
     /**
-     * Update ingore for custom profile by id
+     * Update sink for custom profile by id
      *
      * @param int $appId
      * @param int $customId
      * @param int $sinkId
      * @param SinkBuilder $input
+     * @return SinkEntity
      */
     public function update($appId, $customId, $sinkId, SinkBuilder $input)
     {
@@ -84,7 +86,7 @@ class SinkService
     }
 
     /**
-     * Delete all ingores for a custom profile
+     * Delete all sink for a custom profile
      *
      * @param int $appId
      * @param int $customId

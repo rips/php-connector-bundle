@@ -2,10 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \DateTime;
+use DateTime;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\LogEntity;
-use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 
 class LogHydrator
 {
@@ -33,7 +32,7 @@ class LogHydrator
      * @param stdClass $log
      * @return LogEntity
      */
-    public static function hydrate(\stdClass $log)
+    public static function hydrate(stdClass $log)
     {
         $hydrated = new LogEntity();
 
@@ -86,7 +85,7 @@ class LogHydrator
         }
 
         if (isset($log->created)) {
-            $hydrated->setCreated($log->created);
+            $hydrated->setCreated(new DateTime($log->created));
         }
 
         return $hydrated;

@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
+use DateTime;
 
 class QuotaEntity
 {
@@ -77,7 +77,7 @@ class QuotaEntity
     protected $license;
 
     /**
-     * @var ScanEntity[]
+     * @var Application\ScanEntity[]
      */
     protected $scans;
 
@@ -92,7 +92,7 @@ class QuotaEntity
     protected $users;
 
     /**
-     * @var AclEntity[]
+     * @var Quota\AclEntity[]
      */
     protected $acls;
 
@@ -202,6 +202,8 @@ class QuotaEntity
     public function setMaxApplications($maxApplications)
     {
         $this->maxApplications = $maxApplications;
+
+        return $this;
     }
 
     /**
@@ -289,7 +291,7 @@ class QuotaEntity
      * @param DateTime $validFrom
      * @return $this
      */
-    public function setValidFrom(DateTime $validFrom)
+    public function setValidFrom($validFrom)
     {
         $this->validFrom = $validFrom;
 
@@ -312,7 +314,7 @@ class QuotaEntity
      * @param DateTime $validUntil
      * @return $this
      */
-    public function setValidUntil(DateTime $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
 
@@ -335,7 +337,7 @@ class QuotaEntity
      * @param DateTime $lastModification
      * @return $this
      */
-    public function setLastModification(DateTime $lastModification)
+    public function setLastModification($lastModification)
     {
         $this->lastModification = $lastModification;
 
@@ -404,7 +406,7 @@ class QuotaEntity
      * @param LicenseEntity $license
      * @return $this
      */
-    public function setLicense(LicenseEntity $license)
+    public function setLicense($license)
     {
         $this->license = $license;
 
@@ -424,7 +426,7 @@ class QuotaEntity
     /**
      * Set scans
      *
-     * @param ScanEntity[] $scans
+     * @param Application\ScanEntity[] $scans
      * @return $this
      */
     public function setScans(array $scans)
@@ -437,7 +439,7 @@ class QuotaEntity
     /**
      * Get scans
      *
-     * @return ScanEntity[]
+     * @return Application\ScanEntity[]
      */
     public function getScans()
     {
@@ -453,6 +455,8 @@ class QuotaEntity
     public function setUsers(array $users)
     {
         $this->users = $users;
+
+        return $this;
     }
 
     /**
@@ -468,7 +472,7 @@ class QuotaEntity
     /**
      * Set acls
      *
-     * @param AclEntity[] $acls
+     * @param Quota\AclEntity[] $acls
      * @return $this
      */
     public function setAcls(array $acls)
@@ -481,7 +485,7 @@ class QuotaEntity
     /**
      * Get acls
      *
-     * @return AclEntity[]
+     * @return Quota\AclEntity[]
      */
     public function getAcls()
     {
@@ -491,10 +495,10 @@ class QuotaEntity
     /**
      * Set org
      *
-     * @param OrgEntity $org
+     * @param OrgEntity $organisation
      * @return $this
      */
-    public function setOrganisation(OrgEntity $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
 

@@ -4,8 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application;
 
 use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
-use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\ValidatorHydrator;
@@ -39,7 +37,7 @@ class CustomHydrator
      * @param stdClass $custom
      * @return CustomEntity
      */
-    public function hydrate(stdClass $custom)
+    public static function hydrate(stdClass $custom)
     {
         $hydrated = new CustomEntity();
 
@@ -60,7 +58,7 @@ class CustomHydrator
         }
 
         if (isset($custom->sinks) && is_array($custom->sinks)) {
-            $hydrated->setSinks(SinkHydrator::hydrate($custom->sinks));
+            $hydrated->setSinks(SinkHydrator::hydrateCollection($custom->sinks));
         }
 
         if (isset($custom->validators) && is_array($custom->validators)) {

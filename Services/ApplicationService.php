@@ -2,14 +2,14 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\InputBuilders\ApplicationBuilder;
+use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 
 class ApplicationService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -57,7 +57,7 @@ class ApplicationService
      */
     public function create(ApplicationBuilder $input)
     {
-        $application = $htis->api->applications()->create($input->toArray());
+        $application = $this->api->applications()->create($input->toArray());
 
         return ApplicationHydrator::hydrate($application);
     }
@@ -71,7 +71,7 @@ class ApplicationService
      */
     public function update($appId, ApplicationBuilder $input)
     {
-        $application = $this->api->application()->update($appId, $input->toArray());
+        $application = $this->api->applications()->update($appId, $input->toArray());
 
         return ApplicationHydrator::hydrate($application);
     }
@@ -91,7 +91,7 @@ class ApplicationService
      * Delete application by id
      *
      * @param int $appId
-     * @return vod
+     * @return void
      */
     public function deleteById($appId)
     {

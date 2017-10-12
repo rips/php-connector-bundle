@@ -2,9 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
-use RIPS\ConnectorBundle\Entities\OrgansiationEntity;
-use RIPS\ConnectorBundle\Entities\UserEntity;
+use DateTime;
 
 class TeamEntity
 {
@@ -19,7 +17,7 @@ class TeamEntity
     protected $name;
 
     /**
-     * @var OrganisationEntity
+     * @var OrgEntity
      */
     protected $organisation;
 
@@ -39,12 +37,12 @@ class TeamEntity
     protected $lastModification;
 
     /**
-     * @var ApplicationAclEntity[]
+     * @var Application\AclEntity[]
      */
     protected $applicationAcls;
 
     /**
-     * @var QuotaAclEntity[]
+     * @var Quota\AclEntity[]
      */
     protected $quotaAcls;
     
@@ -97,7 +95,7 @@ class TeamEntity
     /**
      * Get organisation
      *
-     * @return OrganisationEntity
+     * @return OrgEntity
      */
     public function getOrganisation()
     {
@@ -107,10 +105,10 @@ class TeamEntity
     /**
      * Set organisation
      *
-     * @param OrganisationEntity $organisation
+     * @param OrgEntity $organisation
      * @return $this
      */
-    public function setOrganisation(OrgansiationEntity $organisation)
+    public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
     
@@ -156,7 +154,7 @@ class TeamEntity
      * @param UserEntity $createdBy
      * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
     
@@ -179,7 +177,7 @@ class TeamEntity
      * @param DateTime $lastModification
      * @return $this
      */
-    public function setLastModification(DateTime $lastModification)
+    public function setLastModification($lastModification)
     {
         $this->lastModification = $lastModification;
     
@@ -189,7 +187,7 @@ class TeamEntity
     /**
      * Get applicationAcls
      *
-     * @return ApplicationAclEntity[]
+     * @return Application\AclEntity[]
      */
     public function getApplicationAcls()
     {
@@ -199,7 +197,7 @@ class TeamEntity
     /**
      * Set applicationAcls
      *
-     * @param ApplicationAclEntity[] $applicationAcls
+     * @param Application\AclEntity[] $applicationAcls
      * @return $this
      */
     public function setApplicationAcls(array $applicationAcls)
@@ -212,7 +210,7 @@ class TeamEntity
     /**
      * Get quotaAcls
      *
-     * @return QuotaAclEntity[]
+     * @return Quota\AclEntity[]
      */
     public function getQuotaAcls()
     {
@@ -222,7 +220,7 @@ class TeamEntity
     /**
      * Set quotaAcls
      *
-     * @param QuotaAclEntity[] $quotaAcls
+     * @param Quota\AclEntity[] $quotaAcls
      * @return $this
      */
     public function setQuotaAcls(array $quotaAcls)

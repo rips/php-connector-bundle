@@ -2,14 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use \stdClass;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 
 class CustomFunctionHydrator
 {
@@ -17,7 +12,7 @@ class CustomFunctionHydrator
      * Hydrate a collection of custom-function objects into a collection of
      * CustomFunctionEntity objects
      *
-     * @param stdClass[] $function
+     * @param stdClass[] $functions
      * @return CustomFunctionEntity[]
      */
     public static function hydrateCollection(array $functions)
@@ -58,7 +53,7 @@ class CustomFunctionHydrator
         }
 
         if (isset($function->file)) {
-            $hydrated->setFile(FileHydrator($function->file));
+            $hydrated->setFile(FileHydrator::hydrate($function->file));
         }
 
         if (isset($function->class)) {
@@ -73,12 +68,12 @@ class CustomFunctionHydrator
             $hydrated->setSources(SourceHydrator::hydrateCollection($function->sources));
         }
 
-        if (isset($function->sinks) && is_array($funciton->sinks)) {
+        if (isset($function->sinks) && is_array($function->sinks)) {
             $hydrated->setSinks(SinkHydrator::hydrateCollection($function->sinks));
         }
 
         if (isset($function->concats)) {
-            $hydrate->setConcats(ConcatHydrator::hydrateCollection($function->concats));
+            $hydrated->setConcats(ConcatHydrator::hydrateCollection($function->concats));
         }
 
         return $hydrated;

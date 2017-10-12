@@ -2,9 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
 use RIPS\ConnectorBundle\InputBuilders\TeamBuilder;
+use RIPS\ConnectorBundle\Entities\TeamEntity;
 
 class TeamService
 {

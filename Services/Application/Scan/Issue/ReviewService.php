@@ -5,18 +5,19 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue\ReviewBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
 
 class ReviewService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
     /**
      * Initialize new IssueService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {

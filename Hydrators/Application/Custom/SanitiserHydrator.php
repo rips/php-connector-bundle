@@ -1,8 +1,8 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 
-use \stdClass;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Custom\SanitiserEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 
@@ -57,7 +57,7 @@ class SanitiserHydrator
         }
 
         if (isset($sanitiser->custom)) {
-            $hydrated->setCustom(CustomHydrator($sanitiser->custom));
+            $hydrated->setCustom(CustomHydrator::hydrate($sanitiser->custom));
         }
 
         return $hydrated;

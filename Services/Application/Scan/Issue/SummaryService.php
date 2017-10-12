@@ -4,18 +4,19 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
 
 class SummaryService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
     /**
      * Initialize new IssueService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {

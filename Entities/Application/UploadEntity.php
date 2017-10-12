@@ -2,10 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
-use \DateTime;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class UploadEntity
 {
@@ -88,7 +87,7 @@ class UploadEntity
      * @param DateTime $submission
      * @return $this
      */
-    public function setSubmission(DateTime $submission)
+    public function setSubmission($submission)
     {
         $this->submission = $submission;
 
@@ -203,7 +202,7 @@ class UploadEntity
      * @param UserEntity $createdBy
      * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -249,7 +248,7 @@ class UploadEntity
      * @param ApplicationEntity $application
      * @return $this
      */
-    public function setApplication(ApplicationEntity $application)
+    public function setApplication($application)
     {
         $this->application = $application;
 
@@ -275,6 +274,8 @@ class UploadEntity
     public function setConsumed($consumed)
     {
         $this->consumed = $consumed;
+
+        return $this;
     }
 
     /**

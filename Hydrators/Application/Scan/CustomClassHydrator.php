@@ -2,14 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use \stdClass;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 
 class CustomClassHydrator
 {

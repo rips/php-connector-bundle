@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
+use DateTime;
 
 class UserEntity
 {
@@ -47,12 +47,12 @@ class UserEntity
     protected $validUntil;
 
     /**
-     * @var CommentEntity[]
+     * @var Application\Scan\Issue\CommentEntity[]
      */
     protected $createdComments;
 
     /**
-     * @var ReviewEntity[]
+     * @var Application\Scan\Issue\ReviewEntity[]
      */
     protected $createdReviews;
 
@@ -62,7 +62,7 @@ class UserEntity
     protected $createdApplications;
 
     /**
-     * @var ScanEntity[]
+     * @var Application\ScanEntity[]
      */
     protected $createdScans;
 
@@ -92,7 +92,7 @@ class UserEntity
     protected $createdTeams;
 
     /**
-     * @var UploadEntity[]
+     * @var Application\UploadEntity[]
      */
     protected $createdUploads;
 
@@ -313,9 +313,11 @@ class UserEntity
      * @param DateTime $validUntil
      * @return $this
      */
-    public function setValidUntil(DateTime $validUntil)
+    public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
+
+        return $this;
     }
 
     /**
@@ -331,7 +333,7 @@ class UserEntity
     /**
      * Set createdComments
      *
-     * @param CommentEntity[] $createdComments
+     * @param Application\Scan\Issue\CommentEntity[] $createdComments
      * @return $this
      */
     public function setCreatedComments(array $createdComments)
@@ -344,7 +346,7 @@ class UserEntity
     /**
      * Get createdComments
      *
-     * @return CommentEntity[]
+     * @return Application\Scan\Issue\CommentEntity[]
      */
     public function getCreatedComments()
     {
@@ -354,7 +356,7 @@ class UserEntity
     /**
      * Set createdReviews
      *
-     * @param ReviewEntity[] $createdReviews
+     * @param Application\Scan\Issue\ReviewEntity[] $createdReviews
      * @return $this
      */
     public function setCreatedReviews(array $createdReviews)
@@ -367,7 +369,7 @@ class UserEntity
     /**
      * Get createdReviews
      *
-     * @return ReviewEntity[]
+     * @return Application\Scan\Issue\ReviewEntity[]
      */
     public function getCreatedReviews()
     {
@@ -383,6 +385,8 @@ class UserEntity
     public function setCreatedApplications(array $createdApplications)
     {
         $this->createdApplications = $createdApplications;
+
+        return $this;
     }
 
     /**
@@ -398,7 +402,7 @@ class UserEntity
     /**
      * Set createdScans
      *
-     * @param ScanEntity[] $createdScans
+     * @param Application\ScanEntity[] $createdScans
      * @return $this
      */
     public function setCreatedScans(array $createdScans)
@@ -411,7 +415,7 @@ class UserEntity
     /**
      * Get createdScans
      *
-     * @return ScanEntity[]
+     * @return Application\ScanEntity[]
      */
     public function getCreatedScans()
     {
@@ -536,7 +540,7 @@ class UserEntity
     /**
      * Set createdUploads
      *
-     * @param UploadEntity[] $createdUploads
+     * @param Application\UploadEntity[] $createdUploads
      * @return $this
      */
     public function setCreatedUploads(array $createdUploads)
@@ -549,7 +553,7 @@ class UserEntity
     /**
      * Get createdUploads
      *
-     * @return UploadEntity[]
+     * @return Application\UploadEntity[]
      */
     public function getCreatedUploads()
     {
@@ -572,8 +576,7 @@ class UserEntity
     /**
      * Get applicationAcls
      *
-     * @param Quota\AclEntity[] $quotaAcls
-     * @return $this
+     * @return Application\AclEntity[]
      */
     public function getApplicationAcls()
     {
@@ -596,12 +599,11 @@ class UserEntity
     /**
      * Get applicationAcls
      *
-     * @param Quota\AclEntity[] $quotaAcls
-     * @return $this
+     * @return Quota\AclEntity[]
      */
     public function getQuotaAcls()
     {
-        return $this->applicationAcls;
+        return $this->quotaAcls;
     }
 
     /**
@@ -633,7 +635,7 @@ class UserEntity
      * @param UserEntity $createdBy
      * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -656,7 +658,7 @@ class UserEntity
      * @param DateTime $lastModification
      * @return $this
      */
-    public function setLastModification(DateTime $lastModification)
+    public function setLastModification($lastModification)
     {
         $this->lastModification = $lastModification;
 
@@ -679,7 +681,7 @@ class UserEntity
      * @param QuotaEntity $chargedQuota
      * @return $this
      */
-    public function setChargedQuota(QuotaEntity $chargedQuota)
+    public function setChargedQuota($chargedQuota)
     {
         $this->chargedQuota = $chargedQuota;
 
@@ -702,9 +704,11 @@ class UserEntity
      * @param OrgEntity $org
      * @return $this
      */
-    public function setOrganisation(OrgEntity $org)
+    public function setOrganisation($org)
     {
         $this->organisation = $org;
+
+        return $this;
     }
 
     /**
@@ -720,7 +724,7 @@ class UserEntity
     /**
      * Set teams
      *
-     * @param TeamEntity[]
+     * @param TeamEntity[] $teams
      * @return $this
      */
     public function setTeams(array $teams)

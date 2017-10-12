@@ -2,7 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 
-use \stdClass;
+use stdClass;
+use RIPS\ConnectorBundle\Entities\Application\Custom\ValidatorEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 
 class ValidatorHydrator

@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use stdClass;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
@@ -11,11 +12,16 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\ScanBuilder;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\CustomFunctionBuilder;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\CustomClassBuilder;
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
 
 class ScanService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -83,7 +89,7 @@ class ScanService
     {
         $classes = $this->api->scans()->getAllClasses($appId, $scanId, $queryParams);
 
-        return CustomClassHydrator::hydrate($classes);
+        return CustomClassHydrator::hydrateCollection($classes);
     }
 
     /**
@@ -198,9 +204,9 @@ class ScanService
      * @param int $functionId
      * @return CustomFunctionEntity
      */
-    public function getFunctionById($appId, $scanId, $fileId)
+    public function getFunctionById($appId, $scanId, $functionId)
     {
-        $file = $this->api->scans()->getFunctionById($appId, $scanId, $fileId);
+        $function = $this->api->scans()->getFunctionById($appId, $scanId, $functionId);
 
         return CustomFunctionHydrator::hydrate($function);
     }

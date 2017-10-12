@@ -5,11 +5,12 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SourceHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SourceBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Custom\SourceEntity;
 
 class SourceService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -65,7 +66,7 @@ class SourceService
     {
         $source = $this->api->customs()->sources()->create($appId, $customId, $input->toArray());
 
-        return SourceHydrator::hydrateCollection($source);
+        return SourceHydrator::hydrate($source);
     }
 
     /**
@@ -75,6 +76,7 @@ class SourceService
      * @param int $customId
      * @param int $sourceId
      * @param SourceBuilder $input
+     * @return SourceEntity
      */
     public function update($appId, $customId, $sourceId, SourceBuilder $input)
     {

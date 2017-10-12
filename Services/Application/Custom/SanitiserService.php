@@ -5,11 +5,12 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SanitiserHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SanitiserBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Custom\SanitiserEntity;
 
 class SanitiserService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -65,16 +66,17 @@ class SanitiserService
     {
         $sanitiser = $this->api->customs()->sanitisers()->create($appId, $customId, $input->toArray());
 
-        return SanitiserHydrator::hydrateCollection($sanitiser);
+        return SanitiserHydrator::hydrate($sanitiser);
     }
 
     /**
-     * Update ingore for custom profile by id
+     * Update sanitiser for custom profile by id
      *
      * @param int $appId
      * @param int $customId
      * @param int $sanitiserId
      * @param SanitiserBuilder $input
+     * @return SanitiserEntity
      */
     public function update($appId, $customId, $sanitiserId, SanitiserBuilder $input)
     {
@@ -84,7 +86,7 @@ class SanitiserService
     }
 
     /**
-     * Delete all ingores for a custom profile
+     * Delete all sanitiser for a custom profile
      *
      * @param int $appId
      * @param int $customId

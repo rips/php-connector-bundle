@@ -4,8 +4,7 @@ namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
 use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan;
 
 class ReviewEntity
 {
@@ -20,7 +19,7 @@ class ReviewEntity
     protected $submission;
 
     /**
-     * @var TypeEntity
+     * @var Scan\Issue\Review\TypeEntity
      */
     protected $type;
 
@@ -30,7 +29,7 @@ class ReviewEntity
     protected $createdBy;
 
     /**
-     * @var IssueEntity
+     * @var Scan\IssueEntity
      */
     protected $issue;
 
@@ -59,11 +58,13 @@ class ReviewEntity
      * Set submission
      *
      * @param DateTime $submission
-     * @return void
+     * @return $this
      */
-    public function setSubmission(DateTime $submission)
+    public function setSubmission($submission)
     {
         $this->submission = $submission;
+
+        return $this;
     }
 
     /**
@@ -79,18 +80,20 @@ class ReviewEntity
     /**
      * Set type
      *
-     * @param TypeEntity $type
-     * @return void
+     * @param Scan\Issue\Review\TypeEntity $type
+     * @return $this
      */
-    public function setType(TypeEntity $type)
+    public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     /**
      * Get type
      *
-     * @return TypeEntity
+     * @return Scan\Issue\Review\TypeEntity
      */
     public function getType()
     {
@@ -101,11 +104,13 @@ class ReviewEntity
      * Set createdBy
      *
      * @param UserEntity $createdBy
-     * @return void
+     * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
     }
 
     /**
@@ -121,18 +126,20 @@ class ReviewEntity
     /**
      * Set issue
      *
-     * @param IssueEntity $issue
-     * @return void
+     * @param Scan\IssueEntity $issue
+     * @return $this
      */
-    public function setIssue(IssueEntity $issue)
+    public function setIssue($issue)
     {
         $this->issue = $issue;
+
+        return $this;
     }
 
     /**
      * Get issue
      *
-     * @return IssueEntity
+     * @return Scan\IssueEntity
      */
     public function getIssue()
     {

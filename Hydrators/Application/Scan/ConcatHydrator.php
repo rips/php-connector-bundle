@@ -2,13 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use \stdClass;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 
 class ConcatHydrator
 {
@@ -16,7 +12,7 @@ class ConcatHydrator
      * Hydrate a collection of concat objects into a collection of
      * ConcatEntity objects
      *
-     * @param stdClass[] $issue
+     * @param stdClass[] $concats
      * @return ConcatEntity[]
      */
     public static function hydrateCollection(array $concats)

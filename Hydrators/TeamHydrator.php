@@ -2,12 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\TeamEntity;
-use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator as ApplicationAclHydrator;
 use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator as QuotaAclHydrator;
 
@@ -34,12 +31,12 @@ class TeamHydrator
     /**
      * Hydrate a team object into a TeamEntity object
      *
-     * @param  \stdClass $team
+     * @param stdClass $team
      * @return TeamEntity
      */
     public static function hydrate(stdClass $team)
     {
-        $hydrated = new Team();
+        $hydrated = new TeamEntity();
 
         if (isset($team->id)) {
             $hydrated->setId($team->id);

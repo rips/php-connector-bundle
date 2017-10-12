@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use \DateTime;
+use DateTime;
 
 class ApplicationEntity
 {
@@ -17,7 +17,7 @@ class ApplicationEntity
     protected $name;
 
     /**
-     * @var ScanEntity[]
+     * @var Application\ScanEntity[]
      */
     protected $scans;
 
@@ -27,7 +27,7 @@ class ApplicationEntity
     protected $currentScan;
 
     /**
-     * @var CustomEntity[]
+     * @var Application\CustomEntity[]
      */
     protected $customs;
 
@@ -42,12 +42,12 @@ class ApplicationEntity
     protected $chargedQuota;
 
     /**
-     * @var UploadEntity[]
+     * @var Application\UploadEntity[]
      */
     protected $uploads;
 
     /**
-     * @var AclEntity[]
+     * @var Application\AclEntity[]
      */
     protected $acls;
 
@@ -120,7 +120,7 @@ class ApplicationEntity
     /**
      * Set scans
      *
-     * @param ScanEntity[] $scans
+     * @param Application\ScanEntity[] $scans
      * @return $this
      */
     public function setScans(array $scans)
@@ -133,7 +133,7 @@ class ApplicationEntity
     /**
      * Get scans
      *
-     * @return ScanEntity[]
+     * @return Application\ScanEntity[]
      */
     public function getScans()
     {
@@ -167,7 +167,7 @@ class ApplicationEntity
     /**
      * Set customs
      *
-     * @param CustomEntity[] $customs
+     * @param Application\CustomEntity[] $customs
      * @return $this
      */
     public function setCustoms(array $customs)
@@ -180,7 +180,7 @@ class ApplicationEntity
     /**
      * Get customs
      *
-     * @return CustomEntity
+     * @return Application\CustomEntity[]
      */
     public function getCustoms()
     {
@@ -193,7 +193,7 @@ class ApplicationEntity
      * @param UserEntity $createdBy
      * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -216,7 +216,7 @@ class ApplicationEntity
      * @param QuotaEntity $chargedQuota
      * @return void
      */
-    public function setChargedQuota(QuotaEntity $chargedQuota)
+    public function setChargedQuota($chargedQuota)
     {
         $this->chargedQuota = $chargedQuota;
     }
@@ -234,7 +234,7 @@ class ApplicationEntity
     /**
      * Set uploads
      *
-     * @param UploadEntity[] $uploads
+     * @param Application\UploadEntity[] $uploads
      * @return $this
      */
     public function setUploads(array $uploads)
@@ -247,7 +247,7 @@ class ApplicationEntity
     /**
      * Get uploads
      *
-     * @return UploadEntity[]
+     * @return Application\UploadEntity[]
      */
     public function getUploads()
     {
@@ -257,7 +257,7 @@ class ApplicationEntity
     /**
      * Set acls
      *
-     * @param AclEntity[] $acls
+     * @param Application\AclEntity[] $acls
      * @return $this
      */
     public function setAcls(array $acls)
@@ -270,7 +270,7 @@ class ApplicationEntity
     /**
      * Get acls
      *
-     * @return AclEntity[]
+     * @return Application\AclEntity[]
      */
     public function getAcls()
     {
@@ -280,10 +280,10 @@ class ApplicationEntity
     /**
      * Set creation
      *
-     * @param DateTime
+     * @param DateTime $creation
      * @return $this
      */
-    public function setCreation(DateTime $creation)
+    public function setCreation($creation)
     {
         $this->creation = $creation;
 
@@ -306,7 +306,7 @@ class ApplicationEntity
      * @param DateTime $lastModification
      * @return $this
      */
-    public function setLastModification(DateTime $lastModification)
+    public function setLastModification($lastModification)
     {
         $this->lastModification = $lastModification;
 
@@ -329,7 +329,7 @@ class ApplicationEntity
      * @param OrgEntity
      * @return $this
      */
-    public function setOrganisation(OrgEntity $org)
+    public function setOrganisation($org)
     {
         $this->organisation = $org;
 
@@ -349,12 +349,14 @@ class ApplicationEntity
     /**
      * Set trial
      *
-     * @param boolean $trail
+     * @param boolean $trial
      * @return $this
      */
     public function setTrial($trial)
     {
         $this->trial = $trial;
+
+        return $this;
     }
 
     /**

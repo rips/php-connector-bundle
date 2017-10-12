@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+
 class FileEntity
 {
     /**
@@ -40,7 +42,7 @@ class FileEntity
     protected $concats;
 
     /**
-     * @var CustomFunctions
+     * @var CustomFunctionEntity[]
      */
     protected $functions;
 
@@ -50,7 +52,7 @@ class FileEntity
     protected $classes;
 
     /**
-     * @var SummaryEntity[]
+     * @var Issue\SummaryEntity[]
      */
     protected $summaries;
 
@@ -254,7 +256,7 @@ class FileEntity
      * @param CustomClassEntity[] $classes
      * @return $this
      */
-    public function setClasses(array $customClassEntity)
+    public function setClasses(array $classes)
     {
         $this->classes = $classes;
 
@@ -274,7 +276,7 @@ class FileEntity
     /**
      * Set summaries
      *
-     * @param SummaryEntity[] $summaries
+     * @param Issue\SummaryEntity[] $summaries
      * @return $this
      */
     public function setSummaries(array $summaries)
@@ -287,7 +289,7 @@ class FileEntity
     /**
      * Get summaries
      *
-     * @return SummaryEntity[]
+     * @return Issue\SummaryEntity[]
      */
     public function getSummaries()
     {

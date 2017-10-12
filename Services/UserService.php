@@ -2,11 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\ResetBuilder;
+use RIPS\ConnectorBundle\Entities\UserEntity;
 
 class UserService
 {

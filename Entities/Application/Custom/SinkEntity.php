@@ -3,7 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Custom;
 
 use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class SinkEntity
 {
@@ -28,7 +28,7 @@ class SinkEntity
     protected $parameter;
 
     /**
-     * @var Type
+     * @var TypeEntity
      */
     protected $type;
 
@@ -132,7 +132,7 @@ class SinkEntity
     /**
      * Get type
      *
-     * @return Type
+     * @return TypeEntity
      */
     public function getType()
     {
@@ -142,10 +142,10 @@ class SinkEntity
     /**
      * Set type
      *
-     * @param Type $type
+     * @param TypeEntity $type
      * @return $this
      */
-    public function setType(Type $type)
+    public function setType($type)
     {
         $this->type = $type;
     
@@ -168,7 +168,7 @@ class SinkEntity
      * @param CustomEntity $custom
      * @return $this
      */
-    public function setCustom(CustomEntity $custom)
+    public function setCustom($custom)
     {
         $this->custom = $custom;
     

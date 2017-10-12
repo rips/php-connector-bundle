@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
-use \stdClass;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
@@ -12,10 +12,10 @@ class MarkupHydrator
      * Hydrate a collection of markup objects into a collection of
      * MarkupEntity objects
      *
-     * @param stdClass[] $markup
+     * @param stdClass[] $markups
      * @return MarkupEntity[]
      */
-    public static function hydrateCollection($markups)
+    public static function hydrateCollection(array $markups)
     {
         $hydrated = [];
 

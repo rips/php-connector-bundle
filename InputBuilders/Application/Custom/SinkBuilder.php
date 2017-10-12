@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders\Application\Custom;
 
-use RIPS\ConcatHydrator\InputBuilders\BaseBuilder;
+use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
 class SinkBuilder extends BaseBuilder
 {
@@ -22,7 +22,7 @@ class SinkBuilder extends BaseBuilder
     protected $parameter;
 
     /**
-     * @var Type
+     * @var int
      */
     protected $type;
     
@@ -68,7 +68,7 @@ class SinkBuilder extends BaseBuilder
     /**
      * Set type
      *
-     * @param string $type
+     * @param int $type
      * @return $this
      */
     public function setType($type)

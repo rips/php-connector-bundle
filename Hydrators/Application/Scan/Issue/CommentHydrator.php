@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
@@ -12,7 +14,7 @@ class CommentHydrator
      * Hydrate a collection of comment objects into a collection of
      * CommentEntity objects
      *
-     * @param  stdClass[] $comment
+     * @param stdClass[] $comments
      * @return CommentEntity[]
      */
     public static function hydrateCollection(array $comments)
@@ -29,10 +31,10 @@ class CommentHydrator
     /**
      * Hydrate a comment object into a CommentEntity object
      *
-     * @param  \stdClass $comment
+     * @param stdClass $comment
      * @return CommentEntity
      */
-    public static function hydrate(\stdClass $comment)
+    public static function hydrate(stdClass $comment)
     {
         $hydrated = new CommentEntity();
 
@@ -45,7 +47,7 @@ class CommentHydrator
         }
 
         if (isset($comment->submission)) {
-            $hydrated->setSubmission(new \DateTime($comment->submission));
+            $hydrated->setSubmission(new DateTime($comment->submission));
         }
 
         if (isset($comment->created_by)) {

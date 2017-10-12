@@ -2,10 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class UploadHydrator
 {
@@ -13,7 +13,7 @@ class UploadHydrator
      * Hydrate a collection of upload objects into a collection of
      * UploadEntity objects
      *
-     * @param  \stdClass[] $uploads
+     * @param stdClass[] $uploads
      * @return UploadEntity[]
      */
     public static function hydrateCollection(array $uploads)
@@ -30,10 +30,10 @@ class UploadHydrator
     /**
      * Hydrate a upload object into a UploadEntity object
      *
-     * @param  \stdClass $upload
+     * @param stdClass $upload
      * @return UploadEntity
      */
-    public static function hydrate(\stdClass $upload)
+    public static function hydrate(stdClass $upload)
     {
         $hydrated = new UploadEntity;
 

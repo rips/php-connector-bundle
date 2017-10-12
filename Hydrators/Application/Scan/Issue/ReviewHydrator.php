@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
@@ -14,7 +15,7 @@ class ReviewHydrator
      * Hydrate a collection of review objects into a collection of
      * ReviewEntity objects
      *
-     * @param \stdClass[] $reviews
+     * @param stdClass[] $reviews
      * @return ReviewEntity[]
      */
     public static function hydrateCollection(array $reviews)
@@ -31,10 +32,10 @@ class ReviewHydrator
     /**
      * Hydrate a review object into a ReviewEntity object
      *
-     * @param \stdClass $review
+     * @param stdClass $review
      * @return ReviewEntity
      */
-    public static function hydrate(\stdClass $review)
+    public static function hydrate(stdClass $review)
     {
         $hydrated = new ReviewEntity();
 

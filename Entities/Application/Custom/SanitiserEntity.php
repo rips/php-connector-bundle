@@ -167,7 +167,7 @@ class SanitiserEntity
      * @param CustomEntity $custom
      * @return $this
      */
-    public function setCustom(CustomEntity $custom)
+    public function setCustom($custom)
     {
         $this->custom = $custom;
     

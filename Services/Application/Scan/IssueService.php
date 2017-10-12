@@ -2,20 +2,22 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use stdClass;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 
 class IssueService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
     /**
      * Initialize new IssueService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {

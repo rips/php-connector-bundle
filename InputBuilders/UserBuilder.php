@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
+use DateTime;
+
 class UserBuilder extends BaseBuilder
 {
     /**

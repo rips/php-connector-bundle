@@ -2,10 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \stdClass;
-use \DateTime;
-use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
+use stdClass;
+use DateTime;
+use RIPS\ConnectorBundle\Entities\LicenseEntity;
 
 class LicenseHydrator
 {
@@ -13,7 +12,7 @@ class LicenseHydrator
      * Hydrate a collection of license objects into a collection of
      * LicenseEntity objects
      *
-     * @param stdClass[] $users
+     * @param stdClass[] $licenses
      * @return LicenseEntity[]
      */
     public static function hydrateCollection(array $licenses)
@@ -42,7 +41,7 @@ class LicenseHydrator
         }
 
         if (isset($license->hardware_id)) {
-            $hydrate->setHardwareId($license->hardware_id);
+            $hydrated->setHardwareId($license->hardware_id);
         }
 
         if (isset($license->key)) {
@@ -70,7 +69,7 @@ class LicenseHydrator
         }
 
         if (isset($license->child)) {
-            $hydrate->setChild(self::hydrate($license->child));
+            $hydrated->setChild(self::hydrate($license->child));
         }
 
         if (isset($license->organisation)) {

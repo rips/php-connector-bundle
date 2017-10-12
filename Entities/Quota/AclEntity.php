@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application;
+namespace RIPS\ConnectorBundle\Entities\Quota;
 
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\TeamEntity;
-use RIPS\ConnectorBundle\Entities\ApplicationEntity;
+use RIPS\ConnectorBundle\Entities\QuotaEntity;
 
 class AclEntity
 {
@@ -24,9 +24,9 @@ class AclEntity
     protected $ownerTeam;
 
     /**
-     * @var ApplicationEntity
+     * @var QuotaEntity
      */
-    protected $application;
+    protected $quota;
 
     /**
      * @var UserEntity
@@ -56,7 +56,7 @@ class AclEntity
     /**
      * @var boolean
      */
-    protected $scan;
+    protected $use;
 
     /**
      * @var boolean
@@ -107,7 +107,7 @@ class AclEntity
      * @param UserEntity $ownerUser
      * @return $this
      */
-    public function setOwnerUser($ownerUser)
+    public function setOwnerUser(UserEntity $ownerUser)
     {
         $this->ownerUser = $ownerUser;
     
@@ -130,7 +130,7 @@ class AclEntity
      * @param TeamEntity $ownerTeam
      * @return $this
      */
-    public function setOwnerTeam($ownerTeam)
+    public function setOwnerTeam(TeamEntity $ownerTeam)
     {
         $this->ownerTeam = $ownerTeam;
     
@@ -138,24 +138,24 @@ class AclEntity
     }
     
     /**
-     * Get application
+     * Get quota
      *
-     * @return ApplicationEntity
+     * @return QuotaEntity
      */
-    public function getApplication()
+    public function getQuota()
     {
-        return $this->application;
+        return $this->quota;
     }
-    
+
     /**
-     * Set application
+     * Set quota
      *
-     * @param ApplicationEntity $application
+     * @param QuotaEntity $quota
      * @return $this
      */
-    public function setApplication($application)
+    public function setQuota(QuotaEntity $quota)
     {
-        $this->application = $application;
+        $this->quota = $quota;
     
         return $this;
     }
@@ -276,24 +276,24 @@ class AclEntity
     }
     
     /**
-     * Get scan
+     * Get use
      *
      * @return boolean
      */
-    public function getScan()
+    public function getUse()
     {
-        return $this->scan;
+        return $this->use;
     }
     
     /**
-     * Set scan
+     * Set use
      *
-     * @param boolean $scan
+     * @param boolean $use
      * @return $this
      */
-    public function setScan($scan)
+    public function setUse($use)
     {
-        $this->scan = $scan;
+        $this->use = $use;
     
         return $this;
     }

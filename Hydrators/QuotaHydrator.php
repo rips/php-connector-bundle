@@ -2,12 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
-use RIPS\ConnectorBundle\Hydrators\LicenseHydrator;
-use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 

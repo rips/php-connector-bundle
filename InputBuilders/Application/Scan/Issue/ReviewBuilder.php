@@ -7,7 +7,7 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class ReviewBuilder extends BaseBuilder
 {
     /**
-     * @var TypeEntity
+     * @var int
      */
     protected $type;
     

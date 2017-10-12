@@ -106,7 +106,7 @@ class ProcessEntity
      * @param DateTime $start
      * @return void
      */
-    public function setStart(DateTime $start)
+    public function setStart($start)
     {
         $this->start = $start;
     }
@@ -127,7 +127,7 @@ class ProcessEntity
      * @param DateTime $finish
      * @return void
      */
-    public function setFinish(DateTime $finish)
+    public function setFinish($finish)
     {
         $this->finish = $finish;
     }
@@ -148,7 +148,7 @@ class ProcessEntity
      * @param ScanEntity $scan
      * @return void
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
     }

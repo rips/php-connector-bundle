@@ -4,11 +4,12 @@ namespace RIPS\ConnectorBundle\Services\Application;
 
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
+use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
 
 class UploadService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -55,7 +56,7 @@ class UploadService
      *
      * @param int $appId
      * @param string $filename
-     * @param File $contents
+     * @param string $contents
      * @return UploadEntity
      */
     public function create($appId, $filename, $contents)

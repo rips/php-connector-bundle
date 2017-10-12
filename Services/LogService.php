@@ -2,14 +2,14 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\LogHydrator;
 use RIPS\ConnectorBundle\InputBuilders\LogBuilder;
+use RIPS\ConnectorBundle\Entities\LogEntity;
 
 class LogService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 

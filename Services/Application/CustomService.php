@@ -5,11 +5,12 @@ namespace RIPS\ConnectorBundle\Services\Application;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\CustomBuilder;
+use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
 
 class CustomService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -62,7 +63,7 @@ class CustomService
     {
         $custom = $this->api->customs()->create($appId, $input->toArray());
 
-        return CustomHydrator::hydrateCollection($custom);
+        return CustomHydrator::hydrate($custom);
     }
 
     /**
@@ -76,6 +77,8 @@ class CustomService
     public function update($appId, $customId, CustomBuilder $input)
     {
         $custom = $this->api->customs()->update($appId, $customId, $input->toArray());
+
+        return CustomHydrator::hydrate($custom);
     }
 
     /**

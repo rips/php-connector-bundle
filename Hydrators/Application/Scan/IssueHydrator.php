@@ -2,19 +2,16 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Origin\TypeHydrator as OriginTypeHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
 
 class IssueHydrator
 {

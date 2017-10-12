@@ -25,7 +25,6 @@ class CustomFunctionBuilder extends BaseBuilder
      * @var int
      */
     protected $file;
-    
 
     /**
      * @var int

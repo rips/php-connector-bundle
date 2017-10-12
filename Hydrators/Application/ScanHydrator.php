@@ -2,13 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
@@ -118,7 +117,7 @@ class ScanHydrator
         }
 
         if (isset($scan->files) && is_array($scan->files)) {
-            $hydrated->setFiles(FileHydrator($scan->files));
+            $hydrated->setFiles(FileHydrator::hydrateCollection($scan->files));
         }
 
         if (isset($scan->functions) && is_array($scan->functions)) {

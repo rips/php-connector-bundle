@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Application\Custom;
+namespace RIPS\ConnectorBundle\Entities\Application\Custom;
 
 use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
 
-class SourceHydrator
+class SourceEntity
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class SourceHydrator
     /**
      * Get id
      *
-     * @return type
+     * @return int
      */
     public function getId()
     {

@@ -2,11 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
-use \stdClass;
-use \DateTime;
+use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
-use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator;
@@ -18,7 +16,7 @@ class ApplicationHydrator
      * Hydrate a collection of application objects into a collection of
      * ApplicationEntity objects
      *
-     * @param stdClass[] $users
+     * @param stdClass[] $applications
      * @return ApplicationEntity[]
      */
     public static function hydrateCollection(array $applications)

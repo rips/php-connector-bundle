@@ -5,18 +5,19 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue\CommentBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
 
 class CommentService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
     /**
      * Initialize new IssueService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {
@@ -96,6 +97,6 @@ class CommentService
      */
     public function deleteById($appId, $scanId, $issueId, $commentId)
     {
-        $this->api->issues()->comments()->deleteById($appId, $scanId, $issueId, $comments);
+        $this->api->issues()->comments()->deleteById($appId, $scanId, $issueId, $commentId);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Application\Custom;
+namespace RIPS\ConnectorBundle\Entities\Application\Custom;
+
+use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
 
 class ValidatorEntity
 {

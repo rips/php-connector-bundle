@@ -5,11 +5,12 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\IgnoreHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\IgnoreBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Custom\IgnoreEntity;
 
 class IgnoreService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -65,16 +66,17 @@ class IgnoreService
     {
         $ignore = $this->api->customs()->ignores()->create($appId, $customId, $input->toArray());
 
-        return IgnoreHydrator::hydrateCollection($ignore);
+        return IgnoreHydrator::hydrate($ignore);
     }
 
     /**
-     * Update ingore for custom profile by id
+     * Update ignore for custom profile by id
      *
      * @param int $appId
      * @param int $customId
      * @param int $ignoreId
      * @param IgnoreBuilder $input
+     * @return IgnoreEntity
      */
     public function update($appId, $customId, $ignoreId, IgnoreBuilder $input)
     {
@@ -84,7 +86,7 @@ class IgnoreService
     }
 
     /**
-     * Delete all ingores for a custom profile
+     * Delete all ignores for a custom profile
      *
      * @param int $appId
      * @param int $customId

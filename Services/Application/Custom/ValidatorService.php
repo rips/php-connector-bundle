@@ -5,11 +5,12 @@ namespace RIPS\ConnectorBundle\Services\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\ValidatorHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\ValidatorBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Custom\ValidatorEntity;
 
 class ValidatorService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -65,7 +66,7 @@ class ValidatorService
     {
         $validator = $this->api->customs()->validators()->create($appId, $customId, $input->toArray());
 
-        return ValidatorHydrator::hydrateCollection($validator);
+        return ValidatorHydrator::hydrate($validator);
     }
 
     /**
@@ -75,6 +76,7 @@ class ValidatorService
      * @param int $customId
      * @param int $validatorId
      * @param ValidatorBuilder $input
+     * @return ValidatorEntity
      */
     public function update($appId, $customId, $validatorId, ValidatorBuilder $input)
     {

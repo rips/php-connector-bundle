@@ -1,12 +1,12 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application;
+namespace RIPS\ConnectorBundle\Hydrators\Quota;
 
 use \stdClass;
-use RIPS\ConnectorBundle\Entities\Application\AclEntity;
+use RIPS\ConnectorBundle\Entities\Quota\AclEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
-use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
+use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 
 class AclHydrator
 {
@@ -50,8 +50,8 @@ class AclHydrator
             $hydrated->setOwnerTeam(TeamHydrator::hydrate($acl->owner_team));
         }
 
-        if (isset($acl->application)) {
-            $hydrated->setApplication(ApplicationHydrator::hydrate($acl->application));
+        if (isset($acl->quota)) {
+            $hydrated->setQuota(QuotaHydrator::hydrate($acl->quota));
         }
 
         if (isset($acl->created_by)) {
@@ -74,8 +74,8 @@ class AclHydrator
             $hydrated->setEdit($acl->edit);
         }
 
-        if (isset($acl->scan)) {
-            $hydrated->setScan($acl->scan);
+        if (isset($acl->use)) {
+            $hydrated->setUse($acl->use);
         }
 
         if (isset($acl->manage)) {

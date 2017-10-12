@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Custom;
 
-use \DateTime;
+use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
 
 class ExtensionEntity
 {
@@ -12,19 +12,14 @@ class ExtensionEntity
     protected $id;
 
     /**
-     * @var int
+     * @var string
      */
-    protected $applicationId;
+    protected $extension;
 
     /**
-     * @var int
+     * @var CustomEntity
      */
-    protected $organisationId;
-
-    /**
-     * @var DateTime
-     */
-    protected $at;
+    protected $custom;
     
     /**
      * Get id
@@ -50,70 +45,47 @@ class ExtensionEntity
     }
     
     /**
-     * Get applicationId
+     * Get extension
      *
-     * @return int
+     * @return string
      */
-    public function getApplicationId()
+    public function getExtension()
     {
-        return $this->applicationId;
+        return $this->extension;
     }
     
     /**
-     * Set applicationId
+     * Set extension
      *
-     * @param int $applicationId
+     * @param string $extension
      * @return $this
      */
-    public function setApplicationId($applicationId)
+    public function setExtension($extension)
     {
-        $this->applicationId = $applicationId;
+        $this->extension = $extension;
     
         return $this;
     }
-    
+
     /**
-     * Get organisationId
+     * Get custom
      *
-     * @return int
+     * @return CustomEntity
      */
-    public function getOrganisationId()
+    public function getCustom()
     {
-        return $this->organisationId;
+        return $this->custom;
     }
     
     /**
-     * Set organisationId
+     * Set custom
      *
-     * @param int $organisationId
+     * @param CustomEntity $custom
      * @return $this
      */
-    public function setOrganisationId($organisationId)
+    public function setCustom($custom)
     {
-        $this->organisationId = $organisationId;
-    
-        return $this;
-    }
-    
-    /**
-     * Get at
-     *
-     * @return DateTime
-     */
-    public function getAt()
-    {
-        return $this->at;
-    }
-    
-    /**
-     * Set at
-     *
-     * @param DateTime $at
-     * @return $this
-     */
-    public function setAt(DateTime $at)
-    {
-        $this->at = $at;
+        $this->custom = $custom;
     
         return $this;
     }
