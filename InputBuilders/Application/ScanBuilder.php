@@ -45,7 +45,17 @@ class ScanBuilder extends BaseBuilder
      * @var int
      */
     protected $parent;
-    
+
+    /**
+     * @var int
+     */
+    protected $upload;
+
+    /**
+     * @var string
+     */
+    protected $path;
+
     /**
      * Set version
      *
@@ -147,6 +157,32 @@ class ScanBuilder extends BaseBuilder
     {
         $this->parent = $parent;
     
+        return $this;
+    }
+
+    /**
+     * Set upload
+     *
+     * @param int $upload
+     * @return $this
+     */
+    public function setUpload($upload)
+    {
+        $this->upload = $upload;
+
+        return $this;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
         return $this;
     }
 }
