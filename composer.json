@@ -23,6 +23,6 @@
         }
     ],
     "require": {
-        "rips/connector": "dev-feature/ACPHP-27-add-missing-endpoints"
+        "rips/connector": "dev-dev"
     }
 }

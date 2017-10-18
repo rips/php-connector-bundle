@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "56e76a4d5b1905a092cf6714f3ac6153",
+    "content-hash": "10faaaa52e7cc49836de969c11514843",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -239,11 +239,11 @@
         },
         {
             "name": "rips/connector",
-            "version": "dev-feature/ACPHP-27-add-missing-endpoints",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "88be22946d23ac6ae5420e825a98b8b1dbfac198"
+                "reference": "13cac0a3f7468f286cd03f4898c69cdc34e6a09d"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -271,7 +271,7 @@
                 "Proprietary"
             ],
             "description": "RIPS API connector package",
-            "time": "2017-10-16 07:06:05"
+            "time": "2017-10-18 19:31:50"
         }
     ],
     "packages-dev": [],
