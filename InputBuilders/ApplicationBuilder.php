@@ -4,17 +4,39 @@ namespace RIPS\ConnectorBundle\InputBuilders;
 
 class ApplicationBuilder extends BaseBuilder
 {
-    // @var string
-    protected $applicationName;
+    /**
+     * @var string
+     */
+    protected $name;
 
     /**
-     * Set applicationName
-     *
-     * @param  string
-     * @return void
+     * @var integer
      */
-    public function setApplicationName($applicationName)
+    protected $chargedQuota;
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return $this
+     */
+    public function setApplicationName($name)
     {
-        $this->applicationName = $applicationName;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Set chargedQuota
+     *
+     * @param integer $chargedQuota
+     * @return $this
+     */
+    public function setChargedQuota($chargeQuota)
+    {
+        $this->chargedQuota = $chargeQuota;
+
+        return $this;
     }
 }

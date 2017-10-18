@@ -4,185 +4,219 @@ namespace RIPS\ConnectorBundle\InputBuilders;
 
 class QuotaBuilder extends BaseBuilder
 {
-    // @var int
-    protected $allowedMisses;
-
-    // @var int
+    /**
+     * @var int
+     */
     protected $currentApplication;
 
-    // @var int
+    /**
+     * @var int
+     */
     protected $currentScan;
 
-    // @var int
+    /**
+     * @var int
+     */
     protected $currentUser;
 
-    // @var int
+    /**
+     * @var int
+     */
     protected $maxApplications;
 
-    // @var int
-    protected $maxLoc;
-
-    // @var int
+    /**
+     * @var int
+     */
     protected $maxScans;
 
-    // @var int
+    /**
+     * @var int
+     */
     protected $maxUsers;
 
-    // @var int
-    protected $organisation;
-
-    // @var bool
-    protected $public;
-
-    // @var string
-    protected $validFrom;
-
-    // @var string
-    protected $validUntil;
-
-    // @var bool
-    protected $notify;
+    /**
+     * @var int
+     */
+    protected $maxLoc;
 
     /**
-     * Set allowedMisses
-     *
-     * @param  int
-     * @return void
+     * @var string
      */
-    public function setAllowedMisses($allowedMisses)
-    {
-        $this->allowedMisses = $allowedMisses;
-    }
+    protected $validFrom;
 
+    /**
+     * @var string
+     */
+    protected $validUntil;
+
+    /**
+     * @var int
+     */
+    protected $allowedMisses;
+
+    /**
+     * @var boolean
+     */
+    protected $public;
+
+    /**
+     * @var int
+     */
+    protected $organisation;
+    
     /**
      * Set currentApplication
      *
-     * @param  int $currentApplication
-     * @return void
+     * @param int $currentApplication
+     * @return $this
      */
     public function setCurrentApplication($currentApplication)
     {
         $this->currentApplication = $currentApplication;
+    
+        return $this;
     }
-
+    
     /**
      * Set currentScan
      *
-     * @param  int $currentScan
-     * @return void
+     * @param int $currentScan
+     * @return $this
      */
     public function setCurrentScan($currentScan)
     {
         $this->currentScan = $currentScan;
+    
+        return $this;
     }
-
+    
     /**
      * Set currentUser
      *
-     * @param  int $currentUser
-     * @return void
+     * @param int $currentUser
+     * @return $this
      */
     public function setCurrentUser($currentUser)
     {
         $this->currentUser = $currentUser;
+    
+        return $this;
     }
-
+    
     /**
      * Set maxApplications
      *
-     * @param  int $maxApplications
-     * @return void
+     * @param int $maxApplications
+     * @return $this
      */
     public function setMaxApplications($maxApplications)
     {
         $this->maxApplications = $maxApplications;
+    
+        return $this;
     }
-
-    /**
-     * Set maxLoc
-     *
-     * @param  int $maxLoc
-     * @return void
-     */
-    public function setMaxLoc($maxLoc)
-    {
-        $this->maxLoc = $maxLoc;
-    }
-
+    
     /**
      * Set maxScans
      *
-     * @param  int $maxScans
-     * @return void
+     * @param int $maxScans
+     * @return $this
      */
     public function setMaxScans($maxScans)
     {
         $this->maxScans = $maxScans;
+    
+        return $this;
     }
-
+    
     /**
      * Set maxUsers
      *
-     * @param  int $maxUsers
-     * @return void
+     * @param int $maxUsers
+     * @return $this
      */
     public function setMaxUsers($maxUsers)
     {
         $this->maxUsers = $maxUsers;
+    
+        return $this;
     }
-
+    
     /**
-     * Set organisation
+     * Set maxLoc
      *
-     * @param  int $organisation
-     * @return void
+     * @param int $maxLoc
+     * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setMaxLoc($maxLoc)
     {
-        $this->organisation = $organisation;
+        $this->maxLoc = $maxLoc;
+    
+        return $this;
     }
-
-    /**
-     * Set public
-     *
-     * @param  bool $public
-     * @return void
-     */
-    public function setPublic(bool $public)
-    {
-        $this->public = $public;
-    }
-
+    
     /**
      * Set validFrom
      *
-     * @param  string $validFrom
-     * @return void
+     * @param string $validFrom
+     * @return $this
      */
     public function setValidFrom($validFrom)
     {
         $this->validFrom = $validFrom;
+    
+        return $this;
     }
-
+    
     /**
      * Set validUntil
      *
-     * @param  string $validUntil
-     * @return void
+     * @param string $validUntil
+     * @return $this
      */
     public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
+    
+        return $this;
     }
-
+    
     /**
-     * Set notify
+     * Set allowedMisses
      *
-     * @param  bool $notify
-     * @return void
+     * @param int $allowedMisses
+     * @return $this
      */
-    public function setNotify($notify)
+    public function setAllowedMisses($allowedMisses)
     {
-        $this->notify = $notify;
+        $this->allowedMisses = $allowedMisses;
+    
+        return $this;
+    }
+    
+    /**
+     * Set public
+     *
+     * @param boolean $public
+     * @return $this
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+    
+        return $this;
+    }
+    
+    /**
+     * Set organisation
+     *
+     * @param int $organisation
+     * @return $this
+     */
+    public function setOrganisation($organisation)
+    {
+        $this->organisation = $organisation;
+    
+        return $this;
     }
 }

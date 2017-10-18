@@ -2,15 +2,18 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
+use RIPS\ConnectorBundle\InputBuilders\User\UpdateBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;
-use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
+use RIPS\ConnectorBundle\InputBuilders\User\ResetBuilder;
+use RIPS\ConnectorBundle\Entities\UserEntity;
 
 class UserService
 {
-    // @var API
+    /**
+     * @var APIService
+     */
     protected $api;
 
     /**
@@ -26,8 +29,8 @@ class UserService
     /**
      * Get a collection of user objects
      *
-     * @param  array $queryParams
-     * @return array<UserEntity>
+     * @param array $queryParams
+     * @return UserEntity[]
      */
     public function getAll(array $queryParams = [])
     {
@@ -39,7 +42,7 @@ class UserService
     /**
      * Get a user by id
      *
-     * @param  int $userId
+     * @param int $userId
      * @return UserEntity
      */
     public function getById($userId)
@@ -50,28 +53,114 @@ class UserService
     }
 
     /**
-     * Invite a new user
+     * Create a new user
      *
-     * @param  InviteBuilder $input
+     * @param AddBuilder $input
      * @return UserEntity
      */
-    public function invite(InviteBuilder $input)
+    public function create($input)
     {
-        $user = $this->api->users()->invite($input->toArray());
+        $user = $this->api->users()->create($input->toArray());
 
         return UserHydrator::hydrate($user);
     }
 
     /**
-     * Update a user by id
+     * Update existing user
      *
      * @param int $userId
-     * @param UserBuilder $input
+     * @param UpdateBuilder $input
      * @return UserEntity
      */
-    public function update($userId, UserBuilder $input)
+    public function update($userId, $input)
     {
         $user = $this->api->users()->update($userId, $input->toArray());
+
+        return UserHydrator::hydrate($user);
+    }
+
+    /**
+     * Delete all users
+     *
+     * @param array $queryParams
+     * @return void
+     */
+    public function deleteAll(array $queryParams = [])
+    {
+        $this->api->users()->deleteAll($queryParams);
+    }
+
+    /**
+     * Delete user by id
+     *
+     * @param int $userId
+     * @return void
+     */
+    public function deleteById($userId)
+    {
+        $this->api->users()->deleteById($userId);
+    }
+
+    /**
+     * Invite a new user
+     *
+     * @param InviteBuilder $input
+     * @return void
+     */
+    public function invite($input)
+    {
+        $this->api->users()->invite($input->toArray());
+    }
+
+    /**
+     * Request a reset email
+     *
+     * @param ResetBuilder $input
+     * @return UserEntity
+     */
+    public function reset($input)
+    {
+        $this->api->users()->reset($input->toArray());
+    }
+
+    /**
+     * Active a user account
+     *
+     * @param int $userId
+     * @param string $token
+     * @return UserEntity
+     */
+    public function activate($userId, $token)
+    {
+        $user = $this->api->users()->activate($userId, $token);
+
+        return UserHydrator::hydrate($user);
+    }
+
+    /**
+     * Confirm email update for user account
+     *
+     * @param int $userId
+     * @param string $token
+     * @return UserEntity
+     */
+    public function confirm($userId, $token)
+    {
+        $user = $this->api->users()->confirm($userId, $token);
+
+        return UserHydrator::hydrate($user);
+    }
+
+    /**
+     * Reset user account
+     *
+     * @param int $userId
+     * @param string $token
+     * @return UserEntity
+     */
+    public function confirmReset($userId, $token)
+    {
+        $user = $this->api->users()->confirmReset($userId, $token);
 
         return UserHydrator::hydrate($user);
     }

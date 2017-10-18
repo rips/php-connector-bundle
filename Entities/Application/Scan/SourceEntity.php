@@ -3,9 +3,6 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
 
 class SourceEntity
 {
@@ -144,7 +141,7 @@ class SourceEntity
      * @param  FileEntity $file
      * @return void
      */
-    public function setFile(FileEntity $file)
+    public function setFile($file)
     {
         $this->file = $file;
     }
@@ -165,7 +162,7 @@ class SourceEntity
      * @param  ScanEntity $scan
      * @return void
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
     }
@@ -186,7 +183,7 @@ class SourceEntity
      * @param  CustomFunctionEntity $function
      * @return void
      */
-    public function setFunction(CustomFunctionEntity $function)
+    public function setFunction($function)
     {
         $this->function = $function;
     }
@@ -207,7 +204,7 @@ class SourceEntity
      * @param CustomClassEntity $class
      * @return void
      */
-    public function setClass(CustomClassEntity $class)
+    public function setClass($class)
     {
         $this->class = $class;
     }

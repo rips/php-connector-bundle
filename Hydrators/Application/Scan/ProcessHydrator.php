@@ -16,7 +16,7 @@ class ProcessHydrator
      * @param stdClass[] $processes
      * @return ProcessEntity[]
      */
-    public static function hydrateCollection($processes)
+    public static function hydrateCollection(array $processes)
     {
         $hydrated = [];
 
@@ -30,7 +30,7 @@ class ProcessHydrator
     /**
      * Hydrate a process object into a ProcessEntity object
      *
-     * @param  \stdClass $process
+     * @param stdClass $process
      * @return ProcessEntity
      */
     public static function hydrate(stdClass $process)

@@ -2,9 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use DateTime;
+use stdClass;
 use RIPS\ConnectorBundle\Entities\LogEntity;
-use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 
 class LogHydrator
 {
@@ -12,7 +12,7 @@ class LogHydrator
      * Hydrate a collection of log objects into a collection of
      * LogEntity objects
      *
-     * @param  \stdClass[] $logs
+     * @param stdClass[] $logs
      * @return LogEntity[]
      */
     public static function hydrateCollection(array $logs)
@@ -27,12 +27,12 @@ class LogHydrator
     }
 
     /**
-     * Hydrate a single log object into a LogEntity object
+     * Hydrate a log object into a LogEntity object
      *
-     * @param  \stdClass $log
+     * @param stdClass $log
      * @return LogEntity
      */
-    public static function hydrate(\stdClass $log)
+    public static function hydrate(stdClass $log)
     {
         $hydrated = new LogEntity();
 
@@ -73,11 +73,11 @@ class LogHydrator
         }
 
         if (isset($log->organisation)) {
-            $hydrated->setOrg(OrgHydrator::hydrate($log->organisation));
+            $hydrated->setOrganisation(OrgHydrator::hydrate($log->organisation));
         }
 
         if (isset($log->organisation_name)) {
-            $hydrated->setOrgName($log->organisation_name);
+            $hydrated->setOrganisationName($log->organisation_name);
         }
 
         if (isset($log->context)) {
@@ -85,7 +85,7 @@ class LogHydrator
         }
 
         if (isset($log->created)) {
-            $hydrated->setCreated($log->created);
+            $hydrated->setCreated(new DateTime($log->created));
         }
 
         return $hydrated;

@@ -2,16 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Origin\TypeEntity as OriginTypeEntity;
 
 class IssueEntity
 {
@@ -21,47 +13,47 @@ class IssueEntity
     protected $id;
 
     /**
-     * @var CommentEntity[]
+     * @var Issue\CommentEntity[]
      */
     protected $comments;
 
     /**
-     * @var SummaryEntity[]
+     * @var Issue\SummaryEntity[]
      */
     protected $summaries;
 
     /**
-     * @var MarkupEntity[]
+     * @var Issue\MarkupEntity[]
      */
     protected $markups;
 
     /**
-     * @var OriginTypeEntity
+     * @var Issue\Origin\TypeEntity
      */
     protected $origin;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $depth;
 
     /**
-     * @var TypeEntity
+     * @var Issue\TypeEntity
      */
     protected $type;
 
     /**
-     * @var ReviewEntity[]
+     * @var Issue\ReviewEntity[]
      */
     protected $reviews;
 
     /**
-     * @var bool
+     * @var boolean
      */
     protected $reviewed;
 
     /**
-     * @var bool
+     * @var boolean
      */
     protected $negativelyReviewed;
 
@@ -76,11 +68,6 @@ class IssueEntity
     protected $sink;
 
     /**
-     * @var IssueEntity
-     */
-    protected $parent;
-
-    /**
      * @var ConcatEntity
      */
     protected $concat;
@@ -89,6 +76,31 @@ class IssueEntity
      * @var ScanEntity
      */
     protected $scan;
+
+    /**
+     * @var IssueEntity
+     */
+    protected $parent;
+
+    /**
+     * @var int
+     */
+    protected $parentCount;
+
+    /**
+     * @var IssueEntity[]
+     */
+    protected $children;
+
+    /**
+     * @var DateTime
+     */
+    protected $lastModification;
+
+    /**
+     * @var string
+     */
+    protected $readable;
 
     /**
      * @var int
@@ -106,25 +118,27 @@ class IssueEntity
     protected $cve;
 
     /**
-     * @var array
+     * @var boolean
      */
-    protected $readable;
+    protected $minimal;
 
     /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -134,18 +148,20 @@ class IssueEntity
     /**
      * Set comments
      *
-     * @param  CommentEntity[] $comments
-     * @return void
+     * @param Issue\CommentEntity[] $comments
+     * @return $this
      */
     public function setComments(array $comments)
     {
         $this->comments = $comments;
+
+        return $this;
     }
 
     /**
      * Get comments
      *
-     * @return CommentEntity[]
+     * @return Issue\CommentEntity[]
      */
     public function getComments()
     {
@@ -155,18 +171,20 @@ class IssueEntity
     /**
      * Set summaries
      *
-     * @param  SummaryEntity[] $summaries
-     * @return void
+     * @param Issue\SummaryEntity[] $summaries
+     * @return $this
      */
     public function setSummaries(array $summaries)
     {
         $this->summaries = $summaries;
+
+        return $this;
     }
 
     /**
      * Get summaries
      *
-     * @return SummaryEntity[]
+     * @return Issue\SummaryEntity[]
      */
     public function getSummaries()
     {
@@ -176,18 +194,20 @@ class IssueEntity
     /**
      * Set markups
      *
-     * @param  MarkupEntity[] $markups
-     * @return void
+     * @param Issue\MarkupEntity[]
+     * @return $this
      */
     public function setMarkups(array $markups)
     {
         $this->markups = $markups;
+
+        return $this;
     }
 
     /**
      * Get markups
      *
-     * @return MarkupEntity[]
+     * @return Issue\MarkupEntity[]
      */
     public function getMarkups()
     {
@@ -195,20 +215,22 @@ class IssueEntity
     }
 
     /**
-     * Set Origin
+     * Set origin
      *
-     * @param  OriginTypeEntity $origin
-     * @return void
+     * @param Issue\Origin\TypeEntity $origin
+     * @return $this
      */
-    public function setOrigin(OriginTypeEntity $origin)
+    public function setOrigin($origin)
     {
-        $this->origin  = $origin;
+        $this->origin = $origin;
+
+        return $this;
     }
 
     /**
      * Get origin
      *
-     * @return OriginTypeEntity
+     * @return Issue\Origin\TypeEntity
      */
     public function getOrigin()
     {
@@ -218,12 +240,14 @@ class IssueEntity
     /**
      * Set depth
      *
-     * @param  int $depth
-     * @return void
+     * @param int $depth
+     * @return $this
      */
     public function setDepth($depth)
     {
         $this->depth = $depth;
+
+        return $this;
     }
 
     /**
@@ -239,18 +263,20 @@ class IssueEntity
     /**
      * Set type
      *
-     * @param  TypeEntity $type
-     * @return void
+     * @param Issue\TypeEntity $type
+     * @return $this
      */
-    public function setType(TypeEntity $type)
+    public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     /**
      * Get type
      *
-     * @return TypeEntity
+     * @return Issue\TypeEntity
      */
     public function getType()
     {
@@ -260,18 +286,20 @@ class IssueEntity
     /**
      * Set reviews
      *
-     * @param  ReviewEntity[] $reviews
-     * @return void
+     * @param Issue\ReviewEntity[] $reviews
+     * @return $this
      */
     public function setReviews(array $reviews)
     {
         $this->reviews = $reviews;
+
+        return $this;
     }
 
     /**
      * Get reviews
      *
-     * @return ReviewEntity[]
+     * @return Issue\ReviewEntity[]
      */
     public function getReviews()
     {
@@ -281,18 +309,20 @@ class IssueEntity
     /**
      * Set reviewed
      *
-     * @param  bool $reviewed
-     * @return void
+     * @param boolean $reviewed
+     * @return $this
      */
     public function setReviewed($reviewed)
     {
         $this->reviewed = $reviewed;
+
+        return $this;
     }
 
     /**
      * Get reviewed
      *
-     *@return bool
+     * @return boolean
      */
     public function getReviewed()
     {
@@ -302,18 +332,20 @@ class IssueEntity
     /**
      * Set negativelyReviewed
      *
-     * @param  bool $negativelyReviewed
-     * @return void
+     * @param bool $negativelyReviewed
+     * @return $this
      */
     public function setNegativelyReviewed($negativelyReviewed)
     {
         $this->negativelyReviewed = $negativelyReviewed;
+
+        return $this;
     }
 
     /**
      * Get negativelyReviewed
      *
-     * @return bool
+     * @return boolean
      */
     public function getNegativelyReviewed()
     {
@@ -324,10 +356,13 @@ class IssueEntity
      * Set source
      *
      * @param SourceEntity $source
+     * @return $this
      */
-    public function setSource(SourceEntity $source)
+    public function setSource($source)
     {
         $this->source = $source;
+
+        return $this;
     }
 
     /**
@@ -343,12 +378,14 @@ class IssueEntity
     /**
      * Set sink
      *
-     * @param  SinkEntity $sink
-     * @return void
+     * @param SinkEntity $sink
+     * @return $this
      */
-    public function setSink(SinkEntity $sink)
+    public function setSink($sink)
     {
         $this->sink = $sink;
+
+        return $this;
     }
 
     /**
@@ -364,12 +401,14 @@ class IssueEntity
     /**
      * Set concat
      *
-     * @param  ConcatEntity $concat
-     * @return void
+     * @param ConcatEntity $concat
+     * @return $this
      */
-    public function setConcat(ConcatEntity $concat)
+    public function setConcat($concat)
     {
         $this->concat = $concat;
+
+        return $this;
     }
 
     /**
@@ -385,12 +424,14 @@ class IssueEntity
     /**
      * Set scan
      *
-     * @param  ScanEntity $scan
-     * @return void
+     * @param ScanEntity $scan
+     * @return $this
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
+
+        return $this;
     }
 
     /**
@@ -404,14 +445,131 @@ class IssueEntity
     }
 
     /**
+     * Set parent
+     *
+     * @param IssueEntity $parent
+     * @return $this
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /***
+     * Get parent
+     *
+     * @eturn IssueEntity
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set parentCount
+     *
+     * @param int $parentCount
+     * @return $this
+     */
+    public function setParentCount($parentCount)
+    {
+        $this->parentCount = $parentCount;
+
+        return $this;
+    }
+
+    /**
+     * Get parentCount
+     *
+     * @return int
+     */
+    public function getParentCount()
+    {
+        return $this->parentCount;
+    }
+
+    /**
+     * Set children
+     *
+     * @param IssueEntity[] $children
+     * @return $this
+     */
+    public function setChildren(array $children)
+    {
+        $this->children = $children;
+
+        return $this;
+    }
+
+    /**
+     * Get children
+     *
+     * @return IssueEntity[]
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set lastModification
+     *
+     * @param DateTime $lastModification
+     * @return $this
+     */
+    public function setLastModification($lastModification)
+    {
+        $this->lastModification = $lastModification;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModification
+     *
+     * @return DateTime
+     */
+    public function getLastModification()
+    {
+        return $this->lastModification;
+    }
+
+    /**
+     * Set readable
+     *
+     * @param string $readable
+     * @return $this
+     */
+    public function setReadable($readable)
+    {
+        $this->readable = $readable;
+
+        return $this;
+    }
+
+    /**
+     * Get readable
+     *
+     * @return string
+     */
+    public function getReadable()
+    {
+        return $this->readable;
+    }
+
+    /**
      * Set effort
      *
-     * @param  int $effort
-     * @return void
+     * @param int $effort
+     * @return $this
      */
     public function setEffort($effort)
     {
         $this->effort = $effort;
+
+        return $this;
     }
 
     /** Get effort
@@ -426,18 +584,20 @@ class IssueEntity
     /**
      * Set complete
      *
-     * @param  bool
-     * @return void
+     * @param boolean
+     * @return $this
      */
     public function setComplete($complete)
     {
         $this->complete = $complete;
+
+        return $this;
     }
 
     /**
      * Get complete
      *
-     * @return bool
+     * @return boolean
      */
     public function getComplete()
     {
@@ -445,35 +605,16 @@ class IssueEntity
     }
 
     /**
-     * Set parent
-     *
-     * @param  IssueEntity $parent
-     * @return void
-     */
-    public function setParent(IssueEntity $parent)
-    {
-        $this->parent = $parent;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return IssueEntity
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
      * Set cve
      *
-     * @param  string $cve
-     * @return void
+     * @param string $cve
+     * @return $this
      */
     public function setCve($cve)
     {
         $this->cve = $cve;
+
+        return $this;
     }
 
     /**
@@ -487,23 +628,25 @@ class IssueEntity
     }
 
     /**
-     * Set readable
+     * Set minimal
      *
-     * @param  array $readable
-     * @return void
+     * @param boolean $minimal
+     * @return $this
      */
-    public function setReadable(array $readable)
+    public function setMinimal($minimal)
     {
-        $this->readable = $readable;
+        $this->minimal = $minimal;
+
+        return $this;
     }
 
     /**
-     * Get readable
+     * Get miminal
      *
-     * @return array
+     * @return boolean
      */
-    public function getReadable()
+    public function getMinimal()
     {
-        return $this->readable;
+        return $this->minimal;
     }
 }

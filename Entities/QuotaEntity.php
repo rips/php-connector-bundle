@@ -2,59 +2,69 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use RIPS\ConnectorBundle\Entities\OrgEntity;
+use DateTime;
 
 class QuotaEntity
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $id;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $currentApplication;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $currentScan;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $currentUser;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $maxApplications;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $maxScans;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $maxUsers;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $maxLoc;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $validFrom;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $validUntil;
+
+    /**
+     * @var DateTime
+     */
+    protected $lastModification;
+
+    /**
+     * @var int
+     */
+    protected $allowedMisses;
 
     /**
      * @var boolean
@@ -62,30 +72,52 @@ class QuotaEntity
     protected $public;
 
     /**
-     * @var OrgEntity
+     * @var LicenseEntity
      */
-    protected $org;
+    protected $license;
 
     /**
-     * @var boolean
+     * @var Application\ScanEntity[]
      */
-    protected $notify;
+    protected $scans;
+
+    /**
+     * @var ApplicationEntity[]
+     */
+    protected $applications;
+
+    /**
+     * @var UserEntity[]
+     */
+    protected $users;
+
+    /**
+     * @var Quota\AclEntity[]
+     */
+    protected $acls;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $organisation;
 
     /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -95,18 +127,20 @@ class QuotaEntity
     /**
      * Set currentApplication
      *
-     * @param  integer $currentApp
-     * @return void
+     * @param int $currentApp
+     * @return $this
      */
     public function setCurrentApplication($currentApp)
     {
         $this->currentApplication = $currentApp;
+
+        return $this;
     }
 
     /**
      * Get currentApplication
      *
-     * @return integer
+     * @return int
      */
     public function getCurrentApplication()
     {
@@ -116,18 +150,20 @@ class QuotaEntity
     /**
      * Set currentScan
      *
-     * @param  integer $currentScan
-     * @return void
+     * @param int $currentScan
+     * @return $this
      */
     public function setCurrentScan($currentScan)
     {
         $this->currentScan = $currentScan;
+
+        return $this;
     }
 
     /**
      * Get currentScan
      *
-     * @return integer
+     * @return int
      */
     public function getCurrentScan()
     {
@@ -137,18 +173,20 @@ class QuotaEntity
     /**
      * Set currentUser
      *
-     * @param  integer $currentUser
-     * @return void
+     * @param int $currentUser
+     * @return $this
      */
     public function setCurrentUser($currentUser)
     {
         $this->currentUser = $currentUser;
+
+        return $this;
     }
 
     /**
      * Get currentUser
      *
-     * @return integer
+     * @return int
      */
     public function getCurrentUser()
     {
@@ -158,18 +196,20 @@ class QuotaEntity
     /**
      * Set maxApplications
      *
-     * @param  integer $maxApplications
-     * @return void
+     * @param int $maxApplications
+     * @return $this
      */
     public function setMaxApplications($maxApplications)
     {
         $this->maxApplications = $maxApplications;
+
+        return $this;
     }
 
     /**
      * Get maxApplications
      *
-     * @return integer
+     * @return int
      */
     public function getMaxApplications()
     {
@@ -179,18 +219,20 @@ class QuotaEntity
     /**
      * Set maxScans
      *
-     * @param  integer $maxScans
-     * @return void
+     * @param int $maxScans
+     * @return $this
      */
     public function setMaxScans($maxScans)
     {
         $this->maxScans = $maxScans;
+
+        return $this;
     }
 
     /**
      * Get maxScans
      *
-     * @return integer
+     * @return int
      */
     public function getMaxScans()
     {
@@ -200,18 +242,20 @@ class QuotaEntity
     /**
      * Set maxUsers
      *
-     * @param  integer $maxUsers
-     * @return void
+     * @param int $maxUsers
+     * @return $this
      */
     public function setMaxUsers($maxUsers)
     {
         $this->maxUsers = $maxUsers;
+
+        return $this;
     }
 
     /**
      * Get maxUsers
      *
-     * @return integer
+     * @return int
      */
     public function getMaxUsers()
     {
@@ -221,18 +265,20 @@ class QuotaEntity
     /**
      * Set maxLoc
      *
-     * @param integer $maxLoc
-     * @return void
+     * @param int $maxLoc
+     * @return $this
      */
     public function setMaxLoc($maxLoc)
     {
         $this->maxLoc = $maxLoc;
+
+        return $this;
     }
 
     /**
      * Get maxLoc
      *
-     * @return integer
+     * @return int
      */
     public function getMaxLoc()
     {
@@ -242,18 +288,20 @@ class QuotaEntity
     /**
      * Set validFrom
      *
-     * @param  string $validFrom
-     * @return void
+     * @param DateTime $validFrom
+     * @return $this
      */
     public function setValidFrom($validFrom)
     {
         $this->validFrom = $validFrom;
+
+        return $this;
     }
 
     /**
      * Get validFrom
      *
-     * @return string
+     * @return DateTime
      */
     public function getValidFrom()
     {
@@ -263,18 +311,20 @@ class QuotaEntity
     /**
      * Set validUntil
      *
-     * @param  string $validUntil
-     * @return void
+     * @param DateTime $validUntil
+     * @return $this
      */
     public function setValidUntil($validUntil)
     {
         $this->validUntil = $validUntil;
+
+        return $this;
     }
 
     /**
      * Get validUntil
      *
-     * @return string
+     * @return DateTime
      */
     public function getValidUntil()
     {
@@ -282,14 +332,62 @@ class QuotaEntity
     }
 
     /**
+     * Set lastModification
+     *
+     * @param DateTime $lastModification
+     * @return $this
+     */
+    public function setLastModification($lastModification)
+    {
+        $this->lastModification = $lastModification;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModification
+     *
+     * @return DateTime
+     */
+    public function getLastModification()
+    {
+        return $this->lastModification;
+    }
+
+    /**
+     * Set allowedMisses
+     *
+     * @param int $allowedMisses
+     * @return $this
+     */
+    public function setAllowedMisses($allowedMisses)
+    {
+        $this->allowedMisses = $allowedMisses;
+
+        return $this;
+    }
+
+    /**
+     * Get allowedMisses
+     *
+     * @return int
+     */
+    public function getAllowedMisses()
+    {
+        return $this->allowedMisses;
+    }
+
+    /**
      * Set public
      *
-     * @param  boolean $public
-     * @return void
+     * @param boolean $public
+     * @return $this
      */
     public function setPublic($public)
     {
         $this->public = $public;
+
+        return $this;
     }
     
     /**
@@ -303,14 +401,108 @@ class QuotaEntity
     }
 
     /**
+     * Set license
+     *
+     * @param LicenseEntity $license
+     * @return $this
+     */
+    public function setLicense($license)
+    {
+        $this->license = $license;
+
+        return $this;
+    }
+
+    /**
+     * Get license
+     *
+     * @return LicenseEntity
+     */
+    public function getLicense()
+    {
+        return $this->license;
+    }
+
+    /**
+     * Set scans
+     *
+     * @param Application\ScanEntity[] $scans
+     * @return $this
+     */
+    public function setScans(array $scans)
+    {
+        $this->scans = $scans;
+
+        return $this;
+    }
+
+    /**
+     * Get scans
+     *
+     * @return Application\ScanEntity[]
+     */
+    public function getScans()
+    {
+        return $this->scans;
+    }
+
+    /**
+     * Set users
+     *
+     * @param UserEntity[] $users
+     * @return $this
+     */
+    public function setUsers(array $users)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return UserEntity[]
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set acls
+     *
+     * @param Quota\AclEntity[] $acls
+     * @return $this
+     */
+    public function setAcls(array $acls)
+    {
+        $this->acls = $acls;
+
+        return $this;
+    }
+
+    /**
+     * Get acls
+     *
+     * @return Quota\AclEntity[]
+     */
+    public function getAcls()
+    {
+        return $this->acls;
+    }
+
+    /**
      * Set org
      *
-     * @param  OrgEntity $org
-     * @return void
+     * @param OrgEntity $organisation
+     * @return $this
      */
-    public function setOrg(OrgEntity $org)
+    public function setOrganisation($organisation)
     {
-        $this->org = $org;
+        $this->organisation = $organisation;
+
+        return $this;
     }
 
     /**
@@ -318,29 +510,8 @@ class QuotaEntity
      *
      * @return OrgEntity
      */
-    public function getOrg()
+    public function getOrganisation()
     {
-        return $this->org;
-    }
-
-    /**
-     * Set notify
-     *
-     * @param  bool $notify
-     * @return void
-     */
-    public function setNotify($notify)
-    {
-        $this->notify = $notify;
-    }
-
-    /**
-     * Get notify
-     *
-     * @return bool
-     */
-    public function getNotify()
-    {
-        return $this->notify;
+        return $this->organisation;
     }
 }

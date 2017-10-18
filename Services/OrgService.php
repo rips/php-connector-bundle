@@ -8,7 +8,9 @@ use RIPS\ConnectorBundle\Entities\OrgEntity;
 
 class OrgService
 {
-    // @var API
+    /**
+     * @var APIService
+     */
     protected $api;
 
     /**
@@ -24,8 +26,8 @@ class OrgService
     /**
      * Get all organizations
      *
-     * @param  array $queryParams
-     * @return array<OrgEntity>
+     * @param array $queryParams
+     * @return OrgEntity[]
      */
     public function getAll(array $queryParams = [])
     {
@@ -37,7 +39,7 @@ class OrgService
     /**
      * Get an organization by id
      *
-     * @param  int $orgId
+     * @param int $orgId
      * @return OrgEntity
      */
     public function getById($orgId)
@@ -48,32 +50,23 @@ class OrgService
     }
 
     /**
-     * Delete all organizations
+     * Create a new organization
      *
-     * @param  array $queryParams
-     * @return void
+     * @param OrgBuilder $input
+     * @return OrgEntity
      */
-    public function deleteAll(array $queryParams = [])
+    public function create(OrgBuilder $input)
     {
-        $this->api->orgs()->deleteAll($queryParams);
-    }
+        $org = $this->api->orgs()->create($input->toArray());
 
-    /**
-     * Delete an organization by id
-     *
-     * @param  int $orgId
-     * @return void
-     */
-    public function deleteById($orgId)
-    {
-        $this->api->orgs()->deleteById($orgId);
+        return OrgHydrator::hydrate($org);
     }
 
     /**
      * Update existing organization by id
      *
-     * @param  integer    $orgId
-     * @param  OrgBuilder $input
+     * @param integer $orgId
+     * @param OrgBuilder $input
      * @return OrgEntity
      */
     public function update($orgId, OrgBuilder $input)
@@ -84,15 +77,24 @@ class OrgService
     }
 
     /**
-     * Create a new organization
+     * Delete all organizations
      *
-     * @param  OrgBuilder $input
-     * @return OrgEntity
+     * @param array $queryParams
+     * @return void
      */
-    public function create(OrgBuilder $input)
+    public function deleteAll(array $queryParams = [])
     {
-        $org = $this->api->orgs()->create($input->toArray());
+        $this->api->orgs()->deleteAll($queryParams);
+    }
 
-        return OrgHydrator::hydrate($org);
+    /**
+     * Delete an organization by id
+     *
+     * @param int $orgId
+     * @return void
+     */
+    public function deleteById($orgId)
+    {
+        $this->api->orgs()->deleteById($orgId);
     }
 }

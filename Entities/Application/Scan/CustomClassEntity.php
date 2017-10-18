@@ -60,11 +60,13 @@ class CustomClassEntity
      * Set id
      *
      * @param int $id
-     * @return void
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -81,11 +83,13 @@ class CustomClassEntity
      * Set startLine
      *
      * @param int $startLine
-     * @return void
+     * @return $this
      */
     public function setStartLine($startLine)
     {
         $this->startLine = $startLine;
+
+        return $this;
     }
 
     /**
@@ -102,11 +106,13 @@ class CustomClassEntity
      * Set endLine
      *
      * @param int $endLine
-     * @return void
+     * @return $this
      */
     public function setEndLine($endLine)
     {
         $this->endLine = $endLine;
+
+        return $this;
     }
 
     /**
@@ -123,11 +129,13 @@ class CustomClassEntity
      * Set name
      *
      * @param string $name
-     * @return void
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -144,11 +152,13 @@ class CustomClassEntity
      * Set file
      *
      * @param FileEntity $file
-     * @return void
+     * @return $this
      */
-    public function setFile(FileEntity $file)
+    public function setFile($file)
     {
         $this->file = $file;
+
+        return $this;
     }
 
     /**
@@ -165,11 +175,13 @@ class CustomClassEntity
      * Set scan
      *
      * @param ScanEntity $scan
-     * @return void
+     * @return $this
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
+
+        return $this;
     }
 
     /**
@@ -186,11 +198,13 @@ class CustomClassEntity
      * Set functions
      *
      * @param CustomFunctionEntity[] $functions
-     * @return void
+     * @return $this
      */
     public function setFunctions(array $functions)
     {
         $this->functions = $functions;
+
+        return $this;
     }
 
     /**
@@ -206,12 +220,14 @@ class CustomClassEntity
     /**
      * Set sources
      *
-     * @param SourceEntity[]
-     * @return void
+     * @param SourceEntity[] $sources
+     * @return $this
      */
     public function setSources(array $sources)
     {
         $this->sources = $sources;
+
+        return $this;
     }
 
     /**
@@ -228,11 +244,13 @@ class CustomClassEntity
      * Set sinks
      *
      * @param SinkEntity[] $sinks
-     * @return void
+     * @return $this
      */
     public function setSinks(array $sinks)
     {
         $this->sinks = $sinks;
+
+        return $this;
     }
 
     /**
@@ -249,11 +267,13 @@ class CustomClassEntity
      * Set concats
      *
      * @param ConcatEntity[] $concats
-     * @return void
+     * @return $this
      */
     public function setConcats(array $concats)
     {
         $this->concats = $concats;
+
+        return $this;
     }
 
     /**

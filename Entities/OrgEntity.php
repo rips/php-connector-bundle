@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use DateTime;
+
 class OrgEntity
 {
     /**
@@ -15,25 +17,51 @@ class OrgEntity
     protected $name;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $validUntil;
+
+    /**
+     * @var UserEntity[]
+     */
+    protected $users;
+
+    /**
+     * @var TeamEntity[]
+     */
+    protected $teams;
+
+    /**
+     * @var ApplicationEntity[]
+     */
+    protected $applications;
 
     /**
      * @var QuotaEntity[]
      */
     protected $quotas;
 
+    /*
+     * @var LicenseEntity[]
+     */
+    protected $licenses;
+
+    /**
+     * @var LogEntity[]
+     */
+    protected $logs;
 
     /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -49,12 +77,14 @@ class OrgEntity
     /**
      * Set name
      *
-     * @param  string $name
-     * @return void
+     * @param string $name
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -68,9 +98,101 @@ class OrgEntity
     }
 
     /**
+     * Set validUntil
+     *
+     * @param DateTime $validUntil
+     * @return $this
+     */
+    public function setValidUntil($validUntil)
+    {
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
+    /**
+     * Get validUntil
+     *
+     * @return DateTime
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
+    }
+
+    /**
+     * Set users
+     *
+     * @param UserEntity[] $users
+     * @return $this
+     */
+    public function setUsers(array $users)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return UserEntity[]
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set teams
+     *
+     * @param TeamEntity[] $teams
+     * @return $this
+     */
+    public function setTeams(array $teams)
+    {
+        $this->teams = $teams;
+
+        return $this;
+    }
+
+    /**
+     * Get teams
+     *
+     * @return TeamEntity[]
+     */
+    public function getTeams()
+    {
+        return $this->teams;
+    }
+
+    /**
+     * Set applications
+     *
+     * @param ApplicationEntity[] $applications
+     * @return $this
+     */
+    public function setApplications(array $applications)
+    {
+        $this->applications = $applications;
+
+        return $this;
+    }
+
+    /**
+     * Get applications
+     *
+     * @return ApplicationEntity[]
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
+
+    /**
      * Set quotas
      *
-     * @param  QuotaEntity[] $quotas
+     * @param QuotaEntity[] $quotas
      * @return void
      */
     public function setQuotas(array $quotas = [])
@@ -87,25 +209,50 @@ class OrgEntity
     {
         return $this->quotas;
     }
-
+    
     /**
-     * Set validUntil
+     * Get licenses
      *
-     * @param  string $validUntil
-     * @return void
+     * @return LicenseEntity[]
      */
-    public function setValidUntil($validUntil)
+    public function getLicenses()
     {
-        $this->validUntil = $validUntil;
+        return $this->licenses;
+    }
+    
+    /**
+     * Set licenses
+     *
+     * @param LicenseEntity[] $licenses
+     * @return $this
+     */
+    public function setLicenses($licenses)
+    {
+        $this->licenses = $licenses;
+    
+        return $this;
     }
 
     /**
-     * Get validUntil
+     * Set logs
      *
-     * @return string
+     * @param LogEntity[] $logs
+     * @return $this
      */
-    public function getValidUntil()
+    public function setLogs(array $logs)
     {
-        return $this->validUntil;
+        $this->logs = $logs;
+
+        return $this;
+    }
+
+    /**
+     * Get logs
+     *
+     * @return LogEntity[]
+     */
+    public function getLogs()
+    {
+        return $this->logs;
     }
 }

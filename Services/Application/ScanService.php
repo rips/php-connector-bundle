@@ -2,14 +2,16 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Services\APIService;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\AddBuilder;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\UpdateBuilder;
 
 class ScanService
 {
     /**
-     * @var API
+     * @var APIService
      */
     protected $api;
 
@@ -26,39 +28,95 @@ class ScanService
     /**
      * Get all Scans
      *
-     * @param  int|null $applicationId
-     * @param  array $queryParams
-     * @return array<ScanEntity>
+     * @param int|null $appId
+     * @param array $queryParams
+     * @return ScanEntity[]
      */
-    public function getAll($applicationId = null, array $queryParams = [])
+    public function getAll($appId = null, array $queryParams = [])
     {
-        $scans = $this->api->scans()->getAll($applicationId, $queryParams);
+        $scans = $this->api->applications()->scans()->getAll($appId, $queryParams);
+
         return ScanHydrator::hydrateCollection($scans);
     }
 
     /**
      * Get Scan by ID
      *
-     * @param int $applicationId
+     * @param int $appId
      * @param int $scanId
      * @return ScanEntity
      */
-    public function getById($applicationId, $scanId)
+    public function getById($appId, $scanId)
     {
-        $scans = $this->api->scans()->getById($applicationId, $scanId);
-        return ScanHydrator::hydrate($scans);
+        $scan = $this->api->applications()->scans()->getById($appId, $scanId);
+
+        return ScanHydrator::hydrate($scan);
+    }
+    /**
+     * Create a new scan
+     *
+     * @param int $appId
+     * @param AddBuilder $input
+     * @return ScanEntity
+     */
+    public function create($appId, $input)
+    {
+        $scan = $this->api->applications()->scans()->create($appId, $input->toArray());
+
+        return ScanHydrator::hydrate($scan);
     }
 
     /**
-     * Get Stats
+     * Update an existing scan by id
      *
-     * @param int $applicationID
-     * @param int $scanID
+     * @param int $appId
+     * @param int $scanId
+     * @param UpdateBuilder $input
      * @return ScanEntity
      */
-    public function getStats($applicationID, $scanID)
+    public function update($appId, $scanId, $input)
     {
-        $scans = $this->api->scans()->getStatsById($applicationID, $scanID);
-        return ScanHydrator::hydrate($scans);
+        $scan = $this->api->applications()->scans()->update($appId, $scanId, $input->toArray());
+
+        return ScanHydrator::hydrate($scan);
+    }
+
+    /**
+     * Delete all scans
+     *
+     * @param int $appId
+     * @param array $queryParams
+     * @return void
+     */
+    public function deleteAll($appId, array $queryParams = [])
+    {
+        $this->api->applications()->scans()->deleteAll($appId, $queryParams);
+    }
+
+    /**
+     * Delete a scan by id
+     *
+     * @param int $appId
+     * @param int $scanId
+     * @return void
+     */
+    public function deleteById($appId, $scanId)
+    {
+        $this->api->applications()->scans()->deleteById($appId, $scanId);
+    }
+
+    /**
+     * Block until a scan is finished
+     *
+     * @param int $appId
+     * @param int $scanId
+     * @param int $waitTime - Optional time to wait in seconds. Waits indefinitely if 0
+     * @param int $sleepTime - Time to wait between scan compoletion checks
+     * @return void
+     * @throws \Exception if scan does not finish in time
+     */
+    public function blockUntilDone($appId, $scanId, $waitTime = 0, $sleepTime = 5)
+    {
+        $this->api->applications()->scans()->blockUntilDone($appId, $scanId, $waitTime, $sleepTime);
     }
 }

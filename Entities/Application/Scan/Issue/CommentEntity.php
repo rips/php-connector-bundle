@@ -37,11 +37,13 @@ class CommentEntity
      * Set id
      *
      * @param integer $id
-     * @return void
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -58,17 +60,19 @@ class CommentEntity
      * Set comment
      *
      * @param string $comment
-     * @return void
+     * @return $this
      */
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
     }
 
     /**
      * Get comment
      *
-     * @return array
+     * @return string
      */
     public function getComment()
     {
@@ -79,11 +83,13 @@ class CommentEntity
      * Set submission
      *
      * @param DateTime $submission
-     * @return void
+     * @return $this
      */
-    public function setSubmission(DateTime $submission)
+    public function setSubmission($submission)
     {
         $this->submission = $submission;
+
+        return $this;
     }
 
     /**
@@ -100,11 +106,13 @@ class CommentEntity
      * Set createdBy
      *
      * @param UserEntity $createdBy
-     * @return void
+     * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
     }
 
     /**
@@ -120,12 +128,14 @@ class CommentEntity
     /**
      * Set issue
      *
-     * @param IssueEntity
-     * @return void
+     * @param IssueEntity $issue
+     * @return $this
      */
-    public function setIssue(IssueEntity $issue)
+    public function setIssue($issue)
     {
         $this->issue = $issue;
+
+        return $this;
     }
 
     /**
