@@ -27,6 +27,7 @@ class TeamBuilder extends BaseBuilder
      */
     public function setName($name)
     {
+        $this->setFields[] = 'name';
         $this->name = $name;
     
         return $this;
@@ -40,6 +41,7 @@ class TeamBuilder extends BaseBuilder
      */
     public function setUsers(array $users)
     {
+        $this->setFields[] = 'users';
         $this->users = $users;
 
         return $this;
@@ -53,6 +55,7 @@ class TeamBuilder extends BaseBuilder
      */
     public function setOrganisation($organisation)
     {
+        $this->setFields[] = 'organisation';
         $this->organisation =$organisation;
 
         return $this;

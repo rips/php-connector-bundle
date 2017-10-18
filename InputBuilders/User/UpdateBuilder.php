@@ -64,6 +64,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setRoles($roles)
     {
+        $this->setFields[] = 'roles';
         $this->roles = $roles;
 
         return $this;
@@ -77,6 +78,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setPlainPassword($plainPassword)
     {
+        $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
 
         return $this;
@@ -90,6 +92,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setRepeatPassword($repeatPassword)
     {
+        $this->setFields[] = 'repeatPassword';
         $this->repeatPassword = $repeatPassword;
 
         return $this;
@@ -103,6 +106,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setEmail($email)
     {
+        $this->setFields[] = 'email';
         $this->email = $email;
 
         return $this;
@@ -116,6 +120,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setFirstname($firstname)
     {
+        $this->setFields[] = 'firstname';
         $this->firstname = $firstname;
 
         return $this;
@@ -129,6 +134,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setLastname($lastname)
     {
+        $this->setFields[] = 'lastname';
         $this->lastname = $lastname;
 
         return $this;
@@ -142,6 +148,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setUsername($username)
     {
+        $this->setFields[] = 'username';
         $this->username = $username;
 
         return $this;
@@ -155,6 +162,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setEnabled($enabled)
     {
+        $this->setFields[] = 'enabled';
         $this->enabled = $enabled;
 
         return $this;
@@ -168,6 +176,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setOrganisation($organisation)
     {
+        $this->setFields[] = 'organisation';
         $this->organisation = $organisation;
 
         return $this;
@@ -181,6 +190,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setRoot($root)
     {
+        $this->setFields[] = 'root';
         $this->root = $root;
 
         return $this;

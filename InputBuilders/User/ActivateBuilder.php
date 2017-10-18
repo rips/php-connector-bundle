@@ -24,6 +24,7 @@ class ActivateBuilder extends BaseBuilder
      */
     public function setPlainPassword($plainPassword)
     {
+        $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
 
         return $this;
@@ -37,6 +38,7 @@ class ActivateBuilder extends BaseBuilder
      */
     public function setUsername($username)
     {
+        $this->setFields[] = 'username';
         $this->username = $username;
 
         return $this;

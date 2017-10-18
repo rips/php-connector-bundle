@@ -44,6 +44,7 @@ class InviteBuilder extends BaseBuilder
      */
     public function setRoles($roles)
     {
+        $this->setFields[] = 'roles';
         $this->roles = $roles;
 
         return $this;
@@ -57,6 +58,7 @@ class InviteBuilder extends BaseBuilder
      */
     public function setEmail($email)
     {
+        $this->setFields[] = 'email';
         $this->email = $email;
 
         return $this;
@@ -70,6 +72,7 @@ class InviteBuilder extends BaseBuilder
      */
     public function setFirstname($firstname)
     {
+        $this->setFields[] = 'firstname';
         $this->firstname = $firstname;
 
         return $this;
@@ -83,6 +86,7 @@ class InviteBuilder extends BaseBuilder
      */
     public function setLastname($lastname)
     {
+        $this->setFields[] = 'lastname';
         $this->lastname = $lastname;
 
         return $this;
@@ -96,6 +100,7 @@ class InviteBuilder extends BaseBuilder
      */
     public function setOrganisation($organisation)
     {
+        $this->setFields[] = 'organisation';
         $this->organisation = $organisation;
 
         return $this;
@@ -109,6 +114,7 @@ class InviteBuilder extends BaseBuilder
      */
     public function setRoot($root)
     {
+        $this->setFields[] = 'root';
         $this->root = $root;
 
         return $this;

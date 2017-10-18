@@ -20,8 +20,9 @@ class ApplicationBuilder extends BaseBuilder
      * @param string $name
      * @return $this
      */
-    public function setApplicationName($name)
+    public function setName($name)
     {
+        $this->setFields[] = 'name';
         $this->name = $name;
 
         return $this;
@@ -35,6 +36,7 @@ class ApplicationBuilder extends BaseBuilder
      */
     public function setChargedQuota($chargeQuota)
     {
+        $this->setFields[] = 'chargedQuota';
         $this->chargedQuota = $chargeQuota;
 
         return $this;

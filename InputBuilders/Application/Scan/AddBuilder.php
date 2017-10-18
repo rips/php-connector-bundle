@@ -69,6 +69,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setChargedQuota($chargedQuota)
     {
+        $this->setFields[] = 'chargeQuota';
         $this->chargedQuota = $chargedQuota;
     
         return $this;
@@ -82,6 +83,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setCustom($custom)
     {
+        $this->setFields[] = 'custom';
         $this->custom = $custom;
     
         return $this;
@@ -95,6 +97,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setParent($parent)
     {
+        $this->setFields[] = 'parent';
         $this->parent = $parent;
     
         return $this;
@@ -108,6 +111,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setCodeStored($codeStored)
     {
+        $this->setFields[] = 'codeStored';
         $this->codeStored = $codeStored;
     
         return $this;
@@ -121,6 +125,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setUploadRemoved($uploadRemoved)
     {
+        $this->setFields[] = 'uploadRemoved';
         $this->uploadRemoved = $uploadRemoved;
     
         return $this;
@@ -134,6 +139,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setFullCodeCompared($fullCodeCompared)
     {
+        $this->setFields[] = 'fullCodeCompared';
         $this->fullCodeCompared = $fullCodeCompared;
     
         return $this;
@@ -147,6 +153,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setHistoryInherited($historyInherited)
     {
+        $this->setFields[] = 'historyInherited';
         $this->historyInherited = $historyInherited;
     
         return $this;
@@ -160,6 +167,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setIssueTypes($issueTypes)
     {
+        $this->setFields[] = 'issueTypes';
         $this->issueTypes = $issueTypes;
     
         return $this;
@@ -173,6 +181,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setVersion($version)
     {
+        $this->setFields[] = 'version';
         $this->version = $version;
     
         return $this;
@@ -186,6 +195,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setUpload($upload)
     {
+        $this->setFields[] = 'upload';
         $this->upload = $upload;
     
         return $this;
@@ -199,6 +209,7 @@ class AddBuilder extends BaseBuilder
      */
     public function setPath($path)
     {
+        $this->setFields[] = 'path';
         $this->path = $path;
     
         return $this;

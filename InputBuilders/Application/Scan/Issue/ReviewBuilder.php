@@ -19,6 +19,7 @@ class ReviewBuilder extends BaseBuilder
      */
     public function setType($type)
     {
+        $this->setFields[] = 'type';
         $this->type = $type;
     
         return $this;

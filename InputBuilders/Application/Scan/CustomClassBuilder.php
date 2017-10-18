@@ -34,6 +34,7 @@ class CustomClassBuilder extends BaseBuilder
      */
     public function setStartLine($startLine)
     {
+        $this->setFields[] = 'startLine';
         $this->startLine = $startLine;
     
         return $this;
@@ -47,6 +48,7 @@ class CustomClassBuilder extends BaseBuilder
      */
     public function setEndLine($endLine)
     {
+        $this->setFields[] = 'endLine';
         $this->endLine = $endLine;
     
         return $this;
@@ -60,6 +62,7 @@ class CustomClassBuilder extends BaseBuilder
      */
     public function setName($name)
     {
+        $this->setFields[] = 'name';
         $this->name = $name;
     
         return $this;
@@ -73,6 +76,7 @@ class CustomClassBuilder extends BaseBuilder
      */
     public function setFile($file)
     {
+        $this->setFields[] = 'file';
         $this->file = $file;
     
         return $this;

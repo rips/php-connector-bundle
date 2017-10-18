@@ -19,6 +19,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setFinish($finish)
     {
+        $this->setFields[] = 'finish';
         $this->finish = $finish;
     
         return $this;

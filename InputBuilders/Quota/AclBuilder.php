@@ -54,6 +54,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setOwnerUser($ownerUser)
     {
+        $this->setFields[] = 'ownerUser';
         $this->ownerUser = $ownerUser;
     
         return $this;
@@ -67,6 +68,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setOwnerTeam($ownerTeam)
     {
+        $this->setFields[] = 'ownerTeam';
         $this->ownerTeam = $ownerTeam;
     
         return $this;
@@ -80,6 +82,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setView($view)
     {
+        $this->setFields[] = 'view';
         $this->view = $view;
     
         return $this;
@@ -93,6 +96,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setDelete($delete)
     {
+        $this->setFields[] = 'delete';
         $this->delete = $delete;
     
         return $this;
@@ -106,6 +110,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setCreate($create)
     {
+        $this->setFields[] = 'create';
         $this->create = $create;
     
         return $this;
@@ -119,6 +124,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setEdit($edit)
     {
+        $this->setFields[] = 'edit';
         $this->edit = $edit;
     
         return $this;
@@ -132,6 +138,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setScan($scan)
     {
+        $this->setFields[] = 'scan';
         $this->scan = $scan;
     
         return $this;
@@ -145,6 +152,7 @@ class AclBuilder extends BaseBuilder
      */
     public function setManage($manage)
     {
+        $this->setFields[] = 'manage';
         $this->manage = $manage;
     
         return $this;

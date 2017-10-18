@@ -72,6 +72,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setCurrentApplication($currentApplication)
     {
+        $this->setFields[] = 'currentApplication';
         $this->currentApplication = $currentApplication;
     
         return $this;
@@ -85,6 +86,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setCurrentScan($currentScan)
     {
+        $this->setFields[] = 'currentScan';
         $this->currentScan = $currentScan;
     
         return $this;
@@ -98,6 +100,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setCurrentUser($currentUser)
     {
+        $this->setFields[] = 'currentUser';
         $this->currentUser = $currentUser;
     
         return $this;
@@ -111,6 +114,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setMaxApplications($maxApplications)
     {
+        $this->setFields[] = 'maxApplications';
         $this->maxApplications = $maxApplications;
     
         return $this;
@@ -124,6 +128,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setMaxScans($maxScans)
     {
+        $this->setFields[] = 'maxScans';
         $this->maxScans = $maxScans;
     
         return $this;
@@ -137,6 +142,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setMaxUsers($maxUsers)
     {
+        $this->setFields[] = 'maxUsers';
         $this->maxUsers = $maxUsers;
     
         return $this;
@@ -150,6 +156,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setMaxLoc($maxLoc)
     {
+        $this->setFields[] = 'maxLoc';
         $this->maxLoc = $maxLoc;
     
         return $this;
@@ -163,6 +170,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setValidFrom($validFrom)
     {
+        $this->setFields[] = 'validFrom';
         $this->validFrom = $validFrom;
     
         return $this;
@@ -176,6 +184,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setValidUntil($validUntil)
     {
+        $this->setFields[] = 'validUntil';
         $this->validUntil = $validUntil;
     
         return $this;
@@ -189,6 +198,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setAllowedMisses($allowedMisses)
     {
+        $this->setFields[] = 'allowedMisses';
         $this->allowedMisses = $allowedMisses;
     
         return $this;
@@ -202,6 +212,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setPublic($public)
     {
+        $this->setFields[] = 'public';
         $this->public = $public;
     
         return $this;
@@ -215,6 +226,7 @@ class QuotaBuilder extends BaseBuilder
      */
     public function setOrganisation($organisation)
     {
+        $this->setFields[] = 'organisation';
         $this->organisation = $organisation;
     
         return $this;
