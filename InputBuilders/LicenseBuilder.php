@@ -20,6 +20,7 @@ class LicenseBuilder extends BaseBuilder
      */
     public function setKey($key)
     {
+        $this->setFields[] = 'key';
         $this->key = $key;
 
         return $this;
@@ -31,6 +32,7 @@ class LicenseBuilder extends BaseBuilder
      */
     public function setQuotaDistributed($quotaDistributed)
     {
+        $this->setFields[] = 'quotaDistributed';
         $this->quotaDistributed = $quotaDistributed;
 
         return $this;

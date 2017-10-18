@@ -24,6 +24,7 @@ class CustomBuilder extends BaseBuilder
      */
     public function setName($name)
     {
+        $this->setFields[] = 'name';
         $this->name = $name;
     
         return $this;
@@ -37,6 +38,7 @@ class CustomBuilder extends BaseBuilder
      */
     public function setGlobal($global)
     {
+        $this->setFields[] = 'global';
         $this->global = $global;
     
         return $this;

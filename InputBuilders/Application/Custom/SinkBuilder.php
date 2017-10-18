@@ -34,6 +34,7 @@ class SinkBuilder extends BaseBuilder
      */
     public function setClass($class)
     {
+        $this->setFields[] = 'class';
         $this->class = $class;
     
         return $this;
@@ -47,6 +48,7 @@ class SinkBuilder extends BaseBuilder
      */
     public function setMethod($method)
     {
+        $this->setFields[] = 'method';
         $this->method = $method;
     
         return $this;
@@ -60,6 +62,7 @@ class SinkBuilder extends BaseBuilder
      */
     public function setParameter($parameter)
     {
+        $this->setFields[] = 'parameter';
         $this->parameter = $parameter;
     
         return $this;
@@ -73,6 +76,7 @@ class SinkBuilder extends BaseBuilder
      */
     public function setType($type)
     {
+        $this->setFields[] = 'type';
         $this->type = $type;
     
         return $this;

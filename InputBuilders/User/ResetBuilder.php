@@ -24,6 +24,7 @@ class ResetBuilder extends BaseBuilder
      */
     public function setPlainPassword($plainPassword)
     {
+        $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
 
         return $this;
@@ -37,6 +38,7 @@ class ResetBuilder extends BaseBuilder
      */
     public function setRepeatPassword($repeatPassword)
     {
+        $this->setFields[] = 'repeatPassword';
         $this->repeatPassword = $repeatPassword;
     
         return $this;

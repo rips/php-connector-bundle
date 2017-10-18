@@ -19,6 +19,7 @@ class UpdateBuilder extends BaseBuilder
      */
     public function setVersion($version)
     {
+        $this->setFields[] = 'version';
         $this->version = $version;
     
         return $this;

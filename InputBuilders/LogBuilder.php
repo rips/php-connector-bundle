@@ -27,6 +27,7 @@ class LogBuilder extends BaseBuilder
      */
     public function setText($text)
     {
+        $this->setFields[] = 'text';
         $this->text = $text;
     
         return $this;
@@ -40,6 +41,7 @@ class LogBuilder extends BaseBuilder
      */
     public function setLevel($level)
     {
+        $this->setFields[] = 'level';
         $this->level = $level;
     
         return $this;
@@ -53,6 +55,7 @@ class LogBuilder extends BaseBuilder
      */
     public function setContext($context)
     {
+        $this->setFields[] = 'context';
         $this->context = $context;
     
         return $this;

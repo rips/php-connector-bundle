@@ -39,6 +39,7 @@ class IgnoreBuilder extends BaseBuilder
      */
     public function setClass($class)
     {
+        $this->setFields[] = 'class';
         $this->class = $class;
     
         return $this;
@@ -52,6 +53,7 @@ class IgnoreBuilder extends BaseBuilder
      */
     public function setMethod($method)
     {
+        $this->setFields[] = 'method';
         $this->method = $method;
     
         return $this;
@@ -65,6 +67,7 @@ class IgnoreBuilder extends BaseBuilder
      */
     public function setType($type)
     {
+        $this->setFields[] = 'type';
         $this->type = $type;
     
         return $this;
@@ -78,6 +81,7 @@ class IgnoreBuilder extends BaseBuilder
      */
     public function setFolder($folder)
     {
+        $this->setFields[] = 'folder';
         $this->folder = $folder;
     
         return $this;
@@ -91,6 +95,7 @@ class IgnoreBuilder extends BaseBuilder
      */
     public function setFullPath($fullPath)
     {
+        $this->setFields[] = 'fullPath';
         $this->fullPath = $fullPath;
     
         return $this;

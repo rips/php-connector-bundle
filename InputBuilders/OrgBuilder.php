@@ -22,6 +22,7 @@ class OrgBuilder extends BaseBuilder
      */
     public function setName($name)
     {
+        $this->setFields[] = 'name';
         $this->name = $name;
     
         return $this;
@@ -35,6 +36,7 @@ class OrgBuilder extends BaseBuilder
      */
     public function setValidUntil($validUntil)
     {
+        $this->setFields[] = 'validuntil';
         $this->validUntil = $validUntil;
     
         return $this;

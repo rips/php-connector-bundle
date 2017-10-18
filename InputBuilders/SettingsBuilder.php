@@ -22,6 +22,7 @@ class SettingsBuilder extends BaseBuilder
      */
     public function setKey($key)
     {
+        $this->setFields[] = 'key';
         $this->key = $key;
     
         return $this;
@@ -35,6 +36,7 @@ class SettingsBuilder extends BaseBuilder
      */
     public function setValue($value)
     {
+        $this->setFields[] = 'value';
         $this->value = $value;
     
         return $this;

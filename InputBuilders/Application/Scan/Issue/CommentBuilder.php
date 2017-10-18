@@ -19,6 +19,7 @@ class CommentBuilder extends BaseBuilder
      */
     public function setComment($comment)
     {
+        $this->setFields[] = 'comment';
         $this->comment = $comment;
     
         return $this;

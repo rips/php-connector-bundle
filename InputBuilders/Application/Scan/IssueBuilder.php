@@ -34,6 +34,7 @@ class IssueBuilder extends BaseBuilder
      */
     public function setType($type)
     {
+        $this->setFields[] = 'type';
         $this->type = $type;
     
         return $this;
@@ -47,6 +48,7 @@ class IssueBuilder extends BaseBuilder
      */
     public function setOrigin($origin)
     {
+        $this->setFields[] = 'origin';
         $this->origin = $origin;
     
         return $this;
@@ -60,6 +62,7 @@ class IssueBuilder extends BaseBuilder
      */
     public function setDepth($depth)
     {
+        $this->setFields[] = 'depth';
         $this->depth = $depth;
     
         return $this;
@@ -73,6 +76,7 @@ class IssueBuilder extends BaseBuilder
      */
     public function setCve($cve)
     {
+        $this->setFields[] = 'cve';
         $this->cve = $cve;
     
         return $this;
