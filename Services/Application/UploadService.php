@@ -56,10 +56,10 @@ class UploadService
      *
      * @param int $appId
      * @param string $filename
-     * @param string $contents
+     * @param string $filepath
      * @return UploadEntity
      */
-    public function create($appId, $filename, $contents)
+    public function create($appId, $filename, $filepath)
     {
         $upload = $this->api->applications()->uploads()->create($appId, $filename, $contents);
 
