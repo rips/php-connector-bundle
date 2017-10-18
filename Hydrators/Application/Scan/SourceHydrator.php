@@ -68,7 +68,7 @@ class SourceHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($source->class));
         }
 
-        if (isset($source->issues)) {
+        if (isset($source->issues) && is_array($source->issues)) {
             $hydrated->setIssues(IssueHydrator::hydrateCollection($source->issues));
         }
 

@@ -24,7 +24,7 @@ class ApplicationEntity
     /**
      * @var int
      */
-    protected $currentScan;
+    protected $currentScan = 0;
 
     /**
      * @var Application\CustomEntity[]

@@ -64,6 +64,10 @@ class LicenseHydrator
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($license->quotas));
         }
 
+        if (isset($license->created_by)) {
+            $hydrated->setCreatedBy(UserHydrator::hydrate($license->created_by));
+        }
+
         if (isset($license->parent)) {
             $hydrated->setParent(self::hydrate($license->parent));
         }

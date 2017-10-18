@@ -1,23 +1,33 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Application;
+namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class ScanBuilder extends BaseBuilder
+class AddBuilder extends BaseBuilder
 {
     /**
-     * @var string
+     * @var integer
      */
-    protected $version;
+    protected $chargedQuota;
 
     /**
-     * @var  boolean
+     * @var integer
+     */
+    protected $custom;
+
+    /**
+     * @var integer
+     */
+    protected $parent;
+
+    /**
+     * @var boolean
      */
     protected $codeStored;
 
     /**
-     * @var  boolean
+     * @var boolean
      */
     protected $uploadRemoved;
 
@@ -32,18 +42,19 @@ class ScanBuilder extends BaseBuilder
     protected $historyInherited;
 
     /**
-     * @var int
+     * @var array
      */
-    protected $chargedQuota;
+    protected $issueTypes;
 
     /**
-     * @var int
+     * @var string
      */
-    protected $custom;
+    protected $version;
 
     /**
-     * @var int
+     * @var string
      */
+<<<<<<< HEAD:InputBuilders/Application/ScanBuilder.php
     protected $parent;
 
     /**
@@ -57,14 +68,40 @@ class ScanBuilder extends BaseBuilder
     protected $path;
 
     /**
-     * Set version
+     * Set chargedQuota
      *
-     * @param string $version
+     * @param integer $chargedQuota
      * @return $this
      */
-    public function setVersion($version)
+    public function setChargedQuota($chargedQuota)
     {
-        $this->version = $version;
+        $this->chargedQuota = $chargedQuota;
+    
+        return $this;
+    }
+    
+    /**
+     * Set custom
+     *
+     * @param integer $custom
+     * @return $this
+     */
+    public function setCustom($custom)
+    {
+        $this->custom = $custom;
+    
+        return $this;
+    }
+    
+    /**
+     * Set parent
+     *
+     * @param integer $parent
+     * @return $this
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
     
         return $this;
     }
@@ -122,40 +159,53 @@ class ScanBuilder extends BaseBuilder
     }
     
     /**
-     * Set chargedQuota
+     * Set issueTypes
      *
-     * @param int $chargedQuota
+     * @param array $issueTypes
      * @return $this
      */
-    public function setChargedQuota($chargedQuota)
+    public function setIssueTypes($issueTypes)
     {
-        $this->chargedQuota = $chargedQuota;
+        $this->issueTypes = $issueTypes;
     
         return $this;
     }
     
     /**
-     * Set custom
+     * Set version
      *
-     * @param int $custom
+     * @param string $version
      * @return $this
      */
-    public function setCustom($custom)
+    public function setVersion($version)
     {
-        $this->custom = $custom;
+        $this->version = $version;
     
         return $this;
     }
     
     /**
-     * Set parent
+     * Set upload
      *
-     * @param int $parent
+     * @param string $upload
      * @return $this
      */
-    public function setParent($parent)
+    public function setUpload($upload)
     {
-        $this->parent = $parent;
+        $this->upload = $upload;
+    
+        return $this;
+    }
+    
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
     
         return $this;
     }

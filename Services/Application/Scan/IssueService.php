@@ -6,6 +6,7 @@ use stdClass;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\IssueBuilder;
 
 class IssueService
 {
@@ -29,11 +30,16 @@ class IssueService
      *
      * @param int $applicationID
      * @param int $scanID
+     * @param array $queryParams
      * @return IssueEntity[]
      */
-    public function getAll($applicationID, $scanID)
+    public function getAll($applicationID, $scanID, array $queryParams = [])
     {
-        $issues = $this->api->issues()->getAll($applicationID, $scanID);
+        $issues = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->getAll($applicationID, $scanID, $queryParams);
 
         return IssueHydrator::hydrateCollection($issues);
     }
@@ -48,7 +54,11 @@ class IssueService
      */
     public function getStats($appId, $scanId, array $queryParams = [])
     {
-        $stats = $this->api->issues()->getStats($appId, $scanId, $queryParams);
+        $stats = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->getStats($appId, $scanId, $queryParams);
 
         return $stats;
     }
@@ -63,7 +73,30 @@ class IssueService
      */
     public function getById($appId, $scanId, $issueId)
     {
-        $issue = $this->api->issues()->getById($appId, $scanId, $issueId);
+        $issue = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->getById($appId, $scanId, $issueId);
+
+        return IssueHydrator::hydrate($issue);
+    }
+
+    /**
+     * Create a new issue for a scan
+     *
+     * @param int $appId
+     * @param int $scanId
+     * @param IssueBuilder $input
+     * @return IssueEntity
+     */
+    public function create($appId, $scanId, $input)
+    {
+        $issue = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->create($appId, $scanId, $input->toArray());
 
         return IssueHydrator::hydrate($issue);
     }

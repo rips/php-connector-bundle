@@ -9,7 +9,7 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Origin\TypeEntity;
 class TypeHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of type objects into a collection of
      * OriginEntity objects
      *
      * @param stdClass[] $origins

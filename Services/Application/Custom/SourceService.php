@@ -34,7 +34,7 @@ class SourceService
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $sources = $this->api->customs()->sources()->getAll($appId, $customId, $queryParams);
+        $sources = $this->api->applications()->customs()->sources()->getAll($appId, $customId, $queryParams);
 
         return SourceHydrator::hydrateCollection($sources);
     }
@@ -49,7 +49,7 @@ class SourceService
      */
     public function getById($appId, $customId, $sourceId)
     {
-        $source = $this->api->customs()->sources()->getById($appId, $customId, $sourceId);
+        $source = $this->api->applications()->customs()->sources()->getById($appId, $customId, $sourceId);
 
         return SourceHydrator::hydrate($source);
     }
@@ -64,7 +64,7 @@ class SourceService
      */
     public function create($appId, $customId, SourceBuilder $input)
     {
-        $source = $this->api->customs()->sources()->create($appId, $customId, $input->toArray());
+        $source = $this->api->applications()->customs()->sources()->create($appId, $customId, $input->toArray());
 
         return SourceHydrator::hydrate($source);
     }
@@ -80,7 +80,7 @@ class SourceService
      */
     public function update($appId, $customId, $sourceId, SourceBuilder $input)
     {
-        $source = $this->api->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray());
+        $source = $this->api->applications()->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray());
 
         return SourceHydrator::hydrate($source);
     }
@@ -95,7 +95,7 @@ class SourceService
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->customs()->sources()->deleteAll($appId, $customId, $queryParams);
+        $this->api->applications()->customs()->sources()->deleteAll($appId, $customId, $queryParams);
     }
 
     /**
@@ -108,6 +108,6 @@ class SourceService
      */
     public function deleteById($appId, $customId, $sourceId)
     {
-        $this->api->customs()->sources()->deleteById($appId, $customId, $sourceId);
+        $this->api->applications()->customs()->sources()->deleteById($appId, $customId, $sourceId);
     }
 }

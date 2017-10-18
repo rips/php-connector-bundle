@@ -34,7 +34,12 @@ class SummaryService
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $summaries = $this->api->issues()->summaries()->getAll($appId, $scanId, $issueId, $queryParams);
+        $summaries = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->summaries()
+            ->getAll($appId, $scanId, $issueId, $queryParams);
 
         return SummaryHydrator::hydrateCollection($summaries);
     }
@@ -50,7 +55,12 @@ class SummaryService
      */
     public function getById($appId, $scanId, $issueId, $summaryId)
     {
-        $summary = $this->api->issues()->summaries()->getById($appId, $scanId, $issueId, $summaryId);
+        $summary = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->summaries()
+            ->getById($appId, $scanId, $issueId, $summaryId);
 
         return SummaryHydrator::hydrate($summary);
     }

@@ -4,6 +4,7 @@
     "version": "1.3.0",
     "type": "symfony-bundle",
     "license": "Proprietary",
+    "minimun-stability": "dev",
     "authors": [
         {
             "name": "Nick Coffey",
@@ -22,6 +23,6 @@
         }
     ],
     "require": {
-        "rips/connector": "1.*"
+        "rips/connector": "dev-feature/ACPHP-27-add-missing-endpoints"
     }
 }

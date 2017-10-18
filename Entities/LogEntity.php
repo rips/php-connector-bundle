@@ -39,7 +39,7 @@ class LogEntity
     /**
      * @var string
      */
-    protected $ip;
+    protected $ip = '';
 
     /**
      * @var UserEntity
@@ -49,7 +49,7 @@ class LogEntity
     /**
      * @var string
      */
-    protected $username;
+    protected $username = '';
 
     /**
      * @var OrgEntity
@@ -59,12 +59,12 @@ class LogEntity
     /**
      * @var string
      */
-    protected $organisationName;
+    protected $organisationName = '';
 
     /**
      * @var string
      */
-    protected $context;
+    protected $context = '';
 
     /**
      * @var DateTime

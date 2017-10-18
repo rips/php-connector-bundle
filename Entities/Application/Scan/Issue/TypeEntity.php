@@ -80,6 +80,11 @@ class TypeEntity
     protected $parent;
 
     /**
+     * @var TypeEntity[]
+     */
+    protected $children;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -391,5 +396,28 @@ class TypeEntity
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set children
+     *
+     * @param TypeEntity[] $children
+     * @return $this
+     */
+    public function setChildren(array $children)
+    {
+        $this->children = $children;
+
+        return $this;
+    }
+
+    /**
+     * Get children
+     *
+     * @return TypeEntity[]
+     */
+    public function getChildren()
+    {
+        return $this->children;
     }
 }

@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
-use DateTime;
-
 class QuotaBuilder extends BaseBuilder
 {
     /**
@@ -42,12 +40,12 @@ class QuotaBuilder extends BaseBuilder
     protected $maxLoc;
 
     /**
-     * @var DateTime
+     * @var string
      */
     protected $validFrom;
 
     /**
-     * @var DateTime
+     * @var string
      */
     protected $validUntil;
 

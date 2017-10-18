@@ -35,7 +35,11 @@ class CommentService
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $comments = $this->api->issues()->comments()->getAll($appId, $scanId, $issueId, $queryParams);
+        $comments = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->comments()->getAll($appId, $scanId, $issueId, $queryParams);
 
         return CommentHydrator::hydrateCollection($comments);
     }
@@ -51,7 +55,12 @@ class CommentService
      */
     public function getById($appId, $scanId, $issueId, $commentId)
     {
-        $comment = $this->api->issues()->comments()->getById($appId, $scanId, $issueId, $commentId);
+        $comment = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->comments()
+            ->getById($appId, $scanId, $issueId, $commentId);
 
         return CommentHydrator::hydrate($comment);
     }
@@ -67,7 +76,12 @@ class CommentService
      */
     public function create($appId, $scanId, $issueId, CommentBuilder $input)
     {
-        $comment = $this->api->issues()->comments()->create($appId, $scanId, $issueId, $input->toArray());
+        $comment = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->comments()
+            ->create($appId, $scanId, $issueId, $input->toArray());
 
         return CommentHydrator::hydrate($comment);
     }
@@ -83,7 +97,12 @@ class CommentService
      */
     public function deleteAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $this->api->issues()->comments()->deleteAll($appId, $scanId, $issueId, $queryParams);
+        $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->comments()
+            ->deleteAll($appId, $scanId, $issueId, $queryParams);
     }
 
     /**
@@ -97,6 +116,11 @@ class CommentService
      */
     public function deleteById($appId, $scanId, $issueId, $commentId)
     {
-        $this->api->issues()->comments()->deleteById($appId, $scanId, $issueId, $commentId);
+        $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->comments()
+            ->deleteById($appId, $scanId, $issueId, $commentId);
     }
 }

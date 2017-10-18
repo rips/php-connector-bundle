@@ -65,7 +65,7 @@ class UploadHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($upload->created_by));
         }
 
-        if (isset($upload->scan) && is_array($upload->scans)) {
+        if (isset($upload->scans) && is_array($upload->scans)) {
             $hydrated->setScans(ScanHydrator::hydrateCollection($upload->scans));
         }
 

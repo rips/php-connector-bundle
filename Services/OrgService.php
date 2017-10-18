@@ -50,6 +50,33 @@ class OrgService
     }
 
     /**
+     * Create a new organization
+     *
+     * @param OrgBuilder $input
+     * @return OrgEntity
+     */
+    public function create(OrgBuilder $input)
+    {
+        $org = $this->api->orgs()->create($input->toArray());
+
+        return OrgHydrator::hydrate($org);
+    }
+
+    /**
+     * Update existing organization by id
+     *
+     * @param integer $orgId
+     * @param OrgBuilder $input
+     * @return OrgEntity
+     */
+    public function update($orgId, OrgBuilder $input)
+    {
+        $org = $this->api->orgs()->update($orgId, $input->toArray());
+
+        return OrgHydrator::hydrate($org);
+    }
+
+    /**
      * Delete all organizations
      *
      * @param array $queryParams
@@ -69,32 +96,5 @@ class OrgService
     public function deleteById($orgId)
     {
         $this->api->orgs()->deleteById($orgId);
-    }
-
-    /**
-     * Update existing organization by id
-     *
-     * @param integer $orgId
-     * @param OrgBuilder $input
-     * @return OrgEntity
-     */
-    public function update($orgId, OrgBuilder $input)
-    {
-        $org = $this->api->orgs()->update($orgId, $input->toArray());
-
-        return OrgHydrator::hydrate($org);
-    }
-
-    /**
-     * Create a new organization
-     *
-     * @param OrgBuilder $input
-     * @return OrgEntity
-     */
-    public function create(OrgBuilder $input)
-    {
-        $org = $this->api->orgs()->create($input->toArray());
-
-        return OrgHydrator::hydrate($org);
     }
 }

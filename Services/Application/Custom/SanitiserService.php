@@ -34,7 +34,7 @@ class SanitiserService
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $sanitisers = $this->api->customs()->sanitisers()->getAll($appId, $customId, $queryParams);
+        $sanitisers = $this->api->applications()->customs()->sanitisers()->getAll($appId, $customId, $queryParams);
 
         return SanitiserHydrator::hydrateCollection($sanitisers);
     }
@@ -49,7 +49,7 @@ class SanitiserService
      */
     public function getById($appId, $customId, $sanitiserId)
     {
-        $sanitiser = $this->api->customs()->sanitisers()->getById($appId, $customId, $sanitiserId);
+        $sanitiser = $this->api->applications()->customs()->sanitisers()->getById($appId, $customId, $sanitiserId);
 
         return SanitiserHydrator::hydrate($sanitiser);
     }
@@ -64,7 +64,7 @@ class SanitiserService
      */
     public function create($appId, $customId, SanitiserBuilder $input)
     {
-        $sanitiser = $this->api->customs()->sanitisers()->create($appId, $customId, $input->toArray());
+        $sanitiser = $this->api->applications()->customs()->sanitisers()->create($appId, $customId, $input->toArray());
 
         return SanitiserHydrator::hydrate($sanitiser);
     }
@@ -80,7 +80,7 @@ class SanitiserService
      */
     public function update($appId, $customId, $sanitiserId, SanitiserBuilder $input)
     {
-        $sanitiser = $this->api->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray());
+        $sanitiser = $this->api->applications()->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray());
 
         return SanitiserHydrator::hydrate($sanitiser);
     }
@@ -95,7 +95,7 @@ class SanitiserService
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->customs()->sanitisers()->deleteAll($appId, $customId, $queryParams);
+        $this->api->applications()->customs()->sanitisers()->deleteAll($appId, $customId, $queryParams);
     }
 
     /**
@@ -108,6 +108,6 @@ class SanitiserService
      */
     public function deleteById($appId, $customId, $sanitiserId)
     {
-        $this->api->customs()->sanitisers()->deleteById($appId, $customId, $sanitiserId);
+        $this->api->applications()->customs()->sanitisers()->deleteById($appId, $customId, $sanitiserId);
     }
 }

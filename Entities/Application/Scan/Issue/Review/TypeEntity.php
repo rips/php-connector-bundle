@@ -25,6 +25,11 @@ class TypeEntity
     protected $negative;
 
     /**
+     * @var int
+     */
+    protected $order;
+
+    /**
      * Set id
      *
      * @param integer $id
@@ -114,5 +119,28 @@ class TypeEntity
     public function getNegative()
     {
         return $this->negative;
+    }
+
+    /**
+     * Get order
+     *
+     * @return int
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set order
+     *
+     * @param int $order
+     * @return $this
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
     }
 }

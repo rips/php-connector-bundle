@@ -19,7 +19,7 @@ class IssueHydrator
     * Hydrate a collection of issue objects into a collection of
     * IssueEntity objects
     *
-    * @param stdClass[] $issues
+    * @param array $issues
     * @return IssueEntity[]
     */
     public static function hydrateCollection(array $issues)

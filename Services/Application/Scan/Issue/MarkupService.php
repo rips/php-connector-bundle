@@ -34,7 +34,12 @@ class MarkupService
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $markups = $this->api->issues()->markups()->getAll($appId, $scanId, $issueId, $queryParams);
+        $markups = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->markups()
+            ->getAll($appId, $scanId, $issueId, $queryParams);
 
         return MarkupHydrator::hydrateCollection($markups);
     }
@@ -50,7 +55,12 @@ class MarkupService
      */
     public function getById($appId, $scanId, $issueId, $markupId)
     {
-        $markup = $this->api->issues()->markups()->getById($appId, $scanId, $issueId, $markupId);
+        $markup = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->markups()
+            ->getById($appId, $scanId, $issueId, $markupId);
 
         return MarkupHydrator::hydrate($markup);
     }

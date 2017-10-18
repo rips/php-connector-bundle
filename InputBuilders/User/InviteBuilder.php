@@ -7,14 +7,14 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class InviteBuilder extends BaseBuilder
 {
     /**
-     * @var string
+     * @var array
      */
-    protected $email;
+    protected $roles;
 
     /**
      * @var string
      */
-    protected $username;
+    protected $email;
 
     /**
      * @var string
@@ -27,93 +27,90 @@ class InviteBuilder extends BaseBuilder
     protected $lastname;
 
     /**
-     * @var int
+     * @var integer
      */
     protected $organisation;
 
     /**
-     * @var array
-     */
-    protected $roles;
-
-    /**
-     * @var bool
+     * @var boolean
      */
     protected $root;
 
     /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return $this
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
      * Set email
      *
-     * @param  string $email
-     * @return void
+     * @param string $email
+     * @return $this
      */
     public function setEmail($email)
     {
         $this->email = $email;
-    }
 
-    /**
-     * Set username
-     *
-     * @param  string $username
-     * @return void
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
+        return $this;
     }
 
     /**
      * Set firstname
      *
-     * @param  string $firstname
-     * @return void
+     * @param string $firstname
+     * @return $this
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+
+        return $this;
     }
 
     /**
      * Set lastname
      *
-     * @param  string $lastname
-     * @return void
+     * @param string $lastname
+     * @return $this
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+
+        return $this;
     }
 
     /**
      * Set organisation
      *
-     * @param  int $organisation
-     * @return void
+     * @param integer $organisation
+     * @return $this
      */
     public function setOrganisation($organisation)
     {
         $this->organisation = $organisation;
-    }
 
-    /**
-     * Set roles
-     *
-     * @param array<string> $roles
-     */
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
+        return $this;
     }
 
     /**
      * Set root
      *
-     * @param  bool $root
-     * @return void
+     * @param boolean $root
+     * @return $this
      */
     public function setRoot($root)
     {
         $this->root = $root;
+
+        return $this;
     }
 }

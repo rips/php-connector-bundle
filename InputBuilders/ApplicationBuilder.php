@@ -10,6 +10,11 @@ class ApplicationBuilder extends BaseBuilder
     protected $name;
 
     /**
+     * @var integer
+     */
+    protected $chargedQuota;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -18,6 +23,19 @@ class ApplicationBuilder extends BaseBuilder
     public function setApplicationName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Set chargedQuota
+     *
+     * @param integer $chargedQuota
+     * @return $this
+     */
+    public function setChargedQuota($chargeQuota)
+    {
+        $this->chargedQuota = $chargeQuota;
 
         return $this;
     }

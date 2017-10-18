@@ -41,6 +41,11 @@ class OrgEntity
      */
     protected $quotas;
 
+    /*
+     * @var LicenseEntity[]
+     */
+    protected $licenses;
+
     /**
      * @var LogEntity[]
      */
@@ -203,6 +208,29 @@ class OrgEntity
     public function getQuotas()
     {
         return $this->quotas;
+    }
+    
+    /**
+     * Get licenses
+     *
+     * @return LicenseEntity[]
+     */
+    public function getLicenses()
+    {
+        return $this->licenses;
+    }
+    
+    /**
+     * Set licenses
+     *
+     * @param LicenseEntity[] $licenses
+     * @return $this
+     */
+    public function setLicenses($licenses)
+    {
+        $this->licenses = $licenses;
+    
+        return $this;
     }
 
     /**

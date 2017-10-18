@@ -34,7 +34,7 @@ class IgnoreService
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $ignores = $this->api->customs()->ignores()->getAll($appId, $customId, $queryParams);
+        $ignores = $this->api->applications()->customs()->ignores()->getAll($appId, $customId, $queryParams);
 
         return IgnoreHydrator::hydrateCollection($ignores);
     }
@@ -49,7 +49,7 @@ class IgnoreService
      */
     public function getById($appId, $customId, $ignoreId)
     {
-        $ignore = $this->api->customs()->ignores()->getById($appId, $customId, $ignoreId);
+        $ignore = $this->api->applications()->customs()->ignores()->getById($appId, $customId, $ignoreId);
 
         return IgnoreHydrator::hydrate($ignore);
     }
@@ -64,7 +64,7 @@ class IgnoreService
      */
     public function create($appId, $customId, IgnoreBuilder $input)
     {
-        $ignore = $this->api->customs()->ignores()->create($appId, $customId, $input->toArray());
+        $ignore = $this->api->applications()->customs()->ignores()->create($appId, $customId, $input->toArray());
 
         return IgnoreHydrator::hydrate($ignore);
     }
@@ -80,7 +80,7 @@ class IgnoreService
      */
     public function update($appId, $customId, $ignoreId, IgnoreBuilder $input)
     {
-        $ignore = $this->api->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray());
+        $ignore = $this->api->applications()->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray());
 
         return IgnoreHydrator::hydrate($ignore);
     }
@@ -95,7 +95,7 @@ class IgnoreService
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->customs()->ignores()->deleteAll($appId, $customId, $queryParams);
+        $this->api->applications()->customs()->ignores()->deleteAll($appId, $customId, $queryParams);
     }
 
     /**
@@ -108,6 +108,6 @@ class IgnoreService
      */
     public function deleteById($appId, $customId, $ignoreId)
     {
-        $this->api->customs()->ignores()->deleteById($appId, $customId, $ignoreId);
+        $this->api->applications()->customs()->ignores()->deleteById($appId, $customId, $ignoreId);
     }
 }

@@ -34,7 +34,7 @@ class SinkService
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $sinks = $this->api->customs()->sinks()->getAll($appId, $customId, $queryParams);
+        $sinks = $this->api->applications()->customs()->sinks()->getAll($appId, $customId, $queryParams);
 
         return SinkHydrator::hydrateCollection($sinks);
     }
@@ -49,7 +49,7 @@ class SinkService
      */
     public function getById($appId, $customId, $sinkId)
     {
-        $sink = $this->api->customs()->sinks()->getById($appId, $customId, $sinkId);
+        $sink = $this->api->applications()->customs()->sinks()->getById($appId, $customId, $sinkId);
 
         return SinkHydrator::hydrate($sink);
     }
@@ -64,7 +64,7 @@ class SinkService
      */
     public function create($appId, $customId, SinkBuilder $input)
     {
-        $sink = $this->api->customs()->sinks()->create($appId, $customId, $input->toArray());
+        $sink = $this->api->applications()->customs()->sinks()->create($appId, $customId, $input->toArray());
 
         return SinkHydrator::hydrate($sink);
     }
@@ -80,7 +80,7 @@ class SinkService
      */
     public function update($appId, $customId, $sinkId, SinkBuilder $input)
     {
-        $sink = $this->api->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray());
+        $sink = $this->api->applications()->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray());
 
         return SinkHydrator::hydrate($sink);
     }
@@ -95,7 +95,7 @@ class SinkService
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->customs()->sinks()->deleteAll($appId, $customId, $queryParams);
+        $this->api->applications()->customs()->sinks()->deleteAll($appId, $customId, $queryParams);
     }
 
     /**
@@ -108,6 +108,6 @@ class SinkService
      */
     public function deleteById($appId, $customId, $sinkId)
     {
-        $this->api->customs()->sinks()->deleteById($appId, $customId, $sinkId);
+        $this->api->applications()->customs()->sinks()->deleteById($appId, $customId, $sinkId);
     }
 }

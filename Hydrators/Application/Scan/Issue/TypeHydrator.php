@@ -8,7 +8,7 @@ use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 class TypeHydrator
 {
     /**
-     * Hydrate a collection of user objects into a collection of
+     * Hydrate a collection of type objects into a collection of
      * TypeEntity objects
      *
      * @param stdClass[] $types
@@ -26,7 +26,7 @@ class TypeHydrator
     }
 
     /**
-     * Hydrate a user object into a TypeEntity object
+     * Hydrate a type object into a TypeEntity object
      *
      * @param stdClass $type
      * @return TypeEntity

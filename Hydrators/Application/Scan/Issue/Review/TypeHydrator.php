@@ -51,6 +51,10 @@ class TypeHydrator
             $hydrated->setNegative($type->negative);
         }
 
+        if (isset($type->order)) {
+            $hydrated->setOrder($type->order);
+        }
+
         return $hydrated;
     }
 }

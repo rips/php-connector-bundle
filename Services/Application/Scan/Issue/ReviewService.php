@@ -35,7 +35,12 @@ class ReviewService
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $reviews = $this->api->issues()->reviews()->getAll($appId, $scanId, $issueId, $queryParams);
+        $reviews = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->reviews()
+            ->getAll($appId, $scanId, $issueId, $queryParams);
 
         return ReviewHydrator::hydrateCollection($reviews);
     }
@@ -51,7 +56,12 @@ class ReviewService
      */
     public function getById($appId, $scanId, $issueId, $reviewId)
     {
-        $review = $this->api->issues()->reviews()->getById($appId, $scanId, $issueId, $reviewId);
+        $review = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->reviews()
+            ->getById($appId, $scanId, $issueId, $reviewId);
 
         return ReviewHydrator::hydrate($review);
     }
@@ -67,7 +77,12 @@ class ReviewService
      */
     public function create($appId, $scanId, $issueId, ReviewBuilder $input)
     {
-        $review = $this->api->issues()->reviews()->create($appId, $scanId, $issueId, $input->toArray());
+        $review = $this->api
+            ->applications()
+            ->scans()
+            ->issues()
+            ->reviews()
+            ->create($appId, $scanId, $issueId, $input->toArray());
 
         return ReviewHydrator::hydrate($review);
     }

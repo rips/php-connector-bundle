@@ -33,7 +33,7 @@ class CustomService
      */
     public function getAll($appId, array $queryParams)
     {
-        $customs = $this->api->customs()->getAll($appId, $queryParams);
+        $customs = $this->api->applications()->applications()->customs()->getAll($appId, $queryParams);
 
         return CustomHydrator::hydrateCollection($customs);
     }
@@ -47,7 +47,7 @@ class CustomService
      */
     public function getById($appId, $customId)
     {
-        $custom = $this->api->customs()->getById($appId, $customId);
+        $custom = $this->api->applications()->customs()->getById($appId, $customId);
 
         return CustomHydrator::hydrate($custom);
     }
@@ -61,7 +61,7 @@ class CustomService
      */
     public function create($appId, CustomBuilder $input)
     {
-        $custom = $this->api->customs()->create($appId, $input->toArray());
+        $custom = $this->api->applications()->customs()->create($appId, $input->toArray());
 
         return CustomHydrator::hydrate($custom);
     }
@@ -76,7 +76,7 @@ class CustomService
      */
     public function update($appId, $customId, CustomBuilder $input)
     {
-        $custom = $this->api->customs()->update($appId, $customId, $input->toArray());
+        $custom = $this->api->applications()->customs()->update($appId, $customId, $input->toArray());
 
         return CustomHydrator::hydrate($custom);
     }
@@ -90,7 +90,7 @@ class CustomService
      */
     public function deleteAll($appId, array $queryParams = [])
     {
-        $this->api->customs()->deleteAll($appId, $queryParams);
+        $this->api->applications()->customs()->deleteAll($appId, $queryParams);
     }
 
     /**
@@ -102,6 +102,6 @@ class CustomService
      */
     public function deleteById($appId, $customId)
     {
-        $this->api->customs()->deleteById($appId, $customId);
+        $this->api->applications()->customs()->deleteById($appId, $customId);
     }
 }

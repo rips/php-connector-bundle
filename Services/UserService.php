@@ -3,7 +3,8 @@
 namespace RIPS\ConnectorBundle\Services;
 
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
+use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
+use RIPS\ConnectorBundle\InputBuilders\User\UpdateBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\ResetBuilder;
 use RIPS\ConnectorBundle\Entities\UserEntity;
@@ -54,10 +55,10 @@ class UserService
     /**
      * Create a new user
      *
-     * @param UserBuilder $input
+     * @param AddBuilder $input
      * @return UserEntity
      */
-    public function create(UserBuilder $input)
+    public function create($input)
     {
         $user = $this->api->users()->create($input->toArray());
 
@@ -68,10 +69,10 @@ class UserService
      * Update existing user
      *
      * @param int $userId
-     * @param UserBuilder $input
+     * @param UpdateBuilder $input
      * @return UserEntity
      */
-    public function update($userId, UserBuilder $input)
+    public function update($userId, $input)
     {
         $user = $this->api->users()->update($userId, $input->toArray());
 
@@ -106,7 +107,7 @@ class UserService
      * @param InviteBuilder $input
      * @return void
      */
-    public function invite(InviteBuilder $input)
+    public function invite($input)
     {
         $this->api->users()->invite($input->toArray());
     }
@@ -117,8 +118,50 @@ class UserService
      * @param ResetBuilder $input
      * @return UserEntity
      */
-    public function reset(ResetBuilder $input)
+    public function reset($input)
     {
         $this->api->users()->reset($input->toArray());
+    }
+
+    /**
+     * Active a user account
+     *
+     * @param int $userId
+     * @param string $token
+     * @return UserEntity
+     */
+    public function activate($userId, $token)
+    {
+        $user = $this->api->users()->activate($userId, $token);
+
+        return UserHydrator::hydrate($user);
+    }
+
+    /**
+     * Confirm email update for user account
+     *
+     * @param int $userId
+     * @param string $token
+     * @return UserEntity
+     */
+    public function confirm($userId, $token)
+    {
+        $user = $this->api->users()->confirm($userId, $token);
+
+        return UserHydrator::hydrate($user);
+    }
+
+    /**
+     * Reset user account
+     *
+     * @param int $userId
+     * @param string $token
+     * @return UserEntity
+     */
+    public function confirmReset($userId, $token)
+    {
+        $user = $this->api->users()->confirmReset($userId, $token);
+
+        return UserHydrator::hydrate($user);
     }
 }

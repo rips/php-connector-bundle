@@ -64,6 +64,10 @@ class OrgHydrator
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organisation->quotas));
         }
 
+        if (isset($organisation->licenses) && is_array($organisation->licenses)) {
+            $hydrated->setLicenses(LicenseHydrator::hydrateCollection($organisation->licenses));
+        }
+
         if (isset($organisation->logs) && is_array($organisation->logs)) {
             $hydrated->setLogs(LogHydrator::hydrateCollection($organisation->logs));
         }

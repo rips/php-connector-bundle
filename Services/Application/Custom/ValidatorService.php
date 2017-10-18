@@ -34,7 +34,7 @@ class ValidatorService
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $validators = $this->api->customs()->validators()->getAll($appId, $customId, $queryParams);
+        $validators = $this->api->applications()->customs()->validators()->getAll($appId, $customId, $queryParams);
 
         return ValidatorHydrator::hydrateCollection($validators);
     }
@@ -49,7 +49,7 @@ class ValidatorService
      */
     public function getById($appId, $customId, $validatorId)
     {
-        $validator = $this->api->customs()->validators()->getById($appId, $customId, $validatorId);
+        $validator = $this->api->applications()->customs()->validators()->getById($appId, $customId, $validatorId);
 
         return ValidatorHydrator::hydrate($validator);
     }
@@ -64,7 +64,7 @@ class ValidatorService
      */
     public function create($appId, $customId, ValidatorBuilder $input)
     {
-        $validator = $this->api->customs()->validators()->create($appId, $customId, $input->toArray());
+        $validator = $this->api->applications()->customs()->validators()->create($appId, $customId, $input->toArray());
 
         return ValidatorHydrator::hydrate($validator);
     }
@@ -80,7 +80,7 @@ class ValidatorService
      */
     public function update($appId, $customId, $validatorId, ValidatorBuilder $input)
     {
-        $validator = $this->api->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray());
+        $validator = $this->api->applications()->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray());
 
         return ValidatorHydrator::hydrate($validator);
     }
@@ -95,7 +95,7 @@ class ValidatorService
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->customs()->validators()->deleteAll($appId, $customId, $queryParams);
+        $this->api->applications()->customs()->validators()->deleteAll($appId, $customId, $queryParams);
     }
 
     /**
@@ -108,6 +108,6 @@ class ValidatorService
      */
     public function deleteById($appId, $customId, $validatorId)
     {
-        $this->api->customs()->validators()->deleteById($appId, $customId, $validatorId);
+        $this->api->applications()->customs()->validators()->deleteById($appId, $customId, $validatorId);
     }
 }
