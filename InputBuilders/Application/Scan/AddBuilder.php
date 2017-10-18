@@ -52,12 +52,6 @@ class AddBuilder extends BaseBuilder
     protected $version;
 
     /**
-     * @var string
-     */
-<<<<<<< HEAD:InputBuilders/Application/ScanBuilder.php
-    protected $parent;
-
-    /**
      * @var int
      */
     protected $upload;
@@ -207,32 +201,6 @@ class AddBuilder extends BaseBuilder
     {
         $this->path = $path;
     
-        return $this;
-    }
-
-    /**
-     * Set upload
-     *
-     * @param int $upload
-     * @return $this
-     */
-    public function setUpload($upload)
-    {
-        $this->upload = $upload;
-
-        return $this;
-    }
-
-    /**
-     * Set path
-     *
-     * @param string $path
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
         return $this;
     }
 }
