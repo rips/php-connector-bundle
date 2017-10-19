@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use DateTime;
+
 class ApplicationEntity
 {
     /**
@@ -15,19 +17,19 @@ class ApplicationEntity
     protected $name;
 
     /**
+     * @var Application\ScanEntity[]
+     */
+    protected $scans;
+
+    /**
      * @var int
      */
-    protected $currentScan;
+    protected $currentScan = 0;
 
     /**
-     * @var string
+     * @var Application\CustomEntity[]
      */
-    protected $creation;
-
-    /**
-     * @var OrgEntity
-     */
-    protected $organisation;
+    protected $customs;
 
     /**
      * @var UserEntity
@@ -40,14 +42,46 @@ class ApplicationEntity
     protected $chargedQuota;
 
     /**
+     * @var Application\UploadEntity[]
+     */
+    protected $uploads;
+
+    /**
+     * @var Application\AclEntity[]
+     */
+    protected $acls;
+
+    /**
+     * @var DateTime
+     */
+    protected $creation;
+
+    /**
+     * @var DateTime
+     */
+    protected $lastModification;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $organisation;
+
+    /**
+     * @var boolean
+     */
+    protected $trial = false;
+
+    /**
      * Set id
      *
-     * @param  int $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -63,12 +97,14 @@ class ApplicationEntity
     /**
      * Set name
      *
-     * @param  string $name
-     * @return void
+     * @param string $name
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -82,14 +118,39 @@ class ApplicationEntity
     }
 
     /**
+     * Set scans
+     *
+     * @param Application\ScanEntity[] $scans
+     * @return $this
+     */
+    public function setScans(array $scans)
+    {
+        $this->scans = $scans;
+
+        return $this;
+    }
+
+    /**
+     * Get scans
+     *
+     * @return Application\ScanEntity[]
+     */
+    public function getScans()
+    {
+        return $this->scans;
+    }
+
+    /**
      * Set currentScan
      *
-     * @param  int
-     * @return void
+     * @param int $currentScan
+     * @return $this
      */
     public function setCurrentScan($currentScan)
     {
         $this->currentScan = $currentScan;
+
+        return $this;
     }
 
     /**
@@ -104,56 +165,39 @@ class ApplicationEntity
     }
 
     /**
-     * Set creation
+     * Set customs
      *
-     * @param  string
-     * @return void
+     * @param Application\CustomEntity[] $customs
+     * @return $this
      */
-    public function setCreation($creation)
+    public function setCustoms(array $customs)
     {
-        $this->creation = $creation;
+        $this->customs = $customs;
+
+        return $this;
     }
 
     /**
-     * Get creation
+     * Get customs
      *
-     * @return string
+     * @return Application\CustomEntity[]
      */
-    public function getCreation()
+    public function getCustoms()
     {
-        return $this->creation;
-    }
-
-    /**
-     * Set organisation
-     *
-     * @param  OrgEntity
-     * @return void
-     */
-    public function setOrganisation(OrgEntity $org)
-    {
-        $this->organisation = $org;
-    }
-
-    /**
-     * Get organisation
-     *
-     * @return OrgEntity
-     */
-    public function getOrganisation()
-    {
-        return $this->organisation;
+        return $this->customs;
     }
 
     /**
      * Set createdBy
      *
      * @param UserEntity $createdBy
-     * @return void
+     * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
     }
 
     /**
@@ -172,7 +216,7 @@ class ApplicationEntity
      * @param QuotaEntity $chargedQuota
      * @return void
      */
-    public function setChargedQuota(QuotaEntity $chargedQuota)
+    public function setChargedQuota($chargedQuota)
     {
         $this->chargedQuota = $chargedQuota;
     }
@@ -185,5 +229,143 @@ class ApplicationEntity
     public function getChargedQuota()
     {
         return $this->chargedQuota;
+    }
+
+    /**
+     * Set uploads
+     *
+     * @param Application\UploadEntity[] $uploads
+     * @return $this
+     */
+    public function setUploads(array $uploads)
+    {
+        $this->uploads = $uploads;
+
+        return $this;
+    }
+
+    /**
+     * Get uploads
+     *
+     * @return Application\UploadEntity[]
+     */
+    public function getUploads()
+    {
+        return $this->uploads;
+    }
+
+    /**
+     * Set acls
+     *
+     * @param Application\AclEntity[] $acls
+     * @return $this
+     */
+    public function setAcls(array $acls)
+    {
+        $this->acls = $acls;
+
+        return $this;
+    }
+
+    /**
+     * Get acls
+     *
+     * @return Application\AclEntity[]
+     */
+    public function getAcls()
+    {
+        return $this->acls;
+    }
+
+    /**
+     * Set creation
+     *
+     * @param DateTime $creation
+     * @return $this
+     */
+    public function setCreation($creation)
+    {
+        $this->creation = $creation;
+
+        return $this;
+    }
+
+    /**
+     * Get creation
+     *
+     * @return DateTime
+     */
+    public function getCreation()
+    {
+        return $this->creation;
+    }
+
+    /**
+     * Set lastModification
+     *
+     * @param DateTime $lastModification
+     * @return $this
+     */
+    public function setLastModification($lastModification)
+    {
+        $this->lastModification = $lastModification;
+
+        return $this;
+    }
+
+    /**
+     * Get lastModification
+     *
+     * @return DateTime
+     */
+    public function getLastModification()
+    {
+        return $this->lastModification;
+    }
+
+    /**
+     * Set organisation
+     *
+     * @param OrgEntity
+     * @return $this
+     */
+    public function setOrganisation($org)
+    {
+        $this->organisation = $org;
+
+        return $this;
+    }
+
+    /**
+     * Get organisation
+     *
+     * @return OrgEntity
+     */
+    public function getOrganisation()
+    {
+        return $this->organisation;
+    }
+
+    /**
+     * Set trial
+     *
+     * @param boolean $trial
+     * @return $this
+     */
+    public function setTrial($trial)
+    {
+        $this->trial = $trial;
+
+        return $this;
+    }
+
+    /**
+     * Get trial
+     *
+     * @return boolean
+     */
+    public function getTrial()
+    {
+        return $this->trial;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Review;
 
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;
 
 class TypeHydrator
@@ -10,10 +11,10 @@ class TypeHydrator
      * Hydrate a collection of type objects into a collection of
      * TypeEntity objects
      *
-     * @param stdClass[] $type
+     * @param stdClass[] $types
      * @return TypeEntity[]
      */
-    public static function hydrateCollection($types)
+    public static function hydrateCollection(array $types)
     {
         $hydrated = [];
 
@@ -30,7 +31,7 @@ class TypeHydrator
      * @param stdClass $type
      * @return TypeEntity
      */
-    public static function hydrate(\stdClass $type)
+    public static function hydrate(stdClass $type)
     {
         $hydrated = new TypeEntity();
 
@@ -48,6 +49,10 @@ class TypeHydrator
 
         if (isset($type->negative)) {
             $hydrated->setNegative($type->negative);
+        }
+
+        if (isset($type->order)) {
+            $hydrated->setOrder($type->order);
         }
 
         return $hydrated;

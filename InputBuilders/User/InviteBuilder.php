@@ -6,100 +6,117 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
 class InviteBuilder extends BaseBuilder
 {
-    // @var string
-    protected $email;
-
-    // @var string
-    protected $username;
-
-    // @var string
-    protected $firstname;
-
-    // @var string
-    protected $lastname;
-
-    // @var int
-    protected $organisation;
-
-    // @var array
+    /**
+     * @var array
+     */
     protected $roles;
 
-    // @var bool
+    /**
+     * @var string
+     */
+    protected $email;
+
+    /**
+     * @var string
+     */
+    protected $firstname;
+
+    /**
+     * @var string
+     */
+    protected $lastname;
+
+    /**
+     * @var integer
+     */
+    protected $organisation;
+
+    /**
+     * @var boolean
+     */
     protected $root;
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     * @return $this
+     */
+    public function setRoles($roles)
+    {
+        $this->setFields[] = 'roles';
+        $this->roles = $roles;
+
+        return $this;
+    }
 
     /**
      * Set email
      *
-     * @param  string $email
-     * @return void
+     * @param string $email
+     * @return $this
      */
     public function setEmail($email)
     {
+        $this->setFields[] = 'email';
         $this->email = $email;
-    }
 
-    /**
-     * Set username
-     *
-     * @param  string $username
-     * @return void
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
+        return $this;
     }
 
     /**
      * Set firstname
      *
-     * @param  string $firstname
-     * @return void
+     * @param string $firstname
+     * @return $this
      */
     public function setFirstname($firstname)
     {
+        $this->setFields[] = 'firstname';
         $this->firstname = $firstname;
+
+        return $this;
     }
 
     /**
      * Set lastname
      *
-     * @param  string $lastname
-     * @return void
+     * @param string $lastname
+     * @return $this
      */
     public function setLastname($lastname)
     {
+        $this->setFields[] = 'lastname';
         $this->lastname = $lastname;
+
+        return $this;
     }
 
     /**
      * Set organisation
      *
-     * @param  int $organisation
-     * @return void
+     * @param integer $organisation
+     * @return $this
      */
     public function setOrganisation($organisation)
     {
+        $this->setFields[] = 'organisation';
         $this->organisation = $organisation;
-    }
 
-    /**
-     * Set roles
-     *
-     * @param array<string> $roles
-     */
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
+        return $this;
     }
 
     /**
      * Set root
      *
-     * @param  bool $root
-     * @return void
+     * @param boolean $root
+     * @return $this
      */
     public function setRoot($root)
     {
+        $this->setFields[] = 'root';
         $this->root = $root;
+
+        return $this;
     }
 }

@@ -8,7 +8,9 @@ use RIPS\ConnectorBundle\Entities\QuotaEntity;
 
 class QuotaService
 {
-    /** @var API */
+    /**
+     * @var APIService
+     */
     protected $api;
 
     /**
@@ -24,8 +26,8 @@ class QuotaService
     /**
      * Get all quotas
      *
-     * @param  array $queryParams
-     * @return array<QuotaEntity>
+     * @param array $queryParams
+     * @return QuotaEntity[]
      */
     public function getAll(array $queryParams = [])
     {
@@ -37,7 +39,7 @@ class QuotaService
     /**
      * Get a quota by id
      *
-     * @param  int $quotaId
+     * @param int $quotaId
      * @return QuotaEntity
      */
     public function getById($quotaId)
@@ -50,7 +52,7 @@ class QuotaService
     /**
      * Create a new quota
      *
-     * @param  QuotaBuilder $input
+     * @param QuotaBuilder $input
      * @return QuotaEntity
      */
     public function create(QuotaBuilder $input)
@@ -58,5 +60,41 @@ class QuotaService
         $quota = $this->api->quotas()->create($input->toArray());
 
         return QuotaHydrator::hydrate($quota);
+    }
+
+    /**
+     * Update an existing quota
+     *
+     * @param int $quotaId
+     * @param QuotaBuilder $input
+     * @return QuotaEntity
+     */
+    public function update($quotaId, QuotaBuilder $input)
+    {
+        $quota = $this->api->quotas()->update($quotaId, $input->toArray());
+
+        return QuotaHydrator::hydrate($quota);
+    }
+
+    /**
+     * Delete all quotas
+     *
+     * @param array $queryParams
+     * @return void
+     */
+    public function deleteAll(array $queryParams = [])
+    {
+        $this->api->quotas()->deleteAll($queryParams);
+    }
+
+    /**
+     * Delete quota by id
+     *
+     * @param int $quotaId
+     * @return void
+     */
+    public function deleteById($quotaId)
+    {
+        $this->api->quotas()->deleteById($quotaId);
     }
 }

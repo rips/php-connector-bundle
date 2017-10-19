@@ -5,9 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 
 class SinkHydrator
 {
@@ -15,10 +12,10 @@ class SinkHydrator
      * Hydrate a collection of sink objects into a collection of
      * SinkEntity objects
      *
-     * @param stdClass[] $sink
+     * @param stdClass[] $sinks
      * @return SinkEntity[]
      */
-    public static function hydrateCollection($sinks)
+    public static function hydrateCollection(array $sinks)
     {
         $hydrated = [];
 
@@ -32,7 +29,7 @@ class SinkHydrator
     /**
      * Hydrate a sink object into a SinkEntity object
      *
-     * @param  stdClass $sink
+     * @param stdClass $sink
      * @return SinkEntity
      */
     public static function hydrate(stdClass $sink)

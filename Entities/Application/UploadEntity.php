@@ -2,21 +2,22 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
+use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class UploadEntity
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $id;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $submission;
+
     /**
      * @var string
      */
@@ -28,7 +29,7 @@ class UploadEntity
     protected $extension;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $size;
 
@@ -53,20 +54,27 @@ class UploadEntity
     protected $application;
 
     /**
+     * @var boolean
+     */
+    protected $consumed;
+
+    /**
      * Set id
      *
-     * @param  integer $id
-     * @return void
+     * @param int $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -76,18 +84,20 @@ class UploadEntity
     /**
      * Set submission
      *
-     * @param  string $submission
-     * @return void
+     * @param DateTime $submission
+     * @return $this
      */
     public function setSubmission($submission)
     {
         $this->submission = $submission;
+
+        return $this;
     }
 
     /**
      * Get submission
      *
-     * @return string
+     * @return DateTime
      */
     public function getSubmission()
     {
@@ -97,12 +107,14 @@ class UploadEntity
     /**
      * Set name
      *
-     * @param  string $name
-     * @return void
+     * @param string $name
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -118,12 +130,14 @@ class UploadEntity
     /**
      * Set extension
      *
-     * @param  string $extension
-     * @return void
+     * @param string $extension
+     * @return $this
      */
     public function setExtension($extension)
     {
         $this->extension = $extension;
+
+        return $this;
     }
 
     /**
@@ -139,18 +153,20 @@ class UploadEntity
     /**
      * Set size
      *
-     * @param  integer $size
-     * @return void
+     * @param int $size
+     * @return $this
      */
     public function setSize($size)
     {
         $this->size = $size;
+
+        return $this;
     }
 
     /**
      * Get size
      *
-     * @return integer
+     * @return int
      */
     public function getSize()
     {
@@ -160,12 +176,14 @@ class UploadEntity
     /**
      * Set file
      *
-     * @param  string $file
-     * @return void
+     * @param string $file
+     * @return $this
      */
     public function setFile($file)
     {
         $this->file = $file;
+
+        return $this;
     }
 
     /**
@@ -181,12 +199,14 @@ class UploadEntity
     /**
      * Set createdBy
      *
-     * @param  UserEntity $createdBy
-     * @return void
+     * @param UserEntity $createdBy
+     * @return $this
      */
-    public function setCreatedBy(UserEntity $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
     }
 
     /**
@@ -202,12 +222,14 @@ class UploadEntity
     /**
      * Set scans
      *
-     * @param  ScanEntity[] $scans
-     * @return void
+     * @param ScanEntity[] $scans
+     * @return $this
      */
     public function setScans(array $scans)
     {
         $this->scans = $scans;
+
+        return $this;
     }
 
     /**
@@ -223,12 +245,14 @@ class UploadEntity
     /**
      * Set application
      *
-     * @param  ApplicationEntity $application
-     * @return void
+     * @param ApplicationEntity $application
+     * @return $this
      */
-    public function setApplication(ApplicationEntity $application)
+    public function setApplication($application)
     {
         $this->application = $application;
+
+        return $this;
     }
 
     /**
@@ -239,5 +263,28 @@ class UploadEntity
     public function getApplication()
     {
         return $this->application;
+    }
+
+    /**
+     * Set consumed
+     *
+     * @param boolean $consumed
+     * @return $this
+     */
+    public function setConsumed($consumed)
+    {
+        $this->consumed = $consumed;
+
+        return $this;
+    }
+
+    /**
+     * Get consumed
+     *
+     * @return boolean
+     */
+    public function getConsumed()
+    {
+        return $this->consumed;
     }
 }

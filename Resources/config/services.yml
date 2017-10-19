@@ -14,13 +14,18 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.orgs:
-        class: RIPS\ConnectorBundle\Services\OrgService
+    rips_connector.teams:
+        class: RIPS\ConnectorBundle\Services\TeamService
         arguments:
             - '@rips_connector.api'
 
     rips_connector.quotas:
         class: RIPS\ConnectorBundle\Services\QuotaService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.orgs:
+        class: RIPS\ConnectorBundle\Services\OrgService
         arguments:
             - '@rips_connector.api'
 
@@ -34,6 +39,11 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.application.uploads:
+        class: RIPS\ConnectorBundle\Services\Application\UploadService
+        arguments:
+            - '@rips_connector.api'
+
     rips_connector.application.scans:
         class: RIPS\ConnectorBundle\Services\Application\ScanService
         arguments:
@@ -41,5 +51,55 @@ services:
 
     rips_connector.application.scan.issues:
         class: RIPS\ConnectorBundle\Services\Application\Scan\IssueService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.summaries:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\SummaryService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.reviews:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\ReviewService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.markups:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\MarkupService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.comments:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\CommentService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.customs:
+        class: RIPS\ConnectorBundle\Services\Application\CustomService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.custom.validators:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\ValidatorService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.custom.sources:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\SourceService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.custom.sinks:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\SinkService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.custom.sanitisers:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\SanitiserService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.custom.ignores:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\IgnoreService
         arguments:
             - '@rips_connector.api'

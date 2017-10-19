@@ -2,49 +2,62 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
-use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
-
 class LogBuilder extends BaseBuilder
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $text;
 
-    /** @var string */
-    protected $context;
-
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $level;
 
     /**
+     * @var string
+     */
+    protected $context;
+    
+    /**
      * Set text
      *
-     * @param  string $text
-     * @return void
+     * @param string $text
+     * @return $this
      */
     public function setText($text)
     {
+        $this->setFields[] = 'text';
         $this->text = $text;
+    
+        return $this;
     }
-
-    /**
-     * Set context
-     *
-     * @param  string $context
-     * @return void
-     */
-    public function setContext($context)
-    {
-        $this->context = $context;
-    }
-
+    
     /**
      * Set level
      *
-     * @param  int $level
-     * @return void
+     * @param int $level
+     * @return $this
      */
     public function setLevel($level)
     {
+        $this->setFields[] = 'level';
         $this->level = $level;
+    
+        return $this;
+    }
+    
+    /**
+     * Set context
+     *
+     * @param string $context
+     * @return $this
+     */
+    public function setContext($context)
+    {
+        $this->setFields[] = 'context';
+        $this->context = $context;
+    
+        return $this;
     }
 }

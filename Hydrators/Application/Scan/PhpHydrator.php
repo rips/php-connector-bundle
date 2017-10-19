@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
@@ -11,14 +12,14 @@ class PhpHydrator
      * Hydrate a collection of php objects into a collection of
      * PhpEntity objects
      *
-     * @param stdClass[] $php
+     * @param stdClass[] $phps
      * @return PhpEntity[]
      */
-    public static function hydrateCollection(array $phpObjects)
+    public static function hydrateCollection(array $phps)
     {
         $hydrated = [];
 
-        foreach ($phpObjects as $php) {
+        foreach ($phps as $php) {
             $hydrated[] = self::hydrate($php);
         }
 
@@ -28,10 +29,10 @@ class PhpHydrator
     /**
      * Hydrate a user object into a UserEntity object
      *
-     * @param stdClass $php
+     * @param \stdClass $php
      * @return PhpEntity
      */
-    public static function hydrate(\stdClass $php)
+    public static function hydrate(stdClass $php)
     {
         $hydrated = new PhpEntity();
 

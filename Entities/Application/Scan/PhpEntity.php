@@ -252,7 +252,7 @@ class PhpEntity
      * @param ScanEntity $scan
      * @return void
      */
-    public function setScan(ScanEntity $scan)
+    public function setScan($scan)
     {
         $this->scan = $scan;
     }

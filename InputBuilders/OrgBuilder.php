@@ -2,44 +2,45 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
+use DateTime;
+
 class OrgBuilder extends BaseBuilder
 {
-    /** @var string */
-    protected $validUntil;
-
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $name;
 
-    /** @var array */
-    protected $callbacks;
-
+    /**
+     * @var DateTime
+     */
+    protected $validUntil;
+    
     /**
      * Set name
      *
-     * @param  string $name
-     * @return void
+     * @param string $name
+     * @return $this
      */
     public function setName($name)
     {
+        $this->setFields[] = 'name';
         $this->name = $name;
+    
+        return $this;
     }
-
+    
     /**
      * Set validUntil
      *
-     * @param  string $validUntil
-     * @return void
+     * @param DateTime $validUntil
+     * @return $this
      */
     public function setValidUntil($validUntil)
     {
+        $this->setFields[] = 'validuntil';
         $this->validUntil = $validUntil;
-    }
-
-    /**
-     * @param array $callbacks
-     */
-    public function setCallbacks(array $callbacks)
-    {
-        $this->callbacks = $callbacks;
+    
+        return $this;
     }
 }

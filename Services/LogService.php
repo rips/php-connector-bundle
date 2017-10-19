@@ -8,7 +8,9 @@ use RIPS\ConnectorBundle\Entities\LogEntity;
 
 class LogService
 {
-    // @var API
+    /**
+     * @var APIService
+     */
     protected $api;
 
     /**
@@ -24,7 +26,7 @@ class LogService
     /**
      * Get all logs
      *
-     * @param  array $queryParams
+     * @param array $queryParams
      * @return LogEntity[]
      */
     public function getAll(array $queryParams = [])
@@ -37,7 +39,7 @@ class LogService
     /**
      * Get a log by id
      *
-     * @param  int $logId
+     * @param int $logId
      * @return LogEntity
      */
     public function getById($logId)
@@ -50,7 +52,7 @@ class LogService
     /**
      * Create a new log
      *
-     * @param  LogBuilder $input
+     * @param LogBuilder $input
      * @return LogEntity
      */
     public function create(LogBuilder $input)
@@ -58,5 +60,16 @@ class LogService
         $log = $this->api->logs()->create($input->toArray());
 
         return LogHydrator::hydrate($log);
+    }
+
+    /**
+     * Delete logs older than a week
+     *
+     * @param array $queryParams
+     * @return void
+     */
+    public function delete(array $queryParams = [])
+    {
+        $this->api->logs()->delete($queryParams);
     }
 }

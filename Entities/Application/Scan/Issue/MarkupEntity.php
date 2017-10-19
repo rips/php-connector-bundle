@@ -25,11 +25,13 @@ class MarkupEntity
      * Set id
      *
      * @param  int $id
-     * @return void
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -46,11 +48,13 @@ class MarkupEntity
      * Set markup
      *
      * @param  string $markup
-     * @return void
+     * @return $this
      */
     public function setMarkup($markup)
     {
         $this->markup = $markup;
+
+        return $this;
     }
 
     /**
@@ -67,11 +71,13 @@ class MarkupEntity
      * Set issue
      *
      * @param IssueEntity $issue
-     * @return void
+     * @return $this
      */
-    public function setIssue(IssueEntity $issue)
+    public function setIssue($issue)
     {
         $this->issue = $issue;
+
+        return $this;
     }
 
     /**

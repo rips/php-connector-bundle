@@ -1,8 +1,8 @@
 <?php
 
-
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
@@ -11,12 +11,12 @@ class SummaryHydrator
 {
     /**
      * Hydrate a collection of summary objects into a collection of
-     * SummarieEntity objects
+     * SummaryEntity objects
      *
      * @param stdClass[] $summaries
      * @return SummaryEntity[]
      */
-    public static function hydrateCollection($summaries)
+    public static function hydrateCollection(array $summaries)
     {
         $hydrated = [];
 
