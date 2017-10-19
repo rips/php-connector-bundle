@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
+use DateTime;
+
 class OrgBuilder extends BaseBuilder
 {
     /**
@@ -10,7 +12,7 @@ class OrgBuilder extends BaseBuilder
     protected $name;
 
     /**
-     * @var string
+     * @var DateTime
      */
     protected $validUntil;
     
@@ -31,7 +33,7 @@ class OrgBuilder extends BaseBuilder
     /**
      * Set validUntil
      *
-     * @param string $validUntil
+     * @param DateTime $validUntil
      * @return $this
      */
     public function setValidUntil($validUntil)
