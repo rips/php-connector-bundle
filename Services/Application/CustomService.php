@@ -33,7 +33,7 @@ class CustomService
      */
     public function getAll($appId, array $queryParams)
     {
-        $customs = $this->api->applications()->applications()->customs()->getAll($appId, $queryParams);
+        $customs = $this->api->applications()->customs()->getAll($appId, $queryParams);
 
         return CustomHydrator::hydrateCollection($customs);
     }

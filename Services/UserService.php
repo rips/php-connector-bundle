@@ -116,7 +116,7 @@ class UserService
      * Request a reset email
      *
      * @param ResetBuilder $input
-     * @return UserEntity
+     * @return void
      */
     public function reset($input)
     {

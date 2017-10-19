@@ -1,6 +1,6 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue\Review;
 
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;

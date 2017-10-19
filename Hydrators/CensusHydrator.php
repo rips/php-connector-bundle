@@ -11,7 +11,7 @@ class CensusHydrator
      * Hydrate a collection of census objects into a collection
      * of CensusEntity objects
      *
-     * @param array $census
+     * @param array $censuses
      * @return CensusEntity[]
      */
     public static function hydrateCollection(array $censuses)

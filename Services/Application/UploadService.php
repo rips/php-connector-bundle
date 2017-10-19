@@ -61,7 +61,7 @@ class UploadService
      */
     public function create($appId, $filename, $filepath)
     {
-        $upload = $this->api->applications()->uploads()->create($appId, $filename, $contents);
+        $upload = $this->api->applications()->uploads()->create($appId, $filename, $filepath);
 
         return UploadHydrator::hydrate($upload);
     }

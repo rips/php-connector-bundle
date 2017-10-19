@@ -17,7 +17,7 @@ class AclService
     /**
      * Initialize new OrgService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {
@@ -97,7 +97,7 @@ class AclService
      * Delete acl for application by id
      *
      * @param int $appId
-     * @param int $appId
+     * @param int $aclId
      * @return void
      */
     public function deleteById($appId, $aclId)

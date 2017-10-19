@@ -1,6 +1,6 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Quota;
+namespace RIPS\ConnectorBundle\InputBuilders\Application;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 

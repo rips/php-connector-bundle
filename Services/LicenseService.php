@@ -51,6 +51,7 @@ class LicenseService
 
     /**
      * @param LicenseBuilder $input
+     * @return LicenseEntity
      */
     public function activate($input)
     {

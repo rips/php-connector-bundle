@@ -18,7 +18,7 @@ class ProcessService
     /**
      * Initialize new OrgService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {
@@ -89,6 +89,7 @@ class ProcessService
      * @param int $scanId
      * @param int $processId
      * @param UpdateBuilder $input
+     * @return ProcessEntity
      */
     public function update($appId, $scanId, $processId, $input)
     {

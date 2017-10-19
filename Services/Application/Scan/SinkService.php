@@ -16,7 +16,7 @@ class SinkService
     /**
      * Initialize new OrgService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {

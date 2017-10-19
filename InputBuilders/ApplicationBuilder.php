@@ -34,10 +34,10 @@ class ApplicationBuilder extends BaseBuilder
      * @param integer $chargedQuota
      * @return $this
      */
-    public function setChargedQuota($chargeQuota)
+    public function setChargedQuota($chargedQuota)
     {
         $this->setFields[] = 'chargedQuota';
-        $this->chargedQuota = $chargeQuota;
+        $this->chargedQuota = $chargedQuota;
 
         return $this;
     }
