@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
+use DateTime;
+
 abstract class BaseBuilder
 {
     /**
@@ -35,7 +37,13 @@ abstract class BaseBuilder
         $out = [];
 
         foreach ($this->setFields as $key) {
-            $out[$key] = $this->{$key};
+            $property = $this->{$key};
+
+            if ($property instanceof DateTime) {
+                $out[$key] = $property->format(DateTime::ISO8601);
+            } else {
+                $out[$key] = $property;
+            }
         }
 
         return $out;

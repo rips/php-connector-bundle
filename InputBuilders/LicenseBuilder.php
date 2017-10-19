@@ -10,7 +10,7 @@ class LicenseBuilder extends BaseBuilder
     protected $key;
 
     /**
-     * @var integer
+     * @var boolean
      */
     protected $quotaDistributed;
 
@@ -27,7 +27,7 @@ class LicenseBuilder extends BaseBuilder
     }
 
     /**
-     * @param integer $quotaDistributed
+     * @param boolean $quotaDistributed
      * @return $this
      */
     public function setQuotaDistributed($quotaDistributed)
