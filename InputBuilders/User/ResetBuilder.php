@@ -9,37 +9,37 @@ class ResetBuilder extends BaseBuilder
     /**
      * @var string
      */
-    protected $plainPassword;
+    protected $username;
 
     /**
      * @var string
      */
-    protected $repeatPassword;
+    protected $email;
 
     /**
-     * Set plainPassword
+     * Set username
      *
-     * @param string $plainPassword
+     * @param string $username
      * @return $this
      */
-    public function setPlainPassword($plainPassword)
+    public function setUsername($username)
     {
-        $this->setFields[] = 'plainPassword';
-        $this->plainPassword = $plainPassword;
+        $this->setFields[] = 'username';
+        $this->username = $username;
 
         return $this;
     }
     
     /**
-     * Set repeatPassword
+     * Set email
      *
-     * @param string $repeatPassword
+     * @param string $email
      * @return $this
      */
-    public function setRepeatPassword($repeatPassword)
+    public function setEmail($email)
     {
-        $this->setFields[] = 'repeatPassword';
-        $this->repeatPassword = $repeatPassword;
+        $this->setFields[] = 'email';
+        $this->email = $email;
     
         return $this;
     }
