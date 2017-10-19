@@ -5,26 +5,13 @@ A Symfony bundle wrapper around [RIPS-Connector package](https://source.internal
 
 # Installation
 
-Update composer.json to read from the public RIPS repository
-
-	"repositories": [
-        {
-            "type": "vcs",
-            "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://source.internal.ripstech.com/scm/rac/php-connector-bundle.git"
-        }
-    ],
-
 Use composer to include the package:
 
-	composer require rips/connector-bundle:dev-dev
+	composer require rips/connector-bundle:~2.9
 
 OR add to composer.json and run `composer update`
 
-	"rips/connector-bundle": "dev-dev"
+	"rips/connector-bundle": "~2.9"
 
 Add the config settings in `app/config/config.yml` (see rips/connector readme for list of config options)
 
