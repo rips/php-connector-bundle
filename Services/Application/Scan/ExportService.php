@@ -52,7 +52,7 @@ class ExportService
             ->applications()
             ->scans()
             ->exports()
-            ->exportJiraCvs($appId, $scanId, $outFile);
+            ->exportJiraCsv($appId, $scanId, $outFile);
     }
 
     /**
