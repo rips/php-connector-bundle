@@ -1,7 +1,8 @@
 RIPS Connector Bundle
 ---
 
-A Symfony bundle wrapper around [RIPS-Connector package](https://source.internal.ripstech.com/projects/RAC/repos/php-connector/browse)
+A Symfony bundle wrapper around the [RIPS Connector package](https://github.com/rips/php-connector).
+This library provides easy access to RIPS and all of its features.
 
 # Installation
 
@@ -9,11 +10,11 @@ Use composer to include the package:
 
 	composer require rips/connector-bundle:~2.9
 
-OR add to composer.json and run `composer update`
+OR add the following to composer.json and run `composer update`
 
 	"rips/connector-bundle": "~2.9"
 
-Add the config settings in `app/config/config.yml` (see rips/connector readme for list of config options)
+Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
 
 	rips_connector:
 		base_uri: 'http://localhost:8000'
@@ -30,19 +31,20 @@ Declare the bundle in your `AppKernel.php` file
 
 # Usage
 
-Example of getting a collection of users in controller:
+This example demonstrates how to get a list of all users and how to add a new user:
 
 
 	// ...
 	use RIPS\ConnectorBundle\Services\UserService;
+	use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
 	use RIPS\Connector\Exceptions\ClientException;
 	use RIPS\Connector\Exceptions\ServerExecption;
-
+    
 	class DefaultController extends Controller
 	{
 		/** @var UserService */
 		protected $userService;
-
+        
 		public function __construct(UserService $userService)
 		{
 			$this->userService = $userService;
@@ -51,20 +53,29 @@ Example of getting a collection of users in controller:
 		public function indexAction()
 		{
 			try {
+			    // Get all users
 				$users = $this->userService->getAll();
+				
+				// Add a new user
+				$input = new AddBuilder([
+				    'username'      => 'test',
+				    'email'         => 'test@ripstech.com',
+				    'plainPassword' => '***********'
+				]);
+				$user = $this->userService->create($input);
 			} catch (ClientException $e) {
 				// 4** error
 			} catch (ServerException $e) {
 				// 5** error
 			}
-
+            
 			return $this->render('default/index.html.twig', ['users' => $users]);
 		}
 	}
 
 # Architecture
 
-This section will contain an overview of the architecture use for this bundle.
+This section contains an overview of the architecture used for this bundle.
 
 ### Services
 
