@@ -57,6 +57,11 @@ class OrgEntity
     protected $callbacks;
 
     /**
+     * @var array
+     */
+    protected $trialIssueTypes;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -282,5 +287,28 @@ class OrgEntity
     public function getCallbacks()
     {
         return $this->callbacks;
+    }
+
+    /**
+     * Set trialIssueTypes
+     *
+     * @param array $trialIssueTypes
+     * @return $this
+     */
+    public function setTrialIssueTypes(array $trialIssueTypes)
+    {
+        $this->trialIssueTypes = $trialIssueTypes;
+
+        return $this;
+    }
+
+    /**
+     * Get callbacks
+     *
+     * @return array
+     */
+    public function getTrialIssueTypes()
+    {
+        return $this->trialIssueTypes;
     }
 }
