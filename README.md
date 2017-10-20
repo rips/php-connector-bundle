@@ -17,7 +17,7 @@ OR add the following to composer.json and run `composer update`
 Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
 
 	rips_connector:
-		base_uri: 'http://localhost:8000'
+		base_uri: 'http://localhost:8080'
 		username: 'username'
 		password: 'password'
 
