@@ -37,6 +37,11 @@ class InviteBuilder extends BaseBuilder
     protected $root;
 
     /**
+     * @var array
+     */
+    protected $callbacks;
+
+    /**
      * Set roles
      *
      * @param array $roles
@@ -116,6 +121,20 @@ class InviteBuilder extends BaseBuilder
     {
         $this->setFields[] = 'root';
         $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->setFields[] = 'callbacks';
+        $this->callbacks = $callbacks;
 
         return $this;
     }

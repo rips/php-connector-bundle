@@ -72,6 +72,10 @@ class OrgHydrator
             $hydrated->setLogs(LogHydrator::hydrateCollection($organisation->logs));
         }
 
+        if (isset($organisation->callbacks)) {
+            $hydrated->setCallbacks($organisation->callbacks);
+        }
+
         return $hydrated;
     }
 }

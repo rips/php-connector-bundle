@@ -15,6 +15,11 @@ class OrgBuilder extends BaseBuilder
      * @var DateTime
      */
     protected $validUntil;
+
+    /**
+     * @var array
+     */
+    protected $callbacks;
     
     /**
      * Set name
@@ -38,9 +43,23 @@ class OrgBuilder extends BaseBuilder
      */
     public function setValidUntil($validUntil)
     {
-        $this->setFields[] = 'validuntil';
+        $this->setFields[] = 'validUntil';
         $this->validUntil = $validUntil;
     
+        return $this;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->setFields[] = 'callbacks';
+        $this->callbacks = $callbacks;
+
         return $this;
     }
 }

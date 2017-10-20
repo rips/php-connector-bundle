@@ -152,6 +152,11 @@ class UserEntity
     protected $whitelistedIps;
 
     /**
+     * @var array
+     */
+    protected $callbacks;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -816,5 +821,28 @@ class UserEntity
     public function getWhitelistedIps()
     {
         return $this->whitelistedIps;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Get callbacks
+     *
+     * @return array
+     */
+    public function getCallbacks()
+    {
+        return $this->callbacks;
     }
 }

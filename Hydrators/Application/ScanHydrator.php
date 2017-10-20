@@ -168,6 +168,10 @@ class ScanHydrator
             $hydrated->setSeverityDistributions($scan->severity_distribution);
         }
 
+        if (isset($scan->callbacks)) {
+            $hydrated->setCallbacks($scan->callbacks);
+        }
+
         return $hydrated;
     }
 }
