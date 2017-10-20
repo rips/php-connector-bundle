@@ -62,6 +62,11 @@ class AddBuilder extends BaseBuilder
     protected $path;
 
     /**
+     * @var array
+     */
+    protected $callbacks;
+
+    /**
      * Set chargedQuota
      *
      * @param integer $chargedQuota
@@ -212,6 +217,20 @@ class AddBuilder extends BaseBuilder
         $this->setFields[] = 'path';
         $this->path = $path;
     
+        return $this;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->setFields[] = 'callbacks';
+        $this->callbacks = $callbacks;
+
         return $this;
     }
 }

@@ -92,6 +92,10 @@ class ApplicationHydrator
             $hydrated->setTrial($application->trial);
         }
 
+        if (isset($application->default_scan_callbacks)) {
+            $hydrated->setDefaultScanCallbacks($application->default_scan_callbacks);
+        }
+
         return $hydrated;
     }
 }

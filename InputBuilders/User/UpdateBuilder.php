@@ -7,7 +7,7 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class UpdateBuilder extends BaseBuilder
 {
     /**
-     * @var array
+     * @var array - list of strings
      */
     protected $roles;
 
@@ -52,9 +52,14 @@ class UpdateBuilder extends BaseBuilder
     protected $root;
 
     /**
-     * @var array - list of strings
+     * @var array
      */
     protected $whitelistedIps;
+
+    /**
+     * @var array
+     */
+    protected $callbacks;
 
     /**
      * Set roles
@@ -192,6 +197,20 @@ class UpdateBuilder extends BaseBuilder
     {
         $this->setFields[] = 'whitelistedIps';
         $this->whitelistedIps = $whitelistedIps;
+
+        return $this;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->setFields[] = 'callbacks';
+        $this->callbacks = $callbacks;
 
         return $this;
     }

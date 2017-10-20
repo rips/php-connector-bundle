@@ -41,7 +41,7 @@ class OrgEntity
      */
     protected $quotas;
 
-    /*
+    /**
      * @var LicenseEntity[]
      */
     protected $licenses;
@@ -50,6 +50,11 @@ class OrgEntity
      * @var LogEntity[]
      */
     protected $logs;
+
+    /**
+     * @var array
+     */
+    protected $callbacks;
 
     /**
      * Set id
@@ -254,5 +259,28 @@ class OrgEntity
     public function getLogs()
     {
         return $this->logs;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Get callbacks
+     *
+     * @return array
+     */
+    public function getCallbacks()
+    {
+        return $this->callbacks;
     }
 }
