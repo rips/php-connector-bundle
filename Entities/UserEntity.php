@@ -809,7 +809,7 @@ class UserEntity
     }
 
     /**
-     * Get roles
+     * Get whitelisted ips
      *
      * @return array
      */
