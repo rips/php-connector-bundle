@@ -10,7 +10,7 @@ class TeamBuilder extends BaseBuilder
     protected $name;
 
     /**
-     * @var array - formatted as [userId => boolean]
+     * @var array - list of user ids
      */
     protected $users;
 

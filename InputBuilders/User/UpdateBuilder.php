@@ -19,11 +19,6 @@ class UpdateBuilder extends BaseBuilder
     /**
      * @var string
      */
-    protected $repeatPassword;
-
-    /**
-     * @var string
-     */
     protected $email;
 
     /**
@@ -57,6 +52,11 @@ class UpdateBuilder extends BaseBuilder
     protected $root;
 
     /**
+     * @var array - list of strings
+     */
+    protected $whitelistedIps;
+
+    /**
      * Set roles
      *
      * @param array $roles
@@ -80,20 +80,6 @@ class UpdateBuilder extends BaseBuilder
     {
         $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
-    /**
-     * Set repeatPassword
-     *
-     * @param string $repeatPassword
-     * @return $this
-     */
-    public function setRepeatPassword($repeatPassword)
-    {
-        $this->setFields[] = 'repeatPassword';
-        $this->repeatPassword = $repeatPassword;
 
         return $this;
     }
@@ -192,6 +178,20 @@ class UpdateBuilder extends BaseBuilder
     {
         $this->setFields[] = 'root';
         $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Set whitelisted ips
+     *
+     * @param array $whitelistedIps
+     * @return $this
+     */
+    public function setWhitelistedIps(array $whitelistedIps)
+    {
+        $this->setFields[] = 'whitelistedIps';
+        $this->whitelistedIps = $whitelistedIps;
 
         return $this;
     }
