@@ -24,11 +24,6 @@ class AddBuilder extends BaseBuilder
     /**
      * @var string
      */
-    protected $repeatPassword;
-
-    /**
-     * @var string
-     */
     protected $email;
 
     /**
@@ -99,20 +94,6 @@ class AddBuilder extends BaseBuilder
     {
         $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
-    /**
-     * Set repeatPassword
-     *
-     * @param string $repeatPassword
-     * @return $this
-     */
-    public function setRepeatPassword($repeatPassword)
-    {
-        $this->setFields[] = 'repeatPassword';
-        $this->repeatPassword = $repeatPassword;
 
         return $this;
     }
