@@ -7,7 +7,7 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class UpdateBuilder extends BaseBuilder
 {
     /**
-     * @var array - list of strings
+     * @var array
      */
     protected $roles;
 
