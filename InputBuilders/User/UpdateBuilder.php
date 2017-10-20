@@ -52,6 +52,11 @@ class UpdateBuilder extends BaseBuilder
     protected $root;
 
     /**
+     * @var array - list of strings
+     */
+    protected $whitelistedIps;
+
+    /**
      * Set roles
      *
      * @param array $roles
@@ -173,6 +178,20 @@ class UpdateBuilder extends BaseBuilder
     {
         $this->setFields[] = 'root';
         $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Set whitelisted ips
+     *
+     * @param array $whitelistedIps
+     * @return $this
+     */
+    public function setWhitelistedIps(array $whitelistedIps)
+    {
+        $this->setFields[] = 'whitelistedIps';
+        $this->whitelistedIps = $whitelistedIps;
 
         return $this;
     }
