@@ -20,7 +20,12 @@ class OrgBuilder extends BaseBuilder
      * @var array
      */
     protected $callbacks;
-    
+
+    /**
+     * @var array
+     */
+    protected $trialIssueTypes;
+
     /**
      * Set name
      *
@@ -59,6 +64,20 @@ class OrgBuilder extends BaseBuilder
     {
         $this->setFields[] = 'callbacks';
         $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Set trialIssueTypes
+     *
+     * @param array $trialIssueTypes
+     * @return $this
+     */
+    public function setTrialIssueTypes(array $trialIssueTypes)
+    {
+        $this->setFields[] = 'trialIssueTypes';
+        $this->trialIssueTypes = $trialIssueTypes;
 
         return $this;
     }

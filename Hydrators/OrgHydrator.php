@@ -76,6 +76,10 @@ class OrgHydrator
             $hydrated->setCallbacks($organisation->callbacks);
         }
 
+        if (isset($organisation->trial_issue_types)) {
+            $hydrated->setTrialIssueTypes($organisation->trial_issue_types);
+        }
+
         return $hydrated;
     }
 }
