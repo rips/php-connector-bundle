@@ -24,11 +24,6 @@ class AddBuilder extends BaseBuilder
     /**
      * @var string
      */
-    protected $repeatPassword;
-
-    /**
-     * @var string
-     */
     protected $email;
 
     /**
@@ -60,6 +55,16 @@ class AddBuilder extends BaseBuilder
      * @var boolean
      */
     protected $root;
+
+    /**
+     * @var array
+     */
+    protected $whitelistedIps;
+
+    /**
+     * @var array
+     */
+    protected $callbacks;
 
     /**
      * Set chargedQuota
@@ -99,20 +104,6 @@ class AddBuilder extends BaseBuilder
     {
         $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
-    /**
-     * Set repeatPassword
-     *
-     * @param string $repeatPassword
-     * @return $this
-     */
-    public function setRepeatPassword($repeatPassword)
-    {
-        $this->setFields[] = 'repeatPassword';
-        $this->repeatPassword = $repeatPassword;
 
         return $this;
     }
@@ -211,6 +202,34 @@ class AddBuilder extends BaseBuilder
     {
         $this->setFields[] = 'root';
         $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Set whitelisted ips
+     *
+     * @param array $whitelistedIps
+     * @return $this
+     */
+    public function setWhitelistedIps(array $whitelistedIps)
+    {
+        $this->setFields[] = 'whitelistedIps';
+        $this->whitelistedIps = $whitelistedIps;
+
+        return $this;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->setFields[] = 'callbacks';
+        $this->callbacks = $callbacks;
 
         return $this;
     }

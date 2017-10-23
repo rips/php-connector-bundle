@@ -147,6 +147,16 @@ class UserEntity
     protected $root = false;
 
     /**
+     * @var array
+     */
+    protected $whitelistedIps;
+
+    /**
+     * @var array
+     */
+    protected $callbacks;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -788,5 +798,51 @@ class UserEntity
     public function getRoot()
     {
         return $this->root;
+    }
+
+    /**
+     * Set whitelisted ips
+     *
+     * @param array $whitelistedIps
+     * @return $this
+     */
+    public function setWhitelistedIps(array $whitelistedIps = [])
+    {
+        $this->whitelistedIps = $whitelistedIps;
+
+        return $this;
+    }
+
+    /**
+     * Get whitelisted ips
+     *
+     * @return array
+     */
+    public function getWhitelistedIps()
+    {
+        return $this->whitelistedIps;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Get callbacks
+     *
+     * @return array
+     */
+    public function getCallbacks()
+    {
+        return $this->callbacks;
     }
 }

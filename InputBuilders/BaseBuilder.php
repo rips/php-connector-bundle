@@ -7,7 +7,7 @@ use DateTime;
 abstract class BaseBuilder
 {
     /**
-     * Fiels that have been set either in the constructor
+     * Fields that have been set either in the constructor
      * or in a setter method
      *
      * @var array

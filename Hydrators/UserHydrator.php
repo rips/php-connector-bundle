@@ -154,6 +154,14 @@ class UserHydrator
             $hydrated->setRoot($user->root);
         }
 
+        if (isset($user->whitelisted_ips)) {
+            $hydrated->setWhitelistedIps($user->whitelisted_ips);
+        }
+
+        if (isset($user->callbacks)) {
+            $hydrated->setCallbacks($user->callbacks);
+        }
+
         return $hydrated;
     }
 }

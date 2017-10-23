@@ -72,6 +72,14 @@ class OrgHydrator
             $hydrated->setLogs(LogHydrator::hydrateCollection($organisation->logs));
         }
 
+        if (isset($organisation->callbacks)) {
+            $hydrated->setCallbacks($organisation->callbacks);
+        }
+
+        if (isset($organisation->trial_issue_types)) {
+            $hydrated->setTrialIssueTypes($organisation->trial_issue_types);
+        }
+
         return $hydrated;
     }
 }

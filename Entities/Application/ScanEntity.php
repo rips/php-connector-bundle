@@ -165,6 +165,11 @@ class ScanEntity
     protected $severityDistributions;
 
     /**
+     * @var array
+     */
+    protected $callbacks;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -875,5 +880,28 @@ class ScanEntity
     public function getSeverityDistributions()
     {
         return $this->severityDistributions;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Get callbacks
+     *
+     * @return array
+     */
+    public function getCallbacks()
+    {
+        return $this->callbacks;
     }
 }

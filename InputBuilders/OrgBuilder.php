@@ -15,7 +15,17 @@ class OrgBuilder extends BaseBuilder
      * @var DateTime
      */
     protected $validUntil;
-    
+
+    /**
+     * @var array
+     */
+    protected $callbacks;
+
+    /**
+     * @var array
+     */
+    protected $trialIssueTypes;
+
     /**
      * Set name
      *
@@ -38,9 +48,37 @@ class OrgBuilder extends BaseBuilder
      */
     public function setValidUntil($validUntil)
     {
-        $this->setFields[] = 'validuntil';
+        $this->setFields[] = 'validUntil';
         $this->validUntil = $validUntil;
     
+        return $this;
+    }
+
+    /**
+     * Set callbacks
+     *
+     * @param array $callbacks
+     * @return $this
+     */
+    public function setCallbacks(array $callbacks)
+    {
+        $this->setFields[] = 'callbacks';
+        $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Set trialIssueTypes
+     *
+     * @param array $trialIssueTypes
+     * @return $this
+     */
+    public function setTrialIssueTypes(array $trialIssueTypes)
+    {
+        $this->setFields[] = 'trialIssueTypes';
+        $this->trialIssueTypes = $trialIssueTypes;
+
         return $this;
     }
 }
