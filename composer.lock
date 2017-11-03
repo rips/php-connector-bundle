@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a91fdcb199be88e4fb2436b22eb3ee8",
+    "hash": "3e38393e3ef87af4bd19955638260b09",
+    "content-hash": "51d0cd97a430ae6980979eaaa1c9e28c",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -69,7 +70,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22T18:50:49+00:00"
+            "time": "2017-06-22 18:50:49"
         },
         {
             "name": "guzzlehttp/promises",
@@ -120,7 +121,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -185,7 +186,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "psr/http-message",
@@ -235,15 +236,21 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "rips/connector",
-            "version": "2.9.0",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
-                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "dd19e546499f0a4df9b208c4660ac19cde33b468"
+                "url": "https://github.com/rips/php-connector.git",
+                "reference": "00b8221b0eb964f3bb56cfc8b507949f07cedb2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rips/php-connector/zipball/00b8221b0eb964f3bb56cfc8b507949f07cedb2a",
+                "reference": "00b8221b0eb964f3bb56cfc8b507949f07cedb2a",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -259,19 +266,12 @@
                     "RIPS\\Connector\\": "src"
                 }
             },
-            "autoload-dev": {
-                "classmap": [
-                    "test/TestCase.php"
-                ],
-                "psr-4": {
-                    "RIPS\\Test\\": "test"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Proprietary"
+                "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2017-10-19T16:01:55+00:00"
+            "time": "2017-11-03 13:17:55"
         }
     ],
     "packages-dev": [],

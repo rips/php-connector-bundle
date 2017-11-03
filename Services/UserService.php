@@ -105,11 +105,13 @@ class UserService
      * Invite a new user
      *
      * @param InviteBuilder $input
-     * @return void
+     * @return UserEntity
      */
     public function invite($input)
     {
-        $this->api->users()->invite($input->toArray());
+        $user = $this->api->users()->invite($input->toArray());
+
+        return UserHydrator::hydrate($user);
     }
 
     /**
