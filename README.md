@@ -39,12 +39,12 @@ This example demonstrates how to get a list of all users and how to add a new us
 	use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
 	use RIPS\Connector\Exceptions\ClientException;
 	use RIPS\Connector\Exceptions\ServerExecption;
-    
+	
 	class DefaultController extends Controller
 	{
 		/** @var UserService */
 		protected $userService;
-        
+		
 		public function __construct(UserService $userService)
 		{
 			$this->userService = $userService;
@@ -53,14 +53,14 @@ This example demonstrates how to get a list of all users and how to add a new us
 		public function indexAction()
 		{
 			try {
-			    // Get all users
+				// Get all users
 				$users = $this->userService->getAll();
 				
 				// Add a new user
 				$input = new AddBuilder([
-				    'username'      => 'test',
-				    'email'         => 'test@ripstech.com',
-				    'plainPassword' => '***********'
+					'username'      => 'test',
+					'email'         => 'test@ripstech.com',
+					'plainPassword' => '***********'
 				]);
 				$user = $this->userService->create($input);
 			} catch (ClientException $e) {
@@ -68,7 +68,7 @@ This example demonstrates how to get a list of all users and how to add a new us
 			} catch (ServerException $e) {
 				// 5** error
 			}
-            
+			
 			return $this->render('default/index.html.twig', ['users' => $users]);
 		}
 	}
