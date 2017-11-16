@@ -40,11 +40,12 @@ class QuotaService
      * Get a quota by id
      *
      * @param int $quotaId
+     * @param array $queryParams
      * @return QuotaEntity
      */
-    public function getById($quotaId)
+    public function getById($quotaId, array $queryParams = [])
     {
-        $org = $this->api->quotas()->getById($quotaId);
+        $org = $this->api->quotas()->getById($quotaId, $queryParams);
 
         return QuotaHydrator::hydrate($org);
     }
@@ -53,11 +54,12 @@ class QuotaService
      * Create a new quota
      *
      * @param QuotaBuilder $input
+     * @param array $queryParams
      * @return QuotaEntity
      */
-    public function create(QuotaBuilder $input)
+    public function create(QuotaBuilder $input, array $queryParams = [])
     {
-        $quota = $this->api->quotas()->create($input->toArray());
+        $quota = $this->api->quotas()->create($input->toArray(), $queryParams);
 
         return QuotaHydrator::hydrate($quota);
     }
@@ -67,11 +69,12 @@ class QuotaService
      *
      * @param int $quotaId
      * @param QuotaBuilder $input
+     * @param array $queryParams
      * @return QuotaEntity
      */
-    public function update($quotaId, QuotaBuilder $input)
+    public function update($quotaId, QuotaBuilder $input, array $queryParams = [])
     {
-        $quota = $this->api->quotas()->update($quotaId, $input->toArray());
+        $quota = $this->api->quotas()->update($quotaId, $input->toArray(), $queryParams);
 
         return QuotaHydrator::hydrate($quota);
     }
@@ -91,10 +94,11 @@ class QuotaService
      * Delete quota by id
      *
      * @param int $quotaId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($quotaId)
+    public function deleteById($quotaId, array $queryParams = [])
     {
-        $this->api->quotas()->deleteById($quotaId);
+        $this->api->quotas()->deleteById($quotaId, $queryParams);
     }
 }

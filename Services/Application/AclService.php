@@ -43,11 +43,12 @@ class AclService
      *
      * @param int $appId
      * @param int $aclId
+     * @param array $queryParams
      * @return AclEntity
      */
-    public function getById($appId, $aclId)
+    public function getById($appId, $aclId, array $queryParams = [])
     {
-        $acl = $this->api->applications()->acls()->getById($appId, $aclId);
+        $acl = $this->api->applications()->acls()->getById($appId, $aclId, $queryParams);
 
         return AclHydrator::hydrate($acl);
     }
@@ -57,11 +58,12 @@ class AclService
      *
      * @param int $appId
      * @param AclBuilder $input
+     * @param array $queryParams
      * @return AclEntity
      */
-    public function create($appId, AclBuilder $input)
+    public function create($appId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->applications()->acls()->create($appId, $input->toArray());
+        $acl = $this->api->applications()->acls()->create($appId, $input->toArray(), $queryParams);
 
         return AclHydrator::hydrate($acl);
     }
@@ -72,11 +74,12 @@ class AclService
      * @param int $appId
      * @param int $aclId
      * @param AclBuilder $input
+     * @param array $queryParams
      * @return AclEntity
      */
-    public function update($appId, $aclId, AclBuilder $input)
+    public function update($appId, $aclId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->applications()->acls()->update($appId, $aclId, $input->toArray());
+        $acl = $this->api->applications()->acls()->update($appId, $aclId, $input->toArray(), $queryParams);
 
         return AclHydrator::hydrate($acl);
     }
@@ -98,10 +101,11 @@ class AclService
      *
      * @param int $appId
      * @param int $aclId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $aclId)
+    public function deleteById($appId, $aclId, array $queryParams = [])
     {
-        $this->api->applications()->acls()->deleteById($appId, $aclId);
+        $this->api->applications()->acls()->deleteById($appId, $aclId, $queryParams);
     }
 }

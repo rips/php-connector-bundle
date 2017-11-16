@@ -45,11 +45,12 @@ class ValidatorService
      * @param int $appId
      * @param int $customId
      * @param int $validatorId
+     * @param array $queryParams
      * @return ValidatorEntity
      */
-    public function getById($appId, $customId, $validatorId)
+    public function getById($appId, $customId, $validatorId, array $queryParams = [])
     {
-        $validator = $this->api->applications()->customs()->validators()->getById($appId, $customId, $validatorId);
+        $validator = $this->api->applications()->customs()->validators()->getById($appId, $customId, $validatorId, $queryParams);
 
         return ValidatorHydrator::hydrate($validator);
     }
@@ -60,33 +61,35 @@ class ValidatorService
      * @param int $appId
      * @param int $customId
      * @param ValidatorBuilder $input
+     * @param array $queryParams
      * @return ValidatorEntity
      */
-    public function create($appId, $customId, ValidatorBuilder $input)
+    public function create($appId, $customId, ValidatorBuilder $input, array $queryParams = [])
     {
-        $validator = $this->api->applications()->customs()->validators()->create($appId, $customId, $input->toArray());
+        $validator = $this->api->applications()->customs()->validators()->create($appId, $customId, $input->toArray(), $queryParams);
 
         return ValidatorHydrator::hydrate($validator);
     }
 
     /**
-     * Update ingore for custom profile by id
+     * Update validator for custom profile by id
      *
      * @param int $appId
      * @param int $customId
      * @param int $validatorId
      * @param ValidatorBuilder $input
+     * @param array $queryParams
      * @return ValidatorEntity
      */
-    public function update($appId, $customId, $validatorId, ValidatorBuilder $input)
+    public function update($appId, $customId, $validatorId, ValidatorBuilder $input, array $queryParams = [])
     {
-        $validator = $this->api->applications()->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray());
+        $validator = $this->api->applications()->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray(), $queryParams);
 
         return ValidatorHydrator::hydrate($validator);
     }
 
     /**
-     * Delete all ingores for a custom profile
+     * Delete all validators for a custom profile
      *
      * @param int $appId
      * @param int $customId
@@ -104,10 +107,11 @@ class ValidatorService
      * @param int $appId
      * @param int $customId
      * @param int $validatorId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $customId, $validatorId)
+    public function deleteById($appId, $customId, $validatorId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->validators()->deleteById($appId, $customId, $validatorId);
+        $this->api->applications()->customs()->validators()->deleteById($appId, $customId, $validatorId, $queryParams);
     }
 }

@@ -43,11 +43,12 @@ class UserService
      * Get a user by id
      *
      * @param int $userId
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function getById($userId)
+    public function getById($userId, array $queryParams = [])
     {
-        $user = $this->api->users()->getById($userId);
+        $user = $this->api->users()->getById($userId, $queryParams);
 
         return UserHydrator::hydrate($user);
     }
@@ -56,11 +57,12 @@ class UserService
      * Create a new user
      *
      * @param AddBuilder $input
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function create($input)
+    public function create($input, array $queryParams = [])
     {
-        $user = $this->api->users()->create($input->toArray());
+        $user = $this->api->users()->create($input->toArray(), $queryParams);
 
         return UserHydrator::hydrate($user);
     }
@@ -70,11 +72,12 @@ class UserService
      *
      * @param int $userId
      * @param UpdateBuilder $input
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function update($userId, $input)
+    public function update($userId, $input, array $queryParams = [])
     {
-        $user = $this->api->users()->update($userId, $input->toArray());
+        $user = $this->api->users()->update($userId, $input->toArray(), $queryParams);
 
         return UserHydrator::hydrate($user);
     }
@@ -94,22 +97,24 @@ class UserService
      * Delete user by id
      *
      * @param int $userId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($userId)
+    public function deleteById($userId, array $queryParams = [])
     {
-        $this->api->users()->deleteById($userId);
+        $this->api->users()->deleteById($userId, $queryParams);
     }
 
     /**
      * Invite a new user
      *
      * @param InviteBuilder $input
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function invite($input)
+    public function invite($input, array $queryParams = [])
     {
-        $user = $this->api->users()->invite($input->toArray());
+        $user = $this->api->users()->invite($input->toArray(), $queryParams);
 
         return UserHydrator::hydrate($user);
     }
@@ -118,11 +123,12 @@ class UserService
      * Request a reset email
      *
      * @param ResetBuilder $input
+     * @param array $queryParams
      * @return void
      */
-    public function reset($input)
+    public function reset($input, array $queryParams = [])
     {
-        $this->api->users()->reset($input->toArray());
+        $this->api->users()->reset($input->toArray(), $queryParams);
     }
 
     /**
@@ -130,11 +136,12 @@ class UserService
      *
      * @param int $userId
      * @param string $token
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function activate($userId, $token)
+    public function activate($userId, $token, array $queryParams = [])
     {
-        $user = $this->api->users()->activate($userId, $token);
+        $user = $this->api->users()->activate($userId, $token, $queryParams);
 
         return UserHydrator::hydrate($user);
     }
@@ -144,11 +151,12 @@ class UserService
      *
      * @param int $userId
      * @param string $token
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function confirm($userId, $token)
+    public function confirm($userId, $token, array $queryParams = [])
     {
-        $user = $this->api->users()->confirm($userId, $token);
+        $user = $this->api->users()->confirm($userId, $token, $queryParams);
 
         return UserHydrator::hydrate($user);
     }
@@ -158,11 +166,12 @@ class UserService
      *
      * @param int $userId
      * @param string $token
+     * @param array $queryParams
      * @return UserEntity
      */
-    public function confirmReset($userId, $token)
+    public function confirmReset($userId, $token, array $queryParams = [])
     {
-        $user = $this->api->users()->confirmReset($userId, $token);
+        $user = $this->api->users()->confirmReset($userId, $token, $queryParams);
 
         return UserHydrator::hydrate($user);
     }

@@ -46,9 +46,10 @@ class TypeService
      * Get type for issue by id
      *
      * @param int $typeId
+     * @param array $queryParams
      * @return TypeEntity
      */
-    public function getById($typeId)
+    public function getById($typeId, array $queryParams = [])
     {
         $type = $this->api
             ->applications()
@@ -56,7 +57,7 @@ class TypeService
             ->issues()
             ->origins()
             ->types()
-            ->getById($typeId);
+            ->getById($typeId, $queryParams);
 
         return TypeHydrator::hydrate($type);
     }

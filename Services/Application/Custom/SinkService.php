@@ -45,11 +45,12 @@ class SinkService
      * @param int $appId
      * @param int $customId
      * @param int $sinkId
+     * @param array $queryParams
      * @return SinkEntity
      */
-    public function getById($appId, $customId, $sinkId)
+    public function getById($appId, $customId, $sinkId, array $queryParams = [])
     {
-        $sink = $this->api->applications()->customs()->sinks()->getById($appId, $customId, $sinkId);
+        $sink = $this->api->applications()->customs()->sinks()->getById($appId, $customId, $sinkId, $queryParams);
 
         return SinkHydrator::hydrate($sink);
     }
@@ -60,11 +61,12 @@ class SinkService
      * @param int $appId
      * @param int $customId
      * @param SinkBuilder $input
+     * @param array $queryParams
      * @return SinkEntity
      */
-    public function create($appId, $customId, SinkBuilder $input)
+    public function create($appId, $customId, SinkBuilder $input, array $queryParams = [])
     {
-        $sink = $this->api->applications()->customs()->sinks()->create($appId, $customId, $input->toArray());
+        $sink = $this->api->applications()->customs()->sinks()->create($appId, $customId, $input->toArray(), $queryParams);
 
         return SinkHydrator::hydrate($sink);
     }
@@ -76,11 +78,12 @@ class SinkService
      * @param int $customId
      * @param int $sinkId
      * @param SinkBuilder $input
+     * @param array $queryParams
      * @return SinkEntity
      */
-    public function update($appId, $customId, $sinkId, SinkBuilder $input)
+    public function update($appId, $customId, $sinkId, SinkBuilder $input, array $queryParams = [])
     {
-        $sink = $this->api->applications()->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray());
+        $sink = $this->api->applications()->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray(), $queryParams);
 
         return SinkHydrator::hydrate($sink);
     }
@@ -104,10 +107,11 @@ class SinkService
      * @param int $appId
      * @param int $customId
      * @param int $sinkId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $customId, $sinkId)
+    public function deleteById($appId, $customId, $sinkId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sinks()->deleteById($appId, $customId, $sinkId);
+        $this->api->applications()->customs()->sinks()->deleteById($appId, $customId, $sinkId, $queryParams);
     }
 }

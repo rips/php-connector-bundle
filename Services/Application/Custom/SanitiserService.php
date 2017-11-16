@@ -45,11 +45,12 @@ class SanitiserService
      * @param int $appId
      * @param int $customId
      * @param int $sanitiserId
+     * @param array $queryParams
      * @return SanitiserEntity
      */
-    public function getById($appId, $customId, $sanitiserId)
+    public function getById($appId, $customId, $sanitiserId, array $queryParams = [])
     {
-        $sanitiser = $this->api->applications()->customs()->sanitisers()->getById($appId, $customId, $sanitiserId);
+        $sanitiser = $this->api->applications()->customs()->sanitisers()->getById($appId, $customId, $sanitiserId, $queryParams);
 
         return SanitiserHydrator::hydrate($sanitiser);
     }
@@ -60,11 +61,12 @@ class SanitiserService
      * @param int $appId
      * @param int $customId
      * @param SanitiserBuilder $input
+     * @param array $queryParams
      * @return SanitiserEntity
      */
-    public function create($appId, $customId, SanitiserBuilder $input)
+    public function create($appId, $customId, SanitiserBuilder $input, array $queryParams = [])
     {
-        $sanitiser = $this->api->applications()->customs()->sanitisers()->create($appId, $customId, $input->toArray());
+        $sanitiser = $this->api->applications()->customs()->sanitisers()->create($appId, $customId, $input->toArray(), $queryParams);
 
         return SanitiserHydrator::hydrate($sanitiser);
     }
@@ -76,11 +78,12 @@ class SanitiserService
      * @param int $customId
      * @param int $sanitiserId
      * @param SanitiserBuilder $input
+     * @param array $queryParams
      * @return SanitiserEntity
      */
-    public function update($appId, $customId, $sanitiserId, SanitiserBuilder $input)
+    public function update($appId, $customId, $sanitiserId, SanitiserBuilder $input, array $queryParams = [])
     {
-        $sanitiser = $this->api->applications()->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray());
+        $sanitiser = $this->api->applications()->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray(), $queryParams);
 
         return SanitiserHydrator::hydrate($sanitiser);
     }
@@ -104,10 +107,11 @@ class SanitiserService
      * @param int $appId
      * @param int $customId
      * @param int $sanitiserId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $customId, $sanitiserId)
+    public function deleteById($appId, $customId, $sanitiserId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sanitisers()->deleteById($appId, $customId, $sanitiserId);
+        $this->api->applications()->customs()->sanitisers()->deleteById($appId, $customId, $sanitiserId, $queryParams);
     }
 }

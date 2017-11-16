@@ -43,11 +43,12 @@ class CustomService
      *
      * @param int $appId
      * @param int $customId
+     * @param array $queryParams
      * @return CustomEntity
      */
-    public function getById($appId, $customId)
+    public function getById($appId, $customId, array $queryParams = [])
     {
-        $custom = $this->api->applications()->customs()->getById($appId, $customId);
+        $custom = $this->api->applications()->customs()->getById($appId, $customId, $queryParams);
 
         return CustomHydrator::hydrate($custom);
     }
@@ -57,11 +58,12 @@ class CustomService
      *
      * @param int $appId
      * @param CustomBuilder $input
+     * @param array $queryParams
      * @return CustomEntity
      */
-    public function create($appId, CustomBuilder $input)
+    public function create($appId, CustomBuilder $input, array $queryParams = [])
     {
-        $custom = $this->api->applications()->customs()->create($appId, $input->toArray());
+        $custom = $this->api->applications()->customs()->create($appId, $input->toArray(), $queryParams);
 
         return CustomHydrator::hydrate($custom);
     }
@@ -72,11 +74,12 @@ class CustomService
      * @param int $appId
      * @param int $customId
      * @param CustomBuilder $input
+     * @param array $queryParams
      * @return CustomEntity
      */
-    public function update($appId, $customId, CustomBuilder $input)
+    public function update($appId, $customId, CustomBuilder $input, array $queryParams = [])
     {
-        $custom = $this->api->applications()->customs()->update($appId, $customId, $input->toArray());
+        $custom = $this->api->applications()->customs()->update($appId, $customId, $input->toArray(), $queryParams);
 
         return CustomHydrator::hydrate($custom);
     }
@@ -98,10 +101,11 @@ class CustomService
      *
      * @param int $appId
      * @param int $customId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $customId)
+    public function deleteById($appId, $customId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->deleteById($appId, $customId);
+        $this->api->applications()->customs()->deleteById($appId, $customId, $queryParams);
     }
 }
