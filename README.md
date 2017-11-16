@@ -25,7 +25,7 @@ Declare the bundle in your `AppKernel.php` file
 
     $bundles = [
         // ...
-        new RIPS\ConnectorBundle\RIPSConnectorBundle(),
+        new RIPS\ConnectorBundle\RIPSConnectorBundle(),	
         // ...
     ];
 
@@ -72,7 +72,11 @@ This example demonstrates how to get a list of all users and how to add a new us
             
             return $this->render('default/index.html.twig', ['users' => $users]);
         }
+<<<<<<< HEAD
+    }}
+=======
     }
+>>>>>>> 45ad6f4909676dfc578601e06b8de7e4279816b1
 
 # Architecture
 

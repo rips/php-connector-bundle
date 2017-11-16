@@ -27,15 +27,16 @@ class ExportService
      * @param int $appId
      * @param int $scanId
      * @param string $outFile
+     * @param array $queryParams
      * @return void
      */
-    public function exportCsv($appId, $scanId, $outFile)
+    public function exportCsv($appId, $scanId, $outFile, array $queryParams = [])
     {
         $this->api
             ->applications()
             ->scans()
             ->exports()
-            ->exportCsv($appId, $scanId, $outFile);
+            ->exportCsv($appId, $scanId, $outFile, $queryParams);
     }
 
     /**
@@ -44,15 +45,16 @@ class ExportService
      * @param int $appId
      * @param int $scanId
      * @param string $outFile
+     * @param array $queryParams
      * @return void
      */
-    public function exportJiraCsv($appId, $scanId, $outFile)
+    public function exportJiraCsv($appId, $scanId, $outFile, array $queryParams = [])
     {
         $this->api
             ->applications()
             ->scans()
             ->exports()
-            ->exportJiraCsv($appId, $scanId, $outFile);
+            ->exportJiraCsv($appId, $scanId, $outFile, $queryParams);
     }
 
     /**
@@ -61,14 +63,15 @@ class ExportService
      * @param int $appId
      * @param int $scanId
      * @param string $outFile
+     * @param array $queryParams
      * @return void
      */
-    public function exportPdf($appId, $scanId, $outFile)
+    public function exportPdf($appId, $scanId, $outFile, array $queryParams = [])
     {
         $this->api
             ->applications()
             ->scans()
             ->exports()
-            ->exportPdf($appId, $scanId, $outFile);
+            ->exportPdf($appId, $scanId, $outFile, $queryParams);
     }
 }
