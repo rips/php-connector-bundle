@@ -51,16 +51,17 @@ class CommentService
      * @param int $scanId
      * @param int $issueId
      * @param int $commentId
+     * @param array $queryParams
      * @return CommentEntity
      */
-    public function getById($appId, $scanId, $issueId, $commentId)
+    public function getById($appId, $scanId, $issueId, $commentId, array $queryParams = [])
     {
         $comment = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
-            ->getById($appId, $scanId, $issueId, $commentId);
+            ->getById($appId, $scanId, $issueId, $commentId, $queryParams);
 
         return CommentHydrator::hydrate($comment);
     }
@@ -72,16 +73,17 @@ class CommentService
      * @param int $scanId
      * @param int $issueId
      * @param CommentBuilder $input
+     * @param array $queryParams
      * @return CommentEntity
      */
-    public function create($appId, $scanId, $issueId, CommentBuilder $input)
+    public function create($appId, $scanId, $issueId, CommentBuilder $input, array $queryParams = [])
     {
         $comment = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
-            ->create($appId, $scanId, $issueId, $input->toArray());
+            ->create($appId, $scanId, $issueId, $input->toArray(), $queryParams);
 
         return CommentHydrator::hydrate($comment);
     }
@@ -112,15 +114,16 @@ class CommentService
      * @param int $scanId
      * @param int $issueId
      * @param int $commentId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $scanId, $issueId, $commentId)
+    public function deleteById($appId, $scanId, $issueId, $commentId, array $queryParams = [])
     {
         $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
-            ->deleteById($appId, $scanId, $issueId, $commentId);
+            ->deleteById($appId, $scanId, $issueId, $commentId, $queryParams);
     }
 }

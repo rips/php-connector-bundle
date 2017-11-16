@@ -48,15 +48,16 @@ class SourceService
      * @param int $appId
      * @param int $scanId
      * @param int $sourceId
+     * @param array $queryParams
      * @return SourceEntity
      */
-    public function getById($appId, $scanId, $sourceId)
+    public function getById($appId, $scanId, $sourceId, array $queryParams = [])
     {
         $source = $this->api
             ->applications()
             ->scans()
             ->sources()
-            ->getById($appId, $scanId, $sourceId);
+            ->getById($appId, $scanId, $sourceId, $queryParams);
 
         return SourceHydrator::hydrate($source);
     }

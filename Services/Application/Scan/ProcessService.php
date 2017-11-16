@@ -50,15 +50,16 @@ class ProcessService
      * @param int $appId
      * @param int $scanId
      * @param int $processId
+     * @param array $queryParams
      * @return ProcessEntity
      */
-    public function getById($appId, $scanId, $processId)
+    public function getById($appId, $scanId, $processId, array $queryParams = [])
     {
         $process = $this->api
             ->applications()
             ->scans()
             ->processes()
-            ->getById($appId, $scanId, $processId);
+            ->getById($appId, $scanId, $processId, $queryParams);
 
         return ProcessHydrator::hydrate($process);
     }
@@ -69,15 +70,16 @@ class ProcessService
      * @param int $appId
      * @param int $scanId
      * @param AddBuilder $input
+     * @param array $queryParams
      * @return ProcessEntity
      */
-    public function create($appId, $scanId, $input)
+    public function create($appId, $scanId, $input, array $queryParams = [])
     {
         $process = $this->api
             ->applications()
             ->scans()
             ->processes()
-            ->create($appId, $scanId, $input->toArray());
+            ->create($appId, $scanId, $input->toArray(), $queryParams);
 
         return ProcessHydrator::hydrate($process);
     }
@@ -89,15 +91,16 @@ class ProcessService
      * @param int $scanId
      * @param int $processId
      * @param UpdateBuilder $input
+     * @param array $queryParams
      * @return ProcessEntity
      */
-    public function update($appId, $scanId, $processId, $input)
+    public function update($appId, $scanId, $processId, $input, array $queryParams = [])
     {
         $process = $this->api
             ->applications()
             ->scans()
             ->processes()
-            ->update($appId, $scanId, $processId, $input->toArray());
+            ->update($appId, $scanId, $processId, $input->toArray(), $queryParams);
 
         return ProcessHydrator::hydrate($process);
     }

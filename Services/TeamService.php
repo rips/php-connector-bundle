@@ -40,11 +40,12 @@ class TeamService
      * Get team by id
      *
      * @param int $teamId
+     * @param array $queryParams
      * @return TeamEntity
      */
-    public function getById($teamId)
+    public function getById($teamId, array $queryParams = [])
     {
-        $team = $this->api->teams()->getById($teamId);
+        $team = $this->api->teams()->getById($teamId, $queryParams);
 
         return TeamHydrator::hydrate($team);
     }
@@ -53,11 +54,12 @@ class TeamService
      * Create a new team
      *
      * @param TeamBuilder $input
+     * @param array $queryParams
      * @return TeamEntity
      */
-    public function create(TeamBuilder $input)
+    public function create(TeamBuilder $input, array $queryParams = [])
     {
-        $team = $this->api->teams()->create($input->toArray());
+        $team = $this->api->teams()->create($input->toArray(), $queryParams);
 
         return TeamHydrator::hydrate($team);
     }
@@ -67,11 +69,12 @@ class TeamService
      *
      * @param int $teamId
      * @param TeamBuilder $input
+     * @param array $queryParams
      * @return TeamEntity
      */
-    public function update($teamId, TeamBuilder $input)
+    public function update($teamId, TeamBuilder $input, array $queryParams = [])
     {
-        $team = $this->api->teams()->update($teamId, $input->toArray());
+        $team = $this->api->teams()->update($teamId, $input->toArray(), $queryParams);
 
         return TeamHydrator::hydrate($team);
     }
@@ -91,10 +94,11 @@ class TeamService
      * Delete team by id
      *
      * @param int $teamId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($teamId)
+    public function deleteById($teamId, array $queryParams = [])
     {
-        $this->api->teams()->deleteById($teamId);
+        $this->api->teams()->deleteById($teamId, $queryParams);
     }
 }

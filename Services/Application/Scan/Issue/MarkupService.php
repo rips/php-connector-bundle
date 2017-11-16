@@ -51,16 +51,17 @@ class MarkupService
      * @param int $scanId
      * @param int $issueId
      * @param int $markupId
+     * @param array $queryParams
      * @return MarkupEntity
      */
-    public function getById($appId, $scanId, $issueId, $markupId)
+    public function getById($appId, $scanId, $issueId, $markupId, array $queryParams = [])
     {
         $markup = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->markups()
-            ->getById($appId, $scanId, $issueId, $markupId);
+            ->getById($appId, $scanId, $issueId, $markupId, $queryParams);
 
         return MarkupHydrator::hydrate($markup);
     }

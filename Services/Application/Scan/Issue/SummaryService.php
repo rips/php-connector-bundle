@@ -51,16 +51,17 @@ class SummaryService
      * @param int $scanId
      * @param int $issueId
      * @param int $summaryId
+     * @param array $queryParams
      * @return SummaryEntity
      */
-    public function getById($appId, $scanId, $issueId, $summaryId)
+    public function getById($appId, $scanId, $issueId, $summaryId, array $queryParams = [])
     {
         $summary = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->summaries()
-            ->getById($appId, $scanId, $issueId, $summaryId);
+            ->getById($appId, $scanId, $issueId, $summaryId, $queryParams);
 
         return SummaryHydrator::hydrate($summary);
     }

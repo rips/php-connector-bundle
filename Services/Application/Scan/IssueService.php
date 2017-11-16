@@ -69,15 +69,16 @@ class IssueService
      * @param int $appId
      * @param int $scanId
      * @param int $issueId
+     * @param array $queryParams
      * @return IssueEntity
      */
-    public function getById($appId, $scanId, $issueId)
+    public function getById($appId, $scanId, $issueId, array $queryParams = [])
     {
         $issue = $this->api
             ->applications()
             ->scans()
             ->issues()
-            ->getById($appId, $scanId, $issueId);
+            ->getById($appId, $scanId, $issueId, $queryParams);
 
         return IssueHydrator::hydrate($issue);
     }
@@ -88,15 +89,16 @@ class IssueService
      * @param int $appId
      * @param int $scanId
      * @param IssueBuilder $input
+     * @param array $queryParams
      * @return IssueEntity
      */
-    public function create($appId, $scanId, $input)
+    public function create($appId, $scanId, $input, array $queryParams = [])
     {
         $issue = $this->api
             ->applications()
             ->scans()
             ->issues()
-            ->create($appId, $scanId, $input->toArray());
+            ->create($appId, $scanId, $input->toArray(), $queryParams);
 
         return IssueHydrator::hydrate($issue);
     }

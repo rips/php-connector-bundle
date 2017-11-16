@@ -50,15 +50,16 @@ class CustomFunctionService
      * @param int $appId
      * @param int $scanId
      * @param int $functionId
+     * @param array $queryParams
      * @return CustomFunctionEntity
      */
-    public function getById($appId, $scanId, $functionId)
+    public function getById($appId, $scanId, $functionId, array $queryParams = [])
     {
         $function = $this->api
             ->applications()
             ->scans()
             ->functions()
-            ->getById($appId, $scanId, $functionId);
+            ->getById($appId, $scanId, $functionId, $queryParams);
 
         return CustomFunctionHydrator::hydrate($function);
     }
@@ -69,15 +70,16 @@ class CustomFunctionService
      * @param int $appId
      * @param int $scanId
      * @param CustomFunctionBuilder $input
+     * @param array $queryParams
      * @return CustomFunctionEntity
      */
-    public function create($appId, $scanId, $input)
+    public function create($appId, $scanId, $input, array $queryParams = [])
     {
         $function = $this->api
             ->applications()
             ->scans()
             ->functions()
-            ->create($appId, $scanId, $input->toArray());
+            ->create($appId, $scanId, $input->toArray(), $queryParams);
 
         return CustomFunctionHydrator::hydrate($function);
     }

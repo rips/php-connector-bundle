@@ -48,15 +48,16 @@ class ConcatService
      * @param int $appId
      * @param int $scanId
      * @param int $concatId
+     * @param array $queryParams
      * @return ConcatEntity
      */
-    public function getById($appId, $scanId, $concatId)
+    public function getById($appId, $scanId, $concatId, array $queryParams = [])
     {
         $concat = $this->api
             ->applications()
             ->scans()
             ->concats()
-            ->getById($appId, $scanId, $concatId);
+            ->getById($appId, $scanId, $concatId, $queryParams);
 
         return ConcatHydrator::hydrate($concat);
     }
