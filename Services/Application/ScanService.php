@@ -112,11 +112,13 @@ class ScanService
      * @param int $scanId
      * @param int $waitTime - Optional time to wait in seconds. Waits indefinitely if 0
      * @param int $sleepTime - Time to wait between scan compoletion checks
-     * @return void
+     * @return ScanEntity
      * @throws \Exception if scan does not finish in time
      */
     public function blockUntilDone($appId, $scanId, $waitTime = 0, $sleepTime = 5)
     {
-        $this->api->applications()->scans()->blockUntilDone($appId, $scanId, $waitTime, $sleepTime);
+        $scan = $this->api->applications()->scans()->blockUntilDone($appId, $scanId, $waitTime, $sleepTime);
+
+        return ScanHydrator::hydrate($scan);
     }
 }
