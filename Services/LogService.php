@@ -40,11 +40,12 @@ class LogService
      * Get a log by id
      *
      * @param int $logId
+     * @param array $queryParams
      * @return LogEntity
      */
-    public function getById($logId)
+    public function getById($logId, array $queryParams = [])
     {
-        $log = $this->api->logs()->getById($logId);
+        $log = $this->api->logs()->getById($logId, $queryParams);
 
         return LogHydrator::hydrate($log);
     }
@@ -53,11 +54,12 @@ class LogService
      * Create a new log
      *
      * @param LogBuilder $input
+     * @param array $queryParams
      * @return LogEntity
      */
-    public function create(LogBuilder $input)
+    public function create(LogBuilder $input, array $queryParams = [])
     {
-        $log = $this->api->logs()->create($input->toArray());
+        $log = $this->api->logs()->create($input->toArray(), $queryParams);
 
         return LogHydrator::hydrate($log);
     }

@@ -45,11 +45,12 @@ class IgnoreService
      * @param int $appId
      * @param int $customId
      * @param int $ignoreId
+     * @param array $queryParams
      * @return IgnoreEntity
      */
-    public function getById($appId, $customId, $ignoreId)
+    public function getById($appId, $customId, $ignoreId, array $queryParams = [])
     {
-        $ignore = $this->api->applications()->customs()->ignores()->getById($appId, $customId, $ignoreId);
+        $ignore = $this->api->applications()->customs()->ignores()->getById($appId, $customId, $ignoreId, $queryParams);
 
         return IgnoreHydrator::hydrate($ignore);
     }
@@ -60,11 +61,12 @@ class IgnoreService
      * @param int $appId
      * @param int $customId
      * @param IgnoreBuilder $input
+     * @param array $queryParams
      * @return IgnoreEntity
      */
-    public function create($appId, $customId, IgnoreBuilder $input)
+    public function create($appId, $customId, IgnoreBuilder $input, array $queryParams = [])
     {
-        $ignore = $this->api->applications()->customs()->ignores()->create($appId, $customId, $input->toArray());
+        $ignore = $this->api->applications()->customs()->ignores()->create($appId, $customId, $input->toArray(), $queryParams);
 
         return IgnoreHydrator::hydrate($ignore);
     }
@@ -76,11 +78,12 @@ class IgnoreService
      * @param int $customId
      * @param int $ignoreId
      * @param IgnoreBuilder $input
+     * @param array $queryParams
      * @return IgnoreEntity
      */
-    public function update($appId, $customId, $ignoreId, IgnoreBuilder $input)
+    public function update($appId, $customId, $ignoreId, IgnoreBuilder $input, array $queryParams = [])
     {
-        $ignore = $this->api->applications()->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray());
+        $ignore = $this->api->applications()->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray(), $queryParams);
 
         return IgnoreHydrator::hydrate($ignore);
     }
@@ -104,10 +107,11 @@ class IgnoreService
      * @param int $appId
      * @param int $customId
      * @param int $ignoreId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $customId, $ignoreId)
+    public function deleteById($appId, $customId, $ignoreId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->ignores()->deleteById($appId, $customId, $ignoreId);
+        $this->api->applications()->customs()->ignores()->deleteById($appId, $customId, $ignoreId, $queryParams);
     }
 }

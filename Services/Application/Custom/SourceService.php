@@ -45,11 +45,12 @@ class SourceService
      * @param int $appId
      * @param int $customId
      * @param int $sourceId
+     * @param array $queryParams
      * @return SourceEntity
      */
-    public function getById($appId, $customId, $sourceId)
+    public function getById($appId, $customId, $sourceId, array $queryParams = [])
     {
-        $source = $this->api->applications()->customs()->sources()->getById($appId, $customId, $sourceId);
+        $source = $this->api->applications()->customs()->sources()->getById($appId, $customId, $sourceId, $queryParams);
 
         return SourceHydrator::hydrate($source);
     }
@@ -60,33 +61,35 @@ class SourceService
      * @param int $appId
      * @param int $customId
      * @param SourceBuilder $input
+     * @param array $queryParams
      * @return SourceEntity
      */
-    public function create($appId, $customId, SourceBuilder $input)
+    public function create($appId, $customId, SourceBuilder $input, array $queryParams = [])
     {
-        $source = $this->api->applications()->customs()->sources()->create($appId, $customId, $input->toArray());
+        $source = $this->api->applications()->customs()->sources()->create($appId, $customId, $input->toArray(), $queryParams);
 
         return SourceHydrator::hydrate($source);
     }
 
     /**
-     * Update ingore for custom profile by id
+     * Update source for custom profile by id
      *
      * @param int $appId
      * @param int $customId
      * @param int $sourceId
      * @param SourceBuilder $input
+     * @param array $queryParams
      * @return SourceEntity
      */
-    public function update($appId, $customId, $sourceId, SourceBuilder $input)
+    public function update($appId, $customId, $sourceId, SourceBuilder $input, array $queryParams = [])
     {
-        $source = $this->api->applications()->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray());
+        $source = $this->api->applications()->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray(), $queryParams);
 
         return SourceHydrator::hydrate($source);
     }
 
     /**
-     * Delete all ingores for a custom profile
+     * Delete all sources for a custom profile
      *
      * @param int $appId
      * @param int $customId
@@ -104,10 +107,11 @@ class SourceService
      * @param int $appId
      * @param int $customId
      * @param int $sourceId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $customId, $sourceId)
+    public function deleteById($appId, $customId, $sourceId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sources()->deleteById($appId, $customId, $sourceId);
+        $this->api->applications()->customs()->sources()->deleteById($appId, $customId, $sourceId, $queryParams);
     }
 }

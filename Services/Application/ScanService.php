@@ -44,11 +44,12 @@ class ScanService
      *
      * @param int $appId
      * @param int $scanId
+     * @param array $queryParams
      * @return ScanEntity
      */
-    public function getById($appId, $scanId)
+    public function getById($appId, $scanId, array $queryParams = [])
     {
-        $scan = $this->api->applications()->scans()->getById($appId, $scanId);
+        $scan = $this->api->applications()->scans()->getById($appId, $scanId, $queryParams);
 
         return ScanHydrator::hydrate($scan);
     }
@@ -57,11 +58,12 @@ class ScanService
      *
      * @param int $appId
      * @param AddBuilder $input
+     * @param array $queryParams
      * @return ScanEntity
      */
-    public function create($appId, $input)
+    public function create($appId, $input, array $queryParams = [])
     {
-        $scan = $this->api->applications()->scans()->create($appId, $input->toArray());
+        $scan = $this->api->applications()->scans()->create($appId, $input->toArray(), $queryParams);
 
         return ScanHydrator::hydrate($scan);
     }
@@ -72,11 +74,12 @@ class ScanService
      * @param int $appId
      * @param int $scanId
      * @param UpdateBuilder $input
+     * @param array $queryParams
      * @return ScanEntity
      */
-    public function update($appId, $scanId, $input)
+    public function update($appId, $scanId, $input, array $queryParams = [])
     {
-        $scan = $this->api->applications()->scans()->update($appId, $scanId, $input->toArray());
+        $scan = $this->api->applications()->scans()->update($appId, $scanId, $input->toArray(), $queryParams);
 
         return ScanHydrator::hydrate($scan);
     }
@@ -98,11 +101,12 @@ class ScanService
      *
      * @param int $appId
      * @param int $scanId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $scanId)
+    public function deleteById($appId, $scanId, array $queryParams = [])
     {
-        $this->api->applications()->scans()->deleteById($appId, $scanId);
+        $this->api->applications()->scans()->deleteById($appId, $scanId, $queryParams);
     }
 
     /**
@@ -111,13 +115,14 @@ class ScanService
      * @param int $appId
      * @param int $scanId
      * @param int $waitTime - Optional time to wait in seconds. Waits indefinitely if 0
-     * @param int $sleepTime - Time to wait between scan compoletion checks
+     * @param int $sleepTime - Time to wait between scan completion checks
+     * @param array $queryParams
      * @return ScanEntity
      * @throws \Exception if scan does not finish in time
      */
-    public function blockUntilDone($appId, $scanId, $waitTime = 0, $sleepTime = 5)
+    public function blockUntilDone($appId, $scanId, $waitTime = 0, $sleepTime = 5, array $queryParams = [])
     {
-        $scan = $this->api->applications()->scans()->blockUntilDone($appId, $scanId, $waitTime, $sleepTime);
+        $scan = $this->api->applications()->scans()->blockUntilDone($appId, $scanId, $waitTime, $sleepTime, $queryParams);
 
         return ScanHydrator::hydrate($scan);
     }

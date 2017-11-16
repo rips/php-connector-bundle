@@ -40,22 +40,24 @@ class LicenseService
      * Get license by id
      *
      * @param int $appId
+     * @param array $queryParams
      * @return LicenseEntity
      */
-    public function getById($appId)
+    public function getById($appId, array $queryParams = [])
     {
-        $license = $this->api->licenses()->getById($appId);
+        $license = $this->api->licenses()->getById($appId, $queryParams);
 
         return LicenseHydrator::hydrate($license);
     }
 
     /**
      * @param LicenseBuilder $input
+     * @param array $queryParams
      * @return LicenseEntity
      */
-    public function activate($input)
+    public function activate($input, array $queryParams = [])
     {
-        $license = $this->api->licenses()->activate($input->toArray());
+        $license = $this->api->licenses()->activate($input->toArray(), $queryParams);
 
         return LicenseHydrator::hydrate($license);
     }

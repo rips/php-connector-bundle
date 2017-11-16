@@ -42,11 +42,12 @@ class UploadService
      *
      * @param int $appId
      * @param int $uploadId
+     * @param array $queryParams
      * @return UploadEntity
      */
-    public function getById($appId, $uploadId)
+    public function getById($appId, $uploadId, array $queryParams = [])
     {
-        $upload = $this->api->applications()->uploads()->getById($appId, $uploadId);
+        $upload = $this->api->applications()->uploads()->getById($appId, $uploadId, $queryParams);
 
         return UploadHydrator::hydrate($upload);
     }
@@ -57,11 +58,12 @@ class UploadService
      * @param int $appId
      * @param string $filename
      * @param string $filepath
+     * @param array $queryParams
      * @return UploadEntity
      */
-    public function create($appId, $filename, $filepath)
+    public function create($appId, $filename, $filepath, array $queryParams = [])
     {
-        $upload = $this->api->applications()->uploads()->create($appId, $filename, $filepath);
+        $upload = $this->api->applications()->uploads()->create($appId, $filename, $filepath, $queryParams);
 
         return UploadHydrator::hydrate($upload);
     }
@@ -83,10 +85,11 @@ class UploadService
      *
      * @param int $appId
      * @param int $uploadId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $uploadId)
+    public function deleteById($appId, $uploadId, array $queryParams = [])
     {
-        $this->api->applications()->uploads()->deleteById($appId, $uploadId);
+        $this->api->applications()->uploads()->deleteById($appId, $uploadId, $queryParams);
     }
 }

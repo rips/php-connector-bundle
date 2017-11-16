@@ -40,11 +40,12 @@ class ApplicationService
      * Get application by id
      *
      * @param int $appId
+     * @param array $queryParams
      * @return ApplicationEntity
      */
-    public function getById($appId)
+    public function getById($appId, array $queryParams = [])
     {
-        $application = $this->api->applications()->getById($appId);
+        $application = $this->api->applications()->getById($appId, $queryParams);
 
         return ApplicationHydrator::hydrate($application);
     }
@@ -53,11 +54,12 @@ class ApplicationService
      * Create a new application
      *
      * @param ApplicationBuilder $input
+     * @param array $queryParams
      * @return ApplicationEntity
      */
-    public function create(ApplicationBuilder $input)
+    public function create(ApplicationBuilder $input, array $queryParams = [])
     {
-        $application = $this->api->applications()->create($input->toArray());
+        $application = $this->api->applications()->create($input->toArray(), $queryParams);
 
         return ApplicationHydrator::hydrate($application);
     }
@@ -67,11 +69,12 @@ class ApplicationService
      *
      * @param int $appId
      * @param ApplicationBuilder $input
+     * @param array $queryParams
      * @return ApplicationEntity
      */
-    public function update($appId, ApplicationBuilder $input)
+    public function update($appId, ApplicationBuilder $input, array $queryParams = [])
     {
-        $application = $this->api->applications()->update($appId, $input->toArray());
+        $application = $this->api->applications()->update($appId, $input->toArray(), $queryParams);
 
         return ApplicationHydrator::hydrate($application);
     }
@@ -91,10 +94,11 @@ class ApplicationService
      * Delete application by id
      *
      * @param int $appId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId)
+    public function deleteById($appId, array $queryParams = [])
     {
-        $this->api->applications()->deleteById($appId);
+        $this->api->applications()->deleteById($appId, $queryParams);
     }
 }

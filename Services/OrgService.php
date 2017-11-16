@@ -40,11 +40,12 @@ class OrgService
      * Get an organization by id
      *
      * @param int $orgId
+     * @param array $queryParams
      * @return OrgEntity
      */
-    public function getById($orgId)
+    public function getById($orgId, array $queryParams = [])
     {
-        $org = $this->api->orgs()->getById($orgId);
+        $org = $this->api->orgs()->getById($orgId, $queryParams);
 
         return OrgHydrator::hydrate($org);
     }
@@ -53,11 +54,12 @@ class OrgService
      * Create a new organization
      *
      * @param OrgBuilder $input
+     * @param array $queryParams
      * @return OrgEntity
      */
-    public function create(OrgBuilder $input)
+    public function create(OrgBuilder $input, array $queryParams = [])
     {
-        $org = $this->api->orgs()->create($input->toArray());
+        $org = $this->api->orgs()->create($input->toArray(), $queryParams);
 
         return OrgHydrator::hydrate($org);
     }
@@ -67,11 +69,12 @@ class OrgService
      *
      * @param integer $orgId
      * @param OrgBuilder $input
+     * @param array $queryParams
      * @return OrgEntity
      */
-    public function update($orgId, OrgBuilder $input)
+    public function update($orgId, OrgBuilder $input, array $queryParams = [])
     {
-        $org = $this->api->orgs()->update($orgId, $input->toArray());
+        $org = $this->api->orgs()->update($orgId, $input->toArray(), $queryParams);
 
         return OrgHydrator::hydrate($org);
     }
@@ -91,10 +94,11 @@ class OrgService
      * Delete an organization by id
      *
      * @param int $orgId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($orgId)
+    public function deleteById($orgId, array $queryParams = [])
     {
-        $this->api->orgs()->deleteById($orgId);
+        $this->api->orgs()->deleteById($orgId, $queryParams);
     }
 }

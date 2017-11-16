@@ -48,15 +48,16 @@ class SinkService
      * @param int $appId
      * @param int $scanId
      * @param int $sinkId
+     * @param array $queryParams
      * @return SinkEntity
      */
-    public function getById($appId, $scanId, $sinkId)
+    public function getById($appId, $scanId, $sinkId, array $queryParams = [])
     {
         $sink = $this->api
             ->applications()
             ->scans()
             ->sinks()
-            ->getById($appId, $scanId, $sinkId);
+            ->getById($appId, $scanId, $sinkId, $queryParams);
 
         return SinkHydrator::hydrate($sink);
     }

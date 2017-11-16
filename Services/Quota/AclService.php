@@ -43,11 +43,12 @@ class AclService
      *
      * @param int $quotaId
      * @param int $aclId
+     * @param array $queryParams
      * @return AclEntity
      */
-    public function getById($quotaId, $aclId)
+    public function getById($quotaId, $aclId, array $queryParams = [])
     {
-        $acl = $this->api->quotas()->acls()->getById($quotaId, $aclId);
+        $acl = $this->api->quotas()->acls()->getById($quotaId, $aclId, $queryParams);
 
         return AclHydrator::hydrate($acl);
     }
@@ -57,11 +58,12 @@ class AclService
      *
      * @param int $quotaId
      * @param AclBuilder $input
+     * @param array $queryParams
      * @return AclEntity
      */
-    public function create($quotaId, AclBuilder $input)
+    public function create($quotaId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->quotas()->acls()->create($quotaId, $input->toArray());
+        $acl = $this->api->quotas()->acls()->create($quotaId, $input->toArray(), $queryParams);
 
         return AclHydrator::hydrate($acl);
     }
@@ -72,11 +74,12 @@ class AclService
      * @param int $quotaId
      * @param int $aclId
      * @param AclBuilder $input
+     * @param array $queryParams
      * @return AclEntity
      */
-    public function update($quotaId, $aclId, AclBuilder $input)
+    public function update($quotaId, $aclId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->quotas()->acls()->update($quotaId, $aclId, $input->toArray());
+        $acl = $this->api->quotas()->acls()->update($quotaId, $aclId, $input->toArray(), $queryParams);
 
         return AclHydrator::hydrate($acl);
     }
@@ -98,10 +101,11 @@ class AclService
      *
      * @param int $quotaId
      * @param int $aclId
+     * @param array $queryParams
      * @return void
      */
-    public function deleteById($quotaId, $aclId)
+    public function deleteById($quotaId, $aclId, array $queryParams = [])
     {
-        $this->api->quotas()->acls()->deleteById($quotaId, $aclId);
+        $this->api->quotas()->acls()->deleteById($quotaId, $aclId, $queryParams);
     }
 }

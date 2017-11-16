@@ -48,15 +48,16 @@ class FileService
      * @param int $appId
      * @param int $scanId
      * @param int $fileId
+     * @param array $queryParams
      * @return FileEntity
      */
-    public function getById($appId, $scanId, $fileId)
+    public function getById($appId, $scanId, $fileId, array $queryParams = [])
     {
         $file = $this->api
             ->applications()
             ->scans()
             ->files()
-            ->getById($appId, $scanId, $fileId);
+            ->getById($appId, $scanId, $fileId, $queryParams);
 
         return FileHydrator::hydrate($file);
     }
@@ -66,14 +67,15 @@ class FileService
      *
      * @param int $appId
      * @param int $scanId
+     * @param array $queryParams
      * @return void
      */
-    public function delete($appId, $scanId)
+    public function delete($appId, $scanId, array $queryParams = [])
     {
         $this->api
             ->applications()
             ->scans()
             ->files()
-            ->delete($appId, $scanId);
+            ->delete($appId, $scanId, $queryParams);
     }
 }
