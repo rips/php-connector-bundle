@@ -24,6 +24,11 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.quota.acls:
+        class: RIPS\ConnectorBundle\Services\Quota\AclService
+        arguments:
+            - '@rips_connector.api'
+
     rips_connector.orgs:
         class: RIPS\ConnectorBundle\Services\OrgService
         arguments:
@@ -39,38 +44,8 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.uploads:
-        class: RIPS\ConnectorBundle\Services\Application\UploadService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.application.scans:
-        class: RIPS\ConnectorBundle\Services\Application\ScanService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.application.scan.issues:
-        class: RIPS\ConnectorBundle\Services\Application\Scan\IssueService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.application.scan.issue.summaries:
-        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\SummaryService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.application.scan.issue.reviews:
-        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\ReviewService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.application.scan.issue.markups:
-        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\MarkupService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.application.scan.issue.comments:
-        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\CommentService
+    rips_connector.application.acls:
+        class: RIPS\ConnectorBundle\Services\Application\AclService
         arguments:
             - '@rips_connector.api'
 
@@ -101,5 +76,85 @@ services:
 
     rips_connector.application.custom.ignores:
         class: RIPS\ConnectorBundle\Services\Application\Custom\IgnoreService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scans:
+        class: RIPS\ConnectorBundle\Services\Application\ScanService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.comparisons:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\ComparisonService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.concats:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\ConcatService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.custom_classes:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\CustomClassService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.custom_functions:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\CustomFunctionService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.exports:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\ExportService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.files:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\FileService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issues:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\IssueService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.summaries:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\SummaryService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.reviews:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\ReviewService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.markups:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\MarkupService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.comments:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\CommentService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.processes:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\ProcessService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.sinks:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\SinkService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.sources:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\SourceService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.uploads:
+        class: RIPS\ConnectorBundle\Services\Application\UploadService
         arguments:
             - '@rips_connector.api'
