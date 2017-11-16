@@ -8,25 +8,25 @@ This library provides easy access to RIPS and all of its features.
 
 Use composer to include the package:
 
-	composer require rips/connector-bundle:~2.9
+    composer require rips/connector-bundle:~2.9
 
 OR add the following to composer.json and run `composer update`
 
-	"rips/connector-bundle": "~2.9"
+    "rips/connector-bundle": "~2.9"
 
 Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
 
-	rips_connector:
-		base_uri: 'http://localhost:8080'
-		username: 'username'
-		password: 'password'
+    rips_connector:
+        base_uri: 'http://localhost:8080'
+        username: 'username'
+        password: 'password'
 
 Declare the bundle in your `AppKernel.php` file
 
     $bundles = [
         // ...
         new RIPS\ConnectorBundle\RIPSConnectorBundle(),	
-        // ...	
+        // ...
     ];
 
 # Usage
@@ -72,7 +72,11 @@ This example demonstrates how to get a list of all users and how to add a new us
             
             return $this->render('default/index.html.twig', ['users' => $users]);
         }
+<<<<<<< HEAD
     }}
+=======
+    }
+>>>>>>> 45ad6f4909676dfc578601e06b8de7e4279816b1
 
 # Architecture
 
