@@ -9,36 +9,6 @@ services:
               timeout: '%rips_connector.timeout%'
               connect_timeout: '%rips_connector.connect_timeout%'
 
-    rips_connector.users:
-        class: RIPS\ConnectorBundle\Services\UserService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.teams:
-        class: RIPS\ConnectorBundle\Services\TeamService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.quotas:
-        class: RIPS\ConnectorBundle\Services\QuotaService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.quota.acls:
-        class: RIPS\ConnectorBundle\Services\Quota\AclService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.orgs:
-        class: RIPS\ConnectorBundle\Services\OrgService
-        arguments:
-            - '@rips_connector.api'
-
-    rips_connector.logs:
-        class: RIPS\ConnectorBundle\Services\LogService
-        arguments:
-            - '@rips_connector.api'
-
     rips_connector.applications:
         class: RIPS\ConnectorBundle\Services\ApplicationService
         arguments:
@@ -156,5 +126,45 @@ services:
 
     rips_connector.application.uploads:
         class: RIPS\ConnectorBundle\Services\Application\UploadService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.licenses:
+        class: RIPS\ConnectorBundle\Services\LicenseService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.logs:
+        class: RIPS\ConnectorBundle\Services\LogService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.orgs:
+        class: RIPS\ConnectorBundle\Services\OrgService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.quotas:
+        class: RIPS\ConnectorBundle\Services\QuotaService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.quota.acls:
+        class: RIPS\ConnectorBundle\Services\Quota\AclService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.settings:
+        class: RIPS\ConnectorBundle\Services\SettingService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.teams:
+        class: RIPS\ConnectorBundle\Services\TeamService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.users:
+        class: RIPS\ConnectorBundle\Services\UserService
         arguments:
             - '@rips_connector.api'
