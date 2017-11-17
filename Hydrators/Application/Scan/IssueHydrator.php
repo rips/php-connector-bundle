@@ -75,6 +75,10 @@ class IssueHydrator
             $hydrated->setReviews(ReviewHydrator::hydrateCollection($issue->reviews));
         }
 
+        if (isset($issue->last_review)) {
+            $hydrated->setLastReview(ReviewHydrator::hydrate($issue->last_review));
+        }
+
         if (isset($issue->reviewed)) {
             $hydrated->setReviewed($issue->reviewed);
         }

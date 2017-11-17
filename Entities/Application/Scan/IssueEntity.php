@@ -48,6 +48,11 @@ class IssueEntity
     protected $reviews;
 
     /**
+     * @var Issue\ReviewEntity
+     */
+    protected $lastReview;
+
+    /**
      * @var boolean
      */
     protected $reviewed;
@@ -304,6 +309,29 @@ class IssueEntity
     public function getReviews()
     {
         return $this->reviews;
+    }
+
+    /**
+     * Set last review
+     *
+     * @param Issue\ReviewEntity $lastReview
+     * @return $this
+     */
+    public function setLastReview($lastReview)
+    {
+        $this->lastReview = $lastReview;
+
+        return $this;
+    }
+
+    /**
+     * Get last review
+     *
+     * @return Issue\ReviewEntity
+     */
+    public function getLastReview()
+    {
+        return $this->lastReview;
     }
 
     /**
