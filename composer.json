@@ -1,7 +1,7 @@
 {
     "name": "rips/connector-bundle",
     "description": "RIPS API Connector bundle for Symfony",
-    "version": "2.9.4",
+    "version": "2.9.5",
     "type": "symfony-bundle",
     "license": "BSD-3-Clause",
     "autoload": {
