@@ -35,7 +35,7 @@ class TypeService
             ->applications()
             ->scans()
             ->issues()
-            ->origins()
+            ->reviews()
             ->types()
             ->getAll($queryParams);
 
@@ -55,7 +55,7 @@ class TypeService
             ->applications()
             ->scans()
             ->issues()
-            ->origins()
+            ->reviews()
             ->types()
             ->getById($typeId, $queryParams);
 
