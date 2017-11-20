@@ -31,7 +31,7 @@ class CustomService
      * @param array $queryParams
      * @return CustomEntity[]
      */
-    public function getAll($appId, array $queryParams)
+    public function getAll($appId = null, array $queryParams = [])
     {
         $customs = $this->api->applications()->customs()->getAll($appId, $queryParams);
 
