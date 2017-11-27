@@ -42,7 +42,7 @@ class ProcessHydrator
         }
 
         if (isset($process->pid)) {
-            $hydrated->setPId($process->pid);
+            $hydrated->setPid($process->pid);
         }
 
         if (isset($process->version)) {

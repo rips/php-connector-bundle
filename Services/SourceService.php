@@ -23,7 +23,7 @@ class SourceService
      * Get all directories from the root source directory
      *
      * @param array $queryParams
-     * @return string
+     * @return \stdClass[]
      */
     public function getAll(array $queryParams = [])
     {

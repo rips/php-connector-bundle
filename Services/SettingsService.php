@@ -39,13 +39,13 @@ class SettingsService
     /**
      * Get a quota by id
      *
-     * @param int $quotaId
+     * @param string $key
      * @param array $queryParams
      * @return SettingsEntity
      */
-    public function getByKey($quotaId, array $queryParams = [])
+    public function getByKey($key, array $queryParams = [])
     {
-        $org = $this->api->settings()->getByKey($quotaId, $queryParams);
+        $org = $this->api->settings()->getByKey($key, $queryParams);
 
         return SettingsHydrator::hydrate($org);
     }
@@ -79,12 +79,12 @@ class SettingsService
     /**
      * Delete quota by id
      *
-     * @param int $quotaId
+     * @param string $key
      * @param array $queryParams
      * @return void
      */
-    public function deleteByKey($quotaId, array $queryParams = [])
+    public function deleteByKey($key, array $queryParams = [])
     {
-        $this->api->settings()->deleteByKey($quotaId, $queryParams);
+        $this->api->settings()->deleteByKey($key, $queryParams);
     }
 }

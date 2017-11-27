@@ -67,7 +67,7 @@ class SourceEntity
     /**
      * Get class
      *
-     * @return int
+     * @return string
      */
     public function getClass()
     {
