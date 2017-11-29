@@ -39,6 +39,16 @@ class APIService
     }
 
     /**
+     * Activity requests accessor
+     *
+     * @return \RIPS\Connector\Requests\ActivityRequests
+     */
+    public function activities()
+    {
+        return $this->api->activities;
+    }
+
+    /**
      * Application requests accessor
      *
      * @return \RIPS\Connector\Requests\ApplicationRequests
