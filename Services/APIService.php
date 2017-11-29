@@ -129,6 +129,16 @@ class APIService
     }
 
     /**
+     * Client request accessor
+     *
+     * @return \RIPS\Connector\Requests\ClientRequest
+     */
+    public function clients()
+    {
+        return $this->api->clients;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusEntity
