@@ -129,13 +129,13 @@ class APIService
     }
 
     /**
-     * Client request accessor
+     * Oauth2 request accessor
      *
-     * @return \RIPS\Connector\Requests\ClientRequest
+     * @return \RIPS\Connector\Requests\OAuth2Requests
      */
-    public function clients()
+    public function getOauth2()
     {
-        return $this->api->clients;
+        return $this->api->oauth2;
     }
 
     /**
