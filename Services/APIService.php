@@ -139,6 +139,16 @@ class APIService
     }
 
     /**
+     * Oauth2 request accessor
+     *
+     * @return \RIPS\Connector\Requests\OAuth2Requests
+     */
+    public function oauth2()
+    {
+        return $this->api->oauth2;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusEntity
