@@ -39,6 +39,16 @@ class APIService
     }
 
     /**
+     * Activity requests accessor
+     *
+     * @return \RIPS\Connector\Requests\ActivityRequests
+     */
+    public function activities()
+    {
+        return $this->api->activities;
+    }
+
+    /**
      * Application requests accessor
      *
      * @return \RIPS\Connector\Requests\ApplicationRequests
@@ -129,13 +139,13 @@ class APIService
     }
 
     /**
-     * Client request accessor
+     * Oauth2 request accessor
      *
-     * @return \RIPS\Connector\Requests\ClientRequest
+     * @return \RIPS\Connector\Requests\OAuth2Requests
      */
-    public function clients()
+    public function oauth2()
     {
-        return $this->api->clients;
+        return $this->api->oauth2;
     }
 
     /**

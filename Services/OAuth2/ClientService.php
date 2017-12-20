@@ -31,7 +31,7 @@ class ClientService
      */
     public function getAll(array $queryParams = [])
     {
-        $clients = $this->api->clients()->getAll($queryParams);
+        $clients = $this->api->oauth2()->clients()->getAll($queryParams);
 
         return ClientHydrator::hydrateCollection($clients);
     }
@@ -45,7 +45,7 @@ class ClientService
      */
     public function getById($clientId, array $queryParams = [])
     {
-        $client = $this->api->clients()->getById($clientId, $queryParams);
+        $client = $this->api->oauth2()->clients()->getById($clientId, $queryParams);
 
         return ClientHydrator::hydrate($client);
     }
@@ -59,7 +59,7 @@ class ClientService
      */
     public function create(ClientBuilder $input, array $queryParams = [])
     {
-        $client = $this->api->clients()->create($input->toArray(), $queryParams);
+        $client = $this->api->oauth2()->clients()->create($input->toArray(), $queryParams);
 
         return ClientHydrator::hydrate($client);
     }
@@ -74,7 +74,7 @@ class ClientService
      */
     public function update($clientId, ClientBuilder $input, array $queryParams = [])
     {
-        $client = $this->api->clients()->update($clientId, $input->toArray(), $queryParams);
+        $client = $this->api->oauth2()->clients()->update($clientId, $input->toArray(), $queryParams);
 
         return ClientHydrator::hydrate($client);
     }
@@ -88,6 +88,6 @@ class ClientService
      */
     public function delete($clientId, array $queryParams)
     {
-        $this->api->clients()->delete($clientId, $queryParams);
+        $this->api->oauth2()->clients()->delete($clientId, $queryParams);
     }
 }

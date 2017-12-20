@@ -10,6 +10,12 @@
         }
     },
     "require": {
-        "rips/connector": "~2.9.5"
-    }
+        "rips/connector": "dev-dev"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git"
+        }
+    ]
 }

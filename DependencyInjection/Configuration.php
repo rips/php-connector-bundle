@@ -26,12 +26,11 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('base_uri')->defaultValue('')->end()
             ->integerNode('timeout')->defaultValue(10)->end()
             ->integerNode('connect_timeout')->defaultValue(10)->end()
-            ->arrayNode('oauth2')
-            ->children()
-            ->scalarNode('client_id')->end()
-            ->booleanNode('storeToken')->defaultFalse()->end()
-            ->scalarNode('token_file_path')->end()
-            ->scalarNode('access_token')->end()
+            ->arrayNode('oauth2')->children()
+                ->scalarNode('client_id')->end()
+                ->booleanNode('store_token')->defaultFalse()->end()
+                ->scalarNode('token_file_path')->end()
+                ->scalarNode('access_token')->end()
             ->end()
             ->end();
 

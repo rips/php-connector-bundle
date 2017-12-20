@@ -9,6 +9,11 @@ services:
               timeout: '%rips_connector.timeout%'
               connect_timeout: '%rips_connector.connect_timeout%'
 
+    rips_connector.activities:
+        class: RIPS\ConnectorBundle\Services\ActivityService
+        arguments:
+            - '@rips_connector.api'
+
     rips_connector.applications:
         class: RIPS\ConnectorBundle\Services\ApplicationService
         arguments:
