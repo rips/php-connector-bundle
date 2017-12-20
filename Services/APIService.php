@@ -143,7 +143,7 @@ class APIService
      *
      * @return \RIPS\Connector\Requests\OAuth2Requests
      */
-    public function getOauth2()
+    public function oauth2()
     {
         return $this->api->oauth2;
     }
