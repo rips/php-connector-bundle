@@ -12,15 +12,15 @@ class CustomFunctionHydrator
      * Hydrate a collection of custom-function objects into a collection of
      * CustomFunctionEntity objects
      *
-     * @param stdClass[] $functions
+     * @param stdClass[] $customFunctions
      * @return CustomFunctionEntity[]
      */
-    public static function hydrateCollection(array $functions)
+    public static function hydrateCollection(array $customFunctions)
     {
         $hydrated = [];
 
-        foreach ($functions as $function) {
-            $hydrated[] = self::hydrate($function);
+        foreach ($customFunctions as $customFunction) {
+            $hydrated[] = self::hydrate($customFunction);
         }
 
         return $hydrated;
@@ -29,51 +29,51 @@ class CustomFunctionHydrator
     /**
      * Hydrate a custom-function object into a CustomFunctionEntity object
      *
-     * @param stdClass $function
+     * @param stdClass $customFunction
      * @return CustomFunctionEntity
      */
-    public static function hydrate(stdClass $function)
+    public static function hydrate(stdClass $customFunction)
     {
         $hydrated = new CustomFunctionEntity();
 
-        if (isset($function->id)) {
-            $hydrated->setId($function->id);
+        if (isset($customFunction->id)) {
+            $hydrated->setId($customFunction->id);
         }
 
-        if (isset($function->start_line)) {
-            $hydrated->setStartLine($function->start_line);
+        if (isset($customFunction->start_line)) {
+            $hydrated->setStartLine($customFunction->start_line);
         }
 
-        if (isset($function->end_line)) {
-            $hydrated->setEndLine($function->end_line);
+        if (isset($customFunction->end_line)) {
+            $hydrated->setEndLine($customFunction->end_line);
         }
 
-        if (isset($function->name)) {
-            $hydrated->setName($function->name);
+        if (isset($customFunction->name)) {
+            $hydrated->setName($customFunction->name);
         }
 
-        if (isset($function->file)) {
-            $hydrated->setFile(FileHydrator::hydrate($function->file));
+        if (isset($customFunction->file)) {
+            $hydrated->setFile(FileHydrator::hydrate($customFunction->file));
         }
 
-        if (isset($function->class)) {
-            $hydrated->setClass(CustomClassHydrator::hydrate($function->class));
+        if (isset($customFunction->class)) {
+            $hydrated->setClass(CustomClassHydrator::hydrate($customFunction->class));
         }
 
-        if (isset($function->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($function->scan));
+        if (isset($customFunction->scan)) {
+            $hydrated->setScan(ScanHydrator::hydrate($customFunction->scan));
         }
 
-        if (isset($function->sources) && is_array($function->sources)) {
-            $hydrated->setSources(SourceHydrator::hydrateCollection($function->sources));
+        if (isset($customFunction->sources) && is_array($customFunction->sources)) {
+            $hydrated->setSources(SourceHydrator::hydrateCollection($customFunction->sources));
         }
 
-        if (isset($function->sinks) && is_array($function->sinks)) {
-            $hydrated->setSinks(SinkHydrator::hydrateCollection($function->sinks));
+        if (isset($customFunction->sinks) && is_array($customFunction->sinks)) {
+            $hydrated->setSinks(SinkHydrator::hydrateCollection($customFunction->sinks));
         }
 
-        if (isset($function->concats)) {
-            $hydrated->setConcats(ConcatHydrator::hydrateCollection($function->concats));
+        if (isset($customFunction->concats)) {
+            $hydrated->setConcats(ConcatHydrator::hydrateCollection($customFunction->concats));
         }
 
         return $hydrated;

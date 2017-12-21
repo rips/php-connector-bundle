@@ -67,8 +67,8 @@ class TypeHydrator
             $hydrated->setEffort($type->effort);
         }
 
-        if (isset($type->secondOrder)) {
-            $hydrated->setSecondOrder($type->secondOrder);
+        if (isset($type->second_order)) {
+            $hydrated->setSecondOrder($type->second_order);
         }
 
         if (isset($type->cwe)) {
