@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
 use stdClass;
+use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
@@ -42,7 +43,7 @@ class UploadHydrator
         }
 
         if (isset($upload->submission)) {
-            $hydrated->setSubmission($upload->submission);
+            $hydrated->setSubmission(new DateTime($upload->submission));
         }
 
         if (isset($upload->name)) {
