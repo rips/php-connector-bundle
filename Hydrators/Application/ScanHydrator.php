@@ -172,6 +172,10 @@ class ScanHydrator
             $hydrated->setCallbacks($scan->callbacks);
         }
 
+        if (isset($scan->tags)) {
+            $hydrated->setCallbacks($scan->tags);
+        }
+
         return $hydrated;
     }
 }

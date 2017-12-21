@@ -596,12 +596,12 @@ class UserEntity
     /**
      * Set applicationAcls
      *
-     * @param Quota\AclEntity[] $applicationAcls
+     * @param Quota\AclEntity[] $quotaAcls
      * @return $this
      */
-    public function setQuotaAcls(array $applicationAcls)
+    public function setQuotaAcls(array $quotaAcls)
     {
-        $this->applicationAcls = $applicationAcls;
+        $this->quotaAcls = $quotaAcls;
 
         return $this;
     }

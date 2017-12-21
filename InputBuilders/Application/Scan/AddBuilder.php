@@ -195,7 +195,7 @@ class AddBuilder extends BaseBuilder
     /**
      * Set upload
      *
-     * @param string $upload
+     * @param int $upload
      * @return $this
      */
     public function setUpload($upload)
