@@ -170,6 +170,11 @@ class ScanEntity
     protected $callbacks;
 
     /**
+     * @var array
+     */
+    protected $tags;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -903,5 +908,25 @@ class ScanEntity
     public function getCallbacks()
     {
         return $this->callbacks;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param array $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
     }
 }
