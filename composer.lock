@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd55144b71102ec14925d6988c523e8e",
+    "content-hash": "e034a10488c171df22f43d4cfaaf2277",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -239,11 +239,17 @@
         },
         {
             "name": "rips/connector",
-            "version": "dev-dev",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
-                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "001dde5b65953072d3d182c4ecfdd14da8228047"
+                "url": "https://github.com/rips/php-connector.git",
+                "reference": "70dd01838fc2ab7341ed3914bc27b818eb3c42f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rips/php-connector/zipball/70dd01838fc2ab7341ed3914bc27b818eb3c42f1",
+                "reference": "70dd01838fc2ab7341ed3914bc27b818eb3c42f1",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -259,27 +265,18 @@
                     "RIPS\\Connector\\": "src"
                 }
             },
-            "autoload-dev": {
-                "classmap": [
-                    "test/TestCase.php"
-                ],
-                "psr-4": {
-                    "RIPS\\Test\\": "test"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2017-11-29 13:21:10"
+            "time": "2017-12-21T13:18:58+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "rips/connector": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
