@@ -80,8 +80,8 @@ class ApplicationHydrator
             $hydrated->setCreation(new DateTime($application->creation));
         }
 
-        if (isset($application->lastModification)) {
-            $hydrated->setLastModification(new DateTime($application->lastModification));
+        if (isset($application->last_modification)) {
+            $hydrated->setLastModification(new DateTime($application->last_modification));
         }
 
         if (isset($application->organisation)) {

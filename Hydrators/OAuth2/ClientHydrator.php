@@ -43,20 +43,20 @@ class ClientHydrator
             $hydrated->setName($client->name);
         }
 
-        if (isset($client->randomId)) {
-            $hydrated->setRandomId($client->randomId);
+        if (isset($client->random_id)) {
+            $hydrated->setRandomId($client->random_id);
         }
 
         if (isset($client->secret)) {
             $hydrated->setSecret($client->secret);
         }
 
-        if (isset($client->allowedGrantTypes)) {
-            $hydrated->setAllowedGrantTypes($client->allowedGrantTypes);
+        if (isset($client->allowed_grant_types)) {
+            $hydrated->setAllowedGrantTypes($client->allowed_grant_types);
         }
 
-        if (isset($client->redirectUris)) {
-            $hydrated->setRedirectUris($client->redirectUris);
+        if (isset($client->redirect_uris)) {
+            $hydrated->setRedirectUris($client->redirect_uris);
         }
 
         return $hydrated;
