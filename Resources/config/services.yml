@@ -8,6 +8,7 @@ services:
               base_uri: '%rips_connector.base_uri%'
               timeout: '%rips_connector.timeout%'
               connect_timeout: '%rips_connector.connect_timeout%'
+              oauth2: '%rips_connector.oauth2%'
 
     rips_connector.activities:
         class: RIPS\ConnectorBundle\Services\ActivityService
