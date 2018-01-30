@@ -7,6 +7,7 @@ use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\AddBuilder;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\UpdateBuilder;
+use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
 class ScanService
 {
@@ -57,13 +58,26 @@ class ScanService
      * Create a new scan
      *
      * @param int $appId
-     * @param AddBuilder $input
+     * @param AddBuilder|BaseBuilder[string] $input
      * @param array $queryParams
      * @return ScanEntity
      */
     public function create($appId, $input, array $queryParams = [])
     {
-        $scan = $this->api->applications()->scans()->create($appId, $input->toArray(), $queryParams);
+        if ($input instanceof AddBuilder) {
+            $inputArray = $input->toArray();
+            $defaultInput = true;
+        } else {
+            $inputArray = [];
+            foreach ($input as $key => $value) {
+                if ($value instanceof BaseBuilder) {
+                    $inputArray[$key] = $value->toArray();
+                }
+            }
+            $defaultInput = false;
+        }
+
+        $scan = $this->api->applications()->scans()->create($appId, $inputArray, $queryParams, $defaultInput);
 
         return ScanHydrator::hydrate($scan);
     }
@@ -73,13 +87,26 @@ class ScanService
      *
      * @param int $appId
      * @param int $scanId
-     * @param UpdateBuilder $input
+     * @param UpdateBuilder|BaseBuilder[string] $input
      * @param array $queryParams
      * @return ScanEntity
      */
     public function update($appId, $scanId, $input, array $queryParams = [])
     {
-        $scan = $this->api->applications()->scans()->update($appId, $scanId, $input->toArray(), $queryParams);
+        if ($input instanceof UpdateBuilder) {
+            $inputArray = $input->toArray();
+            $defaultInput = true;
+        } else {
+            $inputArray = [];
+            foreach ($input as $key => $value) {
+                if ($value instanceof BaseBuilder) {
+                    $inputArray[$key] = $value->toArray();
+                }
+            }
+            $defaultInput = false;
+        }
+
+        $scan = $this->api->applications()->scans()->update($appId, $scanId, $inputArray, $queryParams, $defaultInput);
 
         return ScanHydrator::hydrate($scan);
     }
