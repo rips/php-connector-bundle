@@ -45,7 +45,7 @@ class ActivityHydrator
         }
 
         if (isset($activity->context)) {
-            $hydrated->setContext($activity->context);
+            $hydrated->setContext(json_decode(json_encode($activity->context), true));
         }
 
         if (isset($activity->application)) {
