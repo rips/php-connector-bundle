@@ -4,16 +4,16 @@ namespace RIPS\ConnectorBundle\Hydrators;
 
 use stdClass;
 use DateTime;
-use RIPS\ConnectorBundle\Entities\SettingsEntity;
+use RIPS\ConnectorBundle\Entities\SettingEntity;
 
-class SettingsHydrator
+class SettingHydrator
 {
     /**
      * Hydrate a collection of settings objects into a SettingEntity
      * collection
      *
      * @param array $settings
-     * @return SettingsEntity[]
+     * @return SettingEntity[]
      */
     public static function hydrateCollection(array $settings)
     {
@@ -27,14 +27,14 @@ class SettingsHydrator
     }
 
     /**
-     * Hydrate a setting object into a SettingsEntity
+     * Hydrate a setting object into a SettingEntity
      *
      * @param \stdClass $setting
-     * @return SettingsEntity
+     * @return SettingEntity
      */
     public static function hydrate(stdClass $setting)
     {
-        $hydrated = new SettingsEntity();
+        $hydrated = new SettingEntity();
 
         if (isset($setting->key)) {
             $hydrated->setKey($setting->key);

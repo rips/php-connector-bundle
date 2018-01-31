@@ -2,11 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\SettingsHydrator;
-use RIPS\ConnectorBundle\InputBuilders\SettingsBuilder;
-use RIPS\ConnectorBundle\Entities\SettingsEntity;
+use RIPS\ConnectorBundle\Hydrators\SettingHydrator;
+use RIPS\ConnectorBundle\InputBuilders\SettingBuilder;
+use RIPS\ConnectorBundle\Entities\SettingEntity;
 
-class SettingsService
+class SettingService
 {
     /**
      * @var APIService
@@ -27,13 +27,13 @@ class SettingsService
      * Get all settings
      *
      * @param array $queryParams
-     * @return SettingsEntity[]
+     * @return SettingEntity[]
      */
     public function getAll(array $queryParams = [])
     {
         $org = $this->api->settings()->getAll($queryParams);
 
-        return SettingsHydrator::hydrateCollection($org);
+        return SettingHydrator::hydrateCollection($org);
     }
 
     /**
@@ -41,28 +41,28 @@ class SettingsService
      *
      * @param string $key
      * @param array $queryParams
-     * @return SettingsEntity
+     * @return SettingEntity
      */
     public function getByKey($key, array $queryParams = [])
     {
         $org = $this->api->settings()->getByKey($key, $queryParams);
 
-        return SettingsHydrator::hydrate($org);
+        return SettingHydrator::hydrate($org);
     }
 
     /**
      * Create or update a quota
      *
      * @param string $key
-     * @param SettingsBuilder $input
+     * @param SettingBuilder $input
      * @param array $queryParams
-     * @return SettingsEntity
+     * @return SettingEntity
      */
-    public function createOrUpdate($key, SettingsBuilder $input, array $queryParams = [])
+    public function createOrUpdate($key, SettingBuilder $input, array $queryParams = [])
     {
         $quota = $this->api->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
 
-        return SettingsHydrator::hydrate($quota);
+        return SettingHydrator::hydrate($quota);
     }
 
     /**
