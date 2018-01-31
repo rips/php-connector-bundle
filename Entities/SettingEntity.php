@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\Entities;
 
 use DateTime;
 
-class SettingsEntity
+class SettingEntity
 {
     /**
      * @var string

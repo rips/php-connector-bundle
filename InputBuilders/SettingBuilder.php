@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\InputBuilders;
 
-class SettingsBuilder extends BaseBuilder
+class SettingBuilder extends BaseBuilder
 {
     /**
      * @var string

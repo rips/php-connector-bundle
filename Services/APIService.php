@@ -101,7 +101,7 @@ class APIService
     /**
      * Setting requests accessor
      *
-     * @return \RIPS\Connector\Requests\SettingsRequests
+     * @return \RIPS\Connector\Requests\SettingRequests
      */
     public function settings()
     {
