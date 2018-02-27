@@ -100,6 +100,10 @@ class ScanHydrator
             $hydrated->setHistoryInherited($scan->history_inherited);
         }
 
+        if (isset($scan->source_type)) {
+            $hydrated->setSourceType($scan->source_type);
+        }
+
         if (isset($scan->php)) {
             $hydrated->setPhp(PhpHydrator::hydrate($scan->php));
         }
