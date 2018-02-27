@@ -75,6 +75,11 @@ class ScanEntity
     protected $historyInherited;
 
     /**
+     * @var string
+     */
+    protected $sourceType;
+
+    /**
      * @var Scan\ProcessEntity
      */
     protected $process;
@@ -471,6 +476,29 @@ class ScanEntity
     public function getHistoryInherited()
     {
         return $this->historyInherited;
+    }
+
+    /**
+     * Set sourceType
+     *
+     * @param string $sourceType
+     * @return $this
+     */
+    public function setSourceType($sourceType)
+    {
+        $this->sourceType = $sourceType;
+
+        return $this;
+    }
+
+    /**
+     * Get process
+     *
+     * @return string
+     */
+    public function getSourceType()
+    {
+        return $this->sourceType;
     }
 
     /**
