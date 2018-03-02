@@ -33,7 +33,12 @@ class StatusEntity
      * @var array
      */
     protected $trialIssueTypes;
-    
+
+    /**
+     * @var array
+     */
+    protected $fileExtensions;
+
     /**
      * Get version
      *
@@ -169,6 +174,29 @@ class StatusEntity
     {
         $this->trialIssueTypes = $trialIssueTypes;
     
+        return $this;
+    }
+
+    /**
+     * Get fileExtensions
+     *
+     * @return array
+     */
+    public function getFileExtensions()
+    {
+        return $this->fileExtensions;
+    }
+
+    /**
+     * Set fileExtensions
+     *
+     * @param array $fileExtensions
+     * @return $this
+     */
+    public function setFileExtensions(array $fileExtensions)
+    {
+        $this->fileExtensions = $fileExtensions;
+
         return $this;
     }
 }
