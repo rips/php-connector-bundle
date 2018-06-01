@@ -43,6 +43,11 @@ class SettingEntity
     protected $analysisDepth;
 
     /**
+     * @var int
+     */
+    protected $maxIssuesPerType;
+
+    /**
      * @var PhpEntity
      */
     protected $php;
@@ -209,6 +214,29 @@ class SettingEntity
     public function setAnalysisDepth($analysisDepth)
     {
         $this->analysisDepth = $analysisDepth;
+
+        return $this;
+    }
+
+    /**
+     * Get maxIssuesPerType
+     *
+     * @return int
+     */
+    public function getMaxIssuesPerType()
+    {
+        return $this->maxIssuesPerType;
+    }
+
+    /**
+     * Set maxIssuesPerType
+     *
+     * @param int $maxIssuesPerType
+     * @return $this
+     */
+    public function setMaxIssuesPerType($maxIssuesPerType)
+    {
+        $this->maxIssuesPerType = $maxIssuesPerType;
 
         return $this;
     }

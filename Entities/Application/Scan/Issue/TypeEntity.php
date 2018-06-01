@@ -102,6 +102,11 @@ class TypeEntity
     protected $resources;
 
     /**
+     * @var bool
+     */
+    protected $inactive;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -501,5 +506,26 @@ class TypeEntity
     public function getResources()
     {
         return $this->resources;
+    }
+
+    /**
+     * Set inactive
+     *
+     * @param  bool $inactive
+     * @return void
+     */
+    public function setInactive($inactive)
+    {
+        $this->inactive = $inactive;
+    }
+
+    /**
+     * Get inactive
+     *
+     * @return bool
+     */
+    public function isInactive()
+    {
+        return $this->inactive;
     }
 }
