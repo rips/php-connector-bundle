@@ -10,6 +10,8 @@ use RIPS\ConnectorBundle\Hydrators\Application\Custom\ValidatorHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SanitiserHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\IgnoreHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\ExtensionHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Custom\ControllerHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Custom\SettingHydrator;
 
 class CustomHydrator
 {
@@ -51,6 +53,14 @@ class CustomHydrator
 
         if (isset($custom->global)) {
             $hydrated->setGlobal($custom->global);
+        }
+
+        if (isset($custom->setting)) {
+            $hydrated->setSetting(SettingHydrator::hydrate($custom->setting));
+        }
+
+        if (isset($custom->controllers) && is_array($custom->controllers)) {
+            $hydrated->setControllers(ControllerHydrator::hydrateCollection($custom->controllers));
         }
 
         if (isset($custom->sources) && is_array($custom->sources)) {

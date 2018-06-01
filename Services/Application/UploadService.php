@@ -26,11 +26,11 @@ class UploadService
     /**
      * Get all uploads for an application
      *
-     * @param int $appId
+     * @param int|null $appId
      * @param array $queryParams
      * @return UploadEntity[]
      */
-    public function getAll($appId, array $queryParams = [])
+    public function getAll($appId = null, array $queryParams = [])
     {
         $uploads = $this->api->applications()->uploads()->getAll($appId, $queryParams);
 
