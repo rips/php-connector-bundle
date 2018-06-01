@@ -78,6 +78,11 @@ class IssueEntity
     protected $concat;
 
     /**
+     * @var EntrypointEntity
+     */
+    protected $entrypoint;
+
+    /**
      * @var ScanEntity
      */
     protected $scan;
@@ -123,9 +128,19 @@ class IssueEntity
     protected $cve;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $minimal;
+
+    /**
+     * @var bool
+     */
+    protected $directlyCalled;
+
+    /**
+     * @var bool
+     */
+    protected $registerGlobals;
 
     /**
      * Set id
@@ -450,6 +465,29 @@ class IssueEntity
     }
 
     /**
+     * Set entrypoint
+     *
+     * @param EntrypointEntity $entrypoint
+     * @return $this
+     */
+    public function setEntrypoint($entrypoint)
+    {
+        $this->entrypoint = $entrypoint;
+
+        return $this;
+    }
+
+    /**
+     * Get entrypoint
+     *
+     * @return EntrypointEntity
+     */
+    public function getEntrypoint()
+    {
+        return $this->entrypoint;
+    }
+
+    /**
      * Set scan
      *
      * @param ScanEntity $scan
@@ -658,7 +696,7 @@ class IssueEntity
     /**
      * Set minimal
      *
-     * @param boolean $minimal
+     * @param bool $minimal
      * @return $this
      */
     public function setMinimal($minimal)
@@ -671,10 +709,56 @@ class IssueEntity
     /**
      * Get miminal
      *
-     * @return boolean
+     * @return bool
      */
     public function getMinimal()
     {
         return $this->minimal;
+    }
+
+    /**
+     * Set directlyCalled
+     *
+     * @param bool $directlyCalled
+     * @return $this
+     */
+    public function setDirectlyCalled($directlyCalled)
+    {
+        $this->directlyCalled = $directlyCalled;
+
+        return $this;
+    }
+
+    /**
+     * Get directlyCalled
+     *
+     * @return bool
+     */
+    public function getDirectlyCalled()
+    {
+        return $this->directlyCalled;
+    }
+
+    /**
+     * Set registerGlobals
+     *
+     * @param bool $registerGlobals
+     * @return $this
+     */
+    public function setRegisterGlobals($registerGlobals)
+    {
+        $this->registerGlobals = $registerGlobals;
+
+        return $this;
+    }
+
+    /**
+     * Get registerGlobals
+     *
+     * @return bool
+     */
+    public function getRegisterGlobals()
+    {
+        return $this->registerGlobals;
     }
 }

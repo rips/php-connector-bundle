@@ -37,6 +37,11 @@ class IgnoreEntity
     protected $fullPath;
 
     /**
+     * @var string
+     */
+    protected $codeQualityFolder;
+
+    /**
      * @var CustomEntity
      */
     protected $custom;
@@ -178,7 +183,30 @@ class IgnoreEntity
     
         return $this;
     }
-    
+
+    /**
+     * Get codeQualityFolder
+     *
+     * @return string
+     */
+    public function getCodeQualityFolder()
+    {
+        return $this->codeQualityFolder;
+    }
+
+    /**
+     * Set codeQualityFolder
+     *
+     * @param string $codeQualityFolder
+     * @return $this
+     */
+    public function setCodeQualityFolder($codeQualityFolder)
+    {
+        $this->codeQualityFolder = $codeQualityFolder;
+
+        return $this;
+    }
+
     /**
      * Get custom
      *

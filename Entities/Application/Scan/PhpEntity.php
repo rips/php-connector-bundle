@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Custom\SettingEntity;
 
 class PhpEntity
 {
@@ -55,6 +56,11 @@ class PhpEntity
      * @var ScanEntity
      */
     protected $scan;
+
+    /**
+     * @var SettingEntity
+     */
+    protected $setting;
 
     /**
      * Set id
@@ -265,5 +271,26 @@ class PhpEntity
     public function getScan()
     {
         return $this->scan;
+    }
+
+    /**
+     * Set setting
+     *
+     * @param SettingEntity $setting
+     * @return void
+     */
+    public function setSetting($setting)
+    {
+        $this->setting = $setting;
+    }
+
+    /**
+     * Get setting
+     *
+     * @return SettingEntity
+     */
+    public function getSetting()
+    {
+        return $this->setting;
     }
 }

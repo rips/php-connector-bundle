@@ -99,6 +99,10 @@ class IssueHydrator
             $hydrated->setConcat(ConcatHydrator::hydrate($issue->concat));
         }
 
+        if (isset($issue->entrypoint)) {
+            $hydrated->setEntrypoint(EntrypointHydrator::hydrate($issue->entrypoint));
+        }
+
         if (isset($issue->scan)) {
             $hydrated->setScan(ScanHydrator::hydrate($issue->scan));
         }
@@ -137,6 +141,14 @@ class IssueHydrator
 
         if (isset($issue->minimal)) {
             $hydrated->setMinimal($issue->minimal);
+        }
+
+        if (isset($issue->directly_called)) {
+            $hydrated->setDirectlyCalled($issue->directly_called);
+        }
+
+        if (isset($issue->register_globals)) {
+            $hydrated->setRegisterGlobals($issue->register_globals);
         }
 
         return $hydrated;

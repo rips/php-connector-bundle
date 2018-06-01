@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type\ResourceEntity;
+
 class TypeEntity
 {
     /**
@@ -70,9 +72,19 @@ class TypeEntity
     protected $pcidss;
 
     /**
+     * @var string
+     */
+    protected $asvs;
+
+    /**
      * @var bool
      */
-    protected $enable;
+    protected $enabled;
+
+    /**
+     * @var string
+     */
+    protected $category;
 
     /**
      * @var TypeEntity
@@ -83,6 +95,11 @@ class TypeEntity
      * @var TypeEntity[]
      */
     protected $children;
+
+    /**
+     * @var ResourceEntity[]
+     */
+    protected $resources;
 
     /**
      * Set id
@@ -358,24 +375,66 @@ class TypeEntity
     }
 
     /**
-     * Set enable
+     * Set asvs
      *
-     * @param  bool $enable
+     * @param  string $asvs
      * @return void
      */
-    public function setEnable($enable)
+    public function setAsvs($asvs)
     {
-        $this->enable = $enable;
+        $this->asvs = $asvs;
     }
 
     /**
-     * Get enable
+     * Get asvs
+     *
+     * @return string
+     */
+    public function getAsvs()
+    {
+        return $this->asvs;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param  bool $enabled
+     * @return void
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * Get enabled
      *
      * @return bool
      */
-    public function isEnable()
+    public function isEnabled()
     {
-        return $this->enable;
+        return $this->enabled;
+    }
+
+    /**
+     * Set category
+     *
+     * @param  string $category
+     * @return void
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     /**
@@ -419,5 +478,28 @@ class TypeEntity
     public function getChildren()
     {
         return $this->children;
+    }
+
+    /**
+     * Set resources
+     *
+     * @param ResourceEntity[] $resources
+     * @return $this
+     */
+    public function setResources(array $resources)
+    {
+        $this->resources = $resources;
+
+        return $this;
+    }
+
+    /**
+     * Get resources
+     *
+     * @return ResourceEntity[]
+     */
+    public function getResources()
+    {
+        return $this->resources;
     }
 }

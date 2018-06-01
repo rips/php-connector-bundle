@@ -60,6 +60,10 @@ class IgnoreHydrator
             $hydrated->setFullPath($ignore->full_path);
         }
 
+        if (isset($ignore->code_quality_folder)) {
+            $hydrated->setCodeQualityFolder($ignore->code_quality_folder);
+        }
+
         if (isset($ignore->custom)) {
             $hydrated->setCustom(CustomHydrator::hydrate($ignore->custom));
         }
