@@ -180,6 +180,14 @@ class ScanHydrator
             $hydrated->setCallbacks($scan->tags);
         }
 
+        if (isset($scan->max_issues_per_type)) {
+            $hydrated->setMaxIssuesPerType($scan->max_issues_per_type);
+        }
+
+        if (isset($scan->comment)) {
+            $hydrated->setComment($scan->comment);
+        }
+
         return $hydrated;
     }
 }

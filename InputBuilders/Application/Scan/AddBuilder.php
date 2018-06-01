@@ -67,6 +67,16 @@ class AddBuilder extends BaseBuilder
     protected $callbacks;
 
     /**
+     * @var int
+     */
+    protected $maxIssuesPerType;
+
+    /**
+     * @var string
+     */
+    protected $comment;
+
+    /**
      * Set chargedQuota
      *
      * @param integer $chargedQuota
@@ -230,6 +240,34 @@ class AddBuilder extends BaseBuilder
     {
         $this->setFields[] = 'callbacks';
         $this->callbacks = $callbacks;
+
+        return $this;
+    }
+
+    /**
+     * Set maxIssuesPerType
+     *
+     * @param int $maxIssuesPerType
+     * @return $this
+     */
+    public function setMaxIssuesPerType($maxIssuesPerType)
+    {
+        $this->setFields[] = 'maxIssuesPerType';
+        $this->maxIssuesPerType = $maxIssuesPerType;
+
+        return $this;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->setFields[] = 'comment';
+        $this->comment = $comment;
 
         return $this;
     }

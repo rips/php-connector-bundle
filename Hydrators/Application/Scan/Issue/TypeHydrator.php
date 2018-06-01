@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Type\ResourceHydrator;
 
 class TypeHydrator
 {
@@ -87,12 +88,24 @@ class TypeHydrator
             $hydrated->setPcidss($type->pcidss);
         }
 
-        if (isset($type->enable)) {
-            $hydrated->setEnable($type->enable);
+        if (isset($type->asvs)) {
+            $hydrated->setAsvs($type->asvs);
+        }
+
+        if (isset($type->enabled)) {
+            $hydrated->setEnabled($type->enabled);
+        }
+
+        if (isset($type->category)) {
+            $hydrated->setCategory($type->category);
         }
 
         if (isset($type->parent)) {
             $hydrated->setParent(self::hydrate($type->parent));
+        }
+
+        if (isset($type->resources)) {
+            $hydrated->setResources(ResourceHydrator::hydrateCollection($type->resources));
         }
 
         return $hydrated;

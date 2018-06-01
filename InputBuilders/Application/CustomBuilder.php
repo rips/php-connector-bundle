@@ -15,6 +15,11 @@ class CustomBuilder extends BaseBuilder
      * @var boolean
      */
     protected $global;
+
+    /**
+     * @var boolean
+     */
+    protected $default;
     
     /**
      * Set name
@@ -41,6 +46,20 @@ class CustomBuilder extends BaseBuilder
         $this->setFields[] = 'global';
         $this->global = $global;
     
+        return $this;
+    }
+
+    /**
+     * Set default
+     *
+     * @param boolean $default
+     * @return $this
+     */
+    public function setDefault($default)
+    {
+        $this->setFields[] = 'default';
+        $this->default = $default;
+
         return $this;
     }
 }
