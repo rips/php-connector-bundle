@@ -27,6 +27,11 @@ class OrgBuilder extends BaseBuilder
     protected $trialIssueTypes;
 
     /**
+     * @var bool
+     */
+    protected $disabled;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -78,6 +83,20 @@ class OrgBuilder extends BaseBuilder
     {
         $this->setFields[] = 'trialIssueTypes';
         $this->trialIssueTypes = $trialIssueTypes;
+
+        return $this;
+    }
+
+    /**
+     * Set disabled
+     *
+     * @param bool $disabled
+     * @return $this
+     */
+    public function setDisabled($disabled)
+    {
+        $this->setFields[] = 'disabled';
+        $this->disabled = $disabled;
 
         return $this;
     }

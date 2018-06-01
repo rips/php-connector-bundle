@@ -62,6 +62,11 @@ class OrgEntity
     protected $trialIssueTypes;
 
     /**
+     * @var bool
+     */
+    protected $disabled;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -310,5 +315,28 @@ class OrgEntity
     public function getTrialIssueTypes()
     {
         return $this->trialIssueTypes;
+    }
+
+    /**
+     * Set disabled
+     *
+     * @param bool $disabled
+     * @return $this
+     */
+    public function setDisabled($disabled)
+    {
+        $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Get disabled
+     *
+     * @return bool
+     */
+    public function isDisabled()
+    {
+        return $this->disabled;
     }
 }
