@@ -30,7 +30,12 @@ class IgnoreBuilder extends BaseBuilder
      * @var string
      */
     protected $fullPath;
-    
+
+    /**
+     * @var string
+     */
+    protected $codeQualityFolder;
+
     /**
      * Set class
      *
@@ -98,6 +103,20 @@ class IgnoreBuilder extends BaseBuilder
         $this->setFields[] = 'fullPath';
         $this->fullPath = $fullPath;
     
+        return $this;
+    }
+
+    /**
+     * Set codeQualityFolder
+     *
+     * @param string $codeQualityFolder
+     * @return $this
+     */
+    public function setCodeQualityFolder($codeQualityFolder)
+    {
+        $this->setFields[] = 'codeQualityFolder';
+        $this->codeQualityFolder = $codeQualityFolder;
+
         return $this;
     }
 }

@@ -25,6 +25,21 @@ class IssueBuilder extends BaseBuilder
      * @var string
      */
     protected $cve;
+
+    /**
+     * @var bool
+     */
+    protected $directlyCalled;
+
+    /**
+     * @var bool
+     */
+    protected $registerGlobals;
+
+    /**
+     * @var string
+     */
+    protected $tool;
     
     /**
      * Set type
@@ -79,6 +94,48 @@ class IssueBuilder extends BaseBuilder
         $this->setFields[] = 'cve';
         $this->cve = $cve;
     
+        return $this;
+    }
+
+    /**
+     * Set directlyCalled
+     *
+     * @param bool $directlyCalled
+     * @return $this
+     */
+    public function setDirectlyCalled($directlyCalled)
+    {
+        $this->setFields[] = 'directlyCalled';
+        $this->directlyCalled = $directlyCalled;
+
+        return $this;
+    }
+
+    /**
+     * Set registerGlobals
+     *
+     * @param bool $registerGlobals
+     * @return $this
+     */
+    public function setRegisterGlobals($registerGlobals)
+    {
+        $this->setFields[] = 'registerGlobals';
+        $this->registerGlobals = $registerGlobals;
+
+        return $this;
+    }
+
+    /**
+     * Set tool
+     *
+     * @param string $tool
+     * @return $this
+     */
+    public function setTool($tool)
+    {
+        $this->setFields[] = 'tool';
+        $this->tool = $tool;
+
         return $this;
     }
 }

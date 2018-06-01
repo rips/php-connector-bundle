@@ -180,6 +180,16 @@ class ScanEntity
     protected $tags;
 
     /**
+     * @var int
+     */
+    protected $maxIssuesPerType;
+
+    /**
+     * @var string
+     */
+    protected $comment;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -956,5 +966,45 @@ class ScanEntity
     public function setTags($tags)
     {
         $this->tags = $tags;
+    }
+
+    /**
+     * Get maxIssuesPerType
+     *
+     * @return int
+     */
+    public function getMaxIssuesPerType()
+    {
+        return $this->maxIssuesPerType;
+    }
+
+    /**
+     * Set maxIssuesPerType
+     *
+     * @param int $maxIssuesPerType
+     */
+    public function setMaxIssuesPerType($maxIssuesPerType)
+    {
+        $this->maxIssuesPerType = $maxIssuesPerType;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
     }
 }
