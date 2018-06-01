@@ -108,6 +108,10 @@ class TypeHydrator
             $hydrated->setResources(ResourceHydrator::hydrateCollection($type->resources));
         }
 
+        if (isset($type->inactive)) {
+            $hydrated->setInactive($type->inactive);
+        }
+
         return $hydrated;
     }
 }
