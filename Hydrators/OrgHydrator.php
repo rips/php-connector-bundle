@@ -80,6 +80,10 @@ class OrgHydrator
             $hydrated->setTrialIssueTypes($organisation->trial_issue_types);
         }
 
+        if (isset($organisation->disabled)) {
+            $hydrated->setDisabled($organisation->disabled);
+        }
+
         return $hydrated;
     }
 }
