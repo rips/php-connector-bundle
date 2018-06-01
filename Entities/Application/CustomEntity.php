@@ -22,6 +22,16 @@ class CustomEntity
     protected $global;
 
     /**
+     * @var Custom\SettingEntity
+     */
+    protected $setting;
+
+    /**
+     * @var Custom\ControllerEntity[]
+     */
+    protected $controllers;
+
+    /**
      * @var Custom\SourceEntity[]
      */
     protected $sources;
@@ -129,7 +139,53 @@ class CustomEntity
     
         return $this;
     }
-    
+
+    /**
+     * Get setting
+     *
+     * @return Custom\SettingEntity
+     */
+    public function getSetting()
+    {
+        return $this->setting;
+    }
+
+    /**
+     * Set setting
+     *
+     * @param Custom\SettingEntity $setting
+     * @return $this
+     */
+    public function setSetting($setting)
+    {
+        $this->setting = $setting;
+
+        return $this;
+    }
+
+    /**
+     * Get controllers
+     *
+     * @return Custom\ControllerEntity[]
+     */
+    public function getControllers()
+    {
+        return $this->controllers;
+    }
+
+    /**
+     * Set controllers
+     *
+     * @param Custom\ControllerEntity[] $controllers
+     * @return $this
+     */
+    public function setControllers(array $controllers)
+    {
+        $this->controllers = $controllers;
+
+        return $this;
+    }
+
     /**
      * Get sources
      *
