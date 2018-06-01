@@ -149,6 +149,16 @@ class APIService
     }
 
     /**
+     * Maintenance requests accessor
+     *
+     * @return \RIPS\Connector\Requests\MaintenanceRequests
+     */
+    public function maintenance()
+    {
+        return $this->api->maintenance;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusEntity
