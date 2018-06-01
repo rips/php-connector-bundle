@@ -37,6 +37,11 @@ class SettingBuilder extends BaseBuilder
     protected $analysisDepth;
 
     /**
+     * @var int
+     */
+    protected $maxIssuesPerType;
+
+    /**
      * Set issueTypes
      *
      * @param array $issueTypes
@@ -116,6 +121,20 @@ class SettingBuilder extends BaseBuilder
     {
         $this->setFields[] = 'analysisDepth';
         $this->analysisDepth = $analysisDepth;
+
+        return $this;
+    }
+
+    /**
+     * Set maxIssuesPerType
+     *
+     * @param int $maxIssuesPerType
+     * @return $this
+     */
+    public function setMaxIssuesPerType($maxIssuesPerType)
+    {
+        $this->setFields[] = 'maxIssuesPerType';
+        $this->maxIssuesPerType = $maxIssuesPerType;
 
         return $this;
     }
