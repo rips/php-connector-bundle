@@ -47,6 +47,10 @@ class SettingHydrator
             $hydrated->setAnalysisDepth($setting->analysis_depth);
         }
 
+        if (isset($setting->max_issues_per_type)) {
+            $hydrated->setMaxIssuesPerType($setting->max_issues_per_type);
+        }
+
         if (isset($setting->php)) {
             $hydrated->setPhp(PhpHydrator::hydrate($setting->php));
         }
