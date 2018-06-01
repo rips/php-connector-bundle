@@ -30,6 +30,16 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.application.custom.controllers:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\ControllerService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.custom.setting:
+        class: RIPS\ConnectorBundle\Services\Application\Custom\SettingService
+        arguments:
+            - '@rips_connector.api'
+
     rips_connector.application.custom.validators:
         class: RIPS\ConnectorBundle\Services\Application\Custom\ValidatorService
         arguments:
@@ -67,6 +77,11 @@ services:
 
     rips_connector.application.scan.concats:
         class: RIPS\ConnectorBundle\Services\Application\Scan\ConcatService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.entrypoints:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\EntrypointService
         arguments:
             - '@rips_connector.api'
 
@@ -157,6 +172,11 @@ services:
 
     rips_connector.logs:
         class: RIPS\ConnectorBundle\Services\LogService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.maintenance:
+        class: RIPS\ConnectorBundle\Services\MaintenanceService
         arguments:
             - '@rips_connector.api'
 
