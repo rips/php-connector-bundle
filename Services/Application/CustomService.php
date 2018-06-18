@@ -69,6 +69,20 @@ class CustomService
     }
 
     /**
+     * @param $appId
+     * @param $customId
+     * @param CustomBuilder $input
+     * @param array $queryParams
+     * @return CustomEntity
+     */
+    public function cloneById($appId, $customId, CustomBuilder $input, array $queryParams = [])
+    {
+        $custom = $this->api->applications()->customs()->cloneById($appId, $customId, $input->toArray(), $queryParams);
+
+        return CustomHydrator::hydrate($custom);
+    }
+
+    /**
      * Update a custom profile by id
      *
      * @param int $appId
