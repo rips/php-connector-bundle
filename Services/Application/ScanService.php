@@ -72,6 +72,14 @@ class ScanService
             foreach ($input as $key => $value) {
                 if ($value instanceof BaseBuilder) {
                     $inputArray[$key] = $value->toArray();
+                } else if (is_array($value)) {
+                    foreach ($value as $key2 => $value2) {
+                        if ($value2 instanceof BaseBuilder) {
+                            $inputArray[$key][$key2] = $value2->toArray();
+                        } else if (is_string($value2)) {
+                            $inputArray[$key][$key2] = $value2;
+                        }
+                    }
                 }
             }
             $defaultInput = false;
