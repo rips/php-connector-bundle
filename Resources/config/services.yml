@@ -150,6 +150,11 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.application.scan.frameworks:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\FrameworkService
+        arguments:
+            - '@rips_connector.api'
+
     rips_connector.application.scan.sinks:
         class: RIPS\ConnectorBundle\Services\Application\Scan\SinkService
         arguments:

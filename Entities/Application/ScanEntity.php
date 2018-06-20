@@ -190,6 +190,11 @@ class ScanEntity
     protected $comment;
 
     /**
+     * @var Scan\FrameworkEntity[]
+     */
+    protected $frameworks;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -1006,5 +1011,28 @@ class ScanEntity
     public function setComment($comment)
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * Set frameworks
+     *
+     * @param Scan\FrameworkEntity[] $frameworks
+     * @return $this
+     */
+    public function setFrameworks(array $frameworks)
+    {
+        $this->frameworks = $frameworks;
+
+        return $this;
+    }
+
+    /**
+     * Get frameworks
+     *
+     * @return Scan\FrameworkEntity[]
+     */
+    public function getFrameworks()
+    {
+        return $this->frameworks;
     }
 }
