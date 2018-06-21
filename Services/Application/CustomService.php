@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\InputBuilders\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\CustomBuilder;
@@ -71,11 +72,11 @@ class CustomService
     /**
      * @param $appId
      * @param $customId
-     * @param CustomBuilder $input
+     * @param Custom\CloneBuilder $input
      * @param array $queryParams
      * @return CustomEntity
      */
-    public function cloneById($appId, $customId, CustomBuilder $input, array $queryParams = [])
+    public function cloneById($appId, $customId, Custom\CloneBuilder $input, array $queryParams = [])
     {
         $custom = $this->api->applications()->customs()->cloneById($appId, $customId, $input->toArray(), $queryParams);
 
