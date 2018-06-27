@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\InputBuilders\Application\Custom;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\CustomBuilder;
@@ -64,6 +65,20 @@ class CustomService
     public function create($appId, CustomBuilder $input, array $queryParams = [])
     {
         $custom = $this->api->applications()->customs()->create($appId, $input->toArray(), $queryParams);
+
+        return CustomHydrator::hydrate($custom);
+    }
+
+    /**
+     * @param $appId
+     * @param $customId
+     * @param Custom\CloneBuilder $input
+     * @param array $queryParams
+     * @return CustomEntity
+     */
+    public function cloneById($appId, $customId, Custom\CloneBuilder $input, array $queryParams = [])
+    {
+        $custom = $this->api->applications()->customs()->cloneById($appId, $customId, $input->toArray(), $queryParams);
 
         return CustomHydrator::hydrate($custom);
     }
