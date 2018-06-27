@@ -7,14 +7,10 @@ use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
 class Like extends KeyValue implements FilterExpression
 {
     /**
-     * @return string
+     * @return array
      */
     public function getFilterRepresentation()
     {
-        return sprintf(
-            '{"__like": {"%s": %s}',
-            $this->key,
-            $this->value
-        );
+        return ["__like" => [$this->key => $this->value]];
     }
 }

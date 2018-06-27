@@ -7,14 +7,10 @@ use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
 class GreaterThanEqual extends KeyValue implements FilterExpression
 {
     /**
-     * @return string
+     * @return array
      */
     public function getFilterRepresentation()
     {
-        return sprintf(
-            '{"__greaterThanEqual": {"%s": %s}',
-            $this->key,
-            $this->value
-        );
+        return ["__greaterThanEqual" => [$this->key => $this->value]];
     }
 }

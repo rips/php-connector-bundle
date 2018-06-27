@@ -7,14 +7,11 @@ use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
 class Equal extends KeyValue implements FilterExpression
 {
     /**
-     * @return string
+     * @return array
      */
     public function getFilterRepresentation()
     {
-        return sprintf(
-            '{"__equal": {"%s": %s}',
-            $this->key,
-            $this->value
-        );
+        var_dump($this->value);
+        return ["__equal" => [$this->key => $this->value]];
     }
 }

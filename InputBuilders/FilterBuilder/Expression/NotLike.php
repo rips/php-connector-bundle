@@ -7,14 +7,10 @@ use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
 class NotLike extends KeyValue implements FilterExpression
 {
     /**
-     * @return string
+     * @return array
      */
     public function getFilterRepresentation()
     {
-        return sprintf(
-            '{"__notLike": {"%s": %s}',
-            $this->key,
-            $this->value
-        );
+        return ["__notLike" => [$this->key => $this->value]];
     }
 }

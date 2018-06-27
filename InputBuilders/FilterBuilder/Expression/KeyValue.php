@@ -15,7 +15,6 @@ abstract class KeyValue
     protected $value;
 
     /**
-     * Equal constructor.
      * @param string $key
      * @param mixed $value
      */
@@ -28,9 +27,6 @@ abstract class KeyValue
 
         if (!is_string($value) && !is_numeric($value) && !is_bool($value)) {
             throw new \InvalidArgumentException('Value needs to be a string, number or boolean.');
-        }
-        if (is_string($value)) {
-            $value = sprintf('"%s"', $value);
         }
         $this->value = $value;
     }

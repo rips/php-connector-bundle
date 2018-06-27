@@ -30,7 +30,7 @@ class FilterBuilder
      */
     public function getFilterString()
     {
-        return $this->condition->getFilterRepresentation();
+        return json_encode($this->condition->getFilterRepresentation());
     }
 
     /**

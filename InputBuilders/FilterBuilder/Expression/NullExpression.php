@@ -25,9 +25,6 @@ class NullExpression implements FilterExpression
 
     public function getFilterRepresentation()
     {
-        return sprintf(
-            '{"__null": {"%s": ""}',
-            $this->key
-        );
+        return ["__null" => [$this->key => ""]];
     }
 }

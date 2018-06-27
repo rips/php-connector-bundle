@@ -12,7 +12,6 @@ class NotNullExpression implements FilterExpression
     protected $key;
 
     /**
-     * Equal constructor.
      * @param string $key
      */
     public function __construct($key)
@@ -25,9 +24,6 @@ class NotNullExpression implements FilterExpression
 
     public function getFilterRepresentation()
     {
-        return sprintf(
-            '{"__notNull": {"%s": ""}',
-            $this->key
-        );
+        return ["__notNull" => [$this->key => ""]];
     }
 }
