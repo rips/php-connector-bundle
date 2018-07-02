@@ -27,6 +27,6 @@ class OrCondition implements FilterCondition, FilterExpression
             return $expression->getFilterRepresentation();
         }, $this->expressions);
 
-        return ["__or" => [$mappedExpressions]];
+        return ["__or" => $mappedExpressions];
     }
 }

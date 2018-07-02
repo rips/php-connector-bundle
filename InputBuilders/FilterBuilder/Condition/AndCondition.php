@@ -27,6 +27,6 @@ class AndCondition implements FilterCondition, FilterExpression
             return $expression->getFilterRepresentation();
         }, $this->expressions);
 
-        return ["__and" => [$mappedExpressions]];
+        return ["__and" => $mappedExpressions];
     }
 }
