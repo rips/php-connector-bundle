@@ -95,7 +95,7 @@ class FilterBuilder
      * @param string $key
      * @return FilterExpression
      */
-    public function isNull(string $key)
+    public function null(string $key)
     {
         return new Expression\NullExpression($key);
     }
@@ -104,7 +104,7 @@ class FilterBuilder
      * @param string $key
      * @return FilterExpression
      */
-    public function notIsNull(string $key)
+    public function notNull(string $key)
     {
         return new Expression\NotNullExpression($key);
     }
