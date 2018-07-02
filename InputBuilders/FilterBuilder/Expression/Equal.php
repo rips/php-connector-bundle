@@ -11,7 +11,6 @@ class Equal extends KeyValue implements FilterExpression
      */
     public function getFilterRepresentation()
     {
-        var_dump($this->value);
         return ["__equal" => [$this->key => $this->value]];
     }
 }
