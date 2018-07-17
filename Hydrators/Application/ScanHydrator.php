@@ -16,7 +16,7 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FrameworkHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
 
 class ScanHydrator
@@ -189,8 +189,8 @@ class ScanHydrator
             $hydrated->setComment($scan->comment);
         }
 
-        if (isset($scan->frameworks) && is_array($scan->frameworks)) {
-            $hydrated->setFrameworks(FrameworkHydrator::hydrateCollection($scan->frameworks));
+        if (isset($scan->libraries) && is_array($scan->libraries)) {
+            $hydrated->setLibraries(LibraryHydrator::hydrateCollection($scan->libraries));
         }
 
         return $hydrated;

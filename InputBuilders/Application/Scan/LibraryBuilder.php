@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class FrameworkBuilder extends BaseBuilder
+class LibraryBuilder extends BaseBuilder
 {
     /**
      * @var string
