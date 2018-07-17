@@ -8,11 +8,11 @@ This library provides easy access to RIPS and all of its features.
 
 Use composer to include the package:
 
-    composer require rips/connector-bundle:~2.15
+    composer require rips/connector-bundle:~2.16
 
 OR add the following to composer.json and run `composer update`
 
-    "rips/connector-bundle": "~2.15"
+    "rips/connector-bundle": "~2.16"
 
 Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
 
