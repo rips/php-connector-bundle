@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-class FrameworkEntity
+class LibraryEntity
 {
     /**
      * @var int

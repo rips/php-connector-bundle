@@ -190,9 +190,9 @@ class ScanEntity
     protected $comment;
 
     /**
-     * @var Scan\FrameworkEntity[]
+     * @var Scan\LibraryEntity[]
      */
-    protected $frameworks;
+    protected $libraries;
 
     /**
      * Set id
@@ -1014,25 +1014,25 @@ class ScanEntity
     }
 
     /**
-     * Set frameworks
+     * Set libraries
      *
-     * @param Scan\FrameworkEntity[] $frameworks
+     * @param Scan\LibraryEntity[] $libraries
      * @return $this
      */
-    public function setFrameworks(array $frameworks)
+    public function setLibraries(array $libraries)
     {
-        $this->frameworks = $frameworks;
+        $this->libraries = $libraries;
 
         return $this;
     }
 
     /**
-     * Get frameworks
+     * Get libraries
      *
-     * @return Scan\FrameworkEntity[]
+     * @return Scan\LibraryEntity[]
      */
-    public function getFrameworks()
+    public function getLibraries()
     {
-        return $this->frameworks;
+        return $this->libraries;
     }
 }
