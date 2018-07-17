@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a35095280644a14ebea8408afe23bfd",
+    "content-hash": "8a7babdd4ede5d3bbcff95ef612d6282",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -242,7 +242,7 @@
             "version": "dev-dev",
             "source": {
                 "type": "git",
-                "url": "ssh://git@source.internal.ripstech.com:7999/rac/php-connector.git",
+                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
                 "reference": "699c71309bda9c4b007e78b18a424cfd077053a5"
             },
             "require": {

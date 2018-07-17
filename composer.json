@@ -15,7 +15,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "ssh://git@source.internal.ripstech.com:7999/rac/php-connector.git"
+            "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git"
         }
     ]
 }
