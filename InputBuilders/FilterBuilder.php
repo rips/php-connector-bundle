@@ -148,4 +148,15 @@ class FilterBuilder
     {
         return new Expression\LessThanEqual($key, $value);
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getFilterString();
+    }
+
+
+
 }
