@@ -2,12 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\FrameworkEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FrameworkHydrator;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\FrameworkBuilder;
+use RIPS\ConnectorBundle\Entities\Application\Scan\LibraryEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\LibraryBuilder;
 use RIPS\ConnectorBundle\Services\APIService;
 
-class FrameworkService
+class LibraryService
 {
     /**
      * @var APIService
@@ -25,87 +25,87 @@ class FrameworkService
     }
 
     /**
-     * Get all frameworks for a scan
+     * Get all libraries for a scan
      *
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return FrameworkEntity[]
+     * @return LibraryEntity[]
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $frameworks = $this->api
+        $libraries = $this->api
             ->applications()
             ->scans()
-            ->frameworks()
+            ->libraries()
             ->getAll($appId, $scanId, $queryParams);
 
-        return FrameworkHydrator::hydrateCollection($frameworks);
+        return LibraryHydrator::hydrateCollection($libraries);
     }
 
     /**
-     * Get framework for scan by id
+     * Get library for scan by id
      *
      * @param int $appId
      * @param int $scanId
-     * @param int $frameworkId
+     * @param int $libraryId
      * @param array $queryParams
-     * @return FrameworkEntity
+     * @return LibraryEntity
      */
-    public function getById($appId, $scanId, $frameworkId, array $queryParams = [])
+    public function getById($appId, $scanId, $libraryId, array $queryParams = [])
     {
-        $framework = $this->api
+        $library = $this->api
             ->applications()
             ->scans()
-            ->frameworks()
-            ->getById($appId, $scanId, $frameworkId, $queryParams);
+            ->libraries()
+            ->getById($appId, $scanId, $libraryId, $queryParams);
 
-        return FrameworkHydrator::hydrate($framework);
+        return LibraryHydrator::hydrate($library);
     }
 
     /**
-     * Create a framework for a scan
+     * Create a library for a scan
      *
      * @param int $appId
      * @param int $scanId
-     * @param FrameworkBuilder $input
+     * @param LibraryBuilder $input
      * @param array $queryParams
-     * @return FrameworkEntity
+     * @return LibraryEntity
      */
     public function create($appId, $scanId, $input, array $queryParams = [])
     {
-        $framework = $this->api
+        $library = $this->api
             ->applications()
             ->scans()
-            ->frameworks()
+            ->libraries()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return FrameworkHydrator::hydrate($framework);
+        return LibraryHydrator::hydrate($library);
     }
 
     /**
-     * Update a framework for a service
+     * Update a library for a service
      *
      * @param int $appId
      * @param int $scanId
-     * @param int $frameworkId
-     * @param FrameworkBuilder $input
+     * @param int $libraryId
+     * @param LibraryBuilder $input
      * @param array $queryParams
-     * @return FrameworkEntity
+     * @return LibraryEntity
      */
-    public function update($appId, $scanId, $frameworkId, $input, array $queryParams = [])
+    public function update($appId, $scanId, $libraryId, $input, array $queryParams = [])
     {
-        $framework = $this->api
+        $library = $this->api
             ->applications()
             ->scans()
-            ->frameworks()
-            ->update($appId, $scanId, $frameworkId, $input->toArray(), $queryParams);
+            ->libraries()
+            ->update($appId, $scanId, $libraryId, $input->toArray(), $queryParams);
 
-        return FrameworkHydrator::hydrate($framework);
+        return LibraryHydrator::hydrate($library);
     }
 
     /**
-     * Delete all frameworks
+     * Delete all libraries
      *
      * @param int $appId
      * @param int $scanId
@@ -117,25 +117,25 @@ class FrameworkService
         $this->api
             ->applications()
             ->scans()
-            ->frameworks()
+            ->libraries()
             ->deleteAll($appId, $scanId, $queryParams);
     }
 
     /**
-     * Delete a framework by id
+     * Delete a library by id
      *
      * @param int $appId
      * @param int $scanId
-     * @param int $frameworkId
+     * @param int $libraryId
      * @param array $queryParams
      * @return void
      */
-    public function deleteById($appId, $scanId, $frameworkId, array $queryParams = [])
+    public function deleteById($appId, $scanId, $libraryId, array $queryParams = [])
     {
         $this->api
             ->applications()
             ->scans()
-            ->frameworks()
-            ->deleteById($appId, $scanId, $frameworkId, $queryParams);
+            ->libraries()
+            ->deleteById($appId, $scanId, $libraryId, $queryParams);
     }
 }

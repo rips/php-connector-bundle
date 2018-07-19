@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0cc61976ef2199fe025d8ab2e0dfbc2",
+    "content-hash": "8a7babdd4ede5d3bbcff95ef612d6282",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -239,17 +239,11 @@
         },
         {
             "name": "rips/connector",
-            "version": "2.15.2",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/rips/php-connector.git",
-                "reference": "3bf2d34532aea83e838bef978e42035289f1a1c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rips/php-connector/zipball/3bf2d34532aea83e838bef978e42035289f1a1c6",
-                "reference": "3bf2d34532aea83e838bef978e42035289f1a1c6",
-                "shasum": ""
+                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
+                "reference": "699c71309bda9c4b007e78b18a424cfd077053a5"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0"
@@ -265,18 +259,27 @@
                     "RIPS\\Connector\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "test/TestCase.php"
+                ],
+                "psr-4": {
+                    "RIPS\\Test\\": "test"
+                }
+            },
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2018-06-01T14:28:39+00:00"
+            "time": "2018-07-17T13:02:02+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "rips/connector": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
