@@ -114,7 +114,7 @@ class FilterBuilder
      * @param mixed $value
      * @return FilterExpression
      */
-    public function graterThan(string $key, $value)
+    public function greaterThan(string $key, $value)
     {
         return new Expression\GreaterThan($key, $value);
     }
@@ -124,7 +124,7 @@ class FilterBuilder
      * @param mixed $value
      * @return FilterExpression
      */
-    public function graterThanEqual(string $key, $value)
+    public function greaterThanEqual(string $key, $value)
     {
         return new Expression\GreaterThanEqual($key, $value);
     }
