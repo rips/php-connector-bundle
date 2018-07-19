@@ -156,7 +156,4 @@ class FilterBuilder
     {
         return $this->getFilterString();
     }
-
-
-
 }
