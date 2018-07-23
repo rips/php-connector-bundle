@@ -14,7 +14,7 @@ OR add the following to composer.json and run `composer update`
 
     "rips/connector-bundle": "~2.16"
 
-The installation of the connector-bundle should automatically create an entry in the `bundles.php` file that looks like this:
+If used with Symfony, the installation of the connector bundle should automatically create an entry in the `bundles.php` file that looks like this:
 
     return [
         // ...
@@ -22,7 +22,7 @@ The installation of the connector-bundle should automatically create an entry in
         // ...
     ];
 
-If used with symfony, add the config settings in `app/config/rips_connector.yaml` (see [rips/connector readme](https://github.com/rips/php-connector#user-content-configoptions) for a list of config options)
+Additionally, you have to add config settings in `app/config/rips_connector.yaml` (see [rips/connector readme](https://github.com/rips/php-connector#user-content-configoptions) for a list of config options).
 
     rips_connector:
         base_uri: 'http://localhost:8080'
@@ -31,34 +31,41 @@ If used with symfony, add the config settings in `app/config/rips_connector.yaml
 
 # Usage
 The connector bundle can be used standalone or integrated in frameworks. 
-Examples for the standalone usage and the integration in symfony are shown below.
+Examples for the standalone usage and the integration in Symfony are shown below.
 
-A basic example for a console applications that get a list of all users would look like this:
+A basic example for a console application that gets a list of all users would look like this:
     
     <?php
     
     include 'vendor/autoload.php';
     
-    // Create a api service for connecting that gets passed to each other service
-    $apiService = new \RIPS\ConnectorBundle\Services\APIService(
+    use RIPS\ConnectorBundle\Services\APIService;
+    use RIPS\ConnectorBundle\Services\UserService;
+    
+    // Create an API service object that gets passed to all other services
+    $apiService = new APIService(
         'username',
         'password',
         [
-            "base_uri" => 'https://localhost:8080'
+            "base_uri" => 'http://localhost:8080'
         ]
     );
     
-    $userService = new \RIPS\ConnectorBundle\Services\UserService($apiService);
+    $userService = new UserService($apiService);
     
-    foreach ($userService->getAll() as $user) {
-        echo $user->username;
+    // Get all users
+    $users = $userService->getAll();
+    
+    foreach ($users as $user) {
+        echo $user->getUsername() . "\n";
         // ...
     }
 
 
-The bundle can be easily integrated in existing symfony applications. 
+The bundle can be easily integrated in existing Symfony applications. 
 
-    // ...
+    <?php
+    
     use RIPS\ConnectorBundle\Services\UserService;
     use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
     use RIPS\Connector\Exceptions\ClientException;
