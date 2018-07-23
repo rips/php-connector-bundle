@@ -1,0 +1,16 @@
+<?php
+
+namespace RIPS\ConnectorBundle\InputBuilders\FilterBuilder\Expression;
+
+use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
+
+class GreaterThan extends KeyValue implements FilterExpression
+{
+    /**
+     * @return array
+     */
+    public function getFilterRepresentation()
+    {
+        return ["__greaterThan" => [$this->key => $this->value]];
+    }
+}
