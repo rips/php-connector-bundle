@@ -22,7 +22,7 @@ The installation of the connector-bundle should automatically create an entry in
         // ...
     ];
 
-If used with symfony, add the config settings in `app/config/rips_connector.yaml` (see rips/connector readme for a list of config options)
+If used with symfony, add the config settings in `app/config/rips_connector.yaml` (see [rips/connector readme](https://github.com/rips/php-connector#user-content-configoptions) for a list of config options)
 
     rips_connector:
         base_uri: 'http://localhost:8080'
