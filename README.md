@@ -14,25 +14,49 @@ OR add the following to composer.json and run `composer update`
 
     "rips/connector-bundle": "~2.16"
 
-Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
+The installation of the connector-bundle should automatically create an entry in the `bundles.php` file that looks like this:
+
+    return [
+        // ...
+        RIPS\ConnectorBundle\RIPSConnectorBundle::class => ['all' => true],	
+        // ...
+    ];
+
+If used with symfony, add the config settings in `app/config/rips_connector.yaml` (see rips/connector readme for a list of config options)
 
     rips_connector:
         base_uri: 'http://localhost:8080'
         username: 'username'
         password: 'password'
 
-Declare the bundle in your `AppKernel.php` file
-
-    $bundles = [
-        // ...
-        new RIPS\ConnectorBundle\RIPSConnectorBundle(),	
-        // ...
-    ];
-
 # Usage
+The connector bundle can be used standalone or integrated in frameworks. 
+Examples for the standalone usage and the integration in symfony are shown below.
 
-This example demonstrates how to get a list of all users and how to add a new user:
+A basic example for a console applications that get a list of all users would look like this:
+    
+    <?php
+    
+    include 'vendor/autoload.php';
+    
+    // Create a api service for connecting that gets passed to each other service
+    $apiService = new \RIPS\ConnectorBundle\Services\APIService(
+        'username',
+        'password',
+        [
+            "base_uri" => 'https://localhost:8080'
+        ]
+    );
+    
+    $userService = new \RIPS\ConnectorBundle\Services\UserService($apiService);
+    
+    foreach ($userService->getAll() as $user) {
+        echo $user->username;
+        // ...
+    }
 
+
+The bundle can be easily integrated in existing symfony applications. 
 
     // ...
     use RIPS\ConnectorBundle\Services\UserService;
