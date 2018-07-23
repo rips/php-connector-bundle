@@ -14,27 +14,58 @@ OR add the following to composer.json and run `composer update`
 
     "rips/connector-bundle": "~2.16"
 
-Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
+If used with Symfony, the installation of the connector bundle should automatically create an entry in the `bundles.php` file that looks like this:
+
+    return [
+        // ...
+        RIPS\ConnectorBundle\RIPSConnectorBundle::class => ['all' => true],	
+        // ...
+    ];
+
+Additionally, you have to add config settings in `app/config/rips_connector.yaml` (see [rips/connector readme](https://github.com/rips/php-connector#user-content-configoptions) for a list of config options).
 
     rips_connector:
         base_uri: 'http://localhost:8080'
         username: 'username'
         password: 'password'
 
-Declare the bundle in your `AppKernel.php` file
-
-    $bundles = [
-        // ...
-        new RIPS\ConnectorBundle\RIPSConnectorBundle(),	
-        // ...
-    ];
-
 # Usage
+The connector bundle can be used standalone or integrated in frameworks. 
+Examples for the standalone usage and the integration in Symfony are shown below.
 
-This example demonstrates how to get a list of all users and how to add a new user:
+A basic example for a console application that gets a list of all users would look like this:
+    
+    <?php
+    
+    include 'vendor/autoload.php';
+    
+    use RIPS\ConnectorBundle\Services\APIService;
+    use RIPS\ConnectorBundle\Services\UserService;
+    
+    // Create an API service object that gets passed to all other services
+    $apiService = new APIService(
+        'username',
+        'password',
+        [
+            "base_uri" => 'http://localhost:8080'
+        ]
+    );
+    
+    $userService = new UserService($apiService);
+    
+    // Get all users
+    $users = $userService->getAll();
+    
+    foreach ($users as $user) {
+        echo $user->getUsername() . "\n";
+        // ...
+    }
 
 
-    // ...
+The bundle can be easily integrated in existing Symfony applications. 
+
+    <?php
+    
     use RIPS\ConnectorBundle\Services\UserService;
     use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
     use RIPS\Connector\Exceptions\ClientException;
