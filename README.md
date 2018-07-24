@@ -86,11 +86,7 @@ The bundle can be easily integrated in Symfony applications like this:
             try {
                 // Get all users
                 $users = $this->userService->getAll();
-                
-                foreach ($users as $user) {
-                    $output->writeln($user->getUsername());
-                }
-                
+
                 // Add a new user
                 $user = $this->userService->create(
                     new AddBuilder([
