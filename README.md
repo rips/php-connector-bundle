@@ -10,10 +10,11 @@ Use composer to include the package:
 
     composer require rips/connector-bundle:~2.16
 
-OR add the following to composer.json and run `composer update`
+OR add the following to composer.json and run `composer update`.
 
     "rips/connector-bundle": "~2.16"
 
+This library is intended for Symfony applications but it can also be used on its own.
 If used with Symfony, the installation of the connector bundle should automatically create an entry in the `bundles.php` file that looks like this:
 
     return [
@@ -23,6 +24,7 @@ If used with Symfony, the installation of the connector bundle should automatica
     ];
 
 Additionally, you have to add config settings in `app/config/rips_connector.yaml` (see [rips/connector readme](https://github.com/rips/php-connector#user-content-configoptions) for a list of config options).
+If you are not using Symfony you can specify the options through the constructor of `APIService`.
 
     rips_connector:
         base_uri: 'http://localhost:8080'
@@ -30,10 +32,8 @@ Additionally, you have to add config settings in `app/config/rips_connector.yaml
         password: 'password'
 
 # Usage
-The connector bundle can be used standalone or integrated in frameworks. 
-Examples for the standalone usage and the integration in Symfony are shown below.
 
-A basic example for a console application that gets a list of all users would look like this:
+A basic example for a console application that gets a list of all users without Symfony looks like this:
     
     <?php
     
@@ -58,14 +58,14 @@ A basic example for a console application that gets a list of all users would lo
     
     foreach ($users as $user) {
         echo $user->getUsername() . "\n";
-        // ...
     }
 
 
-The bundle can be easily integrated in existing Symfony applications. 
+The bundle can be easily integrated in Symfony applications like this:
 
     <?php
     
+    use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use RIPS\ConnectorBundle\Services\UserService;
     use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
     use RIPS\Connector\Exceptions\ClientException;
@@ -86,6 +86,10 @@ The bundle can be easily integrated in existing Symfony applications.
             try {
                 // Get all users
                 $users = $this->userService->getAll();
+                
+                foreach ($users as $user) {
+                    $output->writeln($user->getUsername());
+                }
                 
                 // Add a new user
                 $user = $this->userService->create(
@@ -111,7 +115,7 @@ This section contains an overview of the architecture used for this bundle.
 
 ### Services
 
-Services are the main wrapper around the RIPS-Connector library. The `RIPS\Connector\API` class is initialized in APIService, and all other services expect APIService to be injected (see services.yml).
+Services are the main wrapper around the RIPS-Connector library. The `RIPS\Connector\API` class is initialized in APIService, and all other services expect APIService to be injected (see `services.yml`).
 
 Each service class should have a corresponding `Requests` class in RIPS-Connector. An accessor method is added to the `APIService` class for every `Requests` class for easier access.
 
@@ -125,7 +129,7 @@ The entities are just custom classes with getters/setters for all properties. In
 
 ### Hydrators
 
-Hydrators in the connector-bundle are used to populate the custom `Entity` classes with data returned from the `RIPS-Connector` library. They expect `stdClass` objects (returned from `RIPS-Connector`) which are mapped into the entity classes.
+Hydrators in the connector-bundle are used to populate the custom `Entity` classes with data returned from the RIPS Connector library. They expect `stdClass` objects (returned from RIPS Connector) which are mapped into the entity classes.
 
 In some situations you will have nested objects (a `UserEntity` contains a nested `OrgEntity`) in which case it's best to reuse the `OrgHydrator` in the `UserHydrator` to populate the nested `OrgEntity` object.
 
