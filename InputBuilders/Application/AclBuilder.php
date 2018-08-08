@@ -39,11 +39,6 @@ class AclBuilder extends BaseBuilder
     /**
      * @var boolean
      */
-    protected $use;
-
-    /**
-     * @var boolean
-     */
     protected $manage;
     
     /**
@@ -129,21 +124,7 @@ class AclBuilder extends BaseBuilder
     
         return $this;
     }
-    
-    /**
-     * Set use
-     *
-     * @param boolean $use
-     * @return $this
-     */
-    public function setUse($use)
-    {
-        $this->setFields[] = 'user';
-        $this->use = $use;
-    
-        return $this;
-    }
-    
+
     /**
      * Set manage
      *

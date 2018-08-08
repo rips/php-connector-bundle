@@ -190,6 +190,11 @@ class ScanEntity
     protected $comment;
 
     /**
+     * @var Scan\LibraryEntity[]
+     */
+    protected $libraries;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -1006,5 +1011,28 @@ class ScanEntity
     public function setComment($comment)
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * Set libraries
+     *
+     * @param Scan\LibraryEntity[] $libraries
+     * @return $this
+     */
+    public function setLibraries(array $libraries)
+    {
+        $this->libraries = $libraries;
+
+        return $this;
+    }
+
+    /**
+     * Get libraries
+     *
+     * @return Scan\LibraryEntity[]
+     */
+    public function getLibraries()
+    {
+        return $this->libraries;
     }
 }

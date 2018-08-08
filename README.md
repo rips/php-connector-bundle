@@ -8,33 +8,64 @@ This library provides easy access to RIPS and all of its features.
 
 Use composer to include the package:
 
-    composer require rips/connector-bundle:~2.15
+    composer require rips/connector-bundle:~2.16
 
-OR add the following to composer.json and run `composer update`
+OR add the following to composer.json and run `composer update`.
 
-    "rips/connector-bundle": "~2.15"
+    "rips/connector-bundle": "~2.16"
 
-Add the config settings in `app/config/config.yml` (see rips/connector readme for a list of config options)
+This library is intended for Symfony applications but it can also be used on its own.
+If used with Symfony, the installation of the connector bundle should automatically create an entry in the `bundles.php` file that looks like this:
+
+    return [
+        // ...
+        RIPS\ConnectorBundle\RIPSConnectorBundle::class => ['all' => true],	
+        // ...
+    ];
+
+Additionally, you have to add config settings in `app/config/rips_connector.yaml` (see [rips/connector readme](https://github.com/rips/php-connector#user-content-configoptions) for a list of config options).
+If you are not using Symfony you can specify the options through the constructor of `APIService`.
 
     rips_connector:
         base_uri: 'http://localhost:8080'
         username: 'username'
         password: 'password'
 
-Declare the bundle in your `AppKernel.php` file
-
-    $bundles = [
-        // ...
-        new RIPS\ConnectorBundle\RIPSConnectorBundle(),	
-        // ...
-    ];
-
 # Usage
 
-This example demonstrates how to get a list of all users and how to add a new user:
+A basic example for a console application that gets a list of all users without Symfony looks like this:
+    
+    <?php
+    
+    include 'vendor/autoload.php';
+    
+    use RIPS\ConnectorBundle\Services\APIService;
+    use RIPS\ConnectorBundle\Services\UserService;
+    
+    // Create an API service object that gets passed to all other services
+    $apiService = new APIService(
+        'username',
+        'password',
+        [
+            "base_uri" => 'http://localhost:8080'
+        ]
+    );
+    
+    $userService = new UserService($apiService);
+    
+    // Get all users
+    $users = $userService->getAll();
+    
+    foreach ($users as $user) {
+        echo $user->getUsername() . "\n";
+    }
 
 
-    // ...
+The bundle can be easily integrated in Symfony applications like this:
+
+    <?php
+    
+    use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use RIPS\ConnectorBundle\Services\UserService;
     use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
     use RIPS\Connector\Exceptions\ClientException;
@@ -55,7 +86,7 @@ This example demonstrates how to get a list of all users and how to add a new us
             try {
                 // Get all users
                 $users = $this->userService->getAll();
-                
+
                 // Add a new user
                 $user = $this->userService->create(
                     new AddBuilder([
@@ -80,7 +111,7 @@ This section contains an overview of the architecture used for this bundle.
 
 ### Services
 
-Services are the main wrapper around the RIPS-Connector library. The `RIPS\Connector\API` class is initialized in APIService, and all other services expect APIService to be injected (see services.yml).
+Services are the main wrapper around the RIPS-Connector library. The `RIPS\Connector\API` class is initialized in APIService, and all other services expect APIService to be injected (see `services.yml`).
 
 Each service class should have a corresponding `Requests` class in RIPS-Connector. An accessor method is added to the `APIService` class for every `Requests` class for easier access.
 
@@ -94,7 +125,7 @@ The entities are just custom classes with getters/setters for all properties. In
 
 ### Hydrators
 
-Hydrators in the connector-bundle are used to populate the custom `Entity` classes with data returned from the `RIPS-Connector` library. They expect `stdClass` objects (returned from `RIPS-Connector`) which are mapped into the entity classes.
+Hydrators in the connector-bundle are used to populate the custom `Entity` classes with data returned from the RIPS Connector library. They expect `stdClass` objects (returned from RIPS Connector) which are mapped into the entity classes.
 
 In some situations you will have nested objects (a `UserEntity` contains a nested `OrgEntity`) in which case it's best to reuse the `OrgHydrator` in the `UserHydrator` to populate the nested `OrgEntity` object.
 
