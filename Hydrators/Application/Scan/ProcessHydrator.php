@@ -49,12 +49,20 @@ class ProcessHydrator
             $hydrated->setVersion($process->version);
         }
 
+        if (isset($process->name)) {
+            $hydrated->setName($process->name);
+        }
+
         if (isset($process->start)) {
             $hydrated->setStart(new DateTime($process->start));
         }
 
         if (isset($process->finish)) {
             $hydrated->setFinish(new DateTime($process->finish));
+        }
+
+        if (isset($process->finished)) {
+            $hydrated->setFinished($process->finished);
         }
 
         if (isset($process->scan)) {

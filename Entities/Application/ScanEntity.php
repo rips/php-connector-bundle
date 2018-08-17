@@ -80,9 +80,9 @@ class ScanEntity
     protected $sourceType;
 
     /**
-     * @var Scan\ProcessEntity
+     * @var Scan\ProcessEntity[]
      */
-    protected $process;
+    protected $processes;
 
     /**
      * @var Scan\PhpEntity
@@ -517,26 +517,42 @@ class ScanEntity
     }
 
     /**
-     * Set process
+     * Set processes
      *
-     * @param Scan\ProcessEntity $process
+     * @param Scan\ProcessEntity[] $processes
      * @return $this
      */
-    public function setProcess($process)
+    public function setProcesses($processes)
     {
-        $this->process = $process;
+        $this->processes = $processes;
 
         return $this;
     }
 
     /**
-     * Get process
+     * Get processes
      *
-     * @return Scan\ProcessEntity
+     * @return Scan\ProcessEntity[]
+     */
+    public function getProcesses()
+    {
+        return $this->processes;
+    }
+
+    /**
+     * Get process of php-engine
+     *
+     * @return Scan\ProcessEntity|null
      */
     public function getProcess()
     {
-        return $this->process;
+        foreach ($this->processes as $process) {
+            if ($process->getName() === 'php-engine') {
+                return $process;
+            }
+        }
+
+        return null;
     }
 
     /**

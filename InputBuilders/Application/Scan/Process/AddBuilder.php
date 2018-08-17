@@ -15,7 +15,12 @@ class AddBuilder extends BaseBuilder
      * @var string
      */
     protected $version;
-    
+
+    /**
+     * @var string
+     */
+    protected $name;
+
     /**
      * Set pid
      *
@@ -41,6 +46,20 @@ class AddBuilder extends BaseBuilder
         $this->setFields[] = 'version';
         $this->version = $version;
     
+        return $this;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->setFields[] = 'name';
+        $this->name = $name;
+
         return $this;
     }
 }
