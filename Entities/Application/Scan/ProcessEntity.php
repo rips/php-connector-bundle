@@ -23,6 +23,11 @@ class ProcessEntity
     protected $version;
 
     /**
+     * @var string
+     */
+    protected $name;
+
+    /**
      * @var DateTime
      */
     protected $start;
@@ -31,6 +36,11 @@ class ProcessEntity
      * @var DateTime
      */
     protected $finish;
+
+    /**
+     * @var boolean
+     */
+    protected $finished;
 
     /**
      * @var ScanEntity
@@ -101,6 +111,27 @@ class ProcessEntity
     }
 
     /**
+     * Set name
+     *
+     * @param  string $name
+     * @return void
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set start
      *
      * @param DateTime $start
@@ -140,6 +171,29 @@ class ProcessEntity
     public function getFinish()
     {
         return $this->finish;
+    }
+
+    /**
+     * Set finished
+     *
+     * @param boolean $finished
+     * @return $this
+     */
+    public function setFinished($finished)
+    {
+        $this->finished = $finished;
+
+        return $this;
+    }
+
+    /**
+     * Get finished
+     *
+     * @return boolean
+     */
+    public function getFinished()
+    {
+        return $this->finished;
     }
 
     /**

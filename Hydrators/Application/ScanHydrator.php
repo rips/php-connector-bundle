@@ -18,6 +18,7 @@ use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
 
 class ScanHydrator
 {
@@ -191,6 +192,10 @@ class ScanHydrator
 
         if (isset($scan->libraries) && is_array($scan->libraries)) {
             $hydrated->setLibraries(LibraryHydrator::hydrateCollection($scan->libraries));
+        }
+
+        if (isset($scan->processes) && is_array($scan->processes)) {
+            $hydrated->setProcesses(ProcessHydrator::hydrateCollection($scan->processes));
         }
 
         return $hydrated;
