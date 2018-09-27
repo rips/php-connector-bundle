@@ -214,3 +214,8 @@ services:
         class: RIPS\ConnectorBundle\Services\UserService
         arguments:
             - '@rips_connector.api'
+
+    rips_connector.languages:
+        class: RIPS\ConnectorBundle\Services\LanguageService
+        arguments:
+            - '@rips_connector.api'
