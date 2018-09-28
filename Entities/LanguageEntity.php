@@ -102,10 +102,13 @@ class LanguageEntity
      * Set config file extensions
      *
      * @param array $configFileExtensions
+     * @return $this
      */
     public function setConfigFileExtensions(array $configFileExtensions)
     {
         $this->configFileExtensions = $configFileExtensions;
+
+        return $this;
     }
 
     /**
@@ -120,16 +123,19 @@ class LanguageEntity
 
     /**
      * @param array $archiveExtensions
+     * @return $this
      */
-    public function setArchiveExtensions(array $archiveExtensions): void
+    public function setArchiveExtensions(array $archiveExtensions)
     {
         $this->archiveExtensions = $archiveExtensions;
+
+        return $this;
     }
 
     /**
      * @return array
      */
-    public function getArchiveExtensions(): array
+    public function getArchiveExtensions()
     {
         return $this->archiveExtensions;
     }
