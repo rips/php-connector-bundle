@@ -25,6 +25,11 @@ class LanguageEntity
     protected $configFileExtensions;
 
     /**
+     * @var array
+     */
+    protected $archiveExtensions;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -111,5 +116,21 @@ class LanguageEntity
     public function getConfigFileExtensions()
     {
         return $this->configFileExtensions;
+    }
+
+    /**
+     * @param array $archiveExtensions
+     */
+    public function setArchiveExtensions(array $archiveExtensions): void
+    {
+        $this->archiveExtensions = $archiveExtensions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getArchiveExtensions(): array
+    {
+        return $this->archiveExtensions;
     }
 }

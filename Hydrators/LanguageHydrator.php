@@ -51,6 +51,10 @@ class LanguageHydrator
             $hydrated->setConfigFileExtensions($language->config_file_extensions);
         }
 
+        if (isset($language->archive_extensions)) {
+            $hydrated->setArchiveExtensions($language->archive_extensions);
+        }
+
         return $hydrated;
     }
 }
