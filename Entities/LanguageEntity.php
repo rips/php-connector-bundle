@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
+
 class LanguageEntity
 {
     /**
@@ -28,6 +30,11 @@ class LanguageEntity
      * @var array
      */
     protected $archiveExtensions;
+
+    /**
+     * @var TypeEntity[]
+     */
+    protected $issueTypes;
 
     /**
      * Set id
@@ -122,6 +129,8 @@ class LanguageEntity
     }
 
     /**
+     * Set archive extensions
+     *
      * @param array $archiveExtensions
      * @return $this
      */
@@ -133,10 +142,32 @@ class LanguageEntity
     }
 
     /**
+     * Get archive extensions
+     *
      * @return array
      */
     public function getArchiveExtensions()
     {
         return $this->archiveExtensions;
+    }
+
+    /**
+     * Get issue types
+     *
+     * @return TypeEntity[]
+     */
+    public function getIssueTypes()
+    {
+        return $this->issueTypes;
+    }
+
+    /**
+     * Set issue types
+     *
+     * @param TypeEntity[] $issueTypes
+     */
+    public function setIssueTypes(array $issueTypes)
+    {
+        $this->issueTypes = $issueTypes;
     }
 }

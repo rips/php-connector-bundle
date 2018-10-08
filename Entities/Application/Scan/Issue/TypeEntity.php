@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type\ResourceEntity;
+use RIPS\ConnectorBundle\Entities\LanguageEntity;
 
 class TypeEntity
 {
@@ -105,6 +106,11 @@ class TypeEntity
      * @var bool
      */
     protected $inactive;
+
+    /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
 
     /**
      * Set id
@@ -527,5 +533,21 @@ class TypeEntity
     public function isInactive()
     {
         return $this->inactive;
+    }
+
+    /**
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * @param LanguageEntity[] $languages
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
     }
 }

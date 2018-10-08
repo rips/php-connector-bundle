@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Hydrators;
 
 use RIPS\ConnectorBundle\Entities\LanguageEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 use stdClass;
 
 class LanguageHydrator
@@ -53,6 +54,10 @@ class LanguageHydrator
 
         if (isset($language->archive_extensions)) {
             $hydrated->setArchiveExtensions($language->archive_extensions);
+        }
+
+        if (isset($language->issueTypes) && is_array($language->issueTypes)) {
+            $hydrated->setIssueTypes(TypeHydrator::hydrateCollection($language->issueTypes));
         }
 
         return $hydrated;

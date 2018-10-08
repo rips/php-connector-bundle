@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Type\ResourceHydrator;
@@ -110,6 +111,10 @@ class TypeHydrator
 
         if (isset($type->inactive)) {
             $hydrated->setInactive($type->inactive);
+        }
+
+        if (isset($type->languages) && is_array($type->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($type->languages));
         }
 
         return $hydrated;
