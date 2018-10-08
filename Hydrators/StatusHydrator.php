@@ -59,10 +59,6 @@ class StatusHydrator
             $hydrated->setTrialIssueTypes($status->trial_issue_types);
         }
 
-        if (isset($status->file_extensions) && is_array($status->file_extensions)) {
-            $hydrated->setFileExtensions($status->file_extensions);
-        }
-
         return $hydrated;
     }
 }

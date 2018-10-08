@@ -159,6 +159,14 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\LanguageRequests
+     */
+    public function languages()
+    {
+        return $this->api->languages;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusEntity
