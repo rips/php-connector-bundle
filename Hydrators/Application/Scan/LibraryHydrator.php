@@ -47,6 +47,14 @@ class LibraryHydrator
             $hydrated->setVersion($library->version);
         }
 
+        if (isset($library->implementation)) {
+            $hydrated->setImplementation($library->implementation);
+        }
+
+        if (isset($library->group)) {
+            $hydrated->setGroup($library->group);
+        }
+
         return $hydrated;
     }
 }
