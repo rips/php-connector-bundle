@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Custom\SanitiserEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 
 class SanitiserHydrator
 {
@@ -58,6 +59,10 @@ class SanitiserHydrator
 
         if (isset($sanitiser->custom)) {
             $hydrated->setCustom(CustomHydrator::hydrate($sanitiser->custom));
+        }
+
+        if (isset($sanitiser->issueType)) {
+            $hydrated->setIssueType(TypeHydrator::hydrate($sanitiser->issueType));
         }
 
         return $hydrated;

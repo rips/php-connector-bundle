@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Custom;
 
 use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class SanitiserEntity
 {
@@ -35,6 +36,11 @@ class SanitiserEntity
      * @var CustomEntity
      */
     protected $custom;
+
+    /**
+     * @var TypeEntity
+     */
+    protected $issueType;
     
     /**
      * Get id
@@ -172,5 +178,25 @@ class SanitiserEntity
         $this->custom = $custom;
     
         return $this;
+    }
+
+    /**
+     * Get issue type
+     *
+     * @return TypeEntity
+     */
+    public function getIssueType()
+    {
+        return $this->issueType;
+    }
+
+    /**
+     * Set issue type
+     *
+     * @param TypeEntity $issueType
+     */
+    public function setIssueType(TypeEntity $issueType)
+    {
+        $this->issueType = $issueType;
     }
 }
