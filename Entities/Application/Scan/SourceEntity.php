@@ -52,6 +52,16 @@ class SourceEntity
     protected $issues;
 
     /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -238,5 +248,51 @@ class SourceEntity
     public function getIssues()
     {
         return $this->issues;
+    }
+
+    /**
+     * Get start column
+     *
+     * @return int
+     */
+    public function getStartColumn()
+    {
+        return $this->startColumn;
+    }
+
+    /**
+     * Set start column
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn(int $startColumn)
+    {
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get end column
+     *
+     * @return int
+     */
+    public function getEndColumn()
+    {
+        return $this->endColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
     }
 }

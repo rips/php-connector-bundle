@@ -68,6 +68,14 @@ class SinkHydrator
             $hydrated->setIssues(IssueHydrator::hydrateCollection($sink->issues));
         }
 
+        if (isset($sink->startColumn)) {
+            $hydrated->setStartColumn($sink->startColumn);
+        }
+
+        if (isset($sink->endColumn)) {
+            $hydrated->setEndColumn($sink->endColumn);
+        }
+
         return $hydrated;
     }
 }

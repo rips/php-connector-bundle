@@ -72,6 +72,14 @@ class SourceHydrator
             $hydrated->setIssues(IssueHydrator::hydrateCollection($source->issues));
         }
 
+        if (isset($source->startColumn)) {
+            $hydrated->setStartColumn($source->startColumn);
+        }
+
+        if (isset($source->endColumn)) {
+            $hydrated->setEndColumn($source->endColumn);
+        }
+
         return $hydrated;
     }
 }
