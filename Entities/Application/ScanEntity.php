@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ComparisonEntity;
 use RIPS\ConnectorBundle\Entities\LanguageEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
@@ -89,6 +90,11 @@ class ScanEntity
      * @var Scan\PhpEntity
      */
     protected $php;
+
+    /**
+     * @var Scan\JavaEntity
+     */
+    protected $java;
 
     /**
      * @var Scan\SourceEntity[]
@@ -199,6 +205,11 @@ class ScanEntity
      * @var LanguageEntity[]
      */
     protected $languages;
+
+    /**
+     * @var ComparisonEntity
+     */
+    protected $comparison;
 
     /**
      * Set id
@@ -582,6 +593,29 @@ class ScanEntity
     public function getPhp()
     {
         return $this->php;
+    }
+
+    /**
+     * Set java object
+     *
+     * @param Scan\JavaEntity $java
+     * @return $this
+     */
+    public function setJava(Scan\JavaEntity $java)
+    {
+        $this->java = $java;
+
+        return $this;
+    }
+
+    /**
+     * Get java object
+     *
+     * @return Scan\JavaEntity
+     */
+    public function getJava()
+    {
+        return $this->java;
     }
 
     /**
@@ -1077,6 +1111,29 @@ class ScanEntity
     public function setLanguages(array $languages)
     {
         $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get scan comparison
+     *
+     * @return ComparisonEntity
+     */
+    public function getComparison()
+    {
+        return $this->comparison;
+    }
+
+    /**
+     * Set scan comparison
+     *
+     * @param ComparisonEntity $comparison
+     * @return $this
+     */
+    public function setComparison(ComparisonEntity $comparison)
+    {
+        $this->comparison = $comparison;
 
         return $this;
     }
