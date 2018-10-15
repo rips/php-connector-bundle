@@ -57,6 +57,11 @@ class CustomClassEntity
     protected $concats;
 
     /**
+     * @var string
+     */
+    protected $package;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -284,5 +289,28 @@ class CustomClassEntity
     public function getConcats()
     {
         return $this->concats;
+    }
+
+    /**
+     * Get package
+     *
+     * @return string
+     */
+    public function getPackage()
+    {
+        return $this->package;
+    }
+
+    /**
+     * Set package
+     *
+     * @param string $package
+     * @return $this
+     */
+    public function setPackage(string $package)
+    {
+        $this->package = $package;
+
+        return $this;
     }
 }
