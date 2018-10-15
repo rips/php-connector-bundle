@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Hydrators;
 use RIPS\ConnectorBundle\Entities\LanguageEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Type\ResourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use stdClass;
 
 class LanguageHydrator
@@ -63,6 +64,10 @@ class LanguageHydrator
 
         if (isset($language->ressources) && is_array($language->ressources)) {
             $hydrated->setResources(ResourceHydrator::hydrateCollection($language->ressources));
+        }
+
+        if (isset($language->scans) && is_array($language->scans)) {
+            $hydrated->setScans(ScanHydrator::hydrateCollection($language->scans));
         }
 
         return $hydrated;

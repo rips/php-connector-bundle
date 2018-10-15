@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
@@ -196,6 +197,10 @@ class ScanHydrator
 
         if (isset($scan->processes) && is_array($scan->processes)) {
             $hydrated->setProcesses(ProcessHydrator::hydrateCollection($scan->processes));
+        }
+
+        if (isset($scan->languages) && is_array($scan->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($scan->languages));
         }
 
         return $hydrated;

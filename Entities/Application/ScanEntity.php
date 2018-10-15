@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\LanguageEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
@@ -193,6 +194,11 @@ class ScanEntity
      * @var Scan\LibraryEntity[]
      */
     protected $libraries;
+
+    /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
 
     /**
      * Set id
@@ -1050,5 +1056,28 @@ class ScanEntity
     public function getLibraries()
     {
         return $this->libraries;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param LanguageEntity[] $languages
+     * @return $this
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
     }
 }
