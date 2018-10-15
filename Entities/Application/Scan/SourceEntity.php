@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Source\TypeEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class SourceEntity
@@ -60,6 +61,11 @@ class SourceEntity
      * @var int
      */
     protected $endColumn;
+
+    /**
+     * @var TypeEntity
+     */
+    protected $type;
 
     /**
      * Set id
@@ -292,6 +298,29 @@ class SourceEntity
     public function setEndColumn(int $endColumn)
     {
         $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return TypeEntity
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set type
+     *
+     * @param TypeEntity $type
+     * @return $this
+     */
+    public function setType(TypeEntity $type)
+    {
+        $this->type = $type;
 
         return $this;
     }
