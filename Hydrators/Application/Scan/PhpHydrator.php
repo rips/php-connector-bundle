@@ -28,7 +28,7 @@ class PhpHydrator
     }
 
     /**
-     * Hydrate a user object into a UserEntity object
+     * Hydrate a php object into a PhpEntity object
      *
      * @param \stdClass $php
      * @return PhpEntity
