@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\LanguageEntity;
 
 class ResourceEntity
 {
@@ -30,6 +31,11 @@ class ResourceEntity
      * @var DateTime
      */
     protected $publishedAt;
+
+    /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
 
     /**
      * Set id
@@ -145,4 +151,28 @@ class ResourceEntity
     {
         return $this->publishedAt;
     }
+
+    /**
+     * Get languages
+     *
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param LanguageEntity[] $languages
+     * @return ResourceEntity
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
 }

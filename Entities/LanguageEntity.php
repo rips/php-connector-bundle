@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type\ResourceEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class LanguageEntity
@@ -35,6 +36,11 @@ class LanguageEntity
      * @var TypeEntity[]
      */
     protected $issueTypes;
+
+    /**
+     * @var ResourceEntity[]
+     */
+    protected $resources;
 
     /**
      * Set id
@@ -169,5 +175,25 @@ class LanguageEntity
     public function setIssueTypes(array $issueTypes)
     {
         $this->issueTypes = $issueTypes;
+    }
+
+    /**
+     * Get resources
+     *
+     * @return ResourceEntity[]
+     */
+    public function getResources()
+    {
+        return $this->resources;
+    }
+
+    /**
+     * Set resources
+     *
+     * @param ResourceEntity[] $resources
+     */
+    public function setResources(array $resources)
+    {
+        $this->resources = $resources;
     }
 }
