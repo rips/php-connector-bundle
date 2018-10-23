@@ -174,5 +174,4 @@ class ResourceEntity
 
         return $this;
     }
-
 }
