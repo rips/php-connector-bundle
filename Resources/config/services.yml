@@ -145,6 +145,16 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.application.scan.source.types:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Source\TypeService
+        arguments:
+            - '@rips_connector.api'
+
+    rips_connector.application.scan.sink.types:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Sink\TypeService
+        arguments:
+            - '@rips_connector.api'
+
     rips_connector.application.scan.processes:
         class: RIPS\ConnectorBundle\Services\Application\Scan\ProcessService
         arguments:

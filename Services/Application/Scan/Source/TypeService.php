@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue\Source;
+namespace RIPS\ConnectorBundle\Services\Application\Scan\Source;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Source\TypeEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Source\TypeHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Source\TypeEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Source\TypeHydrator;
 
 class TypeService
 {
@@ -34,7 +34,6 @@ class TypeService
         $types = $this->api
             ->applications()
             ->scans()
-            ->issues()
             ->sources()
             ->types()
             ->getAll($queryParams);
@@ -54,7 +53,6 @@ class TypeService
         $type = $this->api
             ->applications()
             ->scans()
-            ->issues()
             ->sources()
             ->types()
             ->getById($typeId, $queryParams);

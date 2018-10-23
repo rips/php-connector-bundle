@@ -1,9 +1,9 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Sink;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Source;
 
 use stdClass;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Sink\TypeEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Source\TypeEntity;
 
 class TypeHydrator
 {

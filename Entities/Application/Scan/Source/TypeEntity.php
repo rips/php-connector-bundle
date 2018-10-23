@@ -1,6 +1,6 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Source;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Source;
 
 class TypeEntity
 {
