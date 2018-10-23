@@ -210,7 +210,7 @@ class ScanHydrator
         }
 
         if (isset($scan->comparison)) {
-            $hydrated->setComment(ComparisonHydrator::hydrate($scan->comparison));
+            $hydrated->setComparison(ComparisonHydrator::hydrate($scan->comparison));
         }
         return $hydrated;
     }

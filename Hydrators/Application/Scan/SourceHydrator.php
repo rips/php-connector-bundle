@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Source\TypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Source\TypeHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
