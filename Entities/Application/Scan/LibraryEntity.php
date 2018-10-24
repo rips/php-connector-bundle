@@ -93,16 +93,6 @@ class LibraryEntity
     }
 
     /**
-     * Get implementation
-     *
-     * @return string
-     */
-    public function getImplementation()
-    {
-        return $this->implementation;
-    }
-
-    /**
      * Set implementation
      *
      * @param string $implementation
@@ -113,13 +103,13 @@ class LibraryEntity
     }
 
     /**
-     * Get group
+     * Get implementation
      *
      * @return string
      */
-    public function getGroup()
+    public function getImplementation()
     {
-        return $this->group;
+        return $this->implementation;
     }
 
     /**
@@ -130,5 +120,15 @@ class LibraryEntity
     public function setGroup(string $group)
     {
         $this->group = $group;
+    }
+
+    /**
+     * Get group
+     *
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

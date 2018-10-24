@@ -1010,16 +1010,6 @@ class ScanEntity
     }
 
     /**
-     * Get tags
-     *
-     * @return array
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
      * Set tags
      *
      * @param array $tags
@@ -1030,13 +1020,13 @@ class ScanEntity
     }
 
     /**
-     * Get maxIssuesPerType
+     * Get tags
      *
-     * @return int
+     * @return array
      */
-    public function getMaxIssuesPerType()
+    public function getTags()
     {
-        return $this->maxIssuesPerType;
+        return $this->tags;
     }
 
     /**
@@ -1050,13 +1040,13 @@ class ScanEntity
     }
 
     /**
-     * Get comment
+     * Get maxIssuesPerType
      *
-     * @return string
+     * @return int
      */
-    public function getComment()
+    public function getMaxIssuesPerType()
     {
-        return $this->comment;
+        return $this->maxIssuesPerType;
     }
 
     /**
@@ -1067,6 +1057,16 @@ class ScanEntity
     public function setComment($comment)
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 
     /**
@@ -1093,16 +1093,6 @@ class ScanEntity
     }
 
     /**
-     * Get languages
-     *
-     * @return LanguageEntity[]
-     */
-    public function getLanguages()
-    {
-        return $this->languages;
-    }
-
-    /**
      * Set languages
      *
      * @param LanguageEntity[] $languages
@@ -1116,13 +1106,13 @@ class ScanEntity
     }
 
     /**
-     * Get scan comparison
+     * Get languages
      *
-     * @return ComparisonEntity
+     * @return LanguageEntity[]
      */
-    public function getComparison()
+    public function getLanguages()
     {
-        return $this->comparison;
+        return $this->languages;
     }
 
     /**
@@ -1136,5 +1126,15 @@ class ScanEntity
         $this->comparison = $comparison;
 
         return $this;
+    }
+
+    /**
+     * Get scan comparison
+     *
+     * @return ComparisonEntity
+     */
+    public function getComparison()
+    {
+        return $this->comparison;
     }
 }

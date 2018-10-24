@@ -164,16 +164,6 @@ class LanguageEntity
     }
 
     /**
-     * Get issue types
-     *
-     * @return TypeEntity[]
-     */
-    public function getIssueTypes()
-    {
-        return $this->issueTypes;
-    }
-
-    /**
      * Set issue types
      *
      * @param TypeEntity[] $issueTypes
@@ -187,13 +177,13 @@ class LanguageEntity
     }
 
     /**
-     * Get resources
+     * Get issue types
      *
-     * @return ResourceEntity[]
+     * @return TypeEntity[]
      */
-    public function getResources()
+    public function getIssueTypes()
     {
-        return $this->resources;
+        return $this->issueTypes;
     }
 
     /**
@@ -207,13 +197,13 @@ class LanguageEntity
     }
 
     /**
-     * Get scans
+     * Get resources
      *
-     * @return ScanEntity[]
+     * @return ResourceEntity[]
      */
-    public function getScans(): array
+    public function getResources()
     {
-        return $this->scans;
+        return $this->resources;
     }
 
     /**
@@ -227,5 +217,15 @@ class LanguageEntity
         $this->scans = $scans;
 
         return $this;
+    }
+
+    /**
+     * Get scans
+     *
+     * @return ScanEntity[]
+     */
+    public function getScans(): array
+    {
+        return $this->scans;
     }
 }

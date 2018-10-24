@@ -128,16 +128,6 @@ class JavaEntity
     }
 
     /**
-     * Get implementation
-     *
-     * @return string
-     */
-    public function getImplementation()
-    {
-        return $this->implementation;
-    }
-
-    /**
      * Set implementation
      *
      * @param string $implementation
@@ -148,6 +138,16 @@ class JavaEntity
         $this->implementation = $implementation;
 
         return $this;
+    }
+
+    /**
+     * Get implementation
+     *
+     * @return string
+     */
+    public function getImplementation()
+    {
+        return $this->implementation;
     }
 
     /**

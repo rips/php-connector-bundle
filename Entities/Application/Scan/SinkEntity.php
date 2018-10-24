@@ -221,16 +221,6 @@ class SinkEntity
     }
 
     /**
-     * Get start column
-     *
-     * @return int
-     */
-    public function getStartColumn()
-    {
-        return $this->startColumn;
-    }
-
-    /**
      * Set start column
      *
      * @param int $startColumn
@@ -244,13 +234,13 @@ class SinkEntity
     }
 
     /**
-     * Get end column
+     * Get start column
      *
      * @return int
      */
-    public function getEndColumn()
+    public function getStartColumn()
     {
-        return $this->endColumn;
+        return $this->startColumn;
     }
 
     /**
@@ -267,13 +257,13 @@ class SinkEntity
     }
 
     /**
-     * Get type
+     * Get end column
      *
-     * @return TypeEntity
+     * @return int
      */
-    public function getType()
+    public function getEndColumn()
     {
-        return $this->type;
+        return $this->endColumn;
     }
 
     /**
@@ -287,5 +277,15 @@ class SinkEntity
         $this->type = $type;
 
         return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return TypeEntity
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

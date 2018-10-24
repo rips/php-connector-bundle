@@ -194,9 +194,12 @@ class SanitiserEntity
      * Set issue type
      *
      * @param TypeEntity $issueType
+     * @return $this
      */
     public function setIssueType(TypeEntity $issueType)
     {
         $this->issueType = $issueType;
+
+        return $this;
     }
 }
