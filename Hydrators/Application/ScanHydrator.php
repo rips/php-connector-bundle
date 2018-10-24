@@ -2,6 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ComparisonHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\JavaHydrator;
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
@@ -110,6 +113,10 @@ class ScanHydrator
             $hydrated->setPhp(PhpHydrator::hydrate($scan->php));
         }
 
+        if (isset($scan->java)) {
+            $hydrated->setJava(JavaHydrator::hydrate($scan->java));
+        }
+
         if (isset($scan->sources) && is_array($scan->sources)) {
             $hydrated->setSources(SourceHydrator::hydrateCollection($scan->sources));
         }
@@ -198,6 +205,13 @@ class ScanHydrator
             $hydrated->setProcesses(ProcessHydrator::hydrateCollection($scan->processes));
         }
 
+        if (isset($scan->languages) && is_array($scan->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($scan->languages));
+        }
+
+        if (isset($scan->comparison)) {
+            $hydrated->setComparison(ComparisonHydrator::hydrate($scan->comparison));
+        }
         return $hydrated;
     }
 }

@@ -3,39 +3,39 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
-use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\JavaEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SettingHydrator;
 
-class PhpHydrator
+class JavaHydrator
 {
     /**
-     * Hydrate a collection of php objects into a collection of
-     * PhpEntity objects
+     * Hydrate a collection of java objects into a collection of
+     * JavaEntity objects
      *
-     * @param stdClass[] $phps
-     * @return PhpEntity[]
+     * @param stdClass[] $javas
+     * @return JavaEntity[]
      */
-    public static function hydrateCollection(array $phps)
+    public static function hydrateCollection(array $javas)
     {
         $hydrated = [];
 
-        foreach ($phps as $php) {
-            $hydrated[] = self::hydrate($php);
+        foreach ($javas as $java) {
+            $hydrated[] = self::hydrate($java);
         }
 
         return $hydrated;
     }
 
     /**
-     * Hydrate a php object into a PhpEntity object
+     * Hydrate a java object into a JavaEntity object
      *
      * @param \stdClass $php
-     * @return PhpEntity
+     * @return JavaEntity
      */
     public static function hydrate(stdClass $php)
     {
-        $hydrated = new PhpEntity();
+        $hydrated = new JavaEntity();
 
         if (isset($php->id)) {
             $hydrated->setId($php->id);
@@ -53,24 +53,8 @@ class PhpHydrator
             $hydrated->setReleaseVersion($php->release_version);
         }
 
-        if (isset($php->magic_quotes_gpc)) {
-            $hydrated->setMagicQuotesGpc($php->magic_quotes_gpc);
-        }
-
-        if (isset($php->register_globals)) {
-            $hydrated->setRegisterGlobals($php->register_globals);
-        }
-
-        if (isset($php->allow_url_fopen)) {
-            $hydrated->setAllowUrlFopen($php->allow_url_fopen);
-        }
-
-        if (isset($php->allow_url_include)) {
-            $hydrated->setAllowUrlInclude($php->allow_url_include);
-        }
-
-        if (isset($php->filter_default)) {
-            $hydrated->setFilterDefault($php->filter_default);
+        if (isset($php->implementation)) {
+            $hydrated->setImplementation($php->implementation);
         }
 
         if (isset($php->scan)) {

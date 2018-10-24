@@ -57,6 +57,11 @@ class CustomFunctionEntity
     protected $concats;
 
     /**
+     * @var string[]
+     */
+    protected $parameters;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -284,5 +289,28 @@ class CustomFunctionEntity
     public function getConcats()
     {
         return $this->concats;
+    }
+
+    /**
+     * Get parameters
+     *
+     * @return string[]
+     */
+    public function getParameters()
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * Set parameters
+     *
+     * @param string[] $parameters
+     * @return $this
+     */
+    public function setParameters(array $parameters)
+    {
+        $this->parameters = $parameters;
+
+        return $this;
     }
 }

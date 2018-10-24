@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Custom;
 
 use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class ValidatorEntity
 {
@@ -35,6 +36,11 @@ class ValidatorEntity
      * @var CustomEntity
      */
     protected $custom;
+
+    /**
+     * @var TypeEntity
+     */
+    protected $issueType;
     
     /**
      * Get id
@@ -171,6 +177,29 @@ class ValidatorEntity
     {
         $this->custom = $custom;
     
+        return $this;
+    }
+
+    /**
+     * Get issue type
+     *
+     * @return TypeEntity
+     */
+    public function getIssueType()
+    {
+        return $this->issueType;
+    }
+
+    /**
+     * Set issue type
+     *
+     * @param TypeEntity $issueType
+     * @return $this
+     */
+    public function setIssueType(TypeEntity $issueType)
+    {
+        $this->issueType = $issueType;
+
         return $this;
     }
 }

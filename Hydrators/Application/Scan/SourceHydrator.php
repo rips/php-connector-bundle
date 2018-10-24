@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Source\TypeHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
@@ -70,6 +71,18 @@ class SourceHydrator
 
         if (isset($source->issues) && is_array($source->issues)) {
             $hydrated->setIssues(IssueHydrator::hydrateCollection($source->issues));
+        }
+
+        if (isset($source->startColumn)) {
+            $hydrated->setStartColumn($source->startColumn);
+        }
+
+        if (isset($source->endColumn)) {
+            $hydrated->setEndColumn($source->endColumn);
+        }
+
+        if (isset($source->type)) {
+            $hydrated->setType(TypeHydrator::hydrate($source->type));
         }
 
         return $hydrated;

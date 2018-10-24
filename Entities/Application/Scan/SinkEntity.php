@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Sink\TypeEntity;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class SinkEntity
@@ -45,6 +46,21 @@ class SinkEntity
      * @var IssueEntity[]
      */
     protected $issues;
+
+    /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
+     * @var TypeEntity
+     */
+    protected $type;
 
     /**
      * Set id
@@ -202,5 +218,74 @@ class SinkEntity
     public function getIssues()
     {
         return $this->issues;
+    }
+
+    /**
+     * Set start column
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn(int $startColumn)
+    {
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get start column
+     *
+     * @return int
+     */
+    public function getStartColumn()
+    {
+        return $this->startColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get end column
+     *
+     * @return int
+     */
+    public function getEndColumn()
+    {
+        return $this->endColumn;
+    }
+
+    /**
+     * Set type
+     *
+     * @param TypeEntity $type
+     * @return $this
+     */
+    public function setType(TypeEntity $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return TypeEntity
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

@@ -76,6 +76,10 @@ class CustomFunctionHydrator
             $hydrated->setConcats(ConcatHydrator::hydrateCollection($customFunction->concats));
         }
 
+        if (isset($customFunction->parameters)) {
+            $hydrated->setParameters($customFunction->parameters);
+        }
+
         return $hydrated;
     }
 }

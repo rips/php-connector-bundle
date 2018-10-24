@@ -76,6 +76,10 @@ class CustomClassHydrator
             $hydrated->setConcats(ConcatHydrator::hydrateCollection($customClass->concats));
         }
 
+        if (isset($customClass->package)) {
+            $hydrated->setPackage($customClass->package);
+        }
+
         return $hydrated;
     }
 }

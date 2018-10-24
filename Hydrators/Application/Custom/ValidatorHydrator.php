@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Custom;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Custom\ValidatorEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 
 class ValidatorHydrator
 {
@@ -58,6 +59,10 @@ class ValidatorHydrator
 
         if (isset($validator->custom)) {
             $hydrated->setCustom(CustomHydrator::hydrate($validator->custom));
+        }
+
+        if (isset($validator->issueType)) {
+            $hydrated->setIssueType(TypeHydrator::hydrate($validator->issueType));
         }
 
         return $hydrated;

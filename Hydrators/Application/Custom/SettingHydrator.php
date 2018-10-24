@@ -6,6 +6,7 @@ use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Custom\SettingEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\PhpHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\JavaHydrator;
 
 class SettingHydrator
 {
@@ -57,6 +58,10 @@ class SettingHydrator
 
         if (isset($setting->custom)) {
             $hydrated->setCustom(CustomHydrator::hydrate($setting->custom));
+        }
+
+        if (isset($setting->java)) {
+            $hydrated->setJava(JavaHydrator::hydrate($setting->java));
         }
 
         return $hydrated;

@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Custom;
 
 use RIPS\ConnectorBundle\Entities\Application\CustomEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\JavaEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
 
 class SettingEntity
@@ -51,6 +52,11 @@ class SettingEntity
      * @var PhpEntity
      */
     protected $php;
+
+    /**
+     * @var JavaEntity
+     */
+    protected $java;
 
     /**
      * @var CustomEntity
@@ -260,6 +266,29 @@ class SettingEntity
     public function setPhp(PhpEntity $php)
     {
         $this->php = $php;
+
+        return $this;
+    }
+
+    /**
+     * Get java
+     *
+     * @return JavaEntity
+     */
+    public function getJava()
+    {
+        return $this->java;
+    }
+
+    /**
+     * Set java
+     *
+     * @param JavaEntity $java
+     * @return $this
+     */
+    public function setJava(JavaEntity $java)
+    {
+        $this->java = $java;
 
         return $this;
     }

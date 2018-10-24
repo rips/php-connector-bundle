@@ -64,6 +64,14 @@ class ConcatHydrator
             $hydrated->setIssues(IssueHydrator::hydrateCollection($concat->issues));
         }
 
+        if (isset($concat->startColumn)) {
+            $hydrated->setStartColumn($concat->startColumn);
+        }
+
+        if (isset($concat->endColumn)) {
+            $hydrated->setEndColumn($concat->endColumn);
+        }
+
         return $hydrated;
     }
 }

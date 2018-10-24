@@ -3,6 +3,8 @@
 namespace RIPS\ConnectorBundle\Entities\Application;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ComparisonEntity;
+use RIPS\ConnectorBundle\Entities\LanguageEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
@@ -88,6 +90,11 @@ class ScanEntity
      * @var Scan\PhpEntity
      */
     protected $php;
+
+    /**
+     * @var Scan\JavaEntity
+     */
+    protected $java;
 
     /**
      * @var Scan\SourceEntity[]
@@ -193,6 +200,16 @@ class ScanEntity
      * @var Scan\LibraryEntity[]
      */
     protected $libraries;
+
+    /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
+
+    /**
+     * @var ComparisonEntity
+     */
+    protected $comparison;
 
     /**
      * Set id
@@ -576,6 +593,29 @@ class ScanEntity
     public function getPhp()
     {
         return $this->php;
+    }
+
+    /**
+     * Set java object
+     *
+     * @param Scan\JavaEntity $java
+     * @return $this
+     */
+    public function setJava(Scan\JavaEntity $java)
+    {
+        $this->java = $java;
+
+        return $this;
+    }
+
+    /**
+     * Get java object
+     *
+     * @return Scan\JavaEntity
+     */
+    public function getJava()
+    {
+        return $this->java;
     }
 
     /**
@@ -970,16 +1010,6 @@ class ScanEntity
     }
 
     /**
-     * Get tags
-     *
-     * @return array
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
      * Set tags
      *
      * @param array $tags
@@ -990,13 +1020,13 @@ class ScanEntity
     }
 
     /**
-     * Get maxIssuesPerType
+     * Get tags
      *
-     * @return int
+     * @return array
      */
-    public function getMaxIssuesPerType()
+    public function getTags()
     {
-        return $this->maxIssuesPerType;
+        return $this->tags;
     }
 
     /**
@@ -1010,13 +1040,13 @@ class ScanEntity
     }
 
     /**
-     * Get comment
+     * Get maxIssuesPerType
      *
-     * @return string
+     * @return int
      */
-    public function getComment()
+    public function getMaxIssuesPerType()
     {
-        return $this->comment;
+        return $this->maxIssuesPerType;
     }
 
     /**
@@ -1027,6 +1057,16 @@ class ScanEntity
     public function setComment($comment)
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 
     /**
@@ -1050,5 +1090,51 @@ class ScanEntity
     public function getLibraries()
     {
         return $this->libraries;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param LanguageEntity[] $languages
+     * @return $this
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Set scan comparison
+     *
+     * @param ComparisonEntity $comparison
+     * @return $this
+     */
+    public function setComparison(ComparisonEntity $comparison)
+    {
+        $this->comparison = $comparison;
+
+        return $this;
+    }
+
+    /**
+     * Get scan comparison
+     *
+     * @return ComparisonEntity
+     */
+    public function getComparison()
+    {
+        return $this->comparison;
     }
 }
