@@ -1,10 +1,10 @@
 <?php
 
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Origin;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Patch;
 
 use stdClass;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Origin\TypeEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Patch\TypeEntity;
 
 class TypeHydrator
 {

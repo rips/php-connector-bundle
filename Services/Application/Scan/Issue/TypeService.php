@@ -24,7 +24,7 @@ class TypeService
     }
 
     /**
-     * Get all types for an issue
+     * Get all types for issues
      *
      * @param array $queryParams
      * @return TypeEntity[]
@@ -42,7 +42,7 @@ class TypeService
     }
 
     /**
-     * Get type for issue by id
+     * Get type for issues by id
      *
      * @param int $typeId
      * @param array $queryParams
