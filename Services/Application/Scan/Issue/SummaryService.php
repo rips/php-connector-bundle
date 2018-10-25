@@ -14,7 +14,7 @@ class SummaryService
     protected $api;
 
     /**
-     * Initialize new IssueService instance
+     * Initialize new SummaryService instance
      *
      * @param APIService $api
      */

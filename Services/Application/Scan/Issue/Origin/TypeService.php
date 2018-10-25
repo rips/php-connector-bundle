@@ -14,7 +14,7 @@ class TypeService
     protected $api;
 
     /**
-     * Initialize new IssueService instance
+     * Initialize new TypeService instance
      *
      * @param APIService $api
      */
@@ -24,7 +24,7 @@ class TypeService
     }
 
     /**
-     * Get all types for an issue
+     * Get all types for origin
      *
      * @param array $queryParams
      * @return TypeEntity[]
@@ -43,7 +43,7 @@ class TypeService
     }
 
     /**
-     * Get type for issue by id
+     * Get type for origin by id
      *
      * @param int $typeId
      * @param array $queryParams

@@ -115,6 +115,16 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.application.scan.issue.patches:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\PatchService
+        arguments:
+        - '@rips_connector.api'
+
+    rips_connector.application.scan.issue.patch.types:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\Patch\TypeService
+        arguments:
+        - '@rips_connector.api'
+
     rips_connector.application.scan.issue.reviews:
         class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\ReviewService
         arguments:

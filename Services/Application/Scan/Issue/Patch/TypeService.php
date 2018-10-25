@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue\Review;
+namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue\Patch;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Review\TypeHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Patch\TypeEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Patch\TypeHydrator;
 
 class TypeService
 {
@@ -24,7 +24,7 @@ class TypeService
     }
 
     /**
-     * Get all types for reviews
+     * Get all types for patches
      *
      * @param array $queryParams
      * @return TypeEntity[]
@@ -35,7 +35,7 @@ class TypeService
             ->applications()
             ->scans()
             ->issues()
-            ->reviews()
+            ->patches()
             ->types()
             ->getAll($queryParams);
 
@@ -43,7 +43,7 @@ class TypeService
     }
 
     /**
-     * Get type for reviews by id
+     * Get type for patches by id
      *
      * @param int $typeId
      * @param array $queryParams
@@ -55,7 +55,7 @@ class TypeService
             ->applications()
             ->scans()
             ->issues()
-            ->reviews()
+            ->patches()
             ->types()
             ->getById($typeId, $queryParams);
 
