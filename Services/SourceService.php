@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Responses\SourcesResponse;
+
 class SourceService
 {
     /**
@@ -23,10 +25,12 @@ class SourceService
      * Get all directories from the root source directory
      *
      * @param array $queryParams
-     * @return \stdClass[]
+     * @return SourcesResponse
      */
     public function getAll(array $queryParams = [])
     {
-        return $this->api->sources()->getAll($queryParams)->getDecodedData();
+        $response = $this->api->sources()->getAll($queryParams);
+
+        return new SourcesResponse($response);
     }
 }

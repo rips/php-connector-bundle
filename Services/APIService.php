@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Services;
 use RIPS\Connector\API;
 use RIPS\ConnectorBundle\Entities\StatusEntity;
 use RIPS\ConnectorBundle\Hydrators\StatusHydrator;
+use RIPS\ConnectorBundle\Responses\StatusResponse;
 
 class APIService
 {
@@ -169,12 +170,12 @@ class APIService
     /**
      * Get status of current session from API
      *
-     * @return StatusEntity
+     * @return StatusResponse
      */
     public function getStatus()
     {
-        $status = $this->api->status->getStatus();
+        $response = $this->api->status->getStatus();
 
-        return StatusHydrator::hydrate($status->getDecodedData());
+        return new StatusResponse($response);
     }
 }

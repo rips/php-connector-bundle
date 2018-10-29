@@ -3,9 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\SettingHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SettingBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Custom\SettingEntity;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SettingResponse;
 
 class SettingService
 {
@@ -30,13 +29,13 @@ class SettingService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return SettingEntity
+     * @return SettingResponse
      */
     public function get($appId, $customId, array $queryParams)
     {
-        $setting = $this->api->applications()->customs()->settings()->get($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->settings()->get($appId, $customId, $queryParams);
 
-        return SettingHydrator::hydrate($setting->getDecodedData());
+        return new SettingResponse($response);
     }
 
     /**
@@ -46,12 +45,12 @@ class SettingService
      * @param int $customId
      * @param SettingBuilder $input
      * @param array $queryParams
-     * @return SettingEntity
+     * @return SettingResponse
      */
     public function update($appId, $customId, SettingBuilder $input, array $queryParams = [])
     {
-        $setting = $this->api->applications()->customs()->settings()->update($appId, $customId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->settings()->update($appId, $customId, $input->toArray(), $queryParams);
 
-        return SettingHydrator::hydrate($setting->getDecodedData());
+        return new SettingResponse($response);
     }
 }

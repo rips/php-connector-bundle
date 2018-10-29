@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\SinkHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SinkBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Custom\SinkEntity;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SinksResponse;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SinkResponse;
 
 class SinkService
 {
@@ -30,13 +31,13 @@ class SinkService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return SinkEntity[]
+     * @return SinksResponse
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $sinks = $this->api->applications()->customs()->sinks()->getAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->sinks()->getAll($appId, $customId, $queryParams);
 
-        return SinkHydrator::hydrateCollection($sinks->getDecodedData());
+        return new SinksResponse($response);
     }
 
     /**
@@ -46,13 +47,13 @@ class SinkService
      * @param int $customId
      * @param int $sinkId
      * @param array $queryParams
-     * @return SinkEntity
+     * @return SinkResponse
      */
     public function getById($appId, $customId, $sinkId, array $queryParams = [])
     {
-        $sink = $this->api->applications()->customs()->sinks()->getById($appId, $customId, $sinkId, $queryParams);
+        $response = $this->api->applications()->customs()->sinks()->getById($appId, $customId, $sinkId, $queryParams);
 
-        return SinkHydrator::hydrate($sink->getDecodedData());
+        return new SinkResponse($response);
     }
 
     /**
@@ -62,13 +63,13 @@ class SinkService
      * @param int $customId
      * @param SinkBuilder $input
      * @param array $queryParams
-     * @return SinkEntity
+     * @return SinkResponse
      */
     public function create($appId, $customId, SinkBuilder $input, array $queryParams = [])
     {
-        $sink = $this->api->applications()->customs()->sinks()->create($appId, $customId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->sinks()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return SinkHydrator::hydrate($sink->getDecodedData());
+        return new SinkResponse($response);
     }
 
     /**
@@ -79,13 +80,13 @@ class SinkService
      * @param int $sinkId
      * @param SinkBuilder $input
      * @param array $queryParams
-     * @return SinkEntity
+     * @return SinkResponse
      */
     public function update($appId, $customId, $sinkId, SinkBuilder $input, array $queryParams = [])
     {
-        $sink = $this->api->applications()->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray(), $queryParams);
 
-        return SinkHydrator::hydrate($sink->getDecodedData());
+        return new SinkResponse($response);
     }
 
     /**
@@ -94,11 +95,13 @@ class SinkService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sinks()->deleteAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->sinks()->deleteAll($appId, $customId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -108,10 +111,12 @@ class SinkService
      * @param int $customId
      * @param int $sinkId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $customId, $sinkId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sinks()->deleteById($appId, $customId, $sinkId, $queryParams);
+        $response = $this->api->applications()->customs()->sinks()->deleteById($appId, $customId, $sinkId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\ValidatorHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\ValidatorBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Custom\ValidatorEntity;
+use RIPS\ConnectorBundle\Responses\Application\Custom\ValidatorsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Custom\ValidatorResponse;
 
 class ValidatorService
 {
@@ -30,13 +31,13 @@ class ValidatorService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return ValidatorEntity[]
+     * @return ValidatorsResponse
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $validators = $this->api->applications()->customs()->validators()->getAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->validators()->getAll($appId, $customId, $queryParams);
 
-        return ValidatorHydrator::hydrateCollection($validators->getDecodedData());
+        return new ValidatorsResponse($response);
     }
 
     /**
@@ -46,13 +47,13 @@ class ValidatorService
      * @param int $customId
      * @param int $validatorId
      * @param array $queryParams
-     * @return ValidatorEntity
+     * @return ValidatorResponse
      */
     public function getById($appId, $customId, $validatorId, array $queryParams = [])
     {
-        $validator = $this->api->applications()->customs()->validators()->getById($appId, $customId, $validatorId, $queryParams);
+        $response = $this->api->applications()->customs()->validators()->getById($appId, $customId, $validatorId, $queryParams);
 
-        return ValidatorHydrator::hydrate($validator->getDecodedData());
+        return new ValidatorResponse($response);
     }
 
     /**
@@ -62,13 +63,13 @@ class ValidatorService
      * @param int $customId
      * @param ValidatorBuilder $input
      * @param array $queryParams
-     * @return ValidatorEntity
+     * @return ValidatorResponse
      */
     public function create($appId, $customId, ValidatorBuilder $input, array $queryParams = [])
     {
-        $validator = $this->api->applications()->customs()->validators()->create($appId, $customId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->validators()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return ValidatorHydrator::hydrate($validator->getDecodedData());
+        return new ValidatorResponse($response);
     }
 
     /**
@@ -79,13 +80,13 @@ class ValidatorService
      * @param int $validatorId
      * @param ValidatorBuilder $input
      * @param array $queryParams
-     * @return ValidatorEntity
+     * @return ValidatorResponse
      */
     public function update($appId, $customId, $validatorId, ValidatorBuilder $input, array $queryParams = [])
     {
-        $validator = $this->api->applications()->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray(), $queryParams);
 
-        return ValidatorHydrator::hydrate($validator->getDecodedData());
+        return new ValidatorResponse($response);
     }
 
     /**
@@ -94,11 +95,13 @@ class ValidatorService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->validators()->deleteAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->validators()->deleteAll($appId, $customId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -108,10 +111,12 @@ class ValidatorService
      * @param int $customId
      * @param int $validatorId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $customId, $validatorId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->validators()->deleteById($appId, $customId, $validatorId, $queryParams);
+        $response = $this->api->applications()->customs()->validators()->deleteById($appId, $customId, $validatorId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\AclEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\AclBuilder;
+use RIPS\ConnectorBundle\Responses\Application\AclsResponse;
+use RIPS\ConnectorBundle\Responses\Application\AclResponse;
 
 class AclService
 {
@@ -29,13 +30,13 @@ class AclService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return AclEntity[]
+     * @return AclsResponse
      */
     public function getAll($appId, array $queryParams = [])
     {
-        $acls = $this->api->applications()->acls()->getAll($appId, $queryParams);
+        $response = $this->api->applications()->acls()->getAll($appId, $queryParams);
 
-        return AclHydrator::hydrateCollection($acls->getDecodedData());
+        return new AclsResponse($response);
     }
 
     /**
@@ -44,13 +45,13 @@ class AclService
      * @param int $appId
      * @param int $aclId
      * @param array $queryParams
-     * @return AclEntity
+     * @return AclResponse
      */
     public function getById($appId, $aclId, array $queryParams = [])
     {
-        $acl = $this->api->applications()->acls()->getById($appId, $aclId, $queryParams);
+        $response = $this->api->applications()->acls()->getById($appId, $aclId, $queryParams);
 
-        return AclHydrator::hydrate($acl->getDecodedData());
+        return new AclResponse($response);
     }
 
     /**
@@ -59,13 +60,13 @@ class AclService
      * @param int $appId
      * @param AclBuilder $input
      * @param array $queryParams
-     * @return AclEntity
+     * @return AclResponse
      */
     public function create($appId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->applications()->acls()->create($appId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->acls()->create($appId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl->getDecodedData());
+        return new AclResponse($response);
     }
 
     /**
@@ -75,13 +76,13 @@ class AclService
      * @param int $aclId
      * @param AclBuilder $input
      * @param array $queryParams
-     * @return AclEntity
+     * @return AclResponse
      */
     public function update($appId, $aclId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->applications()->acls()->update($appId, $aclId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->acls()->update($appId, $aclId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl->getDecodedData());
+        return new AclResponse($response);
     }
 
     /**
@@ -89,11 +90,13 @@ class AclService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, array $queryParams = [])
     {
-        $this->api->applications()->acls()->deleteAll($appId, $queryParams);
+        $response = $this->api->applications()->acls()->deleteAll($appId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -102,10 +105,12 @@ class AclService
      * @param int $appId
      * @param int $aclId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $aclId, array $queryParams = [])
     {
-        $this->api->applications()->acls()->deleteById($appId, $aclId, $queryParams);
+        $response = $this->api->applications()->acls()->deleteById($appId, $aclId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

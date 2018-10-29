@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\SanitiserHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SanitiserBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Custom\SanitiserEntity;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SanitisersResponse;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SanitiserResponse;
 
 class SanitiserService
 {
@@ -30,13 +31,13 @@ class SanitiserService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return SanitiserEntity[]
+     * @return SanitisersResponse
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $sanitisers = $this->api->applications()->customs()->sanitisers()->getAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->sanitisers()->getAll($appId, $customId, $queryParams);
 
-        return SanitiserHydrator::hydrateCollection($sanitisers->getDecodedData());
+        return new SanitisersResponse($response);
     }
 
     /**
@@ -46,13 +47,13 @@ class SanitiserService
      * @param int $customId
      * @param int $sanitiserId
      * @param array $queryParams
-     * @return SanitiserEntity
+     * @return SanitiserResponse
      */
     public function getById($appId, $customId, $sanitiserId, array $queryParams = [])
     {
-        $sanitiser = $this->api->applications()->customs()->sanitisers()->getById($appId, $customId, $sanitiserId, $queryParams);
+        $response = $this->api->applications()->customs()->sanitisers()->getById($appId, $customId, $sanitiserId, $queryParams);
 
-        return SanitiserHydrator::hydrate($sanitiser->getDecodedData());
+        return new SanitiserResponse($response);
     }
 
     /**
@@ -62,13 +63,13 @@ class SanitiserService
      * @param int $customId
      * @param SanitiserBuilder $input
      * @param array $queryParams
-     * @return SanitiserEntity
+     * @return SanitiserResponse
      */
     public function create($appId, $customId, SanitiserBuilder $input, array $queryParams = [])
     {
-        $sanitiser = $this->api->applications()->customs()->sanitisers()->create($appId, $customId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->sanitisers()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return SanitiserHydrator::hydrate($sanitiser->getDecodedData());
+        return new SanitiserResponse($response);
     }
 
     /**
@@ -79,13 +80,13 @@ class SanitiserService
      * @param int $sanitiserId
      * @param SanitiserBuilder $input
      * @param array $queryParams
-     * @return SanitiserEntity
+     * @return SanitiserResponse
      */
     public function update($appId, $customId, $sanitiserId, SanitiserBuilder $input, array $queryParams = [])
     {
-        $sanitiser = $this->api->applications()->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray(), $queryParams);
 
-        return SanitiserHydrator::hydrate($sanitiser->getDecodedData());
+        return new SanitiserResponse($response);
     }
 
     /**
@@ -94,11 +95,13 @@ class SanitiserService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sanitisers()->deleteAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->sanitisers()->deleteAll($appId, $customId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -108,10 +111,12 @@ class SanitiserService
      * @param int $customId
      * @param int $sanitiserId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $customId, $sanitiserId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sanitisers()->deleteById($appId, $customId, $sanitiserId, $queryParams);
+        $response = $this->api->applications()->customs()->sanitisers()->deleteById($appId, $customId, $sanitiserId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

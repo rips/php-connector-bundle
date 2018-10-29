@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\FileEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\FilesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\FileResponse;
 
 class FileService
 {
@@ -14,7 +15,7 @@ class FileService
     protected $api;
 
     /**
-     * Initialize new IssueService instance
+     * Initialize new FileService instance
      *
      * @param APIService $api
      */
@@ -29,17 +30,17 @@ class FileService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return FileEntity[]
+     * @return FilesResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $files = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->files()
             ->getAll($appId, $scanId, $queryParams);
 
-        return FileHydrator::hydrateCollection($files->getDecodedData());
+        return new FilesResponse($response);
     }
 
     /**
@@ -49,17 +50,17 @@ class FileService
      * @param int $scanId
      * @param int $fileId
      * @param array $queryParams
-     * @return FileEntity
+     * @return FileResponse
      */
     public function getById($appId, $scanId, $fileId, array $queryParams = [])
     {
-        $file = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->files()
             ->getById($appId, $scanId, $fileId, $queryParams);
 
-        return FileHydrator::hydrate($file->getDecodedData());
+        return new FileResponse($response);
     }
 
     /**
@@ -68,14 +69,16 @@ class FileService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function delete($appId, $scanId, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->files()
             ->delete($appId, $scanId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

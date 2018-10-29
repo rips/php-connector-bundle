@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Quota;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Quota\AclEntity;
-use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Quota\AclBuilder;
+use RIPS\ConnectorBundle\Responses\Quota\AclsResponse;
+use RIPS\ConnectorBundle\Responses\Quota\AclResponse;
 
 class AclService
 {
@@ -29,13 +30,13 @@ class AclService
      *
      * @param int $quotaId
      * @param array $queryParams
-     * @return AclEntity[]
+     * @return AclsResponse
      */
     public function getAll($quotaId, array $queryParams = [])
     {
-        $acls = $this->api->quotas()->acls()->getAll($quotaId, $queryParams);
+        $response = $this->api->quotas()->acls()->getAll($quotaId, $queryParams);
 
-        return AclHydrator::hydrateCollection($acls->getDecodedData());
+        return new AclsResponse($response);
     }
 
     /**
@@ -44,13 +45,13 @@ class AclService
      * @param int $quotaId
      * @param int $aclId
      * @param array $queryParams
-     * @return AclEntity
+     * @return AclResponse
      */
     public function getById($quotaId, $aclId, array $queryParams = [])
     {
-        $acl = $this->api->quotas()->acls()->getById($quotaId, $aclId, $queryParams);
+        $response = $this->api->quotas()->acls()->getById($quotaId, $aclId, $queryParams);
 
-        return AclHydrator::hydrate($acl->getDecodedData());
+        return new AclResponse($response);
     }
 
     /**
@@ -59,13 +60,13 @@ class AclService
      * @param int $quotaId
      * @param AclBuilder $input
      * @param array $queryParams
-     * @return AclEntity
+     * @return AclResponse
      */
     public function create($quotaId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->quotas()->acls()->create($quotaId, $input->toArray(), $queryParams);
+        $response = $this->api->quotas()->acls()->create($quotaId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl->getDecodedData());
+        return new AclResponse($response);
     }
 
     /**
@@ -75,13 +76,13 @@ class AclService
      * @param int $aclId
      * @param AclBuilder $input
      * @param array $queryParams
-     * @return AclEntity
+     * @return AclResponse
      */
     public function update($quotaId, $aclId, AclBuilder $input, array $queryParams = [])
     {
-        $acl = $this->api->quotas()->acls()->update($quotaId, $aclId, $input->toArray(), $queryParams);
+        $response = $this->api->quotas()->acls()->update($quotaId, $aclId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl->getDecodedData());
+        return new AclResponse($response);
     }
 
     /**
@@ -89,11 +90,13 @@ class AclService
      *
      * @param int $quotaId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($quotaId, array $queryParams = [])
     {
-        $this->api->quotas()->acls()->deleteAll($quotaId, $queryParams);
+        $response = $this->api->quotas()->acls()->deleteAll($quotaId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -102,10 +105,12 @@ class AclService
      * @param int $quotaId
      * @param int $aclId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($quotaId, $aclId, array $queryParams = [])
     {
-        $this->api->quotas()->acls()->deleteById($quotaId, $aclId, $queryParams);
+        $response = $this->api->quotas()->acls()->deleteById($quotaId, $aclId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

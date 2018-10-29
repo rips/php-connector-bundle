@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\SettingHydrator;
 use RIPS\ConnectorBundle\InputBuilders\SettingBuilder;
-use RIPS\ConnectorBundle\Entities\SettingEntity;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
+use RIPS\ConnectorBundle\Responses\SettingsResponse;
+use RIPS\ConnectorBundle\Responses\SettingResponse;
 
 class SettingService
 {
@@ -27,13 +28,13 @@ class SettingService
      * Get all settings
      *
      * @param array $queryParams
-     * @return SettingEntity[]
+     * @return SettingsResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $settings = $this->api->settings()->getAll($queryParams);
+        $response = $this->api->settings()->getAll($queryParams);
 
-        return SettingHydrator::hydrateCollection($settings->getDecodedData());
+        return new SettingsResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class SettingService
      *
      * @param string $key
      * @param array $queryParams
-     * @return SettingEntity
+     * @return SettingResponse
      */
     public function getByKey($key, array $queryParams = [])
     {
-        $setting = $this->api->settings()->getByKey($key, $queryParams);
+        $response = $this->api->settings()->getByKey($key, $queryParams);
 
-        return SettingHydrator::hydrate($setting->getDecodedData());
+        return new SettingResponse($response);
     }
 
     /**
@@ -56,24 +57,26 @@ class SettingService
      * @param string $key
      * @param SettingBuilder $input
      * @param array $queryParams
-     * @return SettingEntity
+     * @return SettingResponse
      */
     public function createOrUpdate($key, SettingBuilder $input, array $queryParams = [])
     {
-        $setting = $this->api->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
+        $response = $this->api->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
 
-        return SettingHydrator::hydrate($setting->getDecodedData());
+        return new SettingResponse($response);
     }
 
     /**
      * Delete all settings
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll(array $queryParams = [])
     {
-        $this->api->settings()->deleteAll($queryParams);
+        $response = $this->api->settings()->deleteAll($queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -81,10 +84,12 @@ class SettingService
      *
      * @param string $key
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteByKey($key, array $queryParams = [])
     {
-        $this->api->settings()->deleteByKey($key, $queryParams);
+        $response = $this->api->settings()->deleteByKey($key, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

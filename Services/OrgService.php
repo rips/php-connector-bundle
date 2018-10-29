@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\OrgHydrator;
 use RIPS\ConnectorBundle\InputBuilders\OrgBuilder;
-use RIPS\ConnectorBundle\Entities\OrgEntity;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
+use RIPS\ConnectorBundle\Responses\OrgsResponse;
+use RIPS\ConnectorBundle\Responses\OrgResponse;
 
 class OrgService
 {
@@ -27,13 +28,13 @@ class OrgService
      * Get all organizations
      *
      * @param array $queryParams
-     * @return OrgEntity[]
+     * @return OrgsResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $org = $this->api->orgs()->getAll($queryParams);
+        $response = $this->api->orgs()->getAll($queryParams);
 
-        return OrgHydrator::hydrateCollection($org->getDecodedData());
+        return new OrgsResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class OrgService
      *
      * @param int $orgId
      * @param array $queryParams
-     * @return OrgEntity
+     * @return OrgResponse
      */
     public function getById($orgId, array $queryParams = [])
     {
-        $org = $this->api->orgs()->getById($orgId, $queryParams);
+        $response = $this->api->orgs()->getById($orgId, $queryParams);
 
-        return OrgHydrator::hydrate($org->getDecodedData());
+        return new OrgResponse($response);
     }
 
     /**
@@ -55,13 +56,13 @@ class OrgService
      *
      * @param OrgBuilder $input
      * @param array $queryParams
-     * @return OrgEntity
+     * @return OrgResponse
      */
     public function create(OrgBuilder $input, array $queryParams = [])
     {
-        $org = $this->api->orgs()->create($input->toArray(), $queryParams);
+        $response = $this->api->orgs()->create($input->toArray(), $queryParams);
 
-        return OrgHydrator::hydrate($org->getDecodedData());
+        return new OrgResponse($response);
     }
 
     /**
@@ -70,24 +71,26 @@ class OrgService
      * @param integer $orgId
      * @param OrgBuilder $input
      * @param array $queryParams
-     * @return OrgEntity
+     * @return OrgResponse
      */
     public function update($orgId, OrgBuilder $input, array $queryParams = [])
     {
-        $org = $this->api->orgs()->update($orgId, $input->toArray(), $queryParams);
+        $response = $this->api->orgs()->update($orgId, $input->toArray(), $queryParams);
 
-        return OrgHydrator::hydrate($org->getDecodedData());
+        return new OrgResponse($response);
     }
 
     /**
      * Delete all organizations
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll(array $queryParams = [])
     {
-        $this->api->orgs()->deleteAll($queryParams);
+        $response = $this->api->orgs()->deleteAll($queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -95,10 +98,12 @@ class OrgService
      *
      * @param int $orgId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($orgId, array $queryParams = [])
     {
-        $this->api->orgs()->deleteById($orgId, $queryParams);
+        $response = $this->api->orgs()->deleteById($orgId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

@@ -4,9 +4,9 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\IssueBuilder;
+use RIPS\ConnectorBundle\Responses\Application\Scan\IssuesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\IssueResponse;
 
 class IssueService
 {
@@ -31,17 +31,17 @@ class IssueService
      * @param int $applicationID
      * @param int $scanID
      * @param array $queryParams
-     * @return IssueEntity[]
+     * @return IssuesResponse
      */
     public function getAll($applicationID, $scanID, array $queryParams = [])
     {
-        $issues = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->getAll($applicationID, $scanID, $queryParams);
 
-        return IssueHydrator::hydrateCollection($issues->getDecodedData());
+        return new IssuesResponse($response);
     }
 
     /**
@@ -60,6 +60,7 @@ class IssueService
             ->issues()
             ->getStats($appId, $scanId, $queryParams);
 
+        // TODO: return Response object
         return $stats->getDecodedData();
     }
 
@@ -70,17 +71,17 @@ class IssueService
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return IssueEntity
+     * @return IssueResponse
      */
     public function getById($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $issue = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->getById($appId, $scanId, $issueId, $queryParams);
 
-        return IssueHydrator::hydrate($issue->getDecodedData());
+        return new IssueResponse($response);
     }
 
     /**
@@ -90,16 +91,16 @@ class IssueService
      * @param int $scanId
      * @param IssueBuilder $input
      * @param array $queryParams
-     * @return IssueEntity
+     * @return IssueResponse
      */
     public function create($appId, $scanId, $input, array $queryParams = [])
     {
-        $issue = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return IssueHydrator::hydrate($issue->getDecodedData());
+        return new IssueResponse($response);
     }
 }

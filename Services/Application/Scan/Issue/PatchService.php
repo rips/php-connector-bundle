@@ -5,8 +5,8 @@ namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue\PatchBuilder;
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\PatchHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\PatchEntity;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\PatchesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\PatchResponse;
 
 class PatchService
 {
@@ -32,18 +32,18 @@ class PatchService
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return PatchEntity[]
+     * @return PatchesResponse
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $patches = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->patches()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return PatchHydrator::hydrateCollection($patches->getDecodedData());
+        return new PatchesResponse($response);
     }
 
     /**
@@ -54,18 +54,18 @@ class PatchService
      * @param int $issueId
      * @param int $patchId
      * @param array $queryParams
-     * @return PatchEntity
+     * @return PatchResponse
      */
     public function getById($appId, $scanId, $issueId, $patchId, array $queryParams = [])
     {
-        $summary = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->patches()
             ->getById($appId, $scanId, $issueId, $patchId, $queryParams);
 
-        return PatchHydrator::hydrate($summary->getDecodedData());
+        return new PatchResponse($response);
     }
 
     /**
@@ -76,7 +76,7 @@ class PatchService
      * @param int $issueId
      * @param PatchBuilder|BaseBuilder[string] $input
      * @param array $queryParams
-     * @return PatchEntity
+     * @return PatchResponse
      */
     public function create($appId, $scanId, $issueId, $input, array $queryParams = [])
     {
@@ -101,13 +101,13 @@ class PatchService
             $defaultInput = false;
         }
 
-        $patch = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->patches()
             ->create($appId, $scanId, $issueId, $inputArray, $queryParams, $defaultInput);
 
-        return PatchHydrator::hydrate($patch->getDecodedData());
+        return new PatchResponse($response);
     }
 }

@@ -8,24 +8,6 @@ use RIPS\ConnectorBundle\Entities\StatusEntity;
 class StatusHydrator
 {
     /**
-     * Hydrate a collection of statuses objects into a SettingEntity
-     * collection
-     *
-     * @param array $statuses
-     * @return StatusEntity[]
-     */
-    public static function hydrateCollection(array $statuses)
-    {
-        $hydrated = [];
-
-        foreach ($statuses as $status) {
-            $hydrated[] = self::hydrate($status);
-        }
-
-        return $hydrated;
-    }
-
-    /**
      * Hydrate a status object into a StatusEntity
      *
      * @param \stdClass $status

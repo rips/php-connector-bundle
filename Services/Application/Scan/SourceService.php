@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\SourcesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\SourceResponse;
 
 class SourceService
 {
@@ -14,7 +14,7 @@ class SourceService
     protected $api;
 
     /**
-     * Initialize new OrgService instance
+     * Initialize new SourceService instance
      *
      * @param APIService $api
      */
@@ -29,17 +29,17 @@ class SourceService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return SourceEntity[]
+     * @return SourcesResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $sources = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->sources()
             ->getAll($appId, $scanId, $queryParams);
 
-        return SourceHydrator::hydrateCollection($sources->getDecodedData());
+        return new SourcesResponse($response);
     }
 
     /**
@@ -49,16 +49,16 @@ class SourceService
      * @param int $scanId
      * @param int $sourceId
      * @param array $queryParams
-     * @return SourceEntity
+     * @return SourceResponse
      */
     public function getById($appId, $scanId, $sourceId, array $queryParams = [])
     {
-        $source = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->sources()
             ->getById($appId, $scanId, $sourceId, $queryParams);
 
-        return SourceHydrator::hydrate($source->getDecodedData());
+        return new SourceResponse($response);
     }
 }

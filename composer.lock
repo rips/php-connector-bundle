@@ -243,7 +243,7 @@
             "source": {
                 "type": "git",
                 "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "7e32915be13c7db7bb5c5363529904aa4dffb7af"
+                "reference": "dde4d12cd0674614ff352c4c1b3554786d87b758"
             },
             "require": {
                 "ext-json": "*",
@@ -272,7 +272,7 @@
                 "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2018-10-29T13:17:28+00:00"
+            "time": "2018-10-29T18:07:55+00:00"
         }
     ],
     "packages-dev": [],

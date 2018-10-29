@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
-use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
+use RIPS\ConnectorBundle\Responses\Application\UploadsResponse;
+use RIPS\ConnectorBundle\Responses\Application\UploadResponse;
 
 class UploadService
 {
@@ -28,13 +29,13 @@ class UploadService
      *
      * @param int|null $appId
      * @param array $queryParams
-     * @return UploadEntity[]
+     * @return UploadsResponse
      */
     public function getAll($appId = null, array $queryParams = [])
     {
-        $uploads = $this->api->applications()->uploads()->getAll($appId, $queryParams);
+        $response = $this->api->applications()->uploads()->getAll($appId, $queryParams);
 
-        return UploadHydrator::hydrateCollection($uploads->getDecodedData());
+        return new UploadsResponse($response);
     }
 
     /**
@@ -43,29 +44,29 @@ class UploadService
      * @param int $appId
      * @param int $uploadId
      * @param array $queryParams
-     * @return UploadEntity
+     * @return UploadResponse
      */
     public function getById($appId, $uploadId, array $queryParams = [])
     {
-        $upload = $this->api->applications()->uploads()->getById($appId, $uploadId, $queryParams);
+        $response = $this->api->applications()->uploads()->getById($appId, $uploadId, $queryParams);
 
-        return UploadHydrator::hydrate($upload->getDecodedData());
+        return new UploadResponse($response);
     }
 
     /**
      * Upload a new file
      *
      * @param int $appId
-     * @param string $filename
-     * @param string $filepath
+     * @param string $fileName
+     * @param string $filePath
      * @param array $queryParams
-     * @return UploadEntity
+     * @return UploadResponse
      */
-    public function create($appId, $filename, $filepath, array $queryParams = [])
+    public function create($appId, $fileName, $filePath, array $queryParams = [])
     {
-        $upload = $this->api->applications()->uploads()->create($appId, $filename, $filepath, $queryParams);
+        $response = $this->api->applications()->uploads()->create($appId, $fileName, $filePath, $queryParams);
 
-        return UploadHydrator::hydrate($upload->getDecodedData());
+        return new UploadResponse($response);
     }
 
     /**
@@ -73,11 +74,13 @@ class UploadService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, array $queryParams = [])
     {
-        $this->api->applications()->uploads()->deleteAll($appId, $queryParams);
+        $response = $this->api->applications()->uploads()->deleteAll($appId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -86,10 +89,12 @@ class UploadService
      * @param int $appId
      * @param int $uploadId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $uploadId, array $queryParams = [])
     {
-        $this->api->applications()->uploads()->deleteById($appId, $uploadId, $queryParams);
+        $response = $this->api->applications()->uploads()->deleteById($appId, $uploadId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

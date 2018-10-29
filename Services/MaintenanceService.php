@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
+
 class MaintenanceService
 {
     /**
@@ -23,10 +25,12 @@ class MaintenanceService
      * Delete logs older than a week
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteCode(array $queryParams = [])
     {
-        $this->api->maintenance()->deleteCode($queryParams);
+        $response = $this->api->maintenance()->deleteCode($queryParams);
+
+        return new BaseResponse($response);
     }
 }

@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
 use RIPS\ConnectorBundle\InputBuilders\QuotaBuilder;
-use RIPS\ConnectorBundle\Entities\QuotaEntity;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
+use RIPS\ConnectorBundle\Responses\QuotasResponse;
+use RIPS\ConnectorBundle\Responses\QuotaResponse;
 
 class QuotaService
 {
@@ -27,13 +28,13 @@ class QuotaService
      * Get all quotas
      *
      * @param array $queryParams
-     * @return QuotaEntity[]
+     * @return QuotasResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $quotas = $this->api->quotas()->getAll($queryParams);
+        $response = $this->api->quotas()->getAll($queryParams);
 
-        return QuotaHydrator::hydrateCollection($quotas->getDecodedData());
+        return new QuotasResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class QuotaService
      *
      * @param int $quotaId
      * @param array $queryParams
-     * @return QuotaEntity
+     * @return QuotaResponse
      */
     public function getById($quotaId, array $queryParams = [])
     {
-        $quota = $this->api->quotas()->getById($quotaId, $queryParams);
+        $response = $this->api->quotas()->getById($quotaId, $queryParams);
 
-        return QuotaHydrator::hydrate($quota->getDecodedData());
+        return new QuotaResponse($response);
     }
 
     /**
@@ -55,13 +56,13 @@ class QuotaService
      *
      * @param QuotaBuilder $input
      * @param array $queryParams
-     * @return QuotaEntity
+     * @return QuotaResponse
      */
     public function create(QuotaBuilder $input, array $queryParams = [])
     {
-        $quota = $this->api->quotas()->create($input->toArray(), $queryParams);
+        $response = $this->api->quotas()->create($input->toArray(), $queryParams);
 
-        return QuotaHydrator::hydrate($quota->getDecodedData());
+        return new QuotaResponse($response);
     }
 
     /**
@@ -70,24 +71,26 @@ class QuotaService
      * @param int $quotaId
      * @param QuotaBuilder $input
      * @param array $queryParams
-     * @return QuotaEntity
+     * @return QuotaResponse
      */
     public function update($quotaId, QuotaBuilder $input, array $queryParams = [])
     {
-        $quota = $this->api->quotas()->update($quotaId, $input->toArray(), $queryParams);
+        $response = $this->api->quotas()->update($quotaId, $input->toArray(), $queryParams);
 
-        return QuotaHydrator::hydrate($quota->getDecodedData());
+        return new QuotaResponse($response);
     }
 
     /**
      * Delete all quotas
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll(array $queryParams = [])
     {
-        $this->api->quotas()->deleteAll($queryParams);
+        $response = $this->api->quotas()->deleteAll($queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -95,10 +98,12 @@ class QuotaService
      *
      * @param int $quotaId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($quotaId, array $queryParams = [])
     {
-        $this->api->quotas()->deleteById($quotaId, $queryParams);
+        $response = $this->api->quotas()->deleteById($quotaId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

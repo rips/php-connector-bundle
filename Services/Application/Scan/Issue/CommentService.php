@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue\CommentBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\CommentsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\CommentResponse;
 
 class CommentService
 {
@@ -31,17 +32,17 @@ class CommentService
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return CommentEntity[]
+     * @return CommentsResponse
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $comments = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return CommentHydrator::hydrateCollection($comments->getDecodedData());
+        return new CommentsResponse($response);
     }
 
     /**
@@ -52,18 +53,18 @@ class CommentService
      * @param int $issueId
      * @param int $commentId
      * @param array $queryParams
-     * @return CommentEntity
+     * @return CommentResponse
      */
     public function getById($appId, $scanId, $issueId, $commentId, array $queryParams = [])
     {
-        $comment = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
             ->getById($appId, $scanId, $issueId, $commentId, $queryParams);
 
-        return CommentHydrator::hydrate($comment->getDecodedData());
+        return new CommentResponse($response);
     }
 
     /**
@@ -74,18 +75,18 @@ class CommentService
      * @param int $issueId
      * @param CommentBuilder $input
      * @param array $queryParams
-     * @return CommentEntity
+     * @return CommentResponse
      */
     public function create($appId, $scanId, $issueId, CommentBuilder $input, array $queryParams = [])
     {
-        $comment = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
             ->create($appId, $scanId, $issueId, $input->toArray(), $queryParams);
 
-        return CommentHydrator::hydrate($comment->getDecodedData());
+        return new CommentResponse($response);
     }
 
     /**
@@ -95,16 +96,18 @@ class CommentService
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
             ->deleteAll($appId, $scanId, $issueId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -115,15 +118,17 @@ class CommentService
      * @param int $issueId
      * @param int $commentId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $scanId, $issueId, $commentId, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->comments()
             ->deleteById($appId, $scanId, $issueId, $commentId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

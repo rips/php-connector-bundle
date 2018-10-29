@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan\Source;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Source\TypeEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Source\TypeHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Source\TypesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Source\TypeResponse;
 
 class TypeService
 {
@@ -27,18 +27,18 @@ class TypeService
      * Get all types for an issue source
      *
      * @param array $queryParams
-     * @return TypeEntity[]
+     * @return TypesResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $types = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->sources()
             ->types()
             ->getAll($queryParams);
 
-        return TypeHydrator::hydrateCollection($types->getDecodedData());
+        return new TypesResponse($response);
     }
 
     /**
@@ -46,17 +46,17 @@ class TypeService
      *
      * @param int $typeId
      * @param array $queryParams
-     * @return TypeEntity
+     * @return TypeResponse
      */
     public function getById($typeId, array $queryParams = [])
     {
-        $type = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->sources()
             ->types()
             ->getById($typeId, $queryParams);
 
-        return TypeHydrator::hydrate($type->getDecodedData());
+        return new TypeResponse($response);
     }
 }

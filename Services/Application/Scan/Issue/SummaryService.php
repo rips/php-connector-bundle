@@ -3,8 +3,9 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\SummariesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\SummaryResponse;
+
 
 class SummaryService
 {
@@ -30,18 +31,18 @@ class SummaryService
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return SummaryEntity[]
+     * @return SummariesResponse
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $summaries = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->summaries()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return SummaryHydrator::hydrateCollection($summaries->getDecodedData());
+        return new SummariesResponse($response);
     }
 
     /**
@@ -52,17 +53,17 @@ class SummaryService
      * @param int $issueId
      * @param int $summaryId
      * @param array $queryParams
-     * @return SummaryEntity
+     * @return SummaryResponse
      */
     public function getById($appId, $scanId, $issueId, $summaryId, array $queryParams = [])
     {
-        $summary = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->summaries()
             ->getById($appId, $scanId, $issueId, $summaryId, $queryParams);
 
-        return SummaryHydrator::hydrate($summary->getDecodedData());
+        return new SummaryResponse($response);
     }
 }
