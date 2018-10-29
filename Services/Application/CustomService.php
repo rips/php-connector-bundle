@@ -36,7 +36,7 @@ class CustomService
     {
         $customs = $this->api->applications()->customs()->getAll($appId, $queryParams);
 
-        return CustomHydrator::hydrateCollection($customs);
+        return CustomHydrator::hydrateCollection($customs->getDecodedData());
     }
 
     /**
@@ -51,7 +51,7 @@ class CustomService
     {
         $custom = $this->api->applications()->customs()->getById($appId, $customId, $queryParams);
 
-        return CustomHydrator::hydrate($custom);
+        return CustomHydrator::hydrate($custom->getDecodedData());
     }
 
     /**
@@ -66,7 +66,7 @@ class CustomService
     {
         $custom = $this->api->applications()->customs()->create($appId, $input->toArray(), $queryParams);
 
-        return CustomHydrator::hydrate($custom);
+        return CustomHydrator::hydrate($custom->getDecodedData());
     }
 
     /**
@@ -80,7 +80,7 @@ class CustomService
     {
         $custom = $this->api->applications()->customs()->cloneById($appId, $customId, $input->toArray(), $queryParams);
 
-        return CustomHydrator::hydrate($custom);
+        return CustomHydrator::hydrate($custom->getDecodedData());
     }
 
     /**
@@ -96,7 +96,7 @@ class CustomService
     {
         $custom = $this->api->applications()->customs()->update($appId, $customId, $input->toArray(), $queryParams);
 
-        return CustomHydrator::hydrate($custom);
+        return CustomHydrator::hydrate($custom->getDecodedData());
     }
 
     /**

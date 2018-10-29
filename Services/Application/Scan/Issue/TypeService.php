@@ -38,7 +38,7 @@ class TypeService
             ->types()
             ->getAll($queryParams);
 
-        return TypeHydrator::hydrateCollection($types);
+        return TypeHydrator::hydrateCollection($types->getDecodedData());
     }
 
     /**
@@ -57,6 +57,6 @@ class TypeService
             ->types()
             ->getById($typeId, $queryParams);
 
-        return TypeHydrator::hydrate($type);
+        return TypeHydrator::hydrate($type->getDecodedData());
     }
 }

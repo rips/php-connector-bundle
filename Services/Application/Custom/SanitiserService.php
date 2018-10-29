@@ -36,7 +36,7 @@ class SanitiserService
     {
         $sanitisers = $this->api->applications()->customs()->sanitisers()->getAll($appId, $customId, $queryParams);
 
-        return SanitiserHydrator::hydrateCollection($sanitisers);
+        return SanitiserHydrator::hydrateCollection($sanitisers->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class SanitiserService
     {
         $sanitiser = $this->api->applications()->customs()->sanitisers()->getById($appId, $customId, $sanitiserId, $queryParams);
 
-        return SanitiserHydrator::hydrate($sanitiser);
+        return SanitiserHydrator::hydrate($sanitiser->getDecodedData());
     }
 
     /**
@@ -68,7 +68,7 @@ class SanitiserService
     {
         $sanitiser = $this->api->applications()->customs()->sanitisers()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return SanitiserHydrator::hydrate($sanitiser);
+        return SanitiserHydrator::hydrate($sanitiser->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class SanitiserService
     {
         $sanitiser = $this->api->applications()->customs()->sanitisers()->update($appId, $customId, $sanitiserId, $input->toArray(), $queryParams);
 
-        return SanitiserHydrator::hydrate($sanitiser);
+        return SanitiserHydrator::hydrate($sanitiser->getDecodedData());
     }
 
     /**

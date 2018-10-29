@@ -40,7 +40,7 @@ class LibraryService
             ->libraries()
             ->getAll($appId, $scanId, $queryParams);
 
-        return LibraryHydrator::hydrateCollection($libraries);
+        return LibraryHydrator::hydrateCollection($libraries->getDecodedData());
     }
 
     /**
@@ -60,7 +60,7 @@ class LibraryService
             ->libraries()
             ->getById($appId, $scanId, $libraryId, $queryParams);
 
-        return LibraryHydrator::hydrate($library);
+        return LibraryHydrator::hydrate($library->getDecodedData());
     }
 
     /**
@@ -80,7 +80,7 @@ class LibraryService
             ->libraries()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return LibraryHydrator::hydrate($library);
+        return LibraryHydrator::hydrate($library->getDecodedData());
     }
 
     /**
@@ -101,7 +101,7 @@ class LibraryService
             ->libraries()
             ->update($appId, $scanId, $libraryId, $input->toArray(), $queryParams);
 
-        return LibraryHydrator::hydrate($library);
+        return LibraryHydrator::hydrate($library->getDecodedData());
     }
 
     /**

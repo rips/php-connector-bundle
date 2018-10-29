@@ -39,7 +39,7 @@ class EntrypointService
             ->entrypoints()
             ->getAll($appId, $scanId, $queryParams);
 
-        return EntrypointHydrator::hydrateCollection($entrypoint);
+        return EntrypointHydrator::hydrateCollection($entrypoint->getDecodedData());
     }
 
     /**
@@ -59,6 +59,6 @@ class EntrypointService
             ->entrypoints()
             ->getById($appId, $scanId, $entrypointId, $queryParams);
 
-        return EntrypointHydrator::hydrate($entrypoint);
+        return EntrypointHydrator::hydrate($entrypoint->getDecodedData());
     }
 }

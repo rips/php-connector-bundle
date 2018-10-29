@@ -33,7 +33,7 @@ class ApplicationService
     {
         $applications = $this->api->applications()->getAll($queryParams);
 
-        return ApplicationHydrator::hydrateCollection($applications);
+        return ApplicationHydrator::hydrateCollection($applications->getDecodedData());
     }
 
     /**
@@ -47,7 +47,7 @@ class ApplicationService
     {
         $application = $this->api->applications()->getById($appId, $queryParams);
 
-        return ApplicationHydrator::hydrate($application);
+        return ApplicationHydrator::hydrate($application->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class ApplicationService
     {
         $application = $this->api->applications()->create($input->toArray(), $queryParams);
 
-        return ApplicationHydrator::hydrate($application);
+        return ApplicationHydrator::hydrate($application->getDecodedData());
     }
 
     /**
@@ -76,7 +76,7 @@ class ApplicationService
     {
         $application = $this->api->applications()->update($appId, $input->toArray(), $queryParams);
 
-        return ApplicationHydrator::hydrate($application);
+        return ApplicationHydrator::hydrate($application->getDecodedData());
     }
 
     /**

@@ -36,7 +36,7 @@ class IgnoreService
     {
         $ignores = $this->api->applications()->customs()->ignores()->getAll($appId, $customId, $queryParams);
 
-        return IgnoreHydrator::hydrateCollection($ignores);
+        return IgnoreHydrator::hydrateCollection($ignores->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class IgnoreService
     {
         $ignore = $this->api->applications()->customs()->ignores()->getById($appId, $customId, $ignoreId, $queryParams);
 
-        return IgnoreHydrator::hydrate($ignore);
+        return IgnoreHydrator::hydrate($ignore->getDecodedData());
     }
 
     /**
@@ -68,7 +68,7 @@ class IgnoreService
     {
         $ignore = $this->api->applications()->customs()->ignores()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return IgnoreHydrator::hydrate($ignore);
+        return IgnoreHydrator::hydrate($ignore->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class IgnoreService
     {
         $ignore = $this->api->applications()->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray(), $queryParams);
 
-        return IgnoreHydrator::hydrate($ignore);
+        return IgnoreHydrator::hydrate($ignore->getDecodedData());
     }
 
     /**

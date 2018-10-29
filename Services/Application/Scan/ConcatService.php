@@ -39,7 +39,7 @@ class ConcatService
             ->concats()
             ->getAll($appId, $scanId, $queryParams);
 
-        return ConcatHydrator::hydrateCollection($concats);
+        return ConcatHydrator::hydrateCollection($concats->getDecodedData());
     }
 
     /**
@@ -59,6 +59,6 @@ class ConcatService
             ->concats()
             ->getById($appId, $scanId, $concatId, $queryParams);
 
-        return ConcatHydrator::hydrate($concat);
+        return ConcatHydrator::hydrate($concat->getDecodedData());
     }
 }

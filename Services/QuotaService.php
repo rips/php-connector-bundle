@@ -31,9 +31,9 @@ class QuotaService
      */
     public function getAll(array $queryParams = [])
     {
-        $org = $this->api->quotas()->getAll($queryParams);
+        $quotas = $this->api->quotas()->getAll($queryParams);
 
-        return QuotaHydrator::hydrateCollection($org);
+        return QuotaHydrator::hydrateCollection($quotas->getDecodedData());
     }
 
     /**
@@ -45,9 +45,9 @@ class QuotaService
      */
     public function getById($quotaId, array $queryParams = [])
     {
-        $org = $this->api->quotas()->getById($quotaId, $queryParams);
+        $quota = $this->api->quotas()->getById($quotaId, $queryParams);
 
-        return QuotaHydrator::hydrate($org);
+        return QuotaHydrator::hydrate($quota->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class QuotaService
     {
         $quota = $this->api->quotas()->create($input->toArray(), $queryParams);
 
-        return QuotaHydrator::hydrate($quota);
+        return QuotaHydrator::hydrate($quota->getDecodedData());
     }
 
     /**
@@ -76,7 +76,7 @@ class QuotaService
     {
         $quota = $this->api->quotas()->update($quotaId, $input->toArray(), $queryParams);
 
-        return QuotaHydrator::hydrate($quota);
+        return QuotaHydrator::hydrate($quota->getDecodedData());
     }
 
     /**

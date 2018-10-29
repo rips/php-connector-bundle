@@ -33,7 +33,7 @@ class TeamService
     {
         $teams = $this->api->teams()->getAll($queryParams);
 
-        return TeamHydrator::hydrateCollection($teams);
+        return TeamHydrator::hydrateCollection($teams->getDecodedData());
     }
 
     /**
@@ -47,7 +47,7 @@ class TeamService
     {
         $team = $this->api->teams()->getById($teamId, $queryParams);
 
-        return TeamHydrator::hydrate($team);
+        return TeamHydrator::hydrate($team->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class TeamService
     {
         $team = $this->api->teams()->create($input->toArray(), $queryParams);
 
-        return TeamHydrator::hydrate($team);
+        return TeamHydrator::hydrate($team->getDecodedData());
     }
 
     /**
@@ -76,7 +76,7 @@ class TeamService
     {
         $team = $this->api->teams()->update($teamId, $input->toArray(), $queryParams);
 
-        return TeamHydrator::hydrate($team);
+        return TeamHydrator::hydrate($team->getDecodedData());
     }
 
     /**

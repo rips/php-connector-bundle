@@ -36,7 +36,7 @@ class SinkService
     {
         $sinks = $this->api->applications()->customs()->sinks()->getAll($appId, $customId, $queryParams);
 
-        return SinkHydrator::hydrateCollection($sinks);
+        return SinkHydrator::hydrateCollection($sinks->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class SinkService
     {
         $sink = $this->api->applications()->customs()->sinks()->getById($appId, $customId, $sinkId, $queryParams);
 
-        return SinkHydrator::hydrate($sink);
+        return SinkHydrator::hydrate($sink->getDecodedData());
     }
 
     /**
@@ -68,7 +68,7 @@ class SinkService
     {
         $sink = $this->api->applications()->customs()->sinks()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return SinkHydrator::hydrate($sink);
+        return SinkHydrator::hydrate($sink->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class SinkService
     {
         $sink = $this->api->applications()->customs()->sinks()->update($appId, $customId, $sinkId, $input->toArray(), $queryParams);
 
-        return SinkHydrator::hydrate($sink);
+        return SinkHydrator::hydrate($sink->getDecodedData());
     }
 
     /**

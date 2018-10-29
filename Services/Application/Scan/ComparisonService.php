@@ -35,6 +35,7 @@ class ComparisonService
             ->applications()
             ->scans()
             ->comparisons()
-            ->getComparison($appId, $scanId, $queryParams);
+            ->getComparison($appId, $scanId, $queryParams)
+            ->getDecodedData();
     }
 }

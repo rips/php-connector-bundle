@@ -33,7 +33,7 @@ class LicenseService
     {
         $licenses = $this->api->licenses()->getAll($queryParams);
 
-        return LicenseHydrator::hydrateCollection($licenses);
+        return LicenseHydrator::hydrateCollection($licenses->getDecodedData());
     }
 
     /**
@@ -47,7 +47,7 @@ class LicenseService
     {
         $license = $this->api->licenses()->getById($appId, $queryParams);
 
-        return LicenseHydrator::hydrate($license);
+        return LicenseHydrator::hydrate($license->getDecodedData());
     }
 
     /**
@@ -59,6 +59,6 @@ class LicenseService
     {
         $license = $this->api->licenses()->activate($input->toArray(), $queryParams);
 
-        return LicenseHydrator::hydrate($license);
+        return LicenseHydrator::hydrate($license->getDecodedData());
     }
 }

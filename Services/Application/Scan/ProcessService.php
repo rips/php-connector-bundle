@@ -41,7 +41,7 @@ class ProcessService
             ->processes()
             ->getAll($appId, $scanId, $queryParams);
 
-        return ProcessHydrator::hydrateCollection($processes);
+        return ProcessHydrator::hydrateCollection($processes->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class ProcessService
             ->processes()
             ->getById($appId, $scanId, $processId, $queryParams);
 
-        return ProcessHydrator::hydrate($process);
+        return ProcessHydrator::hydrate($process->getDecodedData());
     }
 
     /**
@@ -81,7 +81,7 @@ class ProcessService
             ->processes()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return ProcessHydrator::hydrate($process);
+        return ProcessHydrator::hydrate($process->getDecodedData());
     }
 
     /**
@@ -102,6 +102,6 @@ class ProcessService
             ->processes()
             ->update($appId, $scanId, $processId, $input->toArray(), $queryParams);
 
-        return ProcessHydrator::hydrate($process);
+        return ProcessHydrator::hydrate($process->getDecodedData());
     }
 }

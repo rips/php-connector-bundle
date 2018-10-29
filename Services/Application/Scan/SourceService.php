@@ -39,7 +39,7 @@ class SourceService
             ->sources()
             ->getAll($appId, $scanId, $queryParams);
 
-        return SourceHydrator::hydrateCollection($sources);
+        return SourceHydrator::hydrateCollection($sources->getDecodedData());
     }
 
     /**
@@ -59,6 +59,6 @@ class SourceService
             ->sources()
             ->getById($appId, $scanId, $sourceId, $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return SourceHydrator::hydrate($source->getDecodedData());
     }
 }

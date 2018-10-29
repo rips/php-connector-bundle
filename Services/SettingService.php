@@ -31,9 +31,9 @@ class SettingService
      */
     public function getAll(array $queryParams = [])
     {
-        $org = $this->api->settings()->getAll($queryParams);
+        $settings = $this->api->settings()->getAll($queryParams);
 
-        return SettingHydrator::hydrateCollection($org);
+        return SettingHydrator::hydrateCollection($settings->getDecodedData());
     }
 
     /**
@@ -45,9 +45,9 @@ class SettingService
      */
     public function getByKey($key, array $queryParams = [])
     {
-        $org = $this->api->settings()->getByKey($key, $queryParams);
+        $setting = $this->api->settings()->getByKey($key, $queryParams);
 
-        return SettingHydrator::hydrate($org);
+        return SettingHydrator::hydrate($setting->getDecodedData());
     }
 
     /**
@@ -60,9 +60,9 @@ class SettingService
      */
     public function createOrUpdate($key, SettingBuilder $input, array $queryParams = [])
     {
-        $quota = $this->api->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
+        $setting = $this->api->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
 
-        return SettingHydrator::hydrate($quota);
+        return SettingHydrator::hydrate($setting->getDecodedData());
     }
 
     /**

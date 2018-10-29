@@ -41,7 +41,7 @@ class CommentService
             ->issues()
             ->comments()->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return CommentHydrator::hydrateCollection($comments);
+        return CommentHydrator::hydrateCollection($comments->getDecodedData());
     }
 
     /**
@@ -63,7 +63,7 @@ class CommentService
             ->comments()
             ->getById($appId, $scanId, $issueId, $commentId, $queryParams);
 
-        return CommentHydrator::hydrate($comment);
+        return CommentHydrator::hydrate($comment->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class CommentService
             ->comments()
             ->create($appId, $scanId, $issueId, $input->toArray(), $queryParams);
 
-        return CommentHydrator::hydrate($comment);
+        return CommentHydrator::hydrate($comment->getDecodedData());
     }
 
     /**

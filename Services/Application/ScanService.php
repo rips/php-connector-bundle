@@ -37,7 +37,7 @@ class ScanService
     {
         $scans = $this->api->applications()->scans()->getAll($appId, $queryParams);
 
-        return ScanHydrator::hydrateCollection($scans);
+        return ScanHydrator::hydrateCollection($scans->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class ScanService
     {
         $scan = $this->api->applications()->scans()->getById($appId, $scanId, $queryParams);
 
-        return ScanHydrator::hydrate($scan);
+        return ScanHydrator::hydrate($scan->getDecodedData());
     }
     /**
      * Create a new scan
@@ -87,7 +87,7 @@ class ScanService
 
         $scan = $this->api->applications()->scans()->create($appId, $inputArray, $queryParams, $defaultInput);
 
-        return ScanHydrator::hydrate($scan);
+        return ScanHydrator::hydrate($scan->getDecodedData());
     }
 
     /**
@@ -116,7 +116,7 @@ class ScanService
 
         $scan = $this->api->applications()->scans()->update($appId, $scanId, $inputArray, $queryParams, $defaultInput);
 
-        return ScanHydrator::hydrate($scan);
+        return ScanHydrator::hydrate($scan->getDecodedData());
     }
 
     /**
@@ -159,6 +159,6 @@ class ScanService
     {
         $scan = $this->api->applications()->scans()->blockUntilDone($appId, $scanId, $waitTime, $sleepTime, $queryParams);
 
-        return ScanHydrator::hydrate($scan);
+        return ScanHydrator::hydrate($scan->getDecodedData());
     }
 }

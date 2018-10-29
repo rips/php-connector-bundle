@@ -36,7 +36,7 @@ class SettingService
     {
         $setting = $this->api->applications()->customs()->settings()->get($appId, $customId, $queryParams);
 
-        return SettingHydrator::hydrate($setting);
+        return SettingHydrator::hydrate($setting->getDecodedData());
     }
 
     /**
@@ -52,6 +52,6 @@ class SettingService
     {
         $setting = $this->api->applications()->customs()->settings()->update($appId, $customId, $input->toArray(), $queryParams);
 
-        return SettingHydrator::hydrate($setting);
+        return SettingHydrator::hydrate($setting->getDecodedData());
     }
 }

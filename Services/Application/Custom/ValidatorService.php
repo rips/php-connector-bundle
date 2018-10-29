@@ -36,7 +36,7 @@ class ValidatorService
     {
         $validators = $this->api->applications()->customs()->validators()->getAll($appId, $customId, $queryParams);
 
-        return ValidatorHydrator::hydrateCollection($validators);
+        return ValidatorHydrator::hydrateCollection($validators->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class ValidatorService
     {
         $validator = $this->api->applications()->customs()->validators()->getById($appId, $customId, $validatorId, $queryParams);
 
-        return ValidatorHydrator::hydrate($validator);
+        return ValidatorHydrator::hydrate($validator->getDecodedData());
     }
 
     /**
@@ -68,7 +68,7 @@ class ValidatorService
     {
         $validator = $this->api->applications()->customs()->validators()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return ValidatorHydrator::hydrate($validator);
+        return ValidatorHydrator::hydrate($validator->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class ValidatorService
     {
         $validator = $this->api->applications()->customs()->validators()->update($appId, $customId, $validatorId, $input->toArray(), $queryParams);
 
-        return ValidatorHydrator::hydrate($validator);
+        return ValidatorHydrator::hydrate($validator->getDecodedData());
     }
 
     /**

@@ -34,7 +34,7 @@ class UploadService
     {
         $uploads = $this->api->applications()->uploads()->getAll($appId, $queryParams);
 
-        return UploadHydrator::hydrateCollection($uploads);
+        return UploadHydrator::hydrateCollection($uploads->getDecodedData());
     }
 
     /**
@@ -49,7 +49,7 @@ class UploadService
     {
         $upload = $this->api->applications()->uploads()->getById($appId, $uploadId, $queryParams);
 
-        return UploadHydrator::hydrate($upload);
+        return UploadHydrator::hydrate($upload->getDecodedData());
     }
 
     /**
@@ -65,7 +65,7 @@ class UploadService
     {
         $upload = $this->api->applications()->uploads()->create($appId, $filename, $filepath, $queryParams);
 
-        return UploadHydrator::hydrate($upload);
+        return UploadHydrator::hydrate($upload->getDecodedData());
     }
 
     /**

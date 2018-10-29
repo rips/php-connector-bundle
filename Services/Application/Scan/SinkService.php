@@ -39,7 +39,7 @@ class SinkService
             ->sinks()
             ->getAll($appId, $scanId, $queryParams);
 
-        return SinkHydrator::hydrateCollection($sinks);
+        return SinkHydrator::hydrateCollection($sinks->getDecodedData());
     }
 
     /**
@@ -59,6 +59,6 @@ class SinkService
             ->sinks()
             ->getById($appId, $scanId, $sinkId, $queryParams);
 
-        return SinkHydrator::hydrate($sink);
+        return SinkHydrator::hydrate($sink->getDecodedData());
     }
 }

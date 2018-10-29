@@ -36,7 +36,7 @@ class UserService
     {
         $users = $this->api->users()->getAll($queryParams);
 
-        return UserHydrator::hydrateCollection($users);
+        return UserHydrator::hydrateCollection($users->getDecodedData());
     }
 
     /**
@@ -50,7 +50,7 @@ class UserService
     {
         $user = $this->api->users()->getById($userId, $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 
     /**
@@ -64,7 +64,7 @@ class UserService
     {
         $user = $this->api->users()->create($input->toArray(), $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 
     /**
@@ -79,7 +79,7 @@ class UserService
     {
         $user = $this->api->users()->update($userId, $input->toArray(), $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 
     /**
@@ -116,7 +116,7 @@ class UserService
     {
         $user = $this->api->users()->invite($input->toArray(), $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 
     /**
@@ -143,7 +143,7 @@ class UserService
     {
         $user = $this->api->users()->activate($userId, $token, $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 
     /**
@@ -158,7 +158,7 @@ class UserService
     {
         $user = $this->api->users()->confirm($userId, $token, $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 
     /**
@@ -173,6 +173,6 @@ class UserService
     {
         $user = $this->api->users()->confirmReset($userId, $token, $queryParams);
 
-        return UserHydrator::hydrate($user);
+        return UserHydrator::hydrate($user->getDecodedData());
     }
 }

@@ -27,6 +27,6 @@ class SourceService
      */
     public function getAll(array $queryParams = [])
     {
-        return $this->api->sources()->getAll($queryParams);
+        return $this->api->sources()->getAll($queryParams)->getDecodedData();
     }
 }

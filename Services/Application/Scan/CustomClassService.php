@@ -40,7 +40,7 @@ class CustomClassService
             ->classes()
             ->getAll($appId, $scanId, $queryParams);
 
-        return CustomClassHydrator::hydrateCollection($classes);
+        return CustomClassHydrator::hydrateCollection($classes->getDecodedData());
     }
 
     /**
@@ -60,7 +60,7 @@ class CustomClassService
             ->classes()
             ->getById($appId, $scanId, $classId, $queryParams);
 
-        return CustomClassHydrator::hydrate($class);
+        return CustomClassHydrator::hydrate($class->getDecodedData());
     }
 
     /**
@@ -80,6 +80,6 @@ class CustomClassService
             ->classes()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return CustomClassHydrator::hydrate($class);
+        return CustomClassHydrator::hydrate($class->getDecodedData());
     }
 }

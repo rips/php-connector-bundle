@@ -33,7 +33,7 @@ class OrgService
     {
         $org = $this->api->orgs()->getAll($queryParams);
 
-        return OrgHydrator::hydrateCollection($org);
+        return OrgHydrator::hydrateCollection($org->getDecodedData());
     }
 
     /**
@@ -47,7 +47,7 @@ class OrgService
     {
         $org = $this->api->orgs()->getById($orgId, $queryParams);
 
-        return OrgHydrator::hydrate($org);
+        return OrgHydrator::hydrate($org->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class OrgService
     {
         $org = $this->api->orgs()->create($input->toArray(), $queryParams);
 
-        return OrgHydrator::hydrate($org);
+        return OrgHydrator::hydrate($org->getDecodedData());
     }
 
     /**
@@ -76,7 +76,7 @@ class OrgService
     {
         $org = $this->api->orgs()->update($orgId, $input->toArray(), $queryParams);
 
-        return OrgHydrator::hydrate($org);
+        return OrgHydrator::hydrate($org->getDecodedData());
     }
 
     /**

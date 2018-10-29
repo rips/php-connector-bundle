@@ -35,7 +35,7 @@ class AclService
     {
         $acls = $this->api->applications()->acls()->getAll($appId, $queryParams);
 
-        return AclHydrator::hydrateCollection($acls);
+        return AclHydrator::hydrateCollection($acls->getDecodedData());
     }
 
     /**
@@ -50,7 +50,7 @@ class AclService
     {
         $acl = $this->api->applications()->acls()->getById($appId, $aclId, $queryParams);
 
-        return AclHydrator::hydrate($acl);
+        return AclHydrator::hydrate($acl->getDecodedData());
     }
 
     /**
@@ -65,7 +65,7 @@ class AclService
     {
         $acl = $this->api->applications()->acls()->create($appId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl);
+        return AclHydrator::hydrate($acl->getDecodedData());
     }
 
     /**
@@ -81,7 +81,7 @@ class AclService
     {
         $acl = $this->api->applications()->acls()->update($appId, $aclId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl);
+        return AclHydrator::hydrate($acl->getDecodedData());
     }
 
     /**

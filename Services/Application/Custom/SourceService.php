@@ -36,7 +36,7 @@ class SourceService
     {
         $sources = $this->api->applications()->customs()->sources()->getAll($appId, $customId, $queryParams);
 
-        return SourceHydrator::hydrateCollection($sources);
+        return SourceHydrator::hydrateCollection($sources->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class SourceService
     {
         $source = $this->api->applications()->customs()->sources()->getById($appId, $customId, $sourceId, $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return SourceHydrator::hydrate($source->getDecodedData());
     }
 
     /**
@@ -68,7 +68,7 @@ class SourceService
     {
         $source = $this->api->applications()->customs()->sources()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return SourceHydrator::hydrate($source->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class SourceService
     {
         $source = $this->api->applications()->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray(), $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return SourceHydrator::hydrate($source->getDecodedData());
     }
 
     /**

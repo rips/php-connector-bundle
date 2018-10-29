@@ -41,7 +41,7 @@ class CustomFunctionService
             ->functions()
             ->getAll($appId, $scanId, $queryParams);
 
-        return CustomFunctionHydrator::hydrateCollection($functions);
+        return CustomFunctionHydrator::hydrateCollection($functions->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class CustomFunctionService
             ->functions()
             ->getById($appId, $scanId, $functionId, $queryParams);
 
-        return CustomFunctionHydrator::hydrate($function);
+        return CustomFunctionHydrator::hydrate($function->getDecodedData());
     }
 
     /**
@@ -81,6 +81,6 @@ class CustomFunctionService
             ->functions()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return CustomFunctionHydrator::hydrate($function);
+        return CustomFunctionHydrator::hydrate($function->getDecodedData());
     }
 }

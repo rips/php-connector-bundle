@@ -39,7 +39,7 @@ class FileService
             ->files()
             ->getAll($appId, $scanId, $queryParams);
 
-        return FileHydrator::hydrateCollection($files);
+        return FileHydrator::hydrateCollection($files->getDecodedData());
     }
 
     /**
@@ -59,7 +59,7 @@ class FileService
             ->files()
             ->getById($appId, $scanId, $fileId, $queryParams);
 
-        return FileHydrator::hydrate($file);
+        return FileHydrator::hydrate($file->getDecodedData());
     }
 
     /**

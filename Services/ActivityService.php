@@ -32,7 +32,7 @@ class ActivityService
     {
         $activities = $this->api->activities()->getAll($queryParams);
 
-        return ActivityHydrator::hydrateCollection($activities);
+        return ActivityHydrator::hydrateCollection($activities->getDecodedData());
     }
 
     /**
@@ -46,6 +46,6 @@ class ActivityService
     {
         $activity = $this->api->activities()->getById($activityId, $queryParams);
 
-        return ActivityHydrator::hydrate($activity);
+        return ActivityHydrator::hydrate($activity->getDecodedData());
     }
 }

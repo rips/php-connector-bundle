@@ -41,7 +41,7 @@ class IssueService
             ->issues()
             ->getAll($applicationID, $scanID, $queryParams);
 
-        return IssueHydrator::hydrateCollection($issues);
+        return IssueHydrator::hydrateCollection($issues->getDecodedData());
     }
 
     /**
@@ -60,7 +60,7 @@ class IssueService
             ->issues()
             ->getStats($appId, $scanId, $queryParams);
 
-        return $stats;
+        return $stats->getDecodedData();
     }
 
     /**
@@ -80,7 +80,7 @@ class IssueService
             ->issues()
             ->getById($appId, $scanId, $issueId, $queryParams);
 
-        return IssueHydrator::hydrate($issue);
+        return IssueHydrator::hydrate($issue->getDecodedData());
     }
 
     /**
@@ -100,6 +100,6 @@ class IssueService
             ->issues()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return IssueHydrator::hydrate($issue);
+        return IssueHydrator::hydrate($issue->getDecodedData());
     }
 }

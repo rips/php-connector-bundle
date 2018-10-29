@@ -33,7 +33,7 @@ class LogService
     {
         $logs = $this->api->logs()->getAll($queryParams);
 
-        return LogHydrator::hydrateCollection($logs);
+        return LogHydrator::hydrateCollection($logs->getDecodedData());
     }
 
     /**
@@ -47,7 +47,7 @@ class LogService
     {
         $log = $this->api->logs()->getById($logId, $queryParams);
 
-        return LogHydrator::hydrate($log);
+        return LogHydrator::hydrate($log->getDecodedData());
     }
 
     /**

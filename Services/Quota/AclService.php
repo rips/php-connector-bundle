@@ -35,7 +35,7 @@ class AclService
     {
         $acls = $this->api->quotas()->acls()->getAll($quotaId, $queryParams);
 
-        return AclHydrator::hydrateCollection($acls);
+        return AclHydrator::hydrateCollection($acls->getDecodedData());
     }
 
     /**
@@ -50,7 +50,7 @@ class AclService
     {
         $acl = $this->api->quotas()->acls()->getById($quotaId, $aclId, $queryParams);
 
-        return AclHydrator::hydrate($acl);
+        return AclHydrator::hydrate($acl->getDecodedData());
     }
 
     /**
@@ -65,7 +65,7 @@ class AclService
     {
         $acl = $this->api->quotas()->acls()->create($quotaId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl);
+        return AclHydrator::hydrate($acl->getDecodedData());
     }
 
     /**
@@ -81,7 +81,7 @@ class AclService
     {
         $acl = $this->api->quotas()->acls()->update($quotaId, $aclId, $input->toArray(), $queryParams);
 
-        return AclHydrator::hydrate($acl);
+        return AclHydrator::hydrate($acl->getDecodedData());
     }
 
     /**

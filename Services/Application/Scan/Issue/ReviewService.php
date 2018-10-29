@@ -42,7 +42,7 @@ class ReviewService
             ->reviews()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return ReviewHydrator::hydrateCollection($reviews);
+        return ReviewHydrator::hydrateCollection($reviews->getDecodedData());
     }
 
     /**
@@ -64,7 +64,7 @@ class ReviewService
             ->reviews()
             ->getById($appId, $scanId, $issueId, $reviewId, $queryParams);
 
-        return ReviewHydrator::hydrate($review);
+        return ReviewHydrator::hydrate($review->getDecodedData());
     }
 
     /**
@@ -86,6 +86,6 @@ class ReviewService
             ->reviews()
             ->create($appId, $scanId, $issueId, $input->toArray(), $queryParams);
 
-        return ReviewHydrator::hydrate($review);
+        return ReviewHydrator::hydrate($review->getDecodedData());
     }
 }

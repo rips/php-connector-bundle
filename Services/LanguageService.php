@@ -32,7 +32,7 @@ class LanguageService
     {
         $languages = $this->api->languages()->getAll($queryParams);
 
-        return LanguageHydrator::hydrateCollection($languages);
+        return LanguageHydrator::hydrateCollection($languages->getDecodedData());
     }
 
     /**
@@ -46,6 +46,6 @@ class LanguageService
     {
         $language = $this->api->languages()->getById($languageId, $queryParams);
 
-        return LanguageHydrator::hydrate($language);
+        return LanguageHydrator::hydrate($language->getDecodedData());
     }
 }

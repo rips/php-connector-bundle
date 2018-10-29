@@ -43,7 +43,7 @@ class PatchService
             ->patches()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return PatchHydrator::hydrateCollection($patches);
+        return PatchHydrator::hydrateCollection($patches->getDecodedData());
     }
 
     /**
@@ -65,7 +65,7 @@ class PatchService
             ->patches()
             ->getById($appId, $scanId, $issueId, $patchId, $queryParams);
 
-        return PatchHydrator::hydrate($summary);
+        return PatchHydrator::hydrate($summary->getDecodedData());
     }
 
     /**
@@ -108,6 +108,6 @@ class PatchService
             ->patches()
             ->create($appId, $scanId, $issueId, $inputArray, $queryParams, $defaultInput);
 
-        return PatchHydrator::hydrate($patch);
+        return PatchHydrator::hydrate($patch->getDecodedData());
     }
 }

@@ -41,7 +41,7 @@ class MarkupService
             ->markups()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return MarkupHydrator::hydrateCollection($markups);
+        return MarkupHydrator::hydrateCollection($markups->getDecodedData());
     }
 
     /**
@@ -63,6 +63,6 @@ class MarkupService
             ->markups()
             ->getById($appId, $scanId, $issueId, $markupId, $queryParams);
 
-        return MarkupHydrator::hydrate($markup);
+        return MarkupHydrator::hydrate($markup->getDecodedData());
     }
 }

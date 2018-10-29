@@ -36,7 +36,7 @@ class ControllerService
     {
         $controllers = $this->api->applications()->customs()->controllers()->getAll($appId, $customId, $queryParams);
 
-        return ControllerHydrator::hydrateCollection($controllers);
+        return ControllerHydrator::hydrateCollection($controllers->getDecodedData());
     }
 
     /**
@@ -52,7 +52,7 @@ class ControllerService
     {
         $controller = $this->api->applications()->customs()->controllers()->getById($appId, $customId, $controllerId, $queryParams);
 
-        return ControllerHydrator::hydrate($controller);
+        return ControllerHydrator::hydrate($controller->getDecodedData());
     }
 
     /**
@@ -68,7 +68,7 @@ class ControllerService
     {
         $controller = $this->api->applications()->customs()->controllers()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return ControllerHydrator::hydrate($controller);
+        return ControllerHydrator::hydrate($controller->getDecodedData());
     }
 
     /**
@@ -85,7 +85,7 @@ class ControllerService
     {
         $controller = $this->api->applications()->customs()->controllers()->update($appId, $customId, $controllerId, $input->toArray(), $queryParams);
 
-        return ControllerHydrator::hydrate($controller);
+        return ControllerHydrator::hydrate($controller->getDecodedData());
     }
 
     /**

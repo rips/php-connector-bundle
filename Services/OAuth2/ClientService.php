@@ -33,7 +33,7 @@ class ClientService
     {
         $clients = $this->api->oauth2()->clients()->getAll($queryParams);
 
-        return ClientHydrator::hydrateCollection($clients);
+        return ClientHydrator::hydrateCollection($clients->getDecodedData());
     }
 
     /**
@@ -47,7 +47,7 @@ class ClientService
     {
         $client = $this->api->oauth2()->clients()->getById($clientId, $queryParams);
 
-        return ClientHydrator::hydrate($client);
+        return ClientHydrator::hydrate($client->getDecodedData());
     }
 
     /**
@@ -61,7 +61,7 @@ class ClientService
     {
         $client = $this->api->oauth2()->clients()->create($input->toArray(), $queryParams);
 
-        return ClientHydrator::hydrate($client);
+        return ClientHydrator::hydrate($client->getDecodedData());
     }
 
     /**
@@ -76,7 +76,7 @@ class ClientService
     {
         $client = $this->api->oauth2()->clients()->update($clientId, $input->toArray(), $queryParams);
 
-        return ClientHydrator::hydrate($client);
+        return ClientHydrator::hydrate($client->getDecodedData());
     }
 
     /**

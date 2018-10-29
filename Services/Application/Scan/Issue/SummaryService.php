@@ -41,7 +41,7 @@ class SummaryService
             ->summaries()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return SummaryHydrator::hydrateCollection($summaries);
+        return SummaryHydrator::hydrateCollection($summaries->getDecodedData());
     }
 
     /**
@@ -63,6 +63,6 @@ class SummaryService
             ->summaries()
             ->getById($appId, $scanId, $issueId, $summaryId, $queryParams);
 
-        return SummaryHydrator::hydrate($summary);
+        return SummaryHydrator::hydrate($summary->getDecodedData());
     }
 }
