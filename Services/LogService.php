@@ -61,7 +61,7 @@ class LogService
     {
         $log = $this->api->logs()->create($input->toArray(), $queryParams);
 
-        return LogHydrator::hydrate($log);
+        return LogHydrator::hydrate($log->getDecodedData());
     }
 
     /**
