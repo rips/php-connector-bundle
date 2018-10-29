@@ -4,6 +4,7 @@ namespace RIPS\ConnectorBundle\Services;
 
 use RIPS\ConnectorBundle\Hydrators\ActivityHydrator;
 use RIPS\ConnectorBundle\Entities\ActivityEntity;
+use RIPS\Connector\Entities\Response as OriginalResponse;
 
 class ActivityService
 {
@@ -26,13 +27,18 @@ class ActivityService
      * Get all activities
      *
      * @param array $queryParams
+     * @param OriginalResponse|null &$originalResponse
      * @return ActivityEntity[]
      */
-    public function getAll(array $queryParams = [])
+    public function getAll(array $queryParams = [], OriginalResponse &$originalResponse = null)
     {
-        $activities = $this->api->activities()->getAll($queryParams);
+        $response = $this->api->activities()->getAll($queryParams);
 
-        return ActivityHydrator::hydrateCollection($activities->getDecodedData());
+        if ($originalResponse) {
+            $originalResponse = $response;
+        }
+
+        return ActivityHydrator::hydrateCollection($response->getDecodedData());
     }
 
     /**
@@ -40,12 +46,17 @@ class ActivityService
      *
      * @param int $activityId
      * @param array $queryParams
+     * @param OriginalResponse|null &$originalResponse
      * @return ActivityEntity
      */
-    public function getById($activityId, array $queryParams = [])
+    public function getById($activityId, array $queryParams = [], OriginalResponse &$originalResponse = null)
     {
-        $activity = $this->api->activities()->getById($activityId, $queryParams);
+        $response = $this->api->activities()->getById($activityId, $queryParams);
 
-        return ActivityHydrator::hydrate($activity->getDecodedData());
+        if ($originalResponse) {
+            $originalResponse = $response;
+        }
+
+        return ActivityHydrator::hydrate($response->getDecodedData());
     }
 }
