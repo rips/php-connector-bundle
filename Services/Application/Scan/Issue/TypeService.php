@@ -6,7 +6,6 @@ use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\TypesResponse;
 use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\TypeResponse;
 
-
 class TypeService
 {
     /**

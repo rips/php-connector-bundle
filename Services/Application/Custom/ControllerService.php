@@ -8,7 +8,6 @@ use RIPS\ConnectorBundle\InputBuilders\Application\Custom\ControllerBuilder;
 use RIPS\ConnectorBundle\Responses\Application\Custom\ControllersResponse;
 use RIPS\ConnectorBundle\Responses\Application\Custom\ControllerResponse;
 
-
 class ControllerService
 {
     /**

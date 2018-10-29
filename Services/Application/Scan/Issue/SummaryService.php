@@ -6,7 +6,6 @@ use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\SummariesResponse;
 use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\SummaryResponse;
 
-
 class SummaryService
 {
     /**
