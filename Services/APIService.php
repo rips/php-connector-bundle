@@ -175,6 +175,6 @@ class APIService
     {
         $status = $this->api->status->getStatus();
 
-        return StatusHydrator::hydrate($status);
+        return StatusHydrator::hydrate($status->getDecodedData());
     }
 }
