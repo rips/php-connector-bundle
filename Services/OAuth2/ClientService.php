@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\OAuth2;
 
-use RIPS\ConnectorBundle\Entities\OAuth2\ClientEntity;
-use RIPS\ConnectorBundle\Hydrators\OAuth2\ClientHydrator;
-use RIPS\ConnectorBundle\InputBuilders\OAuth2\ClientBuilder;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
+use RIPS\ConnectorBundle\InputBuilders\OAuth2\ClientBuilder;
+use RIPS\ConnectorBundle\Responses\OAuth2\ClientsResponse;
+use RIPS\ConnectorBundle\Responses\OAuth2\ClientResponse;
 
 class ClientService
 {
@@ -27,13 +28,13 @@ class ClientService
      * Get all clients
      *
      * @param array $queryParams
-     * @return ClientEntity[]
+     * @return ClientsResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $clients = $this->api->oauth2()->clients()->getAll($queryParams);
+        $response = $this->api->oauth2()->clients()->getAll($queryParams);
 
-        return ClientHydrator::hydrateCollection($clients);
+        return new ClientsResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class ClientService
      *
      * @param int $clientId
      * @param array $queryParams
-     * @return ClientEntity
+     * @return ClientResponse
      */
     public function getById($clientId, array $queryParams = [])
     {
-        $client = $this->api->oauth2()->clients()->getById($clientId, $queryParams);
+        $response = $this->api->oauth2()->clients()->getById($clientId, $queryParams);
 
-        return ClientHydrator::hydrate($client);
+        return new ClientResponse($response);
     }
 
     /**
@@ -55,13 +56,13 @@ class ClientService
      *
      * @param ClientBuilder $input
      * @param array $queryParams
-     * @return ClientEntity
+     * @return ClientResponse
      */
     public function create(ClientBuilder $input, array $queryParams = [])
     {
-        $client = $this->api->oauth2()->clients()->create($input->toArray(), $queryParams);
+        $response = $this->api->oauth2()->clients()->create($input->toArray(), $queryParams);
 
-        return ClientHydrator::hydrate($client);
+        return new ClientResponse($response);
     }
 
     /**
@@ -70,13 +71,13 @@ class ClientService
      * @param int $clientId
      * @param ClientBuilder $input
      * @param array $queryParams
-     * @return ClientEntity
+     * @return ClientResponse
      */
     public function update($clientId, ClientBuilder $input, array $queryParams = [])
     {
-        $client = $this->api->oauth2()->clients()->update($clientId, $input->toArray(), $queryParams);
+        $response = $this->api->oauth2()->clients()->update($clientId, $input->toArray(), $queryParams);
 
-        return ClientHydrator::hydrate($client);
+        return new ClientResponse($response);
     }
 
     /**
@@ -84,10 +85,12 @@ class ClientService
      *
      * @param int $clientId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function delete($clientId, array $queryParams)
     {
-        $this->api->oauth2()->clients()->delete($clientId, $queryParams);
+        $response = $this->api->oauth2()->clients()->delete($clientId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

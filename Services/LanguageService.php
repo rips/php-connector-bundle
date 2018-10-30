@@ -2,8 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Entities\LanguageEntity;
-use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
+use RIPS\ConnectorBundle\Responses\LanguagesResponse;
+use RIPS\ConnectorBundle\Responses\LanguageResponse;
 
 class LanguageService
 {
@@ -26,13 +26,13 @@ class LanguageService
      * Get a collection of language objects
      *
      * @param array $queryParams
-     * @return LanguageEntity[]
+     * @return LanguagesResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $languages = $this->api->languages()->getAll($queryParams);
+        $response = $this->api->languages()->getAll($queryParams);
 
-        return LanguageHydrator::hydrateCollection($languages);
+        return new LanguagesResponse($response);
     }
 
     /**
@@ -40,12 +40,12 @@ class LanguageService
      *
      * @param int $languageId
      * @param array $queryParams
-     * @return LanguageEntity
+     * @return LanguageResponse
      */
     public function getById($languageId, array $queryParams = [])
     {
-        $language = $this->api->languages()->getById($languageId, $queryParams);
+        $response = $this->api->languages()->getById($languageId, $queryParams);
 
-        return LanguageHydrator::hydrate($language);
+        return new LanguageResponse($response);
     }
 }

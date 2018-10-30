@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\LibraryEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\LibraryBuilder;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\LibraryBuilder;
+use RIPS\ConnectorBundle\Responses\Application\Scan\LibrariesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\LibraryResponse;
 
 class LibraryService
 {
@@ -15,7 +16,7 @@ class LibraryService
     protected $api;
 
     /**
-     * Initialize new OrgService instance
+     * Initialize new LibraryService instance
      *
      * @param APIService $api
      */
@@ -30,17 +31,17 @@ class LibraryService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return LibraryEntity[]
+     * @return LibrariesResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $libraries = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->libraries()
             ->getAll($appId, $scanId, $queryParams);
 
-        return LibraryHydrator::hydrateCollection($libraries);
+        return new LibrariesResponse($response);
     }
 
     /**
@@ -50,17 +51,17 @@ class LibraryService
      * @param int $scanId
      * @param int $libraryId
      * @param array $queryParams
-     * @return LibraryEntity
+     * @return LibraryResponse
      */
     public function getById($appId, $scanId, $libraryId, array $queryParams = [])
     {
-        $library = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->libraries()
             ->getById($appId, $scanId, $libraryId, $queryParams);
 
-        return LibraryHydrator::hydrate($library);
+        return new LibraryResponse($response);
     }
 
     /**
@@ -70,17 +71,17 @@ class LibraryService
      * @param int $scanId
      * @param LibraryBuilder $input
      * @param array $queryParams
-     * @return LibraryEntity
+     * @return LibraryResponse
      */
     public function create($appId, $scanId, $input, array $queryParams = [])
     {
-        $library = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->libraries()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return LibraryHydrator::hydrate($library);
+        return new LibraryResponse($response);
     }
 
     /**
@@ -91,17 +92,17 @@ class LibraryService
      * @param int $libraryId
      * @param LibraryBuilder $input
      * @param array $queryParams
-     * @return LibraryEntity
+     * @return LibraryResponse
      */
     public function update($appId, $scanId, $libraryId, $input, array $queryParams = [])
     {
-        $library = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->libraries()
             ->update($appId, $scanId, $libraryId, $input->toArray(), $queryParams);
 
-        return LibraryHydrator::hydrate($library);
+        return new LibraryResponse($response);
     }
 
     /**
@@ -110,15 +111,17 @@ class LibraryService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $scanId, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->libraries()
             ->deleteAll($appId, $scanId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -128,14 +131,16 @@ class LibraryService
      * @param int $scanId
      * @param int $libraryId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $scanId, $libraryId, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->libraries()
             ->deleteById($appId, $scanId, $libraryId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

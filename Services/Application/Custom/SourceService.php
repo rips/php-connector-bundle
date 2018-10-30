@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\SourceHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\SourceBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Custom\SourceEntity;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SourcesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Custom\SourceResponse;
 
 class SourceService
 {
@@ -30,13 +31,13 @@ class SourceService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return SourceEntity[]
+     * @return SourcesResponse
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $sources = $this->api->applications()->customs()->sources()->getAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->sources()->getAll($appId, $customId, $queryParams);
 
-        return SourceHydrator::hydrateCollection($sources);
+        return new SourcesResponse($response);
     }
 
     /**
@@ -46,13 +47,13 @@ class SourceService
      * @param int $customId
      * @param int $sourceId
      * @param array $queryParams
-     * @return SourceEntity
+     * @return SourceResponse
      */
     public function getById($appId, $customId, $sourceId, array $queryParams = [])
     {
-        $source = $this->api->applications()->customs()->sources()->getById($appId, $customId, $sourceId, $queryParams);
+        $response = $this->api->applications()->customs()->sources()->getById($appId, $customId, $sourceId, $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return new SourceResponse($response);
     }
 
     /**
@@ -62,13 +63,13 @@ class SourceService
      * @param int $customId
      * @param SourceBuilder $input
      * @param array $queryParams
-     * @return SourceEntity
+     * @return SourceResponse
      */
     public function create($appId, $customId, SourceBuilder $input, array $queryParams = [])
     {
-        $source = $this->api->applications()->customs()->sources()->create($appId, $customId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->sources()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return new SourceResponse($response);
     }
 
     /**
@@ -79,13 +80,13 @@ class SourceService
      * @param int $sourceId
      * @param SourceBuilder $input
      * @param array $queryParams
-     * @return SourceEntity
+     * @return SourceResponse
      */
     public function update($appId, $customId, $sourceId, SourceBuilder $input, array $queryParams = [])
     {
-        $source = $this->api->applications()->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->sources()->update($appId, $customId, $sourceId, $input->toArray(), $queryParams);
 
-        return SourceHydrator::hydrate($source);
+        return new SourceResponse($response);
     }
 
     /**
@@ -94,11 +95,13 @@ class SourceService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sources()->deleteAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->sources()->deleteAll($appId, $customId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -108,10 +111,12 @@ class SourceService
      * @param int $customId
      * @param int $sourceId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $customId, $sourceId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->sources()->deleteById($appId, $customId, $sourceId, $queryParams);
+        $response = $this->api->applications()->customs()->sources()->deleteById($appId, $customId, $sourceId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

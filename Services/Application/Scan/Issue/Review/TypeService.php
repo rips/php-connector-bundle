@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue\Review;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Review\TypeEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Review\TypeHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\Review\TypesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\Review\TypeResponse;
 
 class TypeService
 {
@@ -27,11 +27,11 @@ class TypeService
      * Get all types for reviews
      *
      * @param array $queryParams
-     * @return TypeEntity[]
+     * @return TypesResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $types = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
@@ -39,7 +39,7 @@ class TypeService
             ->types()
             ->getAll($queryParams);
 
-        return TypeHydrator::hydrateCollection($types);
+        return new TypesResponse($response);
     }
 
     /**
@@ -47,11 +47,11 @@ class TypeService
      *
      * @param int $typeId
      * @param array $queryParams
-     * @return TypeEntity
+     * @return TypeResponse
      */
     public function getById($typeId, array $queryParams = [])
     {
-        $type = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
@@ -59,6 +59,6 @@ class TypeService
             ->types()
             ->getById($typeId, $queryParams);
 
-        return TypeHydrator::hydrate($type);
+        return new TypeResponse($response);
     }
 }

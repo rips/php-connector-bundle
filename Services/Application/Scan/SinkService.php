@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\SinksResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\SinkResponse;
 
 class SinkService
 {
@@ -14,7 +14,7 @@ class SinkService
     protected $api;
 
     /**
-     * Initialize new OrgService instance
+     * Initialize new SinkService instance
      *
      * @param APIService $api
      */
@@ -29,17 +29,17 @@ class SinkService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return SinkEntity[]
+     * @return SinksResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $sinks = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->sinks()
             ->getAll($appId, $scanId, $queryParams);
 
-        return SinkHydrator::hydrateCollection($sinks);
+        return new SinksResponse($response);
     }
 
     /**
@@ -49,16 +49,16 @@ class SinkService
      * @param int $scanId
      * @param int $sinkId
      * @param array $queryParams
-     * @return SinkEntity
+     * @return SinkResponse
      */
     public function getById($appId, $scanId, $sinkId, array $queryParams = [])
     {
-        $sink = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->sinks()
             ->getById($appId, $scanId, $sinkId, $queryParams);
 
-        return SinkHydrator::hydrate($sink);
+        return new SinkResponse($response);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 
 class ExportService
@@ -12,7 +13,7 @@ class ExportService
     protected $api;
 
     /**
-     * Initialize new IssueService instance
+     * Initialize new ExportService instance
      *
      * @param APIService $api
      */
@@ -28,15 +29,17 @@ class ExportService
      * @param int $scanId
      * @param string $outFile
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function exportCsv($appId, $scanId, $outFile, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->exports()
             ->exportCsv($appId, $scanId, $outFile, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -46,15 +49,17 @@ class ExportService
      * @param int $scanId
      * @param string $outFile
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function exportJiraCsv($appId, $scanId, $outFile, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->exports()
             ->exportJiraCsv($appId, $scanId, $outFile, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -64,14 +69,16 @@ class ExportService
      * @param int $scanId
      * @param string $outFile
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function exportPdf($appId, $scanId, $outFile, array $queryParams = [])
     {
-        $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->exports()
             ->exportPdf($appId, $scanId, $outFile, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

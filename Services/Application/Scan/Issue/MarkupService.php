@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\MarkupsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\MarkupResponse;
 
 class MarkupService
 {
@@ -30,18 +30,18 @@ class MarkupService
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return MarkupEntity[]
+     * @return MarkupsResponse
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
-        $markups = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->markups()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return MarkupHydrator::hydrateCollection($markups);
+        return new MarkupsResponse($response);
     }
 
     /**
@@ -52,17 +52,17 @@ class MarkupService
      * @param int $issueId
      * @param int $markupId
      * @param array $queryParams
-     * @return MarkupEntity
+     * @return MarkupResponse
      */
     public function getById($appId, $scanId, $issueId, $markupId, array $queryParams = [])
     {
-        $markup = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->markups()
             ->getById($appId, $scanId, $issueId, $markupId, $queryParams);
 
-        return MarkupHydrator::hydrate($markup);
+        return new MarkupResponse($response);
     }
 }

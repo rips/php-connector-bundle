@@ -2,9 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\LicenseHydrator;
-use RIPS\ConnectorBundle\Entities\LicenseEntity;
 use RIPS\ConnectorBundle\InputBuilders\LicenseBuilder;
+use RIPS\ConnectorBundle\Responses\LicensesResponse;
+use RIPS\ConnectorBundle\Responses\LicenseResponse;
 
 class LicenseService
 {
@@ -27,13 +27,13 @@ class LicenseService
      * Get all licenses
      *
      * @param array $queryParams
-     * @return LicenseEntity[]
+     * @return LicensesResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $licenses = $this->api->licenses()->getAll($queryParams);
+        $response = $this->api->licenses()->getAll($queryParams);
 
-        return LicenseHydrator::hydrateCollection($licenses);
+        return new LicensesResponse($response);
     }
 
     /**
@@ -41,24 +41,24 @@ class LicenseService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return LicenseEntity
+     * @return LicenseResponse
      */
     public function getById($appId, array $queryParams = [])
     {
-        $license = $this->api->licenses()->getById($appId, $queryParams);
+        $response = $this->api->licenses()->getById($appId, $queryParams);
 
-        return LicenseHydrator::hydrate($license);
+        return new LicenseResponse($response);
     }
 
     /**
      * @param LicenseBuilder $input
      * @param array $queryParams
-     * @return LicenseEntity
+     * @return LicenseResponse
      */
     public function activate($input, array $queryParams = [])
     {
-        $license = $this->api->licenses()->activate($input->toArray(), $queryParams);
+        $response = $this->api->licenses()->activate($input->toArray(), $queryParams);
 
-        return LicenseHydrator::hydrate($license);
+        return new LicenseResponse($response);
     }
 }

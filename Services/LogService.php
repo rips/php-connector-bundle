@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\LogHydrator;
 use RIPS\ConnectorBundle\InputBuilders\LogBuilder;
-use RIPS\ConnectorBundle\Entities\LogEntity;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
+use RIPS\ConnectorBundle\Responses\LogsResponse;
+use RIPS\ConnectorBundle\Responses\LogResponse;
 
 class LogService
 {
@@ -27,13 +28,13 @@ class LogService
      * Get all logs
      *
      * @param array $queryParams
-     * @return LogEntity[]
+     * @return LogsResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $logs = $this->api->logs()->getAll($queryParams);
+        $response = $this->api->logs()->getAll($queryParams);
 
-        return LogHydrator::hydrateCollection($logs);
+        return new LogsResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class LogService
      *
      * @param int $logId
      * @param array $queryParams
-     * @return LogEntity
+     * @return LogResponse
      */
     public function getById($logId, array $queryParams = [])
     {
-        $log = $this->api->logs()->getById($logId, $queryParams);
+        $response = $this->api->logs()->getById($logId, $queryParams);
 
-        return LogHydrator::hydrate($log);
+        return new LogResponse($response);
     }
 
     /**
@@ -55,23 +56,25 @@ class LogService
      *
      * @param LogBuilder $input
      * @param array $queryParams
-     * @return LogEntity
+     * @return LogResponse
      */
     public function create(LogBuilder $input, array $queryParams = [])
     {
-        $log = $this->api->logs()->create($input->toArray(), $queryParams);
+        $response = $this->api->logs()->create($input->toArray(), $queryParams);
 
-        return LogHydrator::hydrate($log);
+        return new LogResponse($response);
     }
 
     /**
      * Delete logs older than a week
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function delete(array $queryParams = [])
     {
-        $this->api->logs()->delete($queryParams);
+        $response = $this->api->logs()->delete($queryParams);
+
+        return new BaseResponse($response);
     }
 }

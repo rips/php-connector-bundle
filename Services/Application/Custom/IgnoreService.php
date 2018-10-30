@@ -2,10 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Custom;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\IgnoreHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Custom\IgnoreBuilder;
-use RIPS\ConnectorBundle\Entities\Application\Custom\IgnoreEntity;
+use RIPS\ConnectorBundle\Responses\Application\Custom\IgnoresResponse;
+use RIPS\ConnectorBundle\Responses\Application\Custom\IgnoreResponse;
 
 class IgnoreService
 {
@@ -30,13 +31,13 @@ class IgnoreService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return IgnoreEntity[]
+     * @return IgnoresResponse
      */
     public function getAll($appId, $customId, array $queryParams)
     {
-        $ignores = $this->api->applications()->customs()->ignores()->getAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->ignores()->getAll($appId, $customId, $queryParams);
 
-        return IgnoreHydrator::hydrateCollection($ignores);
+        return new IgnoresResponse($response);
     }
 
     /**
@@ -46,13 +47,13 @@ class IgnoreService
      * @param int $customId
      * @param int $ignoreId
      * @param array $queryParams
-     * @return IgnoreEntity
+     * @return IgnoreResponse
      */
     public function getById($appId, $customId, $ignoreId, array $queryParams = [])
     {
-        $ignore = $this->api->applications()->customs()->ignores()->getById($appId, $customId, $ignoreId, $queryParams);
+        $response = $this->api->applications()->customs()->ignores()->getById($appId, $customId, $ignoreId, $queryParams);
 
-        return IgnoreHydrator::hydrate($ignore);
+        return new IgnoreResponse($response);
     }
 
     /**
@@ -62,13 +63,13 @@ class IgnoreService
      * @param int $customId
      * @param IgnoreBuilder $input
      * @param array $queryParams
-     * @return IgnoreEntity
+     * @return IgnoreResponse
      */
     public function create($appId, $customId, IgnoreBuilder $input, array $queryParams = [])
     {
-        $ignore = $this->api->applications()->customs()->ignores()->create($appId, $customId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->ignores()->create($appId, $customId, $input->toArray(), $queryParams);
 
-        return IgnoreHydrator::hydrate($ignore);
+        return new IgnoreResponse($response);
     }
 
     /**
@@ -79,13 +80,13 @@ class IgnoreService
      * @param int $ignoreId
      * @param IgnoreBuilder $input
      * @param array $queryParams
-     * @return IgnoreEntity
+     * @return IgnoreResponse
      */
     public function update($appId, $customId, $ignoreId, IgnoreBuilder $input, array $queryParams = [])
     {
-        $ignore = $this->api->applications()->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->customs()->ignores()->update($appId, $customId, $ignoreId, $input->toArray(), $queryParams);
 
-        return IgnoreHydrator::hydrate($ignore);
+        return new IgnoreResponse($response);
     }
 
     /**
@@ -94,11 +95,13 @@ class IgnoreService
      * @param int $appId
      * @param int $customId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll($appId, $customId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->ignores()->deleteAll($appId, $customId, $queryParams);
+        $response = $this->api->applications()->customs()->ignores()->deleteAll($appId, $customId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -108,10 +111,12 @@ class IgnoreService
      * @param int $customId
      * @param int $ignoreId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, $customId, $ignoreId, array $queryParams = [])
     {
-        $this->api->applications()->customs()->ignores()->deleteById($appId, $customId, $ignoreId, $queryParams);
+        $response = $this->api->applications()->customs()->ignores()->deleteById($appId, $customId, $ignoreId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

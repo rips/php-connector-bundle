@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\EntrypointEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\EntrypointHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\EntrypointsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\EntrypointResponse;
 
 class EntrypointService
 {
@@ -29,17 +29,17 @@ class EntrypointService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return EntrypointEntity[]
+     * @return EntrypointsResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $entrypoint = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->entrypoints()
             ->getAll($appId, $scanId, $queryParams);
 
-        return EntrypointHydrator::hydrateCollection($entrypoint);
+        return new EntrypointsResponse($response);
     }
 
     /**
@@ -49,16 +49,16 @@ class EntrypointService
      * @param int $scanId
      * @param int $entrypointId
      * @param array $queryParams
-     * @return EntrypointEntity
+     * @return EntrypointResponse
      */
     public function getById($appId, $scanId, $entrypointId, array $queryParams = [])
     {
-        $entrypoint = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->entrypoints()
             ->getById($appId, $scanId, $entrypointId, $queryParams);
 
-        return EntrypointHydrator::hydrate($entrypoint);
+        return new EntrypointResponse($response);
     }
 }
