@@ -43,26 +43,6 @@ class ExportService
     }
 
     /**
-     * Export info for scan in JIRA CSV format
-     *
-     * @param int $appId
-     * @param int $scanId
-     * @param string $outFile
-     * @param array $queryParams
-     * @return BaseResponse
-     */
-    public function exportJiraCsv($appId, $scanId, $outFile, array $queryParams = [])
-    {
-        $response = $this->api
-            ->applications()
-            ->scans()
-            ->exports()
-            ->exportJiraCsv($appId, $scanId, $outFile, $queryParams);
-
-        return new BaseResponse($response);
-    }
-
-    /**
      * Export info for scan in PDF format
      *
      * @param int $appId
