@@ -44,7 +44,7 @@ class UpdateBuilder extends BaseBuilder
     /**
      * @var integer
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var boolean
@@ -160,15 +160,15 @@ class UpdateBuilder extends BaseBuilder
     }
 
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param integer $organisation
+     * @param integer $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->setFields[] = 'organisation';
-        $this->organisation = $organisation;
+        $this->setFields[] = 'organization';
+        $this->organization = $organization;
 
         return $this;
     }

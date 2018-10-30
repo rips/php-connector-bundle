@@ -106,8 +106,8 @@ class QuotaHydrator
             $hydrated->setAcls(AclHydrator::hydrateCollection($quota->acls));
         }
 
-        if (isset($quota->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($quota->organisation));
+        if (isset($quota->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($quota->organization));
         }
 
         return $hydrated;

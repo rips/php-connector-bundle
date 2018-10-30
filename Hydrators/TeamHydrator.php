@@ -46,8 +46,8 @@ class TeamHydrator
             $hydrated->setName($team->name);
         }
 
-        if (isset($team->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($team->organisation));
+        if (isset($team->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($team->organization));
         }
 
         if (isset($team->users) && is_array($team->users)) {

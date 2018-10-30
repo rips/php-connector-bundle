@@ -72,12 +72,12 @@ class LogHydrator
             $hydrated->setUsername($log->username);
         }
 
-        if (isset($log->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($log->organisation));
+        if (isset($log->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($log->organization));
         }
 
-        if (isset($log->organisation_name)) {
-            $hydrated->setOrganisationName($log->organisation_name);
+        if (isset($log->organization_name)) {
+            $hydrated->setOrganizationName($log->organization_name);
         }
 
         if (isset($log->context)) {

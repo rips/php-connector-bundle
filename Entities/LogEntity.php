@@ -54,12 +54,12 @@ class LogEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var string
      */
-    protected $organisationName = '';
+    protected $organizationName = '';
 
     /**
      * @var string
@@ -279,49 +279,49 @@ class LogEntity
     }
 
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
 
         return $this;
     }
 
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
 
     /**
-     * Set organisationName
+     * Set organizationName
      *
-     * @param  string $organisationName
+     * @param  string $organizationName
      * @return $this
      */
-    public function setOrganisationName($organisationName)
+    public function setOrganizationName($organizationName)
     {
-        $this->organisationName = $organisationName;
+        $this->organizationName = $organizationName;
 
         return $this;
     }
 
     /**
-     * Get organisationName
+     * Get organizationName
      *
      * @return string
      */
-    public function getOrganisationName()
+    public function getOrganizationName()
     {
-        return $this->organisationName;
+        return $this->organizationName;
     }
 
     /**

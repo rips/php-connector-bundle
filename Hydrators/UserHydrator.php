@@ -138,8 +138,8 @@ class UserHydrator
             $hydrated->setChargedQuota(QuotaHydrator::hydrate($user->charged_quota));
         }
 
-        if (isset($user->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($user->organisation));
+        if (isset($user->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($user->organization));
         }
 
         if (isset($user->teams) && is_array($user->teams)) {
