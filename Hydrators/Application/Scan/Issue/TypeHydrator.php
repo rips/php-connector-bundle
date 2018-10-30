@@ -53,10 +53,6 @@ class TypeHydrator
             $hydrated->setName($type->name);
         }
 
-        if (isset($type->color)) {
-            $hydrated->setColor($type->color);
-        }
-
         if (isset($type->markup)) {
             $hydrated->setMarkup($type->markup);
         }
