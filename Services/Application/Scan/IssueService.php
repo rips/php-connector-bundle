@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\Responses\Application\Scan\IssueStatsResponse;
 use stdClass;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\IssueBuilder;
@@ -50,18 +51,17 @@ class IssueService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return stdClass
+     * @return IssueStatsResponse
      */
     public function getStats($appId, $scanId, array $queryParams = [])
     {
-        $stats = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->issues()
             ->getStats($appId, $scanId, $queryParams);
 
-        // TODO: return Response object
-        return $stats->getDecodedData();
+        return new IssueStatsResponse($response);
     }
 
     /**
