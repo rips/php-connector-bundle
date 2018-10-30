@@ -30,11 +30,6 @@ class TypeEntity
     /**
      * @var string
      */
-    protected $color;
-
-    /**
-     * @var string
-     */
     protected $markup;
 
     /**
@@ -194,27 +189,6 @@ class TypeEntity
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set color
-     *
-     * @param  string $color
-     * @return void
-     */
-    public function setColor($color)
-    {
-        $this->color = $color;
-    }
-
-    /**
-     * Get color
-     *
-     * @return string
-     */
-    public function getColor()
-    {
-        return $this->color;
     }
 
     /**
