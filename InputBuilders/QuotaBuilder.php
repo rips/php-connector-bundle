@@ -64,7 +64,7 @@ class QuotaBuilder extends BaseBuilder
     /**
      * @var int
      */
-    protected $organisation;
+    protected $organization;
     
     /**
      * Set currentApplication
@@ -221,15 +221,15 @@ class QuotaBuilder extends BaseBuilder
     }
     
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param int $organisation
+     * @param int $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->setFields[] = 'organisation';
-        $this->organisation = $organisation;
+        $this->setFields[] = 'organization';
+        $this->organization = $organization;
     
         return $this;
     }

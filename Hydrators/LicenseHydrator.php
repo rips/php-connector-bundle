@@ -76,8 +76,8 @@ class LicenseHydrator
             $hydrated->setChild(self::hydrate($license->child));
         }
 
-        if (isset($license->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($license->organisation));
+        if (isset($license->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($license->organization));
         }
 
         return $hydrated;

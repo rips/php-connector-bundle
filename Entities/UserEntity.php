@@ -129,7 +129,7 @@ class UserEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var TeamEntity[]
@@ -337,7 +337,7 @@ class UserEntity
      */
     public function getValidUntil()
     {
-        return isset($this->organisation) ? $this->organisation->getValidUntil() : $this->validUntil;
+        return isset($this->organization) ? $this->organization->getValidUntil() : $this->validUntil;
     }
 
     /**
@@ -709,26 +709,26 @@ class UserEntity
     }
 
     /**
-     *  Set organisation
+     *  Set organization
      *
      * @param OrgEntity $org
      * @return $this
      */
-    public function setOrganisation($org)
+    public function setOrganization($org)
     {
-        $this->organisation = $org;
+        $this->organization = $org;
 
         return $this;
     }
 
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
 
     /**

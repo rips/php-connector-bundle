@@ -19,7 +19,7 @@ class TeamEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var UserEntity[]
@@ -93,24 +93,24 @@ class TeamEntity
     }
     
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
     
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
     
         return $this;
     }

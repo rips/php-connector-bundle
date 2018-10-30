@@ -99,7 +99,7 @@ class QuotaEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * Set id
@@ -495,12 +495,12 @@ class QuotaEntity
     /**
      * Set org
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
 
         return $this;
     }
@@ -510,8 +510,8 @@ class QuotaEntity
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
 }

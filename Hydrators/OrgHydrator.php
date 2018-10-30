@@ -9,79 +9,79 @@ use RIPS\ConnectorBundle\Entities\OrgEntity;
 class OrgHydrator
 {
     /**
-     * Hydrate a collection of organisation objects into a collection of
+     * Hydrate a collection of organization objects into a collection of
      * OrgEntity objects
      *
-     * @param stdClass[] $organisations
+     * @param stdClass[] $organizations
      * @return OrgEntity[]
      */
-    public static function hydrateCollection(array $organisations)
+    public static function hydrateCollection(array $organizations)
     {
         $hydrated = [];
 
-        foreach ($organisations as $organisation) {
-            $hydrated[] = self::hydrate($organisation);
+        foreach ($organizations as $organization) {
+            $hydrated[] = self::hydrate($organization);
         }
 
         return $hydrated;
     }
 
     /**
-     * Hydrate a organisation object into a OrgEntity object
+     * Hydrate a organization object into a OrgEntity object
      *
-     * @param stdClass $organisation
+     * @param stdClass $organization
      * @return OrgEntity
      */
-    public static function hydrate(stdClass $organisation)
+    public static function hydrate(stdClass $organization)
     {
         $hydrated = new OrgEntity();
 
-        if (isset($organisation->id)) {
-            $hydrated->setId($organisation->id);
+        if (isset($organization->id)) {
+            $hydrated->setId($organization->id);
         }
 
-        if (isset($organisation->name)) {
-            $hydrated->setName($organisation->name);
+        if (isset($organization->name)) {
+            $hydrated->setName($organization->name);
         }
 
-        if (isset($organisation->valid_until)) {
-            $hydrated->setValidUntil(new DateTime($organisation->valid_until));
+        if (isset($organization->valid_until)) {
+            $hydrated->setValidUntil(new DateTime($organization->valid_until));
         }
 
-        if (isset($organisation->users) && is_array($organisation->users)) {
-            $hydrated->setUsers(UserHydrator::hydrateCollection($organisation->users));
+        if (isset($organization->users) && is_array($organization->users)) {
+            $hydrated->setUsers(UserHydrator::hydrateCollection($organization->users));
         }
 
-        if (isset($organisation->teams) && is_array($organisation->teams)) {
-            $hydrated->setTeams(TeamHydrator::hydrateCollection($organisation->teams));
+        if (isset($organization->teams) && is_array($organization->teams)) {
+            $hydrated->setTeams(TeamHydrator::hydrateCollection($organization->teams));
         }
 
-        if (isset($organisation->applications) && is_array($organisation->applications)) {
-            $hydrated->setApplications(ApplicationHydrator::hydrateCollection($organisation->applications));
+        if (isset($organization->applications) && is_array($organization->applications)) {
+            $hydrated->setApplications(ApplicationHydrator::hydrateCollection($organization->applications));
         }
 
-        if (isset($organisation->quotas) && is_array($organisation->quotas)) {
-            $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organisation->quotas));
+        if (isset($organization->quotas) && is_array($organization->quotas)) {
+            $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organization->quotas));
         }
 
-        if (isset($organisation->licenses) && is_array($organisation->licenses)) {
-            $hydrated->setLicenses(LicenseHydrator::hydrateCollection($organisation->licenses));
+        if (isset($organization->licenses) && is_array($organization->licenses)) {
+            $hydrated->setLicenses(LicenseHydrator::hydrateCollection($organization->licenses));
         }
 
-        if (isset($organisation->logs) && is_array($organisation->logs)) {
-            $hydrated->setLogs(LogHydrator::hydrateCollection($organisation->logs));
+        if (isset($organization->logs) && is_array($organization->logs)) {
+            $hydrated->setLogs(LogHydrator::hydrateCollection($organization->logs));
         }
 
-        if (isset($organisation->callbacks)) {
-            $hydrated->setCallbacks($organisation->callbacks);
+        if (isset($organization->callbacks)) {
+            $hydrated->setCallbacks($organization->callbacks);
         }
 
-        if (isset($organisation->trial_issue_types)) {
-            $hydrated->setTrialIssueTypes($organisation->trial_issue_types);
+        if (isset($organization->trial_issue_types)) {
+            $hydrated->setTrialIssueTypes($organization->trial_issue_types);
         }
 
-        if (isset($organisation->disabled)) {
-            $hydrated->setDisabled($organisation->disabled);
+        if (isset($organization->disabled)) {
+            $hydrated->setDisabled($organization->disabled);
         }
 
         return $hydrated;

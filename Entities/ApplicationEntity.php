@@ -64,7 +64,7 @@ class ApplicationEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var boolean
@@ -329,26 +329,26 @@ class ApplicationEntity
     }
 
     /**
-     * Set organisation
+     * Set organization
      *
      * @param OrgEntity
      * @return $this
      */
-    public function setOrganisation($org)
+    public function setOrganization($org)
     {
-        $this->organisation = $org;
+        $this->organization = $org;
 
         return $this;
     }
 
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
 
     /**
