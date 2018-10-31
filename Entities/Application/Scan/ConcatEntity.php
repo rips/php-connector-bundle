@@ -17,6 +17,16 @@ class ConcatEntity
     protected $line;
 
     /**
+     * @var int
+     */
+    protected $startLine;
+
+    /**
+     * @var int
+     */
+    protected $endLine;
+
+    /**
      * @var FileEntity
      */
     protected $file;
@@ -95,6 +105,52 @@ class ConcatEntity
     public function getLine()
     {
         return $this->line;
+    }
+
+    /**
+     * Set startLine
+     *
+     * @param int $startLine
+     * @return $this
+     */
+    public function setStartLine($startLine)
+    {
+        $this->startLine = $startLine;
+
+        return $this;
+    }
+
+    /**
+     * Get startLine
+     *
+     * @return int
+     */
+    public function getStartLine()
+    {
+        return $this->startLine;
+    }
+
+    /**
+     * Set endLine
+     *
+     * @param int $endLine
+     * @return $this
+     */
+    public function setEndLine($endLine)
+    {
+        $this->endLine = $endLine;
+
+        return $this;
+    }
+
+    /**
+     * Get endLine
+     *
+     * @return int
+     */
+    public function getEndLine()
+    {
+        return $this->endLine;
     }
 
     /**
