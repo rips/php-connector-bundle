@@ -12,9 +12,9 @@ class MarkupEntity
     protected $id;
 
     /**
-     * @var string
+     * @var Markup\PartEntity[]
      */
-    protected $markup;
+    protected $parts;
 
     /**
      * @var IssueEntity
@@ -45,26 +45,26 @@ class MarkupEntity
     }
 
     /**
-     * Set markup
+     * Set parts
      *
-     * @param  string $markup
+     * @param Markup\PartEntity[] $parts
      * @return $this
      */
-    public function setMarkup($markup)
+    public function setParts(array $parts)
     {
-        $this->markup = $markup;
+        $this->parts = $parts;
 
         return $this;
     }
 
     /**
-     * Get markup
+     * Get parts
      *
-     * @return string
+     * @return Markup\PartEntity[]
      */
-    public function getMarkup()
+    public function getParts()
     {
-        return $this->markup;
+        return $this->parts;
     }
 
     /**
