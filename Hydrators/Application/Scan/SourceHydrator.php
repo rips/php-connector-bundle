@@ -45,6 +45,14 @@ class SourceHydrator
             $hydrated->setLine($source->line);
         }
 
+        if (isset($source->startLine)) {
+            $hydrated->setStartLine($source->startLine);
+        }
+
+        if (isset($source->endLine)) {
+            $hydrated->setEndLine($source->endLine);
+        }
+
         if (isset($source->name)) {
             $hydrated->setName($source->name);
         }

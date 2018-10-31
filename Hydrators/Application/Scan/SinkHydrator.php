@@ -45,6 +45,14 @@ class SinkHydrator
             $hydrated->setLine($sink->line);
         }
 
+        if (isset($sink->startLine)) {
+            $hydrated->setStartLine($sink->startLine);
+        }
+
+        if (isset($sink->endLine)) {
+            $hydrated->setEndLine($sink->endLine);
+        }
+
         if (isset($sink->name)) {
             $hydrated->setName($sink->name);
         }

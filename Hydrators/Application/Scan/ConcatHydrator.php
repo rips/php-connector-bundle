@@ -44,6 +44,14 @@ class ConcatHydrator
             $hydrated->setLine($concat->line);
         }
 
+        if (isset($concat->startLine)) {
+            $hydrated->setStartLine($concat->startLine);
+        }
+
+        if (isset($concat->endLine)) {
+            $hydrated->setEndLine($concat->endLine);
+        }
+
         if (isset($concat->file)) {
             $hydrated->setFile(FileHydrator::hydrate($concat->file));
         }
