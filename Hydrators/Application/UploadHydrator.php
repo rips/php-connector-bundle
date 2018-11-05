@@ -42,8 +42,8 @@ class UploadHydrator
             $hydrated->setId($upload->id);
         }
 
-        if (isset($upload->submission)) {
-            $hydrated->setSubmission(new DateTime($upload->submission));
+        if (isset($upload->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($upload->created_at));
         }
 
         if (isset($upload->name)) {

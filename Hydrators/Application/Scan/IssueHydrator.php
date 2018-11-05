@@ -119,10 +119,6 @@ class IssueHydrator
             $hydrated->setChildren(self::hydrateCollection($issue->children));
         }
 
-        if (isset($issue->last_modification)) {
-            $hydrated->setLastModification(new DateTime($issue->last_modification));
-        }
-
         if (isset($issue->readable)) {
             $hydrated->setReadable($issue->readable);
         }

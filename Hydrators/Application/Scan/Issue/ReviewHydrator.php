@@ -43,8 +43,8 @@ class ReviewHydrator
             $hydrated->setId($review->id);
         }
 
-        if (isset($review->submission)) {
-            $hydrated->setSubmission(new DateTime($review->submission));
+        if (isset($review->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($review->created_at));
         }
 
         if (isset($review->type)) {

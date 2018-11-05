@@ -48,8 +48,8 @@ class LicenseHydrator
             $hydrated->setKey($license->key);
         }
 
-        if (isset($license->submission)) {
-            $hydrated->setSubmission(new DateTime($license->submission));
+        if (isset($license->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($license->created_at));
         }
 
         if (isset($license->valid_until)) {

@@ -130,10 +130,6 @@ class UserHydrator
             $hydrated->setCreatedBy(self::hydrate($user->created_by));
         }
 
-        if (isset($user->last_modification)) {
-            $hydrated->setLastModification(new DateTime($user->last_modification));
-        }
-
         if (isset($user->chargedQuota)) {
             $hydrated->setChargedQuota(QuotaHydrator::hydrate($user->charged_quota));
         }

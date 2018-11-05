@@ -57,11 +57,6 @@ class QuotaEntity
     protected $validUntil;
 
     /**
-     * @var DateTime
-     */
-    protected $lastModification;
-
-    /**
      * @var int
      */
     protected $allowedMisses;
@@ -100,6 +95,11 @@ class QuotaEntity
      * @var OrgEntity
      */
     protected $organization;
+
+    /**
+     * @var DateTime
+     */
+    protected $createdAt;
 
     /**
      * Set id
@@ -332,29 +332,6 @@ class QuotaEntity
     }
 
     /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
-    }
-
-    /**
      * Set allowedMisses
      *
      * @param int $allowedMisses
@@ -513,5 +490,28 @@ class QuotaEntity
     public function getOrganization()
     {
         return $this->organization;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param DateTime $createdAt
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }

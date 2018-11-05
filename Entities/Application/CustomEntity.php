@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application;
 
+use DateTime;
+use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 
 class CustomEntity
@@ -70,7 +72,17 @@ class CustomEntity
      * @var ApplicationEntity
      */
     protected $application;
-    
+
+    /**
+     * @var DateTime
+     */
+    protected $createdAt;
+
+    /**
+     * @var UserEntity
+     */
+    protected $createdBy;
+
     /**
      * Get id
      *
@@ -368,5 +380,51 @@ class CustomEntity
         $this->application = $application;
     
         return $this;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param DateTime $createdAt
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param UserEntity $createdBy
+     * @return $this
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return UserEntity
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
     }
 }

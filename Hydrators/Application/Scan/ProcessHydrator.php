@@ -53,12 +53,12 @@ class ProcessHydrator
             $hydrated->setName($process->name);
         }
 
-        if (isset($process->start)) {
-            $hydrated->setStart(new DateTime($process->start));
+        if (isset($process->started_at)) {
+            $hydrated->setStartedAt(new DateTime($process->started_at));
         }
 
-        if (isset($process->finish)) {
-            $hydrated->setFinish(new DateTime($process->finish));
+        if (isset($process->finished_at)) {
+            $hydrated->setFinishedAt(new DateTime($process->finished_at));
         }
 
         if (isset($process->finished)) {

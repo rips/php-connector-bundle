@@ -29,17 +29,12 @@ class ScanEntity
     /**
      * @var DateTime
      */
-    protected $start;
+    protected $startedAt;
 
     /**
      * @var DateTime
      */
-    protected $finish;
-
-    /**
-     * @var DateTime
-     */
-    protected $lastModification;
+    protected $finishedAt;
 
     /**
      * @var int
@@ -281,72 +276,49 @@ class ScanEntity
     }
 
     /**
-     * Set start
+     * Set startedAt
      *
-     * @param DateTime $start
+     * @param DateTime $startedAt
      * @return $this
      */
-    public function setStart($start)
+    public function setStartedAt($startedAt)
     {
-        $this->start = $start;
+        $this->startedAt = $startedAt;
 
         return $this;
     }
 
     /**
-     * Get start
+     * Get startedAt
      *
      * @return DateTime
      */
-    public function getStart()
+    public function getStartedAt()
     {
-        return $this->start;
+        return $this->startedAt;
     }
 
     /**
-     * Set finish
+     * Set finishedAt
      *
-     * @param DateTime $finish
+     * @param DateTime $finishedAt
      * @return $this
      */
-    public function setFinish($finish)
+    public function setFinishedAt($finishedAt)
     {
-        $this->finish = $finish;
+        $this->finishedAt = $finishedAt;
 
         return $this;
     }
 
     /**
-     * Get finish
+     * Get finishedAt
      *
      * @return DateTime
      */
-    public function getFinish()
+    public function getFinishedAt()
     {
-        return $this->finish;
-    }
-
-    /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
+        return $this->finishedAt;
     }
 
     /**

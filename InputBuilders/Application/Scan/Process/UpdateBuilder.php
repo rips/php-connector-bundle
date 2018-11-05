@@ -10,7 +10,7 @@ class UpdateBuilder extends BaseBuilder
     /**
      * @var DateTime
      */
-    protected $finish;
+    protected $finishedAt;
 
     /**
      * @var boolean
@@ -18,15 +18,15 @@ class UpdateBuilder extends BaseBuilder
     protected $finished;
     
     /**
-     * Set finish
+     * Set finishedAt
      *
-     * @param DateTime $finish
+     * @param DateTime $finishedAt
      * @return $this
      */
-    public function setFinish($finish)
+    public function setFinish($finishedAt)
     {
-        $this->setFields[] = 'finish';
-        $this->finish = $finish;
+        $this->setFields[] = 'finishedAt';
+        $this->finishedAt = $finishedAt;
     
         return $this;
     }

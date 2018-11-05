@@ -30,12 +30,12 @@ class ProcessEntity
     /**
      * @var DateTime
      */
-    protected $start;
+    protected $startedAt;
 
     /**
      * @var DateTime
      */
-    protected $finish;
+    protected $finishedAt;
 
     /**
      * @var boolean
@@ -132,45 +132,45 @@ class ProcessEntity
     }
 
     /**
-     * Set start
+     * Set startedAt
      *
-     * @param DateTime $start
+     * @param DateTime $startedAt
      * @return void
      */
-    public function setStart($start)
+    public function setStartedAt($startedAt)
     {
-        $this->start = $start;
+        $this->startedAt = $startedAt;
     }
 
     /**
-     * Get start
+     * Get startedAt
      *
      * @return DateTime
      */
-    public function getStart()
+    public function getStartedAt()
     {
-        return $this->start;
+        return $this->startedAt;
     }
 
     /**
-     * Set finish
+     * Set finishedAt
      *
-     * @param DateTime $finish
+     * @param DateTime $finishedAt
      * @return void
      */
-    public function setFinish($finish)
+    public function setFinishedAt($finishedAt)
     {
-        $this->finish = $finish;
+        $this->finishedAt = $finishedAt;
     }
 
     /**
-     * Get finish
+     * Get finishedAt
      *
      * @return DateTime
      */
-    public function getFinish()
+    public function getFinishedAt()
     {
-        return $this->finish;
+        return $this->finishedAt;
     }
 
     /**
