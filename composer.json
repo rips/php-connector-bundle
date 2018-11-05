@@ -10,6 +10,7 @@
         }
     },
     "require": {
+        "ext-json": "*",
         "rips/connector": "dev-dev"
     },
     "repositories": [

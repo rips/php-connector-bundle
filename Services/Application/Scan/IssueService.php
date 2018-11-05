@@ -3,7 +3,6 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Responses\Application\Scan\IssueStatsResponse;
-use stdClass;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\IssueBuilder;
 use RIPS\ConnectorBundle\Responses\Application\Scan\IssuesResponse;

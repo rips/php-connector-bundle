@@ -3,8 +3,6 @@
 namespace RIPS\ConnectorBundle\Services;
 
 use RIPS\Connector\API;
-use RIPS\ConnectorBundle\Entities\StatusEntity;
-use RIPS\ConnectorBundle\Hydrators\StatusHydrator;
 use RIPS\ConnectorBundle\Responses\StatusResponse;
 
 class APIService

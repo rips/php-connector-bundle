@@ -3,7 +3,6 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
-use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;

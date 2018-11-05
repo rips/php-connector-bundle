@@ -5,12 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator as ApplicationAclHydrator;
-use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator as QuotaAclHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
 
 class UserHydrator
 {
