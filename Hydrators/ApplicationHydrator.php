@@ -76,12 +76,8 @@ class ApplicationHydrator
             $hydrated->setAcls(AclHydrator::hydrateCollection($application->acls));
         }
 
-        if (isset($application->creation)) {
-            $hydrated->setCreation(new DateTime($application->creation));
-        }
-
-        if (isset($application->last_modification)) {
-            $hydrated->setLastModification(new DateTime($application->last_modification));
+        if (isset($application->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($application->created_at));
         }
 
         if (isset($application->organization)) {

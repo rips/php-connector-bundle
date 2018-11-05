@@ -54,12 +54,7 @@ class ApplicationEntity
     /**
      * @var DateTime
      */
-    protected $creation;
-
-    /**
-     * @var DateTime
-     */
-    protected $lastModification;
+    protected $createdAt;
 
     /**
      * @var OrgEntity
@@ -283,49 +278,26 @@ class ApplicationEntity
     }
 
     /**
-     * Set creation
+     * Set createdAt
      *
-     * @param DateTime $creation
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setCreation($creation)
+    public function setCreatedAt($createdAt)
     {
-        $this->creation = $creation;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get creation
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getCreation()
+    public function getCreatedAt()
     {
-        return $this->creation;
-    }
-
-    /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
+        return $this->createdAt;
     }
 
     /**

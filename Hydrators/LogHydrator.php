@@ -64,8 +64,8 @@ class LogHydrator
             $hydrated->setIp($log->ip);
         }
 
-        if (isset($log->user)) {
-            $hydrated->setUser(UserHydrator::hydrate($log->user));
+        if (isset($log->created_by)) {
+            $hydrated->setCreatedBy(UserHydrator::hydrate($log->created_by));
         }
 
         if (isset($log->username)) {
@@ -84,8 +84,8 @@ class LogHydrator
             $hydrated->setContext($log->context);
         }
 
-        if (isset($log->created)) {
-            $hydrated->setCreated(new DateTime($log->created));
+        if (isset($log->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($log->created_at));
         }
 
         return $hydrated;

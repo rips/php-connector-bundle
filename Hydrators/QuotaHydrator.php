@@ -78,10 +78,6 @@ class QuotaHydrator
             $hydrated->setValidUntil(new DateTime($quota->valid_until));
         }
 
-        if (isset($quota->last_modification)) {
-            $hydrated->setLastModification(new DateTime($quota->last_modification));
-        }
-
         if (isset($quota->allowed_misses)) {
             $hydrated->setAllowedMisses($quota->allowed_misses);
         }
@@ -108,6 +104,10 @@ class QuotaHydrator
 
         if (isset($quota->organization)) {
             $hydrated->setOrganization(OrgHydrator::hydrate($quota->organization));
+        }
+
+        if (isset($quota->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($quota->created_at));
         }
 
         return $hydrated;

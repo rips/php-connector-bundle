@@ -44,7 +44,7 @@ class LogEntity
     /**
      * @var UserEntity
      */
-    protected $user;
+    protected $createdBy;
 
     /**
      * @var string
@@ -69,7 +69,7 @@ class LogEntity
     /**
      * @var DateTime
      */
-    protected $created;
+    protected $createdAt;
 
     /**
      * Set id
@@ -233,26 +233,26 @@ class LogEntity
     }
 
     /**
-     * Set user
+     * Set createdBy
      *
-     * @param  UserEntity $user
+     * @param  UserEntity $createdBy
      * @return $this
      */
-    public function setUser($user)
+    public function setCreatedBy($createdBy)
     {
-        $this->user = $user;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get createdBy
      *
      * @return UserEntity
      */
-    public function getUser()
+    public function getCreatedBy()
     {
-        return $this->user;
+        return $this->createdBy;
     }
 
     /**
@@ -348,25 +348,25 @@ class LogEntity
     }
 
     /**
-     * Set created
+     * Set createdAt
      *
-     * @param DateTime $created
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setCreated($created)
+    public function setCreatedAt($createdAt)
     {
-        $this->created = $created;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get created
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getCreated()
+    public function getCreatedAt()
     {
-        return $this->created;
+        return $this->createdAt;
     }
 }

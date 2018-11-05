@@ -65,16 +65,12 @@ class ScanHydrator
             $hydrated->setPath($scan->path);
         }
 
-        if (isset($scan->start)) {
-            $hydrated->setStart(new DateTime($scan->start));
+        if (isset($scan->started_at)) {
+            $hydrated->setStartedAt(new DateTime($scan->started_at));
         }
 
-        if (isset($scan->finish)) {
-            $hydrated->setFinish(new DateTime($scan->finish));
-        }
-
-        if (isset($scan->last_modification)) {
-            $hydrated->setLastModification(new DateTime($scan->last_modification));
+        if (isset($scan->finished_at)) {
+            $hydrated->setFinishedAt(new DateTime($scan->finished_at));
         }
 
         if (isset($scan->phase)) {

@@ -16,7 +16,7 @@ class UploadEntity
     /**
      * @var DateTime
      */
-    protected $submission;
+    protected $createdAt;
 
     /**
      * @var string
@@ -82,26 +82,26 @@ class UploadEntity
     }
 
     /**
-     * Set submission
+     * Set createdAt
      *
-     * @param DateTime $submission
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setSubmission($submission)
+    public function setCreatedAt($createdAt)
     {
-        $this->submission = $submission;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get submission
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getSubmission()
+    public function getCreatedAt()
     {
-        return $this->submission;
+        return $this->createdAt;
     }
 
     /**

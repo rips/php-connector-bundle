@@ -46,8 +46,8 @@ class CommentHydrator
             $hydrated->setComment($comment->comment);
         }
 
-        if (isset($comment->submission)) {
-            $hydrated->setSubmission(new DateTime($comment->submission));
+        if (isset($comment->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($comment->created_at));
         }
 
         if (isset($comment->created_by)) {

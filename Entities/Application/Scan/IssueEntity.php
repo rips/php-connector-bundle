@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class IssueEntity
@@ -101,11 +100,6 @@ class IssueEntity
      * @var IssueEntity[]
      */
     protected $children;
-
-    /**
-     * @var DateTime
-     */
-    protected $lastModification;
 
     /**
      * @var string
@@ -577,29 +571,6 @@ class IssueEntity
     public function getChildren()
     {
         return $this->children;
-    }
-
-    /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
     }
 
     /**
