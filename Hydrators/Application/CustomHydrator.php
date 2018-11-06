@@ -52,10 +52,6 @@ class CustomHydrator
             $hydrated->setName($custom->name);
         }
 
-        if (isset($custom->global)) {
-            $hydrated->setGlobal($custom->global);
-        }
-
         if (isset($custom->setting)) {
             $hydrated->setSetting(SettingHydrator::hydrate($custom->setting));
         }
