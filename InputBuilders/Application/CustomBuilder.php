@@ -14,11 +14,6 @@ class CustomBuilder extends BaseBuilder
     /**
      * @var boolean
      */
-    protected $global;
-
-    /**
-     * @var boolean
-     */
     protected $default;
     
     /**
@@ -31,20 +26,6 @@ class CustomBuilder extends BaseBuilder
     {
         $this->setFields[] = 'name';
         $this->name = $name;
-    
-        return $this;
-    }
-    
-    /**
-     * Set global
-     *
-     * @param boolean $global
-     * @return $this
-     */
-    public function setGlobal($global)
-    {
-        $this->setFields[] = 'global';
-        $this->global = $global;
     
         return $this;
     }

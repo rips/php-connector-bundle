@@ -19,11 +19,6 @@ class CustomEntity
     protected $name;
 
     /**
-     * @var boolean
-     */
-    protected $global;
-
-    /**
      * @var Custom\SettingEntity
      */
     protected $setting;
@@ -125,29 +120,6 @@ class CustomEntity
     public function setName($name)
     {
         $this->name = $name;
-    
-        return $this;
-    }
-    
-    /**
-     * Get global
-     *
-     * @return boolean
-     */
-    public function getGlobal()
-    {
-        return $this->global;
-    }
-    
-    /**
-     * Set global
-     *
-     * @param boolean $global
-     * @return $this
-     */
-    public function setGlobal($global)
-    {
-        $this->global = $global;
     
         return $this;
     }
