@@ -54,11 +54,6 @@ class OrgEntity
     /**
      * @var array
      */
-    protected $callbacks;
-
-    /**
-     * @var array
-     */
     protected $trialIssueTypes;
 
     /**
@@ -272,29 +267,6 @@ class OrgEntity
     }
 
     /**
-     * Set callbacks
-     *
-     * @param array $callbacks
-     * @return $this
-     */
-    public function setCallbacks(array $callbacks)
-    {
-        $this->callbacks = $callbacks;
-
-        return $this;
-    }
-
-    /**
-     * Get callbacks
-     *
-     * @return array
-     */
-    public function getCallbacks()
-    {
-        return $this->callbacks;
-    }
-
-    /**
      * Set trialIssueTypes
      *
      * @param array $trialIssueTypes
@@ -308,7 +280,7 @@ class OrgEntity
     }
 
     /**
-     * Get callbacks
+     * Get trialIssueTypes
      *
      * @return array
      */

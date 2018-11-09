@@ -15,11 +15,6 @@ class ApplicationBuilder extends BaseBuilder
     protected $chargedQuota;
 
     /**
-     * @var array
-     */
-    protected $defaultScanCallbacks;
-
-    /**
      * Set name
      *
      * @param string $name
@@ -43,20 +38,6 @@ class ApplicationBuilder extends BaseBuilder
     {
         $this->setFields[] = 'chargedQuota';
         $this->chargedQuota = $chargedQuota;
-
-        return $this;
-    }
-
-    /**
-     * Set defaultScanCallbacks
-     *
-     * @param array $defaultScanCallbacks
-     * @return $this
-     */
-    public function setDefaultScanCallbacks(array $defaultScanCallbacks)
-    {
-        $this->setFields[] = 'defaultScanCallbacks';
-        $this->defaultScanCallbacks = $defaultScanCallbacks;
 
         return $this;
     }

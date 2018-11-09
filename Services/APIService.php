@@ -38,6 +38,16 @@ class APIService
     }
 
     /**
+     * Callback requests accessor
+     *
+     * @return \RIPS\Connector\Requests\CallbackRequests
+     */
+    public function callbacks()
+    {
+        return $this->api->callbacks;
+    }
+
+    /**
      * Activity requests accessor
      *
      * @return \RIPS\Connector\Requests\ActivityRequests

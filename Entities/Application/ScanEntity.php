@@ -174,11 +174,6 @@ class ScanEntity
     /**
      * @var array
      */
-    protected $callbacks;
-
-    /**
-     * @var array
-     */
     protected $tags;
 
     /**
@@ -956,29 +951,6 @@ class ScanEntity
     public function getSeverityDistributions()
     {
         return $this->severityDistributions;
-    }
-
-    /**
-     * Set callbacks
-     *
-     * @param array $callbacks
-     * @return $this
-     */
-    public function setCallbacks(array $callbacks)
-    {
-        $this->callbacks = $callbacks;
-
-        return $this;
-    }
-
-    /**
-     * Get callbacks
-     *
-     * @return array
-     */
-    public function getCallbacks()
-    {
-        return $this->callbacks;
     }
 
     /**

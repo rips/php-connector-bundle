@@ -66,10 +66,6 @@ class ApplicationEntity
      */
     protected $trial = false;
 
-    /**
-     * @var array
-     */
-    protected $defaultScanCallbacks;
 
     /**
      * Set id
@@ -344,28 +340,5 @@ class ApplicationEntity
     public function getTrial()
     {
         return $this->trial;
-    }
-
-    /**
-     * Set defaultScanCallbacks
-     *
-     * @param array $defaultScanCallbacks
-     * @return $this
-     */
-    public function setDefaultScanCallbacks(array $defaultScanCallbacks)
-    {
-        $this->defaultScanCallbacks = $defaultScanCallbacks;
-
-        return $this;
-    }
-
-    /**
-     * Get defaultScanCallbacks
-     *
-     * @return array
-     */
-    public function getDefaultScanCallbacks()
-    {
-        return $this->defaultScanCallbacks;
     }
 }
