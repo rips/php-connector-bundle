@@ -84,10 +84,6 @@ class CustomHydrator
             $hydrated->setExtensions(ExtensionHydrator::hydrateCollection($custom->extensions));
         }
 
-        if (isset($custom->scans) && is_array($custom->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($custom->scans));
-        }
-
         if (isset($custom->application)) {
             $hydrated->setApplication($custom->application);
         }

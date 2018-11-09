@@ -59,11 +59,6 @@ class CustomEntity
     protected $extensions;
 
     /**
-     * @var ScanEntity[]
-     */
-    protected $scans;
-
-    /**
      * @var ApplicationEntity
      */
     protected $application;
@@ -307,30 +302,7 @@ class CustomEntity
     
         return $this;
     }
-    
-    /**
-     * Get scans
-     *
-     * @return ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
-    }
-    
-    /**
-     * Set scans
-     *
-     * @param ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-    
-        return $this;
-    }
-    
+
     /**
      * Get application
      *
