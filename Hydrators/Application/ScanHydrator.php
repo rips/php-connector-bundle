@@ -177,12 +177,8 @@ class ScanHydrator
             $hydrated->setSeverityDistributions((array)$scan->severity_distributions);
         }
 
-        if (isset($scan->callbacks)) {
-            $hydrated->setCallbacks($scan->callbacks);
-        }
-
         if (isset($scan->tags)) {
-            $hydrated->setCallbacks($scan->tags);
+            $hydrated->setTags($scan->tags);
         }
 
         if (isset($scan->max_issues_per_type)) {

@@ -135,7 +135,7 @@ class CallbackEntity
     /**
      * Set reports
      *
-     * @param string $reports
+     * @param string[] $reports
      * @return $this
      */
     public function setReports($reports)
