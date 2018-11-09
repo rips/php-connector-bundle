@@ -12,6 +12,7 @@ use RIPS\ConnectorBundle\Hydrators\Application\Custom\IgnoreHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\ExtensionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\ControllerHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Custom\SettingHydrator;
+use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 
 class CustomHydrator
@@ -85,7 +86,7 @@ class CustomHydrator
         }
 
         if (isset($custom->application)) {
-            $hydrated->setApplication($custom->application);
+            $hydrated->setApplication(ApplicationHydrator::hydrate($custom->application));
         }
 
         if (isset($custom->created_by)) {
