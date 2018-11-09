@@ -30,43 +30,43 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.customs:
-        class: RIPS\ConnectorBundle\Services\Application\CustomService
+    rips_connector.application.profiles:
+        class: RIPS\ConnectorBundle\Services\Application\ProfileService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.controllers:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\ControllerService
+    rips_connector.application.profile.controllers:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\ControllerService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.setting:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\SettingService
+    rips_connector.application.profile.setting:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\SettingService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.validators:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\ValidatorService
+    rips_connector.application.profile.validators:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\ValidatorService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.sources:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\SourceService
+    rips_connector.application.profile.sources:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\SourceService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.sinks:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\SinkService
+    rips_connector.application.profile.sinks:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\SinkService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.sanitisers:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\SanitiserService
+    rips_connector.application.profile.sanitisers:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\SanitiserService
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.custom.ignores:
-        class: RIPS\ConnectorBundle\Services\Application\Custom\IgnoreService
+    rips_connector.application.profile.ignores:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\IgnoreService
         arguments:
             - '@rips_connector.api'
 

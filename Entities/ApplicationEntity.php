@@ -27,11 +27,6 @@ class ApplicationEntity
     protected $currentScan = 0;
 
     /**
-     * @var Application\CustomEntity[]
-     */
-    protected $customs;
-
-    /**
      * @var UserEntity
      */
     protected $createdBy;
@@ -158,29 +153,6 @@ class ApplicationEntity
     public function getCurrentScan()
     {
         return $this->currentScan;
-    }
-
-    /**
-     * Set customs
-     *
-     * @param Application\CustomEntity[] $customs
-     * @return $this
-     */
-    public function setCustoms(array $customs)
-    {
-        $this->customs = $customs;
-
-        return $this;
-    }
-
-    /**
-     * Get customs
-     *
-     * @return Application\CustomEntity[]
-     */
-    public function getCustoms()
-    {
-        return $this->customs;
     }
 
     /**

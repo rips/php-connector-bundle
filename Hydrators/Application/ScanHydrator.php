@@ -2,26 +2,19 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ComparisonHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\JavaHydrator;
-use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\PhpHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ComparisonHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\JavaHydrator;
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 
 class ScanHydrator
 {
@@ -113,34 +106,6 @@ class ScanHydrator
             $hydrated->setJava(JavaHydrator::hydrate($scan->java));
         }
 
-        if (isset($scan->sources) && is_array($scan->sources)) {
-            $hydrated->setSources(SourceHydrator::hydrateCollection($scan->sources));
-        }
-
-        if (isset($scan->sinks) && is_array($scan->sinks)) {
-            $hydrated->setSinks(SinkHydrator::hydrateCollection($scan->sinks));
-        }
-
-        if (isset($scan->concats) && is_array($scan->concats)) {
-            $hydrated->setConcats(ConcatHydrator::hydrateCollection($scan->concats));
-        }
-
-        if (isset($scan->files) && is_array($scan->files)) {
-            $hydrated->setFiles(FileHydrator::hydrateCollection($scan->files));
-        }
-
-        if (isset($scan->functions) && is_array($scan->functions)) {
-            $hydrated->setFunctions(CustomFunctionHydrator::hydrateCollection($scan->functions));
-        }
-
-        if (isset($scan->classes) && is_array($scan->classes)) {
-            $hydrated->setClasses(CustomClassHydrator::hydrateCollection($scan->classes));
-        }
-
-        if (isset($scan->issues) && is_array($scan->issues)) {
-            $hydrated->setIssues(IssueHydrator::hydrateCollection($scan->issues));
-        }
-
         if (isset($scan->upload)) {
             $hydrated->setUpload(UploadHydrator::hydrate($scan->upload));
         }
@@ -157,8 +122,8 @@ class ScanHydrator
             $hydrated->setChargedQuota(QuotaHydrator::hydrate($scan->charged_quota));
         }
 
-        if (isset($scan->custom)) {
-            $hydrated->setCustom(CustomHydrator::hydrate($scan->custom));
+        if (isset($scan->profile)) {
+            $hydrated->setProfile(ProfileHydrator::hydrate($scan->profile));
         }
 
         if (isset($scan->issue_types) && is_array($scan->issue_types)) {

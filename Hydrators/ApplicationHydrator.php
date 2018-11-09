@@ -6,7 +6,6 @@ use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
 
@@ -54,10 +53,6 @@ class ApplicationHydrator
 
         if (isset($application->current_scan)) {
             $hydrated->setCurrentScan($application->current_scan);
-        }
-
-        if (isset($application->customs) && is_array($application->customs)) {
-            $hydrated->setCustoms(CustomHydrator::hydrateCollection($application->customs));
         }
 
         if (isset($application->created_by)) {

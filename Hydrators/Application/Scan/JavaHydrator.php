@@ -5,7 +5,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\JavaEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Custom\SettingHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Profile\SettingHydrator;
 
 class JavaHydrator
 {
