@@ -707,29 +707,6 @@ class ScanEntity
     }
 
     /**
-     * Set children
-     *
-     * @param ScanEntity[] $children
-     * @return $this
-     */
-    public function setChildren(array $children)
-    {
-        $this->children = $children;
-
-        return $this;
-    }
-
-    /**
-     * Get children
-     *
-     * @return ScanEntity[]
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
      * Set severityDistributions
      *
      * @param array $severityDistributions
