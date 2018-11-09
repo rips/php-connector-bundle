@@ -134,10 +134,6 @@ class ScanHydrator
             $hydrated->setParent(self::hydrate($scan->parent));
         }
 
-        if (isset($scan->children) && is_array($scan->children)) {
-            $hydrated->setChildren(self::hydrateCollection($scan->children));
-        }
-
         if (isset($scan->severity_distributions)) {
             $hydrated->setSeverityDistributions((array)$scan->severity_distributions);
         }
