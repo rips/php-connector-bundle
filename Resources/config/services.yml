@@ -15,6 +15,11 @@ services:
         arguments:
             - '@rips_connector.api'
 
+    rips_connector.callbacks:
+        class: RIPS\ConnectorBundle\Services\CallbackService
+        arguments:
+        - '@rips_connector.api'
+
     rips_connector.applications:
         class: RIPS\ConnectorBundle\Services\ApplicationService
         arguments:

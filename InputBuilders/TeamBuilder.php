@@ -56,7 +56,7 @@ class TeamBuilder extends BaseBuilder
     public function setOrganization($organization)
     {
         $this->setFields[] = 'organization';
-        $this->organization =$organization;
+        $this->organization = $organization;
 
         return $this;
     }
