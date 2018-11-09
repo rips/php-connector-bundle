@@ -44,21 +44,6 @@ class UploadEntity
     protected $createdBy;
 
     /**
-     * @var ScanEntity[]
-     */
-    protected $scans;
-
-    /**
-     * @var ApplicationEntity
-     */
-    protected $application;
-
-    /**
-     * @var boolean
-     */
-    protected $consumed;
-
-    /**
      * Set id
      *
      * @param int $id
@@ -217,74 +202,5 @@ class UploadEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
-    }
-
-    /**
-     * Set scans
-     *
-     * @param ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
-    }
-
-    /**
-     * Set application
-     *
-     * @param ApplicationEntity $application
-     * @return $this
-     */
-    public function setApplication($application)
-    {
-        $this->application = $application;
-
-        return $this;
-    }
-
-    /**
-     * Get application
-     *
-     * @return ApplicationEntity
-     */
-    public function getApplication()
-    {
-        return $this->application;
-    }
-
-    /**
-     * Set consumed
-     *
-     * @param boolean $consumed
-     * @return $this
-     */
-    public function setConsumed($consumed)
-    {
-        $this->consumed = $consumed;
-
-        return $this;
-    }
-
-    /**
-     * Get consumed
-     *
-     * @return boolean
-     */
-    public function getConsumed()
-    {
-        return $this->consumed;
     }
 }

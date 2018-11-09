@@ -3,7 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-use RIPS\ConnectorBundle\Entities\Application\Custom\SettingEntity;
+use RIPS\ConnectorBundle\Entities\Application\Profile\SettingEntity;
 
 class JavaEntity
 {

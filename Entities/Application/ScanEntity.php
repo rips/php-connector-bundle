@@ -92,41 +92,6 @@ class ScanEntity
     protected $java;
 
     /**
-     * @var Scan\SourceEntity[]
-     */
-    protected $sources;
-
-    /**
-     * @var Scan\SinkEntity[]
-     */
-    protected $sinks;
-
-    /**
-     * @var Scan\ConcatEntity[]
-     */
-    protected $concats;
-
-    /**
-     * @var Scan\FileEntity[]
-     */
-    protected $files;
-
-    /**
-     * @var Scan\CustomFunctionEntity[]
-     */
-    protected $functions;
-
-    /**
-     * @var Scan\CustomClassEntity[]
-     */
-    protected $classes;
-
-    /**
-     * @var Scan\IssueEntity[]
-     */
-    protected $issues;
-
-    /**
      * @var UploadEntity
      */
     protected $upload;
@@ -147,9 +112,9 @@ class ScanEntity
     protected $chargedQuota;
 
     /**
-     * @var CustomEntity
+     * @var ProfileEntity
      */
-    protected $custom;
+    protected $profile;
 
     /**
      * @var Scan\Issue\TypeEntity[]
@@ -160,11 +125,6 @@ class ScanEntity
      * @var ScanEntity
      */
     protected $parent;
-
-    /**
-     * @var ScanEntity[]
-     */
-    protected $children;
 
     /**
      * @var array
@@ -586,167 +546,6 @@ class ScanEntity
     }
 
     /**
-     * Set sources
-     *
-     * @param Scan\SourceEntity[] $sources
-     * @return $this
-     */
-    public function setSources(array $sources)
-    {
-        $this->sources = $sources;
-
-        return $this;
-    }
-
-    /**
-     * Get sources
-     *
-     * @return Scan\SourceEntity[]
-     */
-    public function getSources()
-    {
-        return $this->sources;
-    }
-
-    /**
-     * Set sinks
-     *
-     * @param Scan\SinkEntity[] $sinks
-     * @return $this
-     */
-    public function setSinks(array $sinks)
-    {
-        $this->sinks = $sinks;
-
-        return $this;
-    }
-
-    /**
-     * Get sinks
-     *
-     * @return Scan\SinkEntity[]
-     */
-    public function getSinks()
-    {
-        return $this->sinks;
-    }
-
-    /**
-     * Set concats
-     *
-     * @param Scan\ConcatEntity[] $concats
-     * @return $this
-     */
-    public function setConcats(array $concats)
-    {
-        $this->concats = $concats;
-
-        return $this;
-    }
-
-    /**
-     * Get concats
-     *
-     * @return Scan\ConcatEntity[]
-     */
-    public function getConcats()
-    {
-        return $this->concats;
-    }
-
-    /**
-     * Set files
-     *
-     * @param Scan\FileEntity[] $files
-     * @return $this
-     */
-    public function setFiles(array $files)
-    {
-        $this->files = $files;
-
-        return $this;
-    }
-
-    /**
-     * Get files
-     *
-     * @return Scan\FileEntity[]
-     */
-    public function getFiles()
-    {
-        return $this->files;
-    }
-
-    /**
-     * Set functions
-     *
-     * @param Scan\CustomFunctionEntity[] $functions
-     * @return $this
-     */
-    public function setFunctions(array $functions)
-    {
-        $this->functions = $functions;
-
-        return $this;
-    }
-
-    /**
-     * Get functions
-     *
-     * @return Scan\CustomFunctionEntity[]
-     */
-    public function getFunctions()
-    {
-        return $this->functions;
-    }
-
-    /**
-     * Set classes
-     *
-     * @param Scan\CustomClassEntity[] $classes
-     * @return $this
-     */
-    public function setClasses(array $classes)
-    {
-        $this->classes = $classes;
-
-        return $this;
-    }
-
-    /**
-     * Get classes
-     *
-     * @return Scan\CustomClassEntity[]
-     */
-    public function getClasses()
-    {
-        return $this->classes;
-    }
-
-    /**
-     * Set issues
-     *
-     * @param Scan\IssueEntity[] $issues
-     * @return $this
-     */
-    public function setIssues(array $issues)
-    {
-        $this->issues = $issues;
-
-        return $this;
-    }
-
-    /**
-     * Get issues
-     *
-     * @return Scan\IssueEntity[]
-     */
-    public function getIssues()
-    {
-        return $this->issues;
-    }
-
-    /**
      * Set upload
      *
      * @param UploadEntity $upload
@@ -839,26 +638,26 @@ class ScanEntity
     }
 
     /**
-     * Set custom
+     * Set profile
      *
-     * @param CustomEntity $custom
+     * @param ProfileEntity $profile
      * @return $this
      */
-    public function setCustom($custom)
+    public function setProfile($profile)
     {
-        $this->custom = $custom;
+        $this->profile = $profile;
 
         return $this;
     }
 
     /**
-     * Get custom
+     * Get profile
      *
-     * @return CustomEntity
+     * @return ProfileEntity
      */
-    public function getCustom()
+    public function getProfile()
     {
-        return $this->custom;
+        return $this->profile;
     }
 
     /**
@@ -905,29 +704,6 @@ class ScanEntity
     public function getParent()
     {
         return $this->parent;
-    }
-
-    /**
-     * Set children
-     *
-     * @param ScanEntity[] $children
-     * @return $this
-     */
-    public function setChildren(array $children)
-    {
-        $this->children = $children;
-
-        return $this;
-    }
-
-    /**
-     * Get children
-     *
-     * @return ScanEntity[]
-     */
-    public function getChildren()
-    {
-        return $this->children;
     }
 
     /**
