@@ -32,11 +32,6 @@ class UpdateBuilder extends BaseBuilder
     protected $lastname;
 
     /**
-     * @var string
-     */
-    protected $username;
-
-    /**
      * @var boolean
      */
     protected $enabled;
@@ -122,20 +117,6 @@ class UpdateBuilder extends BaseBuilder
     {
         $this->setFields[] = 'lastname';
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->setFields[] = 'username';
-        $this->username = $username;
 
         return $this;
     }

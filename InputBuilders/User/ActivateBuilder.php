@@ -12,11 +12,6 @@ class ActivateBuilder extends BaseBuilder
     protected $plainPassword;
 
     /**
-     * @var string
-     */
-    protected $username;
-
-    /**
      * Set plainPassword
      *
      * @param string $plainPassword
@@ -26,20 +21,6 @@ class ActivateBuilder extends BaseBuilder
     {
         $this->setFields[] = 'plainPassword';
         $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->setFields[] = 'username';
-        $this->username = $username;
 
         return $this;
     }

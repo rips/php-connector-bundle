@@ -68,8 +68,8 @@ class LogHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($log->created_by));
         }
 
-        if (isset($log->username)) {
-            $hydrated->setUsername($log->username);
+        if (isset($log->email)) {
+            $hydrated->setEmail($log->email);
         }
 
         if (isset($log->organization)) {

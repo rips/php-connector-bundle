@@ -14,16 +14,6 @@ class UserEntity
     /**
      * @var string
      */
-    protected $username;
-
-    /**
-     * @var boolean
-     */
-    protected $emptyUsername = false;
-
-    /**
-     * @var string
-     */
     protected $email;
 
     /**
@@ -92,52 +82,6 @@ class UserEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set emptyUsername
-     *
-     * @param boolean $emptyUsername
-     * @return $this
-     */
-    public function setEmptyUsername($emptyUsername)
-    {
-        $this->emptyUsername = $emptyUsername;
-
-        return $this;
-    }
-
-    /**
-     * Get emptyUsername
-     *
-     * @return boolean
-     */
-    public function getEmptyUsername()
-    {
-        return $this->emptyUsername;
     }
 
     /**

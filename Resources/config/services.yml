@@ -2,7 +2,7 @@ services:
     rips_connector.api:
         class: RIPS\ConnectorBundle\Services\APIService
         arguments:
-            - '%rips_connector.username%'
+            - '%rips_connector.email%'
             - '%rips_connector.password%'
             -
               base_uri: '%rips_connector.base_uri%'

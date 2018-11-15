@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use Exception;
 use RIPS\Connector\API;
 use RIPS\ConnectorBundle\Responses\StatusResponse;
 
@@ -15,26 +16,28 @@ class APIService
     /**
      * APIService constructor.
      *
-     * @param $username
+     * @param $email
      * @param $password
      * @param $config
+     * @throws Exception
      */
-    public function __construct($username, $password, $config)
+    public function __construct($email, $password, $config)
     {
-        $this->initialize($username, $password, $config);
+        $this->initialize($email, $password, $config);
     }
 
     /**
      * Initialize API instance
      *
-     * @param $username
+     * @param $email
      * @param $password
      * @param $config
      * @return void
+     * @throws Exception
      */
-    public function initialize($username, $password, $config)
+    public function initialize($email, $password, $config)
     {
-        $this->api = new API($username, $password, $config);
+        $this->api = new API($email, $password, $config);
     }
 
     /**
