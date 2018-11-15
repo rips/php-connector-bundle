@@ -49,7 +49,7 @@ class LogEntity
     /**
      * @var string
      */
-    protected $username = '';
+    protected $email = '';
 
     /**
      * @var OrgEntity
@@ -256,26 +256,26 @@ class LogEntity
     }
 
     /**
-     * Set username
+     * Set email
      *
-     * @param string $username
+     * @param string $email
      * @return $this
      */
-    public function setUsername($username)
+    public function setEmail($email)
     {
-        $this->username = $username;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get email
      *
      * @return string
      */
-    public function getUsername()
+    public function getEmail()
     {
-        return $this->username;
+        return $this->email;
     }
 
     /**

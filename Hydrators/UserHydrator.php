@@ -40,14 +40,6 @@ class UserHydrator
             $hydrated->setId($user->id);
         }
 
-        if (isset($user->username)) {
-            $hydrated->setUsername($user->username);
-        }
-
-        if (isset($user->empty_username)) {
-            $hydrated->setEmptyUsername($user->empty_username);
-        }
-
         if (isset($user->email)) {
             $hydrated->setEmail($user->email);
         }
