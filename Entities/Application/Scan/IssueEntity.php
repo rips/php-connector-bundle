@@ -2,29 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class IssueEntity
 {
     /**
      * @var int
      */
     protected $id;
-
-    /**
-     * @var Issue\CommentEntity[]
-     */
-    protected $comments;
-
-    /**
-     * @var Issue\SummaryEntity[]
-     */
-    protected $summaries;
-
-    /**
-     * @var Issue\MarkupEntity[]
-     */
-    protected $markups;
 
     /**
      * @var Issue\Origin\TypeEntity
@@ -40,11 +23,6 @@ class IssueEntity
      * @var Issue\TypeEntity
      */
     protected $type;
-
-    /**
-     * @var Issue\ReviewEntity[]
-     */
-    protected $reviews;
 
     /**
      * @var Issue\ReviewEntity
@@ -82,11 +60,6 @@ class IssueEntity
     protected $entrypoint;
 
     /**
-     * @var ScanEntity
-     */
-    protected $scan;
-
-    /**
      * @var IssueEntity
      */
     protected $parent;
@@ -95,11 +68,6 @@ class IssueEntity
      * @var int
      */
     protected $parentCount;
-
-    /**
-     * @var IssueEntity[]
-     */
-    protected $children;
 
     /**
      * @var string
@@ -157,75 +125,6 @@ class IssueEntity
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set comments
-     *
-     * @param Issue\CommentEntity[] $comments
-     * @return $this
-     */
-    public function setComments(array $comments)
-    {
-        $this->comments = $comments;
-
-        return $this;
-    }
-
-    /**
-     * Get comments
-     *
-     * @return Issue\CommentEntity[]
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-    /**
-     * Set summaries
-     *
-     * @param Issue\SummaryEntity[] $summaries
-     * @return $this
-     */
-    public function setSummaries(array $summaries)
-    {
-        $this->summaries = $summaries;
-
-        return $this;
-    }
-
-    /**
-     * Get summaries
-     *
-     * @return Issue\SummaryEntity[]
-     */
-    public function getSummaries()
-    {
-        return $this->summaries;
-    }
-
-    /**
-     * Set markups
-     *
-     * @param Issue\MarkupEntity[]
-     * @return $this
-     */
-    public function setMarkups(array $markups)
-    {
-        $this->markups = $markups;
-
-        return $this;
-    }
-
-    /**
-     * Get markups
-     *
-     * @return Issue\MarkupEntity[]
-     */
-    public function getMarkups()
-    {
-        return $this->markups;
     }
 
     /**
@@ -295,29 +194,6 @@ class IssueEntity
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Set reviews
-     *
-     * @param Issue\ReviewEntity[] $reviews
-     * @return $this
-     */
-    public function setReviews(array $reviews)
-    {
-        $this->reviews = $reviews;
-
-        return $this;
-    }
-
-    /**
-     * Get reviews
-     *
-     * @return Issue\ReviewEntity[]
-     */
-    public function getReviews()
-    {
-        return $this->reviews;
     }
 
     /**
@@ -482,29 +358,6 @@ class IssueEntity
     }
 
     /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return $this
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-
-        return $this;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
      * Set parent
      *
      * @param IssueEntity $parent
@@ -548,29 +401,6 @@ class IssueEntity
     public function getParentCount()
     {
         return $this->parentCount;
-    }
-
-    /**
-     * Set children
-     *
-     * @param IssueEntity[] $children
-     * @return $this
-     */
-    public function setChildren(array $children)
-    {
-        $this->children = $children;
-
-        return $this;
-    }
-
-    /**
-     * Get children
-     *
-     * @return IssueEntity[]
-     */
-    public function getChildren()
-    {
-        return $this->children;
     }
 
     /**

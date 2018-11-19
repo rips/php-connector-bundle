@@ -6,7 +6,6 @@ use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
 class CommentHydrator
 {
@@ -52,10 +51,6 @@ class CommentHydrator
 
         if (isset($comment->created_by)) {
             $hydrated->setCreatedBy(UserHydrator::hydrate($comment->created_by));
-        }
-
-        if (isset($comment->issue)) {
-            $hydrated->setIssue(IssueHydrator::hydrate($comment->issue));
         }
 
         return $hydrated;

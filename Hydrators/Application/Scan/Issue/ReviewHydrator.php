@@ -6,7 +6,6 @@ use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Review\TypeHydrator as ReviewTypeHydrator;
 
 class ReviewHydrator
@@ -53,10 +52,6 @@ class ReviewHydrator
 
         if (isset($review->created_by)) {
             $hydrated->setCreatedBy(UserHydrator::hydrate($review->created_by));
-        }
-
-        if (isset($review->issue)) {
-            $hydrated->setIssue(IssueHydrator::hydrate($review->issue));
         }
 
         return $hydrated;

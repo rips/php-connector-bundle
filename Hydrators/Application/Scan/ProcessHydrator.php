@@ -5,7 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class ProcessHydrator
 {
@@ -63,10 +62,6 @@ class ProcessHydrator
 
         if (isset($process->finished)) {
             $hydrated->setFinished($process->finished);
-        }
-
-        if (isset($process->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($process->scan));
         }
 
         return $hydrated;

@@ -22,11 +22,6 @@ class EntrypointEntity
     protected $file;
 
     /**
-     * @var ScanEntity
-     */
-    protected $scan;
-
-    /**
      * @var CustomFunctionEntity
      */
     protected $function;
@@ -35,11 +30,6 @@ class EntrypointEntity
      * @var CustomClassEntity
      */
     protected $class;
-
-    /**
-     * @var IssueEntity[]
-     */
-    protected $issues;
 
     /**
      * Set id
@@ -105,27 +95,6 @@ class EntrypointEntity
     }
 
     /**
-     * Set scan
-     *
-     * @param  ScanEntity $scan
-     * @return void
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
      * Set function
      *
      * @param  CustomFunctionEntity $function
@@ -165,26 +134,5 @@ class EntrypointEntity
     public function getClass()
     {
         return $this->class;
-    }
-
-    /**
-     * Set issues
-     *
-     * @param IssueEntity[] $issues
-     * @return void
-     */
-    public function setIssues($issues)
-    {
-        $this->issues = $issues;
-    }
-
-    /**
-     * Get issues
-     *
-     * @return IssueEntity[]
-     */
-    public function getIssues()
-    {
-        return $this->issues;
     }
 }

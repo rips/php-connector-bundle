@@ -2,10 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Sink\TypeHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Sink\TypeHydrator;
 
 class SinkHydrator
 {
@@ -61,20 +60,12 @@ class SinkHydrator
             $hydrated->setFile(FileHydrator::hydrate($sink->file));
         }
 
-        if (isset($sink->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($sink->scan));
-        }
-
         if (isset($sink->function)) {
             $hydrated->setFunction(CustomFunctionHydrator::hydrate($sink->function));
         }
 
         if (isset($sink->class)) {
             $hydrated->setClass(CustomClassHydrator::hydrate($sink->class));
-        }
-
-        if (isset($sink->issues)) {
-            $hydrated->setIssues(IssueHydrator::hydrateCollection($sink->issues));
         }
 
         if (isset($sink->startColumn)) {
@@ -87,6 +78,10 @@ class SinkHydrator
 
         if (isset($sink->type)) {
             $hydrated->setType(TypeHydrator::hydrate($sink->type));
+        }
+
+        if (isset($sink->taint)) {
+            $hydrated->setTaint(TaintHydrator::hydrate($sink->taint));
         }
 
         return $hydrated;

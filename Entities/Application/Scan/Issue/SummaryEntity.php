@@ -32,11 +32,6 @@ class SummaryEntity
     protected $file;
 
     /**
-     * @var Scan\IssueEntity
-     */
-    protected $issue;
-
-    /**
      * Set id
      *
      * @param  int $id
@@ -147,28 +142,5 @@ class SummaryEntity
     public function getFile()
     {
         return $this->file;
-    }
-
-    /**
-     * Set issue
-     *
-     * @param Scan\IssueEntity $issue
-     * @return $this
-     */
-    public function setIssue($issue)
-    {
-        $this->issue = $issue;
-
-        return $this;
-    }
-
-    /**
-     * Get issue
-     *
-     * @return Scan\IssueEntity
-     */
-    public function getIssue()
-    {
-        return $this->issue;
     }
 }

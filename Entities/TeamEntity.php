@@ -32,16 +32,6 @@ class TeamEntity
     protected $createdBy;
 
     /**
-     * @var Application\AclEntity[]
-     */
-    protected $applicationAcls;
-
-    /**
-     * @var Quota\AclEntity[]
-     */
-    protected $quotaAcls;
-
-    /**
      * @var DateTime
      */
     protected $createdAt;
@@ -157,52 +147,6 @@ class TeamEntity
     public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
-    
-        return $this;
-    }
-
-    /**
-     * Get applicationAcls
-     *
-     * @return Application\AclEntity[]
-     */
-    public function getApplicationAcls()
-    {
-        return $this->applicationAcls;
-    }
-    
-    /**
-     * Set applicationAcls
-     *
-     * @param Application\AclEntity[] $applicationAcls
-     * @return $this
-     */
-    public function setApplicationAcls(array $applicationAcls)
-    {
-        $this->applicationAcls = $applicationAcls;
-    
-        return $this;
-    }
-    
-    /**
-     * Get quotaAcls
-     *
-     * @return Quota\AclEntity[]
-     */
-    public function getQuotaAcls()
-    {
-        return $this->quotaAcls;
-    }
-    
-    /**
-     * Set quotaAcls
-     *
-     * @param Quota\AclEntity[] $quotaAcls
-     * @return $this
-     */
-    public function setQuotaAcls(array $quotaAcls)
-    {
-        $this->quotaAcls = $quotaAcls;
     
         return $this;
     }

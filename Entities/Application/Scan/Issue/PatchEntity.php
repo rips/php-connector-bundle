@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan;
-
 class PatchEntity
 {
     /**
@@ -20,11 +18,6 @@ class PatchEntity
      * @var Patch\ModificationEntity[]
      */
     protected $modifications;
-
-    /**
-     * @var Scan\IssueEntity
-     */
-    protected $issue;
 
     /**
      * Set id
@@ -91,28 +84,5 @@ class PatchEntity
     public function getModifications()
     {
         return $this->modifications;
-    }
-
-    /**
-     * Set issue
-     *
-     * @param Scan\IssueEntity $issue
-     * @return $this
-     */
-    public function setIssue($issue)
-    {
-        $this->issue = $issue;
-
-        return $this;
-    }
-
-    /**
-     * Get issue
-     *
-     * @return Scan\IssueEntity
-     */
-    public function getIssue()
-    {
-        return $this->issue;
     }
 }

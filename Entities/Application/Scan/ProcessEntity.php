@@ -3,7 +3,6 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use DateTime;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class ProcessEntity
 {
@@ -41,11 +40,6 @@ class ProcessEntity
      * @var boolean
      */
     protected $finished;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
 
     /**
      * Set id
@@ -194,26 +188,5 @@ class ProcessEntity
     public function getFinished()
     {
         return $this->finished;
-    }
-
-    /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return void
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
     }
 }

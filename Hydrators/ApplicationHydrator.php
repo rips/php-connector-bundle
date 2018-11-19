@@ -63,14 +63,6 @@ class ApplicationHydrator
             $hydrated->setChargedQuota(QuotaHydrator::hydrate($application->charged_quota));
         }
 
-        if (isset($application->uploads) && is_array($application->uploads)) {
-            $hydrated->setUploads(UploadHydrator::hydrateCollection($application->uploads));
-        }
-
-        if (isset($application->acls) && is_array($application->acls)) {
-            $hydrated->setAcls(AclHydrator::hydrateCollection($application->acls));
-        }
-
         if (isset($application->created_at)) {
             $hydrated->setCreatedAt(new DateTime($application->created_at));
         }

@@ -67,31 +67,6 @@ class QuotaEntity
     protected $public;
 
     /**
-     * @var LicenseEntity
-     */
-    protected $license;
-
-    /**
-     * @var Application\ScanEntity[]
-     */
-    protected $scans;
-
-    /**
-     * @var ApplicationEntity[]
-     */
-    protected $applications;
-
-    /**
-     * @var UserEntity[]
-     */
-    protected $users;
-
-    /**
-     * @var Quota\AclEntity[]
-     */
-    protected $acls;
-
-    /**
      * @var OrgEntity
      */
     protected $organization;
@@ -375,98 +350,6 @@ class QuotaEntity
     public function getPublic()
     {
         return $this->public;
-    }
-
-    /**
-     * Set license
-     *
-     * @param LicenseEntity $license
-     * @return $this
-     */
-    public function setLicense($license)
-    {
-        $this->license = $license;
-
-        return $this;
-    }
-
-    /**
-     * Get license
-     *
-     * @return LicenseEntity
-     */
-    public function getLicense()
-    {
-        return $this->license;
-    }
-
-    /**
-     * Set scans
-     *
-     * @param Application\ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return Application\ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
-    }
-
-    /**
-     * Set users
-     *
-     * @param UserEntity[] $users
-     * @return $this
-     */
-    public function setUsers(array $users)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return UserEntity[]
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * Set acls
-     *
-     * @param Quota\AclEntity[] $acls
-     * @return $this
-     */
-    public function setAcls(array $acls)
-    {
-        $this->acls = $acls;
-
-        return $this;
-    }
-
-    /**
-     * Get acls
-     *
-     * @return Quota\AclEntity[]
-     */
-    public function getAcls()
-    {
-        return $this->acls;
     }
 
     /**

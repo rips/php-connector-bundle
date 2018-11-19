@@ -5,7 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\SummaryEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
 class SummaryHydrator
 {
@@ -51,10 +50,6 @@ class SummaryHydrator
 
         if (isset($summary->highlighted_content)) {
             $hydrated->setHighlightedContent($summary->highlighted_content);
-        }
-
-        if (isset($summary->issue)) {
-            $hydrated->setIssue(IssueHydrator::hydrate($summary->issue));
         }
 
         if (isset($summary->file)) {

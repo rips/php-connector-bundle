@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class CustomFunctionEntity
 {
     /**
@@ -35,26 +33,6 @@ class CustomFunctionEntity
      * @var CustomClassEntity
      */
     protected $class;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
-
-    /**
-     * @var SourceEntity[]
-     */
-    protected $sources;
-
-    /**
-     * @var SinkEntity[]
-     */
-    protected $sinks;
-
-    /**
-     * @var ConcatEntity[]
-     */
-    protected $concats;
 
     /**
      * @var string[]
@@ -197,98 +175,6 @@ class CustomFunctionEntity
     public function getClass()
     {
         return $this->class;
-    }
-
-    /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return $this
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-
-        return $this;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
-     * Set sources
-     *
-     * @param SourceEntity[] $sources
-     * @return $this
-     */
-    public function setSources(array $sources)
-    {
-        $this->sources = $sources;
-
-        return $this;
-    }
-
-    /**
-     * Get sources
-     *
-     * @return SourceEntity[]
-     */
-    public function getSources()
-    {
-        return $this->sources;
-    }
-
-    /**
-     * Set sinks
-     *
-     * @param SinkEntity[] $sinks
-     * @return $this
-     */
-    public function setSinks(array $sinks)
-    {
-        $this->sinks = $sinks;
-
-        return $this;
-    }
-
-    /**
-     * Get sinks
-     *
-     * @return SinkEntity[]
-     */
-    public function getSinks()
-    {
-        return $this->sinks;
-    }
-
-    /**
-     * Set concats
-     *
-     * @param ConcatEntity[] $concats
-     * @return $this
-     */
-    public function setConcats(array $concats)
-    {
-        $this->concats = $concats;
-
-        return $this;
-    }
-
-    /**
-     * Get concats
-     *
-     * @return ConcatEntity[]
-     */
-    public function getConcats()
-    {
-        return $this->concats;
     }
 
     /**
