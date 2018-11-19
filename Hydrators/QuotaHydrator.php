@@ -86,22 +86,6 @@ class QuotaHydrator
             $hydrated->setPublic($quota->public);
         }
 
-        if (isset($quota->license)) {
-            $hydrated->setLicense(LicenseHydrator::hydrate($quota->license));
-        }
-
-        if (isset($quota->scans) && is_array($quota->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($quota->scans));
-        }
-
-        if (isset($quota->users) && is_array($quota->users)) {
-            $hydrated->setUsers(UserHydrator::hydrateCollection($quota->users));
-        }
-
-        if (isset($quota->acls) && is_array($quota->acls)) {
-            $hydrated->setAcls(AclHydrator::hydrateCollection($quota->acls));
-        }
-
         if (isset($quota->organization)) {
             $hydrated->setOrganization(OrgHydrator::hydrate($quota->organization));
         }
