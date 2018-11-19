@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Markup\PartHydrator;
 
 class MarkupHydrator
@@ -43,10 +42,6 @@ class MarkupHydrator
 
         if (isset($markup->parts)) {
             $hydrated->setParts(PartHydrator::hydrateCollection($markup->parts));
-        }
-
-        if (isset($markup->issue)) {
-            $hydrated->setIssue(IssueHydrator::hydrate($markup->issue));
         }
 
         return $hydrated;

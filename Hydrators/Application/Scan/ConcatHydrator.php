@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class ConcatHydrator
 {
@@ -56,10 +55,6 @@ class ConcatHydrator
             $hydrated->setFile(FileHydrator::hydrate($concat->file));
         }
 
-        if (isset($concat->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($concat->scan));
-        }
-
         if (isset($concat->function)) {
             $hydrated->setFunction(CustomFunctionHydrator::hydrate($concat->function));
         }
@@ -68,16 +63,16 @@ class ConcatHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($concat->class));
         }
 
-        if (isset($concat->issues) && is_array($concat->issues)) {
-            $hydrated->setIssues(IssueHydrator::hydrateCollection($concat->issues));
-        }
-
         if (isset($concat->startColumn)) {
             $hydrated->setStartColumn($concat->startColumn);
         }
 
         if (isset($concat->endColumn)) {
             $hydrated->setEndColumn($concat->endColumn);
+        }
+
+        if (isset($concat->taint)) {
+            $hydrated->setTaint(TaintHydrator::hydrate($concat->taint));
         }
 
         return $hydrated;

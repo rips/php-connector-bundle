@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class ComparisonEntity
 {
     /**
@@ -45,11 +43,6 @@ class ComparisonEntity
      * @var int
      */
     protected $misses;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
 
     /**
      * Set id
@@ -231,29 +224,6 @@ class ComparisonEntity
     public function setMisses(int $misses)
     {
         $this->misses = $misses;
-
-        return $this;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan(): ScanEntity
-    {
-        return $this->scan;
-    }
-
-    /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return $this
-     */
-    public function setScan(ScanEntity $scan)
-    {
-        $this->scan = $scan;
 
         return $this;
     }

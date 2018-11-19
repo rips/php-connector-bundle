@@ -37,16 +37,6 @@ class ApplicationEntity
     protected $chargedQuota;
 
     /**
-     * @var Application\UploadEntity[]
-     */
-    protected $uploads;
-
-    /**
-     * @var Application\AclEntity[]
-     */
-    protected $acls;
-
-    /**
      * @var DateTime
      */
     protected $createdAt;
@@ -197,52 +187,6 @@ class ApplicationEntity
     public function getChargedQuota()
     {
         return $this->chargedQuota;
-    }
-
-    /**
-     * Set uploads
-     *
-     * @param Application\UploadEntity[] $uploads
-     * @return $this
-     */
-    public function setUploads(array $uploads)
-    {
-        $this->uploads = $uploads;
-
-        return $this;
-    }
-
-    /**
-     * Get uploads
-     *
-     * @return Application\UploadEntity[]
-     */
-    public function getUploads()
-    {
-        return $this->uploads;
-    }
-
-    /**
-     * Set acls
-     *
-     * @param Application\AclEntity[] $acls
-     * @return $this
-     */
-    public function setAcls(array $acls)
-    {
-        $this->acls = $acls;
-
-        return $this;
-    }
-
-    /**
-     * Get acls
-     *
-     * @return Application\AclEntity[]
-     */
-    public function getAcls()
-    {
-        return $this->acls;
     }
 
     /**

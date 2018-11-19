@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Profile\SettingEntity;
 
 class JavaEntity
@@ -31,11 +30,6 @@ class JavaEntity
      * @var string
      */
     protected $implementation;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
 
     /**
      * @var SettingEntity
@@ -148,27 +142,6 @@ class JavaEntity
     public function getImplementation()
     {
         return $this->implementation;
-    }
-
-    /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return void
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
     }
 
     /**

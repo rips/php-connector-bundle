@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\JavaEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\SettingHydrator;
 
 class JavaHydrator
@@ -55,10 +54,6 @@ class JavaHydrator
 
         if (isset($php->implementation)) {
             $hydrated->setImplementation($php->implementation);
-        }
-
-        if (isset($php->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($php->scan));
         }
 
         if (isset($php->setting)) {

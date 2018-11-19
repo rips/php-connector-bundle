@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\PhpEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\SettingHydrator;
 
 class PhpHydrator
@@ -71,10 +70,6 @@ class PhpHydrator
 
         if (isset($php->filter_default)) {
             $hydrated->setFilterDefault($php->filter_default);
-        }
-
-        if (isset($php->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($php->scan));
         }
 
         if (isset($php->setting)) {

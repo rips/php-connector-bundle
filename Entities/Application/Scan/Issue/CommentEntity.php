@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
 use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 
 class CommentEntity
 {
@@ -27,11 +26,6 @@ class CommentEntity
      * @var UserEntity
      */
     protected $createdBy;
-
-    /**
-     * @var IssueEntity
-     */
-    protected $issue;
 
     /**
      * Set id
@@ -123,28 +117,5 @@ class CommentEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
-    }
-
-    /**
-     * Set issue
-     *
-     * @param IssueEntity $issue
-     * @return $this
-     */
-    public function setIssue($issue)
-    {
-        $this->issue = $issue;
-
-        return $this;
-    }
-
-    /**
-     * Get issue
-     *
-     * @return IssueEntity
-     */
-    public function getIssue()
-    {
-        return $this->issue;
     }
 }

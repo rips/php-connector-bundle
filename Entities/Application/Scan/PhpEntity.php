@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Entities\Application\Profile\SettingEntity;
 
 class PhpEntity
@@ -51,11 +50,6 @@ class PhpEntity
      * @var string
      */
     protected $filterDefault;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
 
     /**
      * @var SettingEntity
@@ -250,27 +244,6 @@ class PhpEntity
     public function getFilterDefault()
     {
         return $this->filterDefault;
-    }
-
-    /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return void
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
     }
 
     /**

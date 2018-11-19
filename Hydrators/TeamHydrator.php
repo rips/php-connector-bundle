@@ -58,14 +58,6 @@ class TeamHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($team->created_by));
         }
 
-        if (isset($team->application_acls) && is_array($team->application_acls)) {
-            $hydrated->setApplicationAcls(ApplicationAclHydrator::hydrateCollection($team->application_acls));
-        }
-
-        if (isset($team->quota_acls) && is_array($team->quota_acls)) {
-            $hydrated->setQuotaAcls(QuotaAclHydrator::hydrateCollection($team->quota_acls));
-        }
-
         if (isset($team->created_at)) {
             $hydrated->setCreatedAt(new DateTime($team->created_at));
         }

@@ -29,11 +29,6 @@ class ReviewEntity
     protected $createdBy;
 
     /**
-     * @var Scan\IssueEntity
-     */
-    protected $issue;
-
-    /**
      * Set id
      *
      * @param integer
@@ -121,28 +116,5 @@ class ReviewEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
-    }
-
-    /**
-     * Set issue
-     *
-     * @param Scan\IssueEntity $issue
-     * @return $this
-     */
-    public function setIssue($issue)
-    {
-        $this->issue = $issue;
-
-        return $this;
-    }
-
-    /**
-     * Get issue
-     *
-     * @return Scan\IssueEntity
-     */
-    public function getIssue()
-    {
-        return $this->issue;
     }
 }

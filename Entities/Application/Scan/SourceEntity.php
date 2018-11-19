@@ -3,7 +3,6 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\Source\TypeEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class SourceEntity
 {
@@ -43,11 +42,6 @@ class SourceEntity
     protected $file;
 
     /**
-     * @var ScanEntity
-     */
-    protected $scan;
-
-    /**
      * @var CustomFunctionEntity
      */
     protected $function;
@@ -56,11 +50,6 @@ class SourceEntity
      * @var CustomClassEntity
      */
     protected $class;
-
-    /**
-     * @var IssueEntity[]
-     */
-    protected $issues;
 
     /**
      * @var int
@@ -76,6 +65,11 @@ class SourceEntity
      * @var TypeEntity
      */
     protected $type;
+
+    /**
+     * @var TaintEntity
+     */
+    protected $taint;
 
     /**
      * Set id
@@ -229,27 +223,6 @@ class SourceEntity
     }
 
     /**
-     * Set scan
-     *
-     * @param  ScanEntity $scan
-     * @return void
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
      * Set function
      *
      * @param  CustomFunctionEntity $function
@@ -289,27 +262,6 @@ class SourceEntity
     public function getClass()
     {
         return $this->class;
-    }
-
-    /**
-     * Set issues
-     *
-     * @param IssueEntity[] $issues
-     * @return void
-     */
-    public function setIssues($issues)
-    {
-        $this->issues = $issues;
-    }
-
-    /**
-     * Get issues
-     *
-     * @return IssueEntity[]
-     */
-    public function getIssues()
-    {
-        return $this->issues;
     }
 
     /**
@@ -379,5 +331,28 @@ class SourceEntity
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set taint
+     *
+     * @param TaintEntity $taint
+     * @return $this
+     */
+    public function setTaint(TaintEntity $taint)
+    {
+        $this->taint = $taint;
+
+        return $this;
+    }
+
+    /**
+     * Get taint
+     *
+     * @return TaintEntity
+     */
+    public function getTaint()
+    {
+        return $this->taint;
     }
 }

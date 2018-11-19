@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ComparisonEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class ComparisonHydrator
 {
@@ -66,10 +65,6 @@ class ComparisonHydrator
 
         if (isset($comparison->misses)) {
             $hydrated->setMisses($comparison->misses);
-        }
-
-        if (isset($comparison->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($comparison->scan));
         }
 
         return $hydrated;

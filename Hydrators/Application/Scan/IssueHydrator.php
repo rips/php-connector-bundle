@@ -4,12 +4,8 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\CommentHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Origin\TypeHydrator as OriginTypeHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\SummaryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
 
 class IssueHydrator
@@ -46,18 +42,6 @@ class IssueHydrator
             $hydrated->setId($issue->id);
         }
 
-        if (isset($issue->comments) && is_array($issue->comments)) {
-            $hydrated->setComments(CommentHydrator::hydrateCollection($issue->comments));
-        }
-
-        if (isset($issue->summaries) && is_array($issue->summaries)) {
-            $hydrated->setSummaries(SummaryHydrator::hydrateCollection($issue->summaries));
-        }
-
-        if (isset($issue->markups) && is_array($issue->markups)) {
-            $hydrated->setMarkups(MarkupHydrator::hydrateCollection($issue->markups));
-        }
-
         if (isset($issue->origin)) {
             $hydrated->setOrigin(OriginTypeHydrator::hydrate($issue->origin));
         }
@@ -68,10 +52,6 @@ class IssueHydrator
 
         if (isset($issue->type)) {
             $hydrated->setType(IssueTypeHydrator::hydrate($issue->type));
-        }
-
-        if (isset($issue->reviews) && is_array($issue->reviews)) {
-            $hydrated->setReviews(ReviewHydrator::hydrateCollection($issue->reviews));
         }
 
         if (isset($issue->last_review)) {
@@ -102,20 +82,12 @@ class IssueHydrator
             $hydrated->setEntrypoint(EntrypointHydrator::hydrate($issue->entrypoint));
         }
 
-        if (isset($issue->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($issue->scan));
-        }
-
         if (isset($issue->parent)) {
             $hydrated->setParent(self::hydrate($issue->parent));
         }
 
         if (isset($issue->parent_count)) {
             $hydrated->setParentCount($issue->parentCount);
-        }
-
-        if (isset($issue->children) && is_array($issue->children)) {
-            $hydrated->setChildren(self::hydrateCollection($issue->children));
         }
 
         if (isset($issue->readable)) {

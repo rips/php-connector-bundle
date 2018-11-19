@@ -17,11 +17,6 @@ class MarkupEntity
     protected $parts;
 
     /**
-     * @var IssueEntity
-     */
-    protected $issue;
-
-    /**
      * Set id
      *
      * @param  int $id
@@ -65,28 +60,5 @@ class MarkupEntity
     public function getParts()
     {
         return $this->parts;
-    }
-
-    /**
-     * Set issue
-     *
-     * @param IssueEntity $issue
-     * @return $this
-     */
-    public function setIssue($issue)
-    {
-        $this->issue = $issue;
-
-        return $this;
-    }
-
-    /**
-     * Get issue
-     *
-     * @return IssueEntity
-     */
-    public function getIssue()
-    {
-        return $this->issue;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-class CustomClassEntity
+class TaintEntity
 {
     /**
      * @var int
@@ -20,31 +20,24 @@ class CustomClassEntity
     protected $endLine;
 
     /**
-     * @var string
+     * @var int
      */
-    protected $name;
+    protected $startColumn;
 
     /**
-     * @var FileEntity
+     * @var int
      */
-    protected $file;
-
-    /**
-     * @var string
-     */
-    protected $package;
+    protected $endColumn;
 
     /**
      * Set id
      *
-     * @param int $id
-     * @return $this
+     * @param  int $id
+     * @return void
      */
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -104,71 +97,48 @@ class CustomClassEntity
     }
 
     /**
-     * Set name
+     * Set start column
      *
-     * @param string $name
+     * @param int $startColumn
      * @return $this
      */
-    public function setName($name)
+    public function setStartColumn(int $startColumn)
     {
-        $this->name = $name;
+        $this->startColumn = $startColumn;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get start column
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getStartColumn()
     {
-        return $this->name;
+        return $this->startColumn;
     }
 
     /**
-     * Set file
+     * Set end column
      *
-     * @param FileEntity $file
+     * @param int $endColumn
      * @return $this
      */
-    public function setFile($file)
+    public function setEndColumn(int $endColumn)
     {
-        $this->file = $file;
+        $this->endColumn = $endColumn;
 
         return $this;
     }
 
     /**
-     * Get file
+     * Get end column
      *
-     * @return FileEntity
+     * @return int
      */
-    public function getFile()
+    public function getEndColumn()
     {
-        return $this->file;
-    }
-
-    /**
-     * Get package
-     *
-     * @return string
-     */
-    public function getPackage()
-    {
-        return $this->package;
-    }
-
-    /**
-     * Set package
-     *
-     * @param string $package
-     * @return $this
-     */
-    public function setPackage(string $package)
-    {
-        $this->package = $package;
-
-        return $this;
+        return $this->endColumn;
     }
 }
