@@ -39,20 +39,20 @@ class TaintHydrator
             $hydrated->setId($taint->id);
         }
 
-        if (isset($taint->startLine)) {
-            $hydrated->setStartLine($taint->startLine);
+        if (isset($taint->start_line)) {
+            $hydrated->setStartLine($taint->start_line);
         }
 
-        if (isset($taint->endLine)) {
-            $hydrated->setEndLine($taint->endLine);
+        if (isset($taint->end_line)) {
+            $hydrated->setEndLine($taint->end_line);
         }
 
-        if (isset($taint->startColumn)) {
-            $hydrated->setStartColumn($taint->startColumn);
+        if (isset($taint->start_column)) {
+            $hydrated->setStartColumn($taint->start_column);
         }
 
-        if (isset($taint->endColumn)) {
-            $hydrated->setEndColumn($taint->endColumn);
+        if (isset($taint->end_column)) {
+            $hydrated->setEndColumn($taint->end_column);
         }
 
         return $hydrated;
