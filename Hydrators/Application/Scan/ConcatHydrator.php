@@ -43,12 +43,12 @@ class ConcatHydrator
             $hydrated->setLine($concat->line);
         }
 
-        if (isset($concat->startLine)) {
-            $hydrated->setStartLine($concat->startLine);
+        if (isset($concat->start_line)) {
+            $hydrated->setStartLine($concat->start_line);
         }
 
-        if (isset($concat->endLine)) {
-            $hydrated->setEndLine($concat->endLine);
+        if (isset($concat->end_line)) {
+            $hydrated->setEndLine($concat->end_line);
         }
 
         if (isset($concat->file)) {
@@ -63,12 +63,12 @@ class ConcatHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($concat->class));
         }
 
-        if (isset($concat->startColumn)) {
-            $hydrated->setStartColumn($concat->startColumn);
+        if (isset($concat->start_column)) {
+            $hydrated->setStartColumn($concat->start_column);
         }
 
-        if (isset($concat->endColumn)) {
-            $hydrated->setEndColumn($concat->endColumn);
+        if (isset($concat->end_column)) {
+            $hydrated->setEndColumn($concat->end_column);
         }
 
         if (isset($concat->taint)) {

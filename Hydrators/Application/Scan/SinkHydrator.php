@@ -44,12 +44,12 @@ class SinkHydrator
             $hydrated->setLine($sink->line);
         }
 
-        if (isset($sink->startLine)) {
-            $hydrated->setStartLine($sink->startLine);
+        if (isset($sink->start_line)) {
+            $hydrated->setStartLine($sink->start_line);
         }
 
-        if (isset($sink->endLine)) {
-            $hydrated->setEndLine($sink->endLine);
+        if (isset($sink->end_line)) {
+            $hydrated->setEndLine($sink->end_line);
         }
 
         if (isset($sink->name)) {
@@ -68,12 +68,12 @@ class SinkHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($sink->class));
         }
 
-        if (isset($sink->startColumn)) {
-            $hydrated->setStartColumn($sink->startColumn);
+        if (isset($sink->start_column)) {
+            $hydrated->setStartColumn($sink->start_column);
         }
 
-        if (isset($sink->endColumn)) {
-            $hydrated->setEndColumn($sink->endColumn);
+        if (isset($sink->end_column)) {
+            $hydrated->setEndColumn($sink->end_column);
         }
 
         if (isset($sink->type)) {
