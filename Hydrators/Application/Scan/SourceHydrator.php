@@ -44,12 +44,12 @@ class SourceHydrator
             $hydrated->setLine($source->line);
         }
 
-        if (isset($source->startLine)) {
-            $hydrated->setStartLine($source->startLine);
+        if (isset($source->start_line)) {
+            $hydrated->setStartLine($source->start_line);
         }
 
-        if (isset($source->endLine)) {
-            $hydrated->setEndLine($source->endLine);
+        if (isset($source->end_line)) {
+            $hydrated->setEndLine($source->end_line);
         }
 
         if (isset($source->name)) {
@@ -72,12 +72,12 @@ class SourceHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($source->class));
         }
 
-        if (isset($source->startColumn)) {
-            $hydrated->setStartColumn($source->startColumn);
+        if (isset($source->start_column)) {
+            $hydrated->setStartColumn($source->start_column);
         }
 
-        if (isset($source->endColumn)) {
-            $hydrated->setEndColumn($source->endColumn);
+        if (isset($source->end_column)) {
+            $hydrated->setEndColumn($source->end_column);
         }
 
         if (isset($source->type)) {
