@@ -6,6 +6,7 @@ use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\UploadEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
+use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 
 class UploadHydrator
 {
@@ -63,6 +64,10 @@ class UploadHydrator
 
         if (isset($upload->created_by)) {
             $hydrated->setCreatedBy(UserHydrator::hydrate($upload->created_by));
+        }
+
+        if (isset($upload->application)) {
+            $hydrated->setApplication(ApplicationHydrator::hydrate($upload->application));
         }
 
         return $hydrated;
