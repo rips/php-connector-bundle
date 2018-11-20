@@ -44,6 +44,11 @@ class UploadEntity
     protected $createdBy;
 
     /**
+     * @var ApplicationEntity
+     */
+    protected $application;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -202,5 +207,28 @@ class UploadEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
+    }
+
+    /**
+     * Set application
+     *
+     * @param ApplicationEntity $application
+     * @return $this
+     */
+    public function setApplication($application)
+    {
+        $this->application = $application;
+
+        return $this;
+    }
+
+    /**
+     * Get application
+     *
+     * @return ApplicationEntity
+     */
+    public function getApplication()
+    {
+        return $this->application;
     }
 }
