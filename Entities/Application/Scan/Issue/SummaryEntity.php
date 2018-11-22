@@ -32,6 +32,16 @@ class SummaryEntity
     protected $file;
 
     /**
+     * @var Scan\CustomFunctionEntity
+     */
+    protected $function;
+
+    /**
+     * @var Scan\CustomClassEntity
+     */
+    protected $class;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -142,5 +152,51 @@ class SummaryEntity
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Set function
+     *
+     * @param Scan\CustomFunctionEntity $function
+     * @return $this
+     */
+    public function setFunction($function)
+    {
+        $this->function = $function;
+
+        return $this;
+    }
+
+    /**
+     * Get function
+     *
+     * @return Scan\CustomFunctionEntity
+     */
+    public function getFunction()
+    {
+        return $this->function;
+    }
+
+    /**
+     * Set class
+     *
+     * @param Scan\CustomClassEntity $class
+     * @return $this
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return Scan\CustomClassEntity
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 }
