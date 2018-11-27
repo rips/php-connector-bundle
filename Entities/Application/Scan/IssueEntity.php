@@ -105,6 +105,11 @@ class IssueEntity
     protected $registerGlobals;
 
     /**
+     * @var ProcessEntity
+     */
+    protected $process;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -561,5 +566,28 @@ class IssueEntity
     public function getRegisterGlobals()
     {
         return $this->registerGlobals;
+    }
+
+    /**
+     * Set process
+     *
+     * @param ProcessEntity $process
+     * @return $this
+     */
+    public function setProcess($process)
+    {
+        $this->process = $process;
+
+        return $this;
+    }
+
+    /**
+     * Get process
+     *
+     * @return ProcessEntity
+     */
+    public function getProcess()
+    {
+        return $this->process;
     }
 }

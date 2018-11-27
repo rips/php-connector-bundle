@@ -118,6 +118,10 @@ class IssueHydrator
             $hydrated->setRegisterGlobals($issue->register_globals);
         }
 
+        if (isset($issue->process)) {
+            $hydrated->setProcess(ProcessHydrator::hydrate($issue->process));
+        }
+
         return $hydrated;
     }
 }
