@@ -65,6 +65,8 @@ class QuotaBuilder extends BaseBuilder
      * @var int
      */
     protected $organization;
+
+
     
     /**
      * Set currentApplication

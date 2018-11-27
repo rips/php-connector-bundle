@@ -9,12 +9,7 @@ class AddBuilder extends BaseBuilder
     /**
      * @var integer
      */
-    protected $chargedQuota;
-
-    /**
-     * @var integer
-     */
-    protected $custom;
+    protected $profile;
 
     /**
      * @var integer
@@ -72,29 +67,20 @@ class AddBuilder extends BaseBuilder
     protected $comment;
 
     /**
-     * Set chargedQuota
-     *
-     * @param integer $chargedQuota
-     * @return $this
+     * @var array
      */
-    public function setChargedQuota($chargedQuota)
-    {
-        $this->setFields[] = 'chargeQuota';
-        $this->chargedQuota = $chargedQuota;
-    
-        return $this;
-    }
-    
+    protected $languages;
+
     /**
-     * Set custom
+     * Set profile
      *
-     * @param integer $custom
+     * @param integer $profile
      * @return $this
      */
-    public function setCustom($custom)
+    public function setProfile($profile)
     {
-        $this->setFields[] = 'custom';
-        $this->custom = $custom;
+        $this->setFields[] = 'profile';
+        $this->profile = $profile;
     
         return $this;
     }
@@ -249,6 +235,20 @@ class AddBuilder extends BaseBuilder
     {
         $this->setFields[] = 'comment';
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param array $languages
+     * @return $this
+     */
+    public function setLanguages($languages)
+    {
+        $this->setFields[] = 'languages';
+        $this->languages = $languages;
 
         return $this;
     }

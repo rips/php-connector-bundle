@@ -77,6 +77,11 @@ class QuotaEntity
     protected $createdAt;
 
     /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -396,5 +401,28 @@ class QuotaEntity
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param LanguageEntity[] $languages
+     * @return $this
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
     }
 }
