@@ -94,6 +94,10 @@ class QuotaHydrator
             $hydrated->setCreatedAt(new DateTime($quota->created_at));
         }
 
+        if (isset($quota->languages) && is_array($quota->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($quota->languages));
+        }
+
         return $hydrated;
     }
 }
