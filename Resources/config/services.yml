@@ -60,8 +60,8 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.profile.sanitisers:
-        class: RIPS\ConnectorBundle\Services\Application\Profile\SanitiserService
+    rips_connector.application.profile.sanitizers:
+        class: RIPS\ConnectorBundle\Services\Application\Profile\SanitizerService
         arguments:
             - '@rips_connector.api'
 

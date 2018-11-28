@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\InputBuilders\Application\Profile;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class SanitiserBuilder extends BaseBuilder
+class SanitizerBuilder extends BaseBuilder
 {
     /**
      * @var string

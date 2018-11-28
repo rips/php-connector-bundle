@@ -7,7 +7,7 @@ use RIPS\ConnectorBundle\Entities\Application\ProfileEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\SourceHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\SinkHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\ValidatorHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Profile\SanitiserHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Profile\SanitizerHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\IgnoreHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\ExtensionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\ControllerHydrator;
@@ -73,8 +73,8 @@ class ProfileHydrator
             $hydrated->setValidators(ValidatorHydrator::hydrateCollection($profile->validators));
         }
 
-        if (isset($profile->sanitisers) && is_array($profile->sanitisers)) {
-            $hydrated->setSanitisers(SanitiserHydrator::hydrateCollection($profile->sanitisers));
+        if (isset($profile->sanitizers) && is_array($profile->sanitizers)) {
+            $hydrated->setSanitizers(SanitizerHydrator::hydrateCollection($profile->sanitizers));
         }
 
         if (isset($profile->ignores) && is_array($profile->ignores)) {
