@@ -1,8 +1,8 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Markup;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Context;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\MarkupEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ContextEntity;
 
 class PartEntity
 {
@@ -22,9 +22,9 @@ class PartEntity
     protected $content;
 
     /**
-     * @var MarkupEntity
+     * @var ContextEntity
      */
-    protected $markup;
+    protected $context;
 
     /**
      * Set id
@@ -96,25 +96,25 @@ class PartEntity
     }
 
     /**
-     * Set markup
+     * Set context
      *
-     * @param MarkupEntity $markup
+     * @param ContextEntity $context
      * @return $this
      */
-    public function setMarkup($markup)
+    public function setContext($context)
     {
-        $this->markup = $markup;
+        $this->context = $context;
 
         return $this;
     }
 
     /**
-     * Get markup
+     * Get context
      *
-     * @return MarkupEntity
+     * @return ContextEntity
      */
-    public function getMarkup()
+    public function getContext()
     {
-        return $this->markup;
+        return $this->context;
     }
 }
