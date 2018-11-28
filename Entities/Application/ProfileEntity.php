@@ -44,9 +44,9 @@ class ProfileEntity
     protected $validators;
 
     /**
-     * @var Profile\SanitiserEntity[]
+     * @var Profile\SanitizerEntity[]
      */
-    protected $sanitisers;
+    protected $sanitizers;
 
     /**
      * @var Profile\IgnoreEntity[]
@@ -235,24 +235,24 @@ class ProfileEntity
     }
     
     /**
-     * Get sanitisers
+     * Get sanitizers
      *
-     * @return Profile\SanitiserEntity[]
+     * @return Profile\SanitizerEntity[]
      */
-    public function getSanitisers()
+    public function getSanitizers()
     {
-        return $this->sanitisers;
+        return $this->sanitizers;
     }
     
     /**
-     * Set sanitisers
+     * Set sanitizers
      *
-     * @param Profile\SanitiserEntity[] $sanitisers
+     * @param Profile\SanitizerEntity[] $sanitizers
      * @return $this
      */
-    public function setSanitisers(array $sanitisers)
+    public function setSanitizers(array $sanitizers)
     {
-        $this->sanitisers = $sanitisers;
+        $this->sanitizers = $sanitizers;
     
         return $this;
     }

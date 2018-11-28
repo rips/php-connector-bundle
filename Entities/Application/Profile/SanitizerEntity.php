@@ -5,7 +5,7 @@ namespace RIPS\ConnectorBundle\Entities\Application\Profile;
 use RIPS\ConnectorBundle\Entities\Application\ProfileEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
-class SanitiserEntity
+class SanitizerEntity
 {
     /**
      * @var int
