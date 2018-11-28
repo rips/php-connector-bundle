@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Markup;
+namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Context;
 
 use stdClass;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Markup\PartEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\MarkupHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Context\PartEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ContextHydrator;
 
 class PartHydrator
 {
@@ -48,8 +48,8 @@ class PartHydrator
             $hydrated->setContent($part->content);
         }
 
-        if (isset($part->markup)) {
-            $hydrated->setMarkup(MarkupHydrator::hydrate($part->markup));
+        if (isset($part->context)) {
+            $hydrated->setContext(ContextHydrator::hydrate($part->context));
         }
 
         return $hydrated;

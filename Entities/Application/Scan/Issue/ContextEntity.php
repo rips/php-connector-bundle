@@ -2,9 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan\Issue;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
-
-class MarkupEntity
+class ContextEntity
 {
     /**
      * @var int
@@ -12,7 +10,7 @@ class MarkupEntity
     protected $id;
 
     /**
-     * @var Markup\PartEntity[]
+     * @var Context\PartEntity[]
      */
     protected $parts;
 
@@ -42,7 +40,7 @@ class MarkupEntity
     /**
      * Set parts
      *
-     * @param Markup\PartEntity[] $parts
+     * @param Context\PartEntity[] $parts
      * @return $this
      */
     public function setParts(array $parts)
@@ -55,7 +53,7 @@ class MarkupEntity
     /**
      * Get parts
      *
-     * @return Markup\PartEntity[]
+     * @return Context\PartEntity[]
      */
     public function getParts()
     {

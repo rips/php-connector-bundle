@@ -3,10 +3,10 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan\Issue;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\MarkupsResponse;
-use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\MarkupResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\ContextsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Issue\ContextResponse;
 
-class MarkupService
+class ContextService
 {
     /**
      * @var APIService
@@ -24,13 +24,13 @@ class MarkupService
     }
 
     /**
-     * Get all markups for an issue
+     * Get all contexts for an issue
      *
      * @param int $appId
      * @param int $scanId
      * @param int $issueId
      * @param array $queryParams
-     * @return MarkupsResponse
+     * @return ContextsResponse
      */
     public function getAll($appId, $scanId, $issueId, array $queryParams = [])
     {
@@ -38,31 +38,31 @@ class MarkupService
             ->applications()
             ->scans()
             ->issues()
-            ->markups()
+            ->contexts()
             ->getAll($appId, $scanId, $issueId, $queryParams);
 
-        return new MarkupsResponse($response);
+        return new ContextsResponse($response);
     }
 
     /**
-     * Get markup for an issue by id
+     * Get context for an issue by id
      *
      * @param int $appId
      * @param int $scanId
      * @param int $issueId
-     * @param int $markupId
+     * @param int $contextId
      * @param array $queryParams
-     * @return MarkupResponse
+     * @return ContextResponse
      */
-    public function getById($appId, $scanId, $issueId, $markupId, array $queryParams = [])
+    public function getById($appId, $scanId, $issueId, $contextId, array $queryParams = [])
     {
         $response = $this->api
             ->applications()
             ->scans()
             ->issues()
-            ->markups()
-            ->getById($appId, $scanId, $issueId, $markupId, $queryParams);
+            ->contexts()
+            ->getById($appId, $scanId, $issueId, $contextId, $queryParams);
 
-        return new MarkupResponse($response);
+        return new ContextResponse($response);
     }
 }

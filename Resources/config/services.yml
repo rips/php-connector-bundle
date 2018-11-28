@@ -140,8 +140,8 @@ services:
         arguments:
             - '@rips_connector.api'
 
-    rips_connector.application.scan.issue.markups:
-        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\MarkupService
+    rips_connector.application.scan.issue.contexts:
+        class: RIPS\ConnectorBundle\Services\Application\Scan\Issue\ContextService
         arguments:
             - '@rips_connector.api'
 
