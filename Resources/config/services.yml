@@ -10,8 +10,237 @@ services:
               connect_timeout: '%rips_connector.connect_timeout%'
               oauth2: '%rips_connector.oauth2%'
 
-    RIPS\ConnectorBundle\Services\:
+    RIPS\ConnectorBundle\Services\CallbackService:
         public: true
-        exclude: '../../Services/APIService.php'
         arguments:
-            - '@rips_connector.api'
+        - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\ApplicationService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\AclService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\ProfileService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\ControllerService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\SettingService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\ValidatorService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\SourceService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\SinkService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\SanitizerService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Profile\IgnoreService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\ScanService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\ComparisonService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\ConcatService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\EntrypointService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\CustomClassService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\CustomFunctionService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\ExportService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\FileService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\IssueService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\SummaryService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\PatchService:
+        public: true
+        arguments:
+        - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\Patch\TypeService:
+        public: true
+        arguments:
+        - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\ReviewService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\Review\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\ContextService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\CommentService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\Type\PatchService:
+        public: true
+        arguments:
+        - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Issue\Origin\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Source\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Sink\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\ProcessService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\LibraryService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\SinkService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\SourceService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\UploadService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\LicenseService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\LogService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\MaintenanceService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\OrgService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\QuotaService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Quota\AclService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\SettingService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\TeamService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\UserService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\LanguageService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
