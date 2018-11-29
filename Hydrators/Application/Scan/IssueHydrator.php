@@ -86,8 +86,8 @@ class IssueHydrator
             $hydrated->setParent(self::hydrate($issue->parent));
         }
 
-        if (isset($issue->parent_count)) {
-            $hydrated->setParentCount($issue->parentCount);
+        if (isset($issue->parents_count)) {
+            $hydrated->setParentsCount($issue->parentsCount);
         }
 
         if (isset($issue->readable)) {

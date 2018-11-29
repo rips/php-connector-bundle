@@ -20,6 +20,16 @@ class CustomFunctionEntity
     protected $endLine;
 
     /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
      * @var string
      */
     protected $name;
@@ -106,6 +116,53 @@ class CustomFunctionEntity
     public function getEndLine()
     {
         return $this->endLine;
+    }
+
+
+    /**
+     * Set start column
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn(int $startColumn)
+    {
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get start column
+     *
+     * @return int
+     */
+    public function getStartColumn()
+    {
+        return $this->startColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get end column
+     *
+     * @return int
+     */
+    public function getEndColumn()
+    {
+        return $this->endColumn;
     }
 
     /**

@@ -57,6 +57,10 @@ class PatchHydrator
             $hydrated->setLanguage(LanguageHydrator::hydrate($patch->language));
         }
 
+        if (isset($patch->parent)) {
+            $hydrated->setParent(PatchHydrator::hydrate($patch->parent));
+        }
+
         return $hydrated;
     }
 }

@@ -47,6 +47,14 @@ class CustomFunctionHydrator
             $hydrated->setEndLine($customFunction->end_line);
         }
 
+        if (isset($customFunction->start_column)) {
+            $hydrated->setStartColumn($customFunction->start_column);
+        }
+
+        if (isset($customFunction->end_column)) {
+            $hydrated->setEndColumn($customFunction->end_column);
+        }
+
         if (isset($customFunction->name)) {
             $hydrated->setName($customFunction->name);
         }

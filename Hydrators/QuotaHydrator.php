@@ -5,8 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
-use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class QuotaHydrator
 {
@@ -96,6 +94,22 @@ class QuotaHydrator
 
         if (isset($quota->languages) && is_array($quota->languages)) {
             $hydrated->setLanguages(LanguageHydrator::hydrateCollection($quota->languages));
+        }
+
+        if (isset($quota->notify)) {
+            $hydrated->setNotify($quota->notify);
+        }
+
+        if (isset($quota->trial_issue_types) && is_array($quota->trial_issue_types)) {
+            $hydrated->setTrialIssueTypes($quota->trial_issue_types);
+        }
+
+        if (isset($quota->issue_type_limit)) {
+            $hydrated->setIssueTypeLimit($quota->issue_type_limit);
+        }
+
+        if (isset($quota->update_only)) {
+            $hydrated->setUpdateOnly($quota->update_only);
         }
 
         return $hydrated;

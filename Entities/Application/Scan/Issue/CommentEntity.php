@@ -28,6 +28,11 @@ class CommentEntity
     protected $createdBy;
 
     /**
+     * @var string
+     */
+    protected $source;
+
+    /**
      * Set id
      *
      * @param integer $id
@@ -117,5 +122,28 @@ class CommentEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 }

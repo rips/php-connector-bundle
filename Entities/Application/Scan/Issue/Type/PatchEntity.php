@@ -33,6 +33,11 @@ class PatchEntity
     protected $language;
 
     /**
+     * @var PatchEntity
+     */
+    protected $parent;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -96,6 +101,8 @@ class PatchEntity
     }
 
     /**
+     * Get type
+     *
      * @return TypeEntity
      */
     public function getType()
@@ -104,6 +111,8 @@ class PatchEntity
     }
 
     /**
+     * Set type
+     *
      * @param  TypeEntity $type
      * @return void
      */
@@ -113,6 +122,8 @@ class PatchEntity
     }
 
     /**
+     * Get language
+     *
      * @return LanguageEntity
      */
     public function getLanguage()
@@ -121,11 +132,34 @@ class PatchEntity
     }
 
     /**
+     * Set language
+     *
      * @param  LanguageEntity $language
      * @return void
      */
     public function setLanguage($language)
     {
         $this->language = $language;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return PatchEntity
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param  PatchEntity $parent
+     * @return void
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
     }
 }

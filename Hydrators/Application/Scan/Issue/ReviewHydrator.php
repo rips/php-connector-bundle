@@ -54,6 +54,10 @@ class ReviewHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($review->created_by));
         }
 
+        if (isset($review->source)) {
+            $hydrated->setSource($review->source);
+        }
+
         return $hydrated;
     }
 }

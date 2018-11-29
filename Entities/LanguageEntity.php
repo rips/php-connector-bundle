@@ -2,10 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type\ResourceEntity;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class LanguageEntity
 {
     /**
@@ -27,26 +23,6 @@ class LanguageEntity
      * @var array
      */
     protected $configFileExtensions;
-
-    /**
-     * @var array
-     */
-    protected $archiveExtensions;
-
-    /**
-     * @var TypeEntity[]
-     */
-    protected $issueTypes;
-
-    /**
-     * @var ResourceEntity[]
-     */
-    protected $resources;
-
-    /**
-     * @var ScanEntity[]
-     */
-    protected $scans;
 
     /**
      * Set id
@@ -138,94 +114,5 @@ class LanguageEntity
     public function getConfigFileExtensions()
     {
         return $this->configFileExtensions;
-    }
-
-    /**
-     * Set archive extensions
-     *
-     * @param array $archiveExtensions
-     * @return $this
-     */
-    public function setArchiveExtensions(array $archiveExtensions)
-    {
-        $this->archiveExtensions = $archiveExtensions;
-
-        return $this;
-    }
-
-    /**
-     * Get archive extensions
-     *
-     * @return array
-     */
-    public function getArchiveExtensions()
-    {
-        return $this->archiveExtensions;
-    }
-
-    /**
-     * Set issue types
-     *
-     * @param TypeEntity[] $issueTypes
-     * @return $this
-     */
-    public function setIssueTypes(array $issueTypes)
-    {
-        $this->issueTypes = $issueTypes;
-
-        return $this;
-    }
-
-    /**
-     * Get issue types
-     *
-     * @return TypeEntity[]
-     */
-    public function getIssueTypes()
-    {
-        return $this->issueTypes;
-    }
-
-    /**
-     * Set resources
-     *
-     * @param ResourceEntity[] $resources
-     */
-    public function setResources(array $resources)
-    {
-        $this->resources = $resources;
-    }
-
-    /**
-     * Get resources
-     *
-     * @return ResourceEntity[]
-     */
-    public function getResources()
-    {
-        return $this->resources;
-    }
-
-    /**
-     * Set scans
-     *
-     * @param ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return ScanEntity[]
-     */
-    public function getScans(): array
-    {
-        return $this->scans;
     }
 }

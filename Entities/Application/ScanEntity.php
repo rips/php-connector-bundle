@@ -107,11 +107,6 @@ class ScanEntity
     protected $createdBy;
 
     /**
-     * @var QuotaEntity
-     */
-    protected $chargedQuota;
-
-    /**
      * @var ProfileEntity
      */
     protected $profile;
@@ -130,6 +125,11 @@ class ScanEntity
      * @var array
      */
     protected $severityDistributions;
+
+    /**
+     * @var int
+     */
+    protected $analysisDepth;
 
     /**
      * @var array
@@ -615,29 +615,6 @@ class ScanEntity
     }
 
     /**
-     * Set chargedQuota
-     *
-     * @param QuotaEntity $chargedQuota
-     * @return $this
-     */
-    public function setChargedQuota($chargedQuota)
-    {
-        $this->chargedQuota = $chargedQuota;
-
-        return $this;
-    }
-
-    /**
-     * Get chargedQuota
-     *
-     * @return QuotaEntity
-     */
-    public function getChargedQuota()
-    {
-        return $this->chargedQuota;
-    }
-
-    /**
      * Set profile
      *
      * @param ProfileEntity $profile
@@ -727,6 +704,26 @@ class ScanEntity
     public function getSeverityDistributions()
     {
         return $this->severityDistributions;
+    }
+
+    /**
+     * Set analysisDepth
+     *
+     * @param int $analysisDepth
+     */
+    public function setAnalysisDepth($analysisDepth)
+    {
+        $this->analysisDepth = $analysisDepth;
+    }
+
+    /**
+     * Get analysisDepth
+     *
+     * @return int
+     */
+    public function getAnalysisDepth()
+    {
+        return $this->analysisDepth;
     }
 
     /**

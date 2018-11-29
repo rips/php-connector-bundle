@@ -35,6 +35,16 @@ class StatusEntity
     protected $trialIssueTypes;
 
     /**
+     * @var UserEntity
+     */
+    protected $user;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $organization;
+
+    /**
      * Get version
      *
      * @return string
@@ -169,6 +179,52 @@ class StatusEntity
     {
         $this->trialIssueTypes = $trialIssueTypes;
     
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return UserEntity
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set user
+     *
+     * @param UserEntity $user
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @return OrgEntity
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
+    }
+
+    /**
+     * Set organization
+     *
+     * @param OrgEntity $organization
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->organization = $organization;
+
         return $this;
     }
 }

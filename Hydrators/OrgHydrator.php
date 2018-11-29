@@ -52,24 +52,8 @@ class OrgHydrator
             $hydrated->setUsers(UserHydrator::hydrateCollection($organization->users));
         }
 
-        if (isset($organization->teams) && is_array($organization->teams)) {
-            $hydrated->setTeams(TeamHydrator::hydrateCollection($organization->teams));
-        }
-
-        if (isset($organization->applications) && is_array($organization->applications)) {
-            $hydrated->setApplications(ApplicationHydrator::hydrateCollection($organization->applications));
-        }
-
         if (isset($organization->quotas) && is_array($organization->quotas)) {
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organization->quotas));
-        }
-
-        if (isset($organization->licenses) && is_array($organization->licenses)) {
-            $hydrated->setLicenses(LicenseHydrator::hydrateCollection($organization->licenses));
-        }
-
-        if (isset($organization->logs) && is_array($organization->logs)) {
-            $hydrated->setLogs(LogHydrator::hydrateCollection($organization->logs));
         }
 
         if (isset($organization->trial_issue_types)) {

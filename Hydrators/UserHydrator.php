@@ -52,20 +52,12 @@ class UserHydrator
             $hydrated->setLastname($user->lastname);
         }
 
-        if (isset($user->plain_password)) {
-            $hydrated->setPlainPassword($user->plain_password);
-        }
-
         if (isset($user->valid_until)) {
             $hydrated->setValidUntil(new DateTime($user->valid_until));
         }
 
         if (isset($user->organization)) {
             $hydrated->setOrganization(OrgHydrator::hydrate($user->organization));
-        }
-
-        if (isset($user->teams) && is_array($user->teams)) {
-            $hydrated->setTeams(TeamHydrator::hydrateCollection($user->teams));
         }
 
         if (isset($user->roles)) {
@@ -78,6 +70,18 @@ class UserHydrator
 
         if (isset($user->whitelisted_ips)) {
             $hydrated->setWhitelistedIps($user->whitelisted_ips);
+        }
+
+        if (isset($user->last_login)) {
+            $hydrated->setLastLogin(new DateTime($user->last_login));
+        }
+
+        if (isset($user->confirmation_token)) {
+            $hydrated->setConfirmationToken($user->confirmation_token);
+        }
+
+        if (isset($user->reset_token)) {
+            $hydrated->setResetToken($user->reset_token);
         }
 
         return $hydrated;

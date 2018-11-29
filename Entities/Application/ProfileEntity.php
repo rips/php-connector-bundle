@@ -74,6 +74,11 @@ class ProfileEntity
     protected $createdBy;
 
     /**
+     * @var bool
+     */
+    protected $default;
+
+    /**
      * Get id
      *
      * @return int
@@ -370,5 +375,28 @@ class ProfileEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
+    }
+
+    /**
+     * Set default
+     *
+     * @param bool $default
+     * @return $this
+     */
+    public function setDefault($default)
+    {
+        $this->default = $default;
+
+        return $this;
+    }
+
+    /**
+     * Get default
+     *
+     * @return bool
+     */
+    public function getDefault()
+    {
+        return $this->default;
     }
 }

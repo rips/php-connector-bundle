@@ -17,14 +17,9 @@ class ApplicationEntity
     protected $name;
 
     /**
-     * @var Application\ScanEntity[]
-     */
-    protected $scans;
-
-    /**
      * @var int
      */
-    protected $currentScan = 0;
+    protected $currentScan;
 
     /**
      * @var UserEntity
@@ -45,12 +40,6 @@ class ApplicationEntity
      * @var OrgEntity
      */
     protected $organization;
-
-    /**
-     * @var boolean
-     */
-    protected $trial = false;
-
 
     /**
      * Set id
@@ -96,29 +85,6 @@ class ApplicationEntity
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set scans
-     *
-     * @param Application\ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return Application\ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
     }
 
     /**
@@ -233,28 +199,5 @@ class ApplicationEntity
     public function getOrganization()
     {
         return $this->organization;
-    }
-
-    /**
-     * Set trial
-     *
-     * @param boolean $trial
-     * @return $this
-     */
-    public function setTrial($trial)
-    {
-        $this->trial = $trial;
-
-        return $this;
-    }
-
-    /**
-     * Get trial
-     *
-     * @return boolean
-     */
-    public function getTrial()
-    {
-        return $this->trial;
     }
 }

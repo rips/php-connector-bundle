@@ -93,6 +93,10 @@ class ProfileHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($profile->created_by));
         }
 
+        if (isset($profile->default)) {
+            $hydrated->setDefault($profile->default);
+        }
+
         return $hydrated;
     }
 }

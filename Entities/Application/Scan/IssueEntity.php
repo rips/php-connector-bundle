@@ -67,10 +67,10 @@ class IssueEntity
     /**
      * @var int
      */
-    protected $parentCount;
+    protected $parentsCount;
 
     /**
-     * @var string
+     * @var array
      */
     protected $readable;
 
@@ -386,32 +386,32 @@ class IssueEntity
     }
 
     /**
-     * Set parentCount
+     * Set parentsCount
      *
-     * @param int $parentCount
+     * @param int $parentsCount
      * @return $this
      */
-    public function setParentCount($parentCount)
+    public function setParentsCount($parentsCount)
     {
-        $this->parentCount = $parentCount;
+        $this->parentsCount = $parentsCount;
 
         return $this;
     }
 
     /**
-     * Get parentCount
+     * Get parentsCount
      *
      * @return int
      */
-    public function getParentCount()
+    public function getParentsCount()
     {
-        return $this->parentCount;
+        return $this->parentsCount;
     }
 
     /**
      * Set readable
      *
-     * @param string $readable
+     * @param array $readable
      * @return $this
      */
     public function setReadable($readable)
@@ -424,7 +424,7 @@ class IssueEntity
     /**
      * Get readable
      *
-     * @return string
+     * @return array
      */
     public function getReadable()
     {
