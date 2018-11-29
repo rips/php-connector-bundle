@@ -3,8 +3,7 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Process\AddBuilder;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Process\UpdateBuilder;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\ProcessBuilder;
 use RIPS\ConnectorBundle\Responses\Application\Scan\ProcessesResponse;
 use RIPS\ConnectorBundle\Responses\Application\Scan\ProcessResponse;
 
@@ -69,7 +68,7 @@ class ProcessService
      *
      * @param int $appId
      * @param int $scanId
-     * @param AddBuilder $input
+     * @param ProcessBuilder $input
      * @param array $queryParams
      * @return ProcessResponse
      */
@@ -90,7 +89,7 @@ class ProcessService
      * @param int $appId
      * @param int $scanId
      * @param int $processId
-     * @param UpdateBuilder $input
+     * @param ProcessBuilder $input
      * @param array $queryParams
      * @return ProcessResponse
      */

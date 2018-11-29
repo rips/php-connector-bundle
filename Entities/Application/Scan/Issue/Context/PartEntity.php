@@ -22,11 +22,6 @@ class PartEntity
     protected $content;
 
     /**
-     * @var ContextEntity
-     */
-    protected $context;
-
-    /**
      * Set id
      *
      * @param  int $id
@@ -93,28 +88,5 @@ class PartEntity
     public function getContent()
     {
         return $this->content;
-    }
-
-    /**
-     * Set context
-     *
-     * @param ContextEntity $context
-     * @return $this
-     */
-    public function setContext($context)
-    {
-        $this->context = $context;
-
-        return $this;
-    }
-
-    /**
-     * Get context
-     *
-     * @return ContextEntity
-     */
-    public function getContext()
-    {
-        return $this->context;
     }
 }

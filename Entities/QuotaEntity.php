@@ -82,6 +82,26 @@ class QuotaEntity
     protected $languages;
 
     /**
+     * @var boolean
+     */
+    protected $notify;
+
+    /**
+     * @var array
+     */
+    protected $trialIssueTypes;
+
+    /**
+     * @var int
+     */
+    protected $issueTypeLimit;
+
+    /**
+     * @var boolean
+     */
+    protected $updateOnly;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -424,5 +444,97 @@ class QuotaEntity
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * Set notify
+     *
+     * @param boolean $notify
+     * @return $this
+     */
+    public function setNotify($notify)
+    {
+        $this->notify = $notify;
+
+        return $this;
+    }
+
+    /**
+     * Get notify
+     *
+     * @return boolean
+     */
+    public function getNotify()
+    {
+        return $this->notify;
+    }
+
+    /**
+     * Set trialIssueTypes
+     *
+     * @param array $trialIssueTypes
+     * @return $this
+     */
+    public function setTrialIssueTypes($trialIssueTypes)
+    {
+        $this->trialIssueTypes = $trialIssueTypes;
+
+        return $this;
+    }
+
+    /**
+     * Get trialIssueTypes
+     *
+     * @return array
+     */
+    public function getTrialIssueTypes()
+    {
+        return $this->trialIssueTypes;
+    }
+
+    /**
+     * Set issueTypeLimit
+     *
+     * @param int $issueTypeLimit
+     * @return $this
+     */
+    public function setIssueTypeLimit($issueTypeLimit)
+    {
+        $this->issueTypeLimit = $issueTypeLimit;
+
+        return $this;
+    }
+
+    /**
+     * Get issueTypeLimit
+     *
+     * @return int
+     */
+    public function getIssueTypeLimit()
+    {
+        return $this->issueTypeLimit;
+    }
+
+    /**
+     * Set updateOnly
+     *
+     * @param boolean $updateOnly
+     * @return $this
+     */
+    public function setUpdateOnly($updateOnly)
+    {
+        $this->updateOnly = $updateOnly;
+
+        return $this;
+    }
+
+    /**
+     * Get updateOnly
+     *
+     * @return boolean
+     */
+    public function getUpdateOnly()
+    {
+        return $this->updateOnly;
     }
 }

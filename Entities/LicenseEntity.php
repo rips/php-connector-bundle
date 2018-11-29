@@ -12,16 +12,6 @@ class LicenseEntity
     protected $id;
 
     /**
-     * @var string
-     */
-    protected $hardwareId;
-
-    /**
-     * @var string
-     */
-    protected $key;
-
-    /**
      * @var DateTime
      */
     protected $createdAt;
@@ -35,11 +25,6 @@ class LicenseEntity
      * @var boolean
      */
     protected $quotaDistributed;
-
-    /**
-     * @var QuotaEntity[]
-     */
-    protected $quotas;
 
     /**
      * @var UserEntity
@@ -83,53 +68,7 @@ class LicenseEntity
     
         return $this;
     }
-    
-    /**
-     * Get hardwareId
-     *
-     * @return string
-     */
-    public function getHardwareId()
-    {
-        return $this->hardwareId;
-    }
-    
-    /**
-     * Set hardwareId
-     *
-     * @param string $hardwareId
-     * @return $this
-     */
-    public function setHardwareId($hardwareId)
-    {
-        $this->hardwareId = $hardwareId;
-    
-        return $this;
-    }
-    
-    /**
-     * Get key
-     *
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-    
-    /**
-     * Set key
-     *
-     * @param string $key
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->key = $key;
-    
-        return $this;
-    }
-    
+
     /**
      * Get createdAt
      *
@@ -195,29 +134,6 @@ class LicenseEntity
     public function setQuotaDistributed($quotaDistributed)
     {
         $this->quotaDistributed = $quotaDistributed;
-    
-        return $this;
-    }
-    
-    /**
-     * Get quotas
-     *
-     * @return QuotaEntity[]
-     */
-    public function getQuotas()
-    {
-        return $this->quotas;
-    }
-    
-    /**
-     * Set quotas
-     *
-     * @param QuotaEntity[] $quotas
-     * @return $this
-     */
-    public function setQuotas(array $quotas)
-    {
-        $this->quotas = $quotas;
     
         return $this;
     }

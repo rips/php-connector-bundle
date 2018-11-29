@@ -41,6 +41,14 @@ class StatusHydrator
             $hydrated->setTrialIssueTypes($status->trial_issue_types);
         }
 
+        if (isset($status->user)) {
+            $hydrated->setUser(UserHydrator::hydrate($status->user));
+        }
+
+        if (isset($status->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($status->organization));
+        }
+
         return $hydrated;
     }
 }

@@ -54,22 +54,6 @@ class LanguageHydrator
             $hydrated->setConfigFileExtensions($language->config_file_extensions);
         }
 
-        if (isset($language->archive_extensions)) {
-            $hydrated->setArchiveExtensions($language->archive_extensions);
-        }
-
-        if (isset($language->issueTypes) && is_array($language->issueTypes)) {
-            $hydrated->setIssueTypes(TypeHydrator::hydrateCollection($language->issueTypes));
-        }
-
-        if (isset($language->ressources) && is_array($language->ressources)) {
-            $hydrated->setResources(ResourceHydrator::hydrateCollection($language->ressources));
-        }
-
-        if (isset($language->scans) && is_array($language->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($language->scans));
-        }
-
         return $hydrated;
     }
 }

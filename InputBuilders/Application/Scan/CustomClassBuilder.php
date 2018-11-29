@@ -17,9 +17,24 @@ class CustomClassBuilder extends BaseBuilder
     protected $endLine;
 
     /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
      * @var string
      */
     protected $name;
+
+    /**
+     * @var string
+     */
+    protected $package;
 
     /**
      * @var int
@@ -53,7 +68,35 @@ class CustomClassBuilder extends BaseBuilder
     
         return $this;
     }
-    
+
+    /**
+     * Set startColumn
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn($startColumn)
+    {
+        $this->setFields[] = 'startColumn';
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Set endColumn
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn($endColumn)
+    {
+        $this->setFields[] = 'endColumn';
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
     /**
      * Set name
      *
@@ -67,7 +110,21 @@ class CustomClassBuilder extends BaseBuilder
     
         return $this;
     }
-    
+
+    /**
+     * Set package
+     *
+     * @param string $package
+     * @return $this
+     */
+    public function setPackage($package)
+    {
+        $this->setFields[] = 'package';
+        $this->package = $package;
+
+        return $this;
+    }
+
     /**
      * Set file
      *

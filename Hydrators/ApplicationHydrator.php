@@ -5,9 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
 
 class ApplicationHydrator
 {
@@ -47,10 +44,6 @@ class ApplicationHydrator
             $hydrated->setName($application->name);
         }
 
-        if (isset($application->scans) && is_array($application->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($application->scans));
-        }
-
         if (isset($application->current_scan)) {
             $hydrated->setCurrentScan($application->current_scan);
         }
@@ -69,10 +62,6 @@ class ApplicationHydrator
 
         if (isset($application->organization)) {
             $hydrated->setOrganization(OrgHydrator::hydrate($application->organization));
-        }
-
-        if (isset($application->trial)) {
-            $hydrated->setTrial($application->trial);
         }
 
         return $hydrated;

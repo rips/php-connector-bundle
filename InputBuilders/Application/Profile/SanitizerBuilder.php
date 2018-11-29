@@ -25,6 +25,11 @@ class SanitizerBuilder extends BaseBuilder
      * @var string
      */
     protected $characters;
+
+    /**
+     * @var int
+     */
+    protected $issueType;
     
     /**
      * Set class
@@ -79,6 +84,20 @@ class SanitizerBuilder extends BaseBuilder
         $this->setFields[] = 'characters';
         $this->characters = $characters;
     
+        return $this;
+    }
+
+    /**
+     * Set issueType
+     *
+     * @param int $issueType
+     * @return $this
+     */
+    public function setIssueType($issueType)
+    {
+        $this->setFields[] = 'issueType';
+        $this->issueType = $issueType;
+
         return $this;
     }
 }

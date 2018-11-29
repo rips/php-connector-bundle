@@ -53,6 +53,10 @@ class CommentHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($comment->created_by));
         }
 
+        if (isset($comment->source)) {
+            $hydrated->setSource($comment->source);
+        }
+
         return $hydrated;
     }
 }

@@ -47,6 +47,14 @@ class CustomClassHydrator
             $hydrated->setEndLine($customClass->end_line);
         }
 
+        if (isset($customClass->start_column)) {
+            $hydrated->setStartColumn($customClass->start_column);
+        }
+
+        if (isset($customClass->end_column)) {
+            $hydrated->setEndColumn($customClass->end_column);
+        }
+
         if (isset($customClass->name)) {
             $hydrated->setName($customClass->name);
         }

@@ -20,22 +20,22 @@ class CallbackBuilder extends BaseBuilder
     protected $reports;
 
     /**
-     * @var integer[]
+     * @var int[]
      */
     protected $users;
 
     /**
-     * @var integer[]
+     * @var int[]
      */
     protected $applications;
 
     /**
-     * @var integer[]
+     * @var int[]
      */
     protected $scans;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $organization;
 
@@ -84,7 +84,7 @@ class CallbackBuilder extends BaseBuilder
     /**
      * Set users
      *
-     * @param integer[] $users
+     * @param int[] $users
      * @return $this
      */
     public function setUsers(array $users)
@@ -98,7 +98,7 @@ class CallbackBuilder extends BaseBuilder
     /**
      * Set applications
      *
-     * @param integer[] $applications
+     * @param int[] $applications
      * @return $this
      */
     public function setApplications(array $applications)
@@ -112,7 +112,7 @@ class CallbackBuilder extends BaseBuilder
     /**
      * Set scans
      *
-     * @param integer[] $scans
+     * @param int[] $scans
      * @return $this
      */
     public function setScans(array $scans)
@@ -126,7 +126,7 @@ class CallbackBuilder extends BaseBuilder
     /**
      * Set organization
      *
-     * @param integer $organization
+     * @param int $organization
      * @return $this
      */
     public function setOrganization($organization)

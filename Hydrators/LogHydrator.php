@@ -88,6 +88,10 @@ class LogHydrator
             $hydrated->setCreatedAt(new DateTime($log->created_at));
         }
 
+        if (isset($log->user_agent)) {
+            $hydrated->setUserAgent($log->user_agent);
+        }
+
         return $hydrated;
     }
 }

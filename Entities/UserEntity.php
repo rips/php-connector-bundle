@@ -19,17 +19,12 @@ class UserEntity
     /**
      * @var string
      */
-    protected $firstname = '';
+    protected $firstname;
 
     /**
      * @var string
      */
-    protected $lastname = '';
-
-    /**
-     * @var string
-     */
-    protected $plainPassword;
+    protected $lastname;
 
     /**
      * @var DateTime
@@ -40,11 +35,6 @@ class UserEntity
      * @var OrgEntity
      */
     protected $organization;
-
-    /**
-     * @var TeamEntity[]
-     */
-    protected $teams;
 
     /**
      * @var array
@@ -60,6 +50,21 @@ class UserEntity
      * @var array
      */
     protected $whitelistedIps;
+
+    /**
+     * @var DateTime
+     */
+    protected $lastLogin;
+
+    /**
+     * @var string
+     */
+    protected $confirmationToken;
+
+    /**
+     * @var string
+     */
+    protected $resetToken;
 
     /**
      * Set id
@@ -154,29 +159,6 @@ class UserEntity
     }
 
     /**
-     * Set plainPassword
-     *
-     * @param string $plainPassword
-     * @return $this
-     */
-    public function setPlainPassword($plainPassword)
-    {
-        $this->plainPassword = $plainPassword;
-
-        return $this;
-    }
-
-    /**
-     * Get plainPassword
-     *
-     * @return string
-     */
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
-
-    /**
      * Set validUntil
      *
      * @param DateTime $validUntil
@@ -220,29 +202,6 @@ class UserEntity
     public function getOrganization()
     {
         return $this->organization;
-    }
-
-    /**
-     * Set teams
-     *
-     * @param TeamEntity[] $teams
-     * @return $this
-     */
-    public function setTeams(array $teams)
-    {
-        $this->teams = $teams;
-
-        return $this;
-    }
-
-    /**
-     * Get teams
-     *
-     * @return TeamEntity[]
-     */
-    public function getTeams()
-    {
-        return $this->teams;
     }
 
     /**
@@ -312,5 +271,74 @@ class UserEntity
     public function getWhitelistedIps()
     {
         return $this->whitelistedIps;
+    }
+
+    /**
+     * Set lastLogin
+     *
+     * @param DateTime $lastLogin
+     * @return $this
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+
+        return $this;
+    }
+
+    /**
+     * Get lastLogin
+     *
+     * @return DateTime
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * Set confirmationToken
+     *
+     * @param string $confirmationToken
+     * @return $this
+     */
+    public function setConfirmationToken($confirmationToken)
+    {
+        $this->confirmationToken = $confirmationToken;
+
+        return $this;
+    }
+
+    /**
+     * Get confirmationToken
+     *
+     * @return string
+     */
+    public function getConfirmationToken()
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * Set resetToken
+     *
+     * @param string $resetToken
+     * @return $this
+     */
+    public function setResetToken($resetToken)
+    {
+        $this->resetToken = $resetToken;
+
+        return $this;
+    }
+
+    /**
+     * Get resetToken
+     *
+     * @return string
+     */
+    public function getResetToken()
+    {
+        return $this->resetToken;
     }
 }

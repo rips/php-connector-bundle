@@ -2,9 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
-use RIPS\ConnectorBundle\InputBuilders\User\UpdateBuilder;
-use RIPS\ConnectorBundle\InputBuilders\User\InviteBuilder;
+use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
 use RIPS\ConnectorBundle\InputBuilders\User\ResetBuilder;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Responses\UsersResponse;
@@ -57,7 +55,7 @@ class UserService
     /**
      * Create a new user
      *
-     * @param AddBuilder $input
+     * @param UserBuilder $input
      * @param array $queryParams
      * @return UserResponse
      */
@@ -72,7 +70,7 @@ class UserService
      * Update existing user
      *
      * @param int $userId
-     * @param UpdateBuilder $input
+     * @param UserBuilder $input
      * @param array $queryParams
      * @return UserResponse
      */
@@ -113,7 +111,7 @@ class UserService
     /**
      * Invite a new user
      *
-     * @param InviteBuilder $input
+     * @param UserBuilder $input
      * @param array $queryParams
      * @return UserResponse
      */

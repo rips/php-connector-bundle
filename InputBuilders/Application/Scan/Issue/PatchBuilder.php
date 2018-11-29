@@ -7,14 +7,14 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class PatchBuilder extends BaseBuilder
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $type;
     
     /**
      * Set type
      *
-     * @param integer $type
+     * @param int $type
      * @return $this
      */
     public function setType($type)

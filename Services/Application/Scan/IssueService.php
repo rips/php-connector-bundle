@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 use RIPS\ConnectorBundle\Responses\Application\Scan\IssueStatsResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\IssueBuilder;
@@ -88,17 +89,38 @@ class IssueService
      *
      * @param int $appId
      * @param int $scanId
-     * @param IssueBuilder $input
+     * @param IssueBuilder|BaseBuilder[string] $input
      * @param array $queryParams
      * @return IssueResponse
      */
     public function create($appId, $scanId, $input, array $queryParams = [])
     {
+        if ($input instanceof IssueBuilder) {
+            $inputArray = $input->toArray();
+            $defaultInput = true;
+        } else {
+            $inputArray = [];
+            foreach ($input as $key => $value) {
+                if ($value instanceof BaseBuilder) {
+                    $inputArray[$key] = $value->toArray();
+                } else if (is_array($value)) {
+                    foreach ($value as $key2 => $value2) {
+                        if ($value2 instanceof BaseBuilder) {
+                            $inputArray[$key][$key2] = $value2->toArray();
+                        } else if (is_string($value2)) {
+                            $inputArray[$key][$key2] = $value2;
+                        }
+                    }
+                }
+            }
+            $defaultInput = false;
+        }
+
         $response = $this->api
             ->applications()
             ->scans()
             ->issues()
-            ->create($appId, $scanId, $input->toArray(), $queryParams);
+            ->create($appId, $scanId, $inputArray, $queryParams, $defaultInput);
 
         return new IssueResponse($response);
     }

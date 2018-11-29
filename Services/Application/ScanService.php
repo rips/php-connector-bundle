@@ -4,8 +4,7 @@ namespace RIPS\ConnectorBundle\Services\Application;
 
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\AddBuilder;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\UpdateBuilder;
+use RIPS\ConnectorBundle\InputBuilders\Application\ScanBuilder;
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 use RIPS\ConnectorBundle\Responses\Application\ScansResponse;
 use RIPS\ConnectorBundle\Responses\Application\ScanResponse;
@@ -59,13 +58,13 @@ class ScanService
      * Create a new scan
      *
      * @param int $appId
-     * @param AddBuilder|BaseBuilder[string] $input
+     * @param ScanBuilder|BaseBuilder[string] $input
      * @param array $queryParams
      * @return ScanResponse
      */
     public function create($appId, $input, array $queryParams = [])
     {
-        if ($input instanceof AddBuilder) {
+        if ($input instanceof ScanBuilder) {
             $inputArray = $input->toArray();
             $defaultInput = true;
         } else {
@@ -96,13 +95,13 @@ class ScanService
      *
      * @param int $appId
      * @param int $scanId
-     * @param UpdateBuilder|BaseBuilder[string] $input
+     * @param ScanBuilder|BaseBuilder[string] $input
      * @param array $queryParams
      * @return ScanResponse
      */
     public function update($appId, $scanId, $input, array $queryParams = [])
     {
-        if ($input instanceof UpdateBuilder) {
+        if ($input instanceof ScanBuilder) {
             $inputArray = $input->toArray();
             $defaultInput = true;
         } else {

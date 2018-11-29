@@ -7,7 +7,7 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class SettingBuilder extends BaseBuilder
 {
     /**
-     * @var array
+     * @var int[]
      */
     protected $issueTypes;
 

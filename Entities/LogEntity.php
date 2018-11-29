@@ -39,7 +39,7 @@ class LogEntity
     /**
      * @var string
      */
-    protected $ip = '';
+    protected $ip;
 
     /**
      * @var UserEntity
@@ -49,7 +49,7 @@ class LogEntity
     /**
      * @var string
      */
-    protected $email = '';
+    protected $email;
 
     /**
      * @var OrgEntity
@@ -59,17 +59,22 @@ class LogEntity
     /**
      * @var string
      */
-    protected $organizationName = '';
+    protected $organizationName;
 
     /**
      * @var string
      */
-    protected $context = '';
+    protected $context;
 
     /**
      * @var DateTime
      */
     protected $createdAt;
+
+    /**
+     * @var string
+     */
+    protected $userAgent;
 
     /**
      * Set id
@@ -368,5 +373,28 @@ class LogEntity
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set userAgent
+     *
+     * @param string $userAgent
+     * @return $this
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->userAgent = $userAgent;
+
+        return $this;
+    }
+
+    /**
+     * Get userAgent
+     *
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
     }
 }

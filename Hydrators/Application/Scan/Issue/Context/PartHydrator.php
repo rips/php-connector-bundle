@@ -48,10 +48,6 @@ class PartHydrator
             $hydrated->setContent($part->content);
         }
 
-        if (isset($part->context)) {
-            $hydrated->setContext(ContextHydrator::hydrate($part->context));
-        }
-
         return $hydrated;
     }
 }

@@ -118,10 +118,6 @@ class ScanHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($scan->created_by));
         }
 
-        if (isset($scan->charged_quota)) {
-            $hydrated->setChargedQuota(QuotaHydrator::hydrate($scan->charged_quota));
-        }
-
         if (isset($scan->profile)) {
             $hydrated->setProfile(ProfileHydrator::hydrate($scan->profile));
         }
@@ -136,6 +132,10 @@ class ScanHydrator
 
         if (isset($scan->severity_distributions)) {
             $hydrated->setSeverityDistributions((array)$scan->severity_distributions);
+        }
+
+        if (isset($scan->analysis_depth)) {
+            $hydrated->setAnalysisDepth($scan->analysis_depth);
         }
 
         if (isset($scan->tags)) {
