@@ -48,10 +48,6 @@ class OrgHydrator
             $hydrated->setValidUntil(new DateTime($organization->valid_until));
         }
 
-        if (isset($organization->users) && is_array($organization->users)) {
-            $hydrated->setUsers(UserHydrator::hydrateCollection($organization->users));
-        }
-
         if (isset($organization->quotas) && is_array($organization->quotas)) {
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organization->quotas));
         }

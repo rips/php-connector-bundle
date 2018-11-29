@@ -201,7 +201,7 @@ class ScanBuilder extends BaseBuilder
     /**
      * Set analysisDepth
      *
-     * @param string $analysisDepth
+     * @param int $analysisDepth
      * @return $this
      */
     public function setAnalysisDepth($analysisDepth)
