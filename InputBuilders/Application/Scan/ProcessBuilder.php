@@ -1,10 +1,11 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan\Process;
+namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan;
 
+use DateTime;
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class AddBuilder extends BaseBuilder
+class ProcessBuilder extends BaseBuilder
 {
     /**
      * @var string
@@ -20,6 +21,16 @@ class AddBuilder extends BaseBuilder
      * @var string
      */
     protected $name;
+
+    /**
+     * @var DateTime
+     */
+    protected $finishedAt;
+
+    /**
+     * @var boolean
+     */
+    protected $finished;
 
     /**
      * Set pid
@@ -59,6 +70,34 @@ class AddBuilder extends BaseBuilder
     {
         $this->setFields[] = 'name';
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Set finishedAt
+     *
+     * @param DateTime $finishedAt
+     * @return $this
+     */
+    public function setFinish($finishedAt)
+    {
+        $this->setFields[] = 'finishedAt';
+        $this->finishedAt = $finishedAt;
+
+        return $this;
+    }
+
+    /**
+     * Set finished
+     *
+     * @param boolean $finished
+     * @return $this
+     */
+    public function setFinished($finished)
+    {
+        $this->setFields[] = 'finished';
+        $this->finished = $finished;
 
         return $this;
     }

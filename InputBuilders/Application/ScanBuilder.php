@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan;
+namespace RIPS\ConnectorBundle\InputBuilders\Application;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class AddBuilder extends BaseBuilder
+class ScanBuilder extends BaseBuilder
 {
     /**
      * @var integer

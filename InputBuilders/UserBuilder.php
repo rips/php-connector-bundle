@@ -1,11 +1,16 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\User;
+namespace RIPS\ConnectorBundle\InputBuilders;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class UpdateBuilder extends BaseBuilder
+class UserBuilder extends BaseBuilder
 {
+    /**
+     * @var integer
+     */
+    protected $chargedQuota;
+
     /**
      * @var array
      */
@@ -50,6 +55,20 @@ class UpdateBuilder extends BaseBuilder
      * @var array
      */
     protected $whitelistedIps;
+
+    /**
+     * Set chargedQuota
+     *
+     * @param integer $chargedQuota
+     * @return $this
+     */
+    public function setChargedQuota($chargedQuota)
+    {
+        $this->setFields[] = 'chargedQuota';
+        $this->chargedQuota = $chargedQuota;
+
+        return $this;
+    }
 
     /**
      * Set roles
