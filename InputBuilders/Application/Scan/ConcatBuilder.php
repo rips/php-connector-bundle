@@ -4,8 +4,13 @@ namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class CustomFunctionBuilder extends BaseBuilder
+class ConcatBuilder extends BaseBuilder
 {
+    /**
+     * @var int
+     */
+    protected $line;
+
     /**
      * @var int
      */
@@ -27,11 +32,6 @@ class CustomFunctionBuilder extends BaseBuilder
     protected $endColumn;
 
     /**
-     * @var string
-     */
-    protected $name;
-
-    /**
      * @var int
      */
     protected $file;
@@ -39,13 +39,27 @@ class CustomFunctionBuilder extends BaseBuilder
     /**
      * @var int
      */
+    protected $function;
+
+    /**
+     * @var int
+     */
     protected $class;
 
     /**
-     * @var array
+     * Set line
+     *
+     * @param int $line
+     * @return $this
      */
-    protected $parameters;
+    public function setLine($line)
+    {
+        $this->setFields[] = 'line';
+        $this->line = $line;
     
+        return $this;
+    }
+
     /**
      * Set startLine
      *
@@ -56,10 +70,10 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'startLine';
         $this->startLine = $startLine;
-    
+
         return $this;
     }
-    
+
     /**
      * Set endLine
      *
@@ -70,7 +84,7 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'endLine';
         $this->endLine = $endLine;
-    
+
         return $this;
     }
 
@@ -103,20 +117,6 @@ class CustomFunctionBuilder extends BaseBuilder
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->setFields[] = 'name';
-        $this->name = $name;
-    
-        return $this;
-    }
-    
-    /**
      * Set file
      *
      * @param int $file
@@ -126,10 +126,24 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'file';
         $this->file = $file;
-    
+
         return $this;
     }
-    
+
+    /**
+     * Set function
+     *
+     * @param int $function
+     * @return $this
+     */
+    public function setFunction($function)
+    {
+        $this->setFields[] = 'function';
+        $this->function = $function;
+
+        return $this;
+    }
+
     /**
      * Set class
      *
@@ -140,20 +154,6 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'class';
         $this->class = $class;
-    
-        return $this;
-    }
-
-    /**
-     * Set parameters
-     *
-     * @param array $parameters
-     * @return $this
-     */
-    public function setParameters($parameters)
-    {
-        $this->setFields[] = 'parameters';
-        $this->parameters = $parameters;
 
         return $this;
     }

@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class CustomFunctionBuilder extends BaseBuilder
+class TaintBuilder extends BaseBuilder
 {
     /**
      * @var int
@@ -27,26 +27,6 @@ class CustomFunctionBuilder extends BaseBuilder
     protected $endColumn;
 
     /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @var int
-     */
-    protected $file;
-
-    /**
-     * @var int
-     */
-    protected $class;
-
-    /**
-     * @var array
-     */
-    protected $parameters;
-    
-    /**
      * Set startLine
      *
      * @param int $startLine
@@ -56,10 +36,10 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'startLine';
         $this->startLine = $startLine;
-    
+
         return $this;
     }
-    
+
     /**
      * Set endLine
      *
@@ -70,7 +50,7 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'endLine';
         $this->endLine = $endLine;
-    
+
         return $this;
     }
 
@@ -98,62 +78,6 @@ class CustomFunctionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'endColumn';
         $this->endColumn = $endColumn;
-
-        return $this;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->setFields[] = 'name';
-        $this->name = $name;
-    
-        return $this;
-    }
-    
-    /**
-     * Set file
-     *
-     * @param int $file
-     * @return $this
-     */
-    public function setFile($file)
-    {
-        $this->setFields[] = 'file';
-        $this->file = $file;
-    
-        return $this;
-    }
-    
-    /**
-     * Set class
-     *
-     * @param int $class
-     * @return $this
-     */
-    public function setClass($class)
-    {
-        $this->setFields[] = 'class';
-        $this->class = $class;
-    
-        return $this;
-    }
-
-    /**
-     * Set parameters
-     *
-     * @param array $parameters
-     * @return $this
-     */
-    public function setParameters($parameters)
-    {
-        $this->setFields[] = 'parameters';
-        $this->parameters = $parameters;
 
         return $this;
     }

@@ -7,17 +7,17 @@ use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 class IssueBuilder extends BaseBuilder
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $type;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $origin;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $depth;
 
@@ -37,14 +37,14 @@ class IssueBuilder extends BaseBuilder
     protected $registerGlobals;
 
     /**
-     * @var string
+     * @var int
      */
-    protected $tool;
+    protected $process;
     
     /**
      * Set type
      *
-     * @param integer $type
+     * @param int $type
      * @return $this
      */
     public function setType($type)
@@ -58,7 +58,7 @@ class IssueBuilder extends BaseBuilder
     /**
      * Set origin
      *
-     * @param integer $origin
+     * @param int $origin
      * @return $this
      */
     public function setOrigin($origin)
@@ -72,7 +72,7 @@ class IssueBuilder extends BaseBuilder
     /**
      * Set depth
      *
-     * @param integer $depth
+     * @param int $depth
      * @return $this
      */
     public function setDepth($depth)
@@ -126,15 +126,15 @@ class IssueBuilder extends BaseBuilder
     }
 
     /**
-     * Set tool
+     * Set process
      *
-     * @param string $tool
+     * @param int $process
      * @return $this
      */
-    public function setTool($tool)
+    public function setProcess($process)
     {
-        $this->setFields[] = 'tool';
-        $this->tool = $tool;
+        $this->setFields[] = 'process';
+        $this->process = $process;
 
         return $this;
     }

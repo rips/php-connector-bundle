@@ -15,6 +15,11 @@ class ProfileBuilder extends BaseBuilder
      * @var boolean
      */
     protected $default;
+
+    /**
+     * @var int
+     */
+    protected $language;
     
     /**
      * Set name
@@ -40,6 +45,21 @@ class ProfileBuilder extends BaseBuilder
     {
         $this->setFields[] = 'default';
         $this->default = $default;
+
+        return $this;
+    }
+
+
+    /**
+     * Set language
+     *
+     * @param int $language
+     * @return $this
+     */
+    public function setLanguage($language)
+    {
+        $this->setFields[] = 'language';
+        $this->language = $language;
 
         return $this;
     }

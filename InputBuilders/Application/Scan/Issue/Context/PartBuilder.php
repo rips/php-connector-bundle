@@ -1,25 +1,25 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue;
+namespace RIPS\ConnectorBundle\InputBuilders\Application\Scan\Issue\Context;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class ReviewBuilder extends BaseBuilder
+class PartBuilder extends BaseBuilder
 {
     /**
-     * @var int
+     * @var string
      */
     protected $type;
 
     /**
      * @var string
      */
-    protected $source;
+    protected $content;
     
     /**
      * Set type
      *
-     * @param int $type
+     * @param string $type
      * @return $this
      */
     public function setType($type)
@@ -31,15 +31,15 @@ class ReviewBuilder extends BaseBuilder
     }
 
     /**
-     * Set source
+     * Set content
      *
-     * @param string $source
+     * @param string $content
      * @return $this
      */
-    public function setSource($source)
+    public function setContent($content)
     {
-        $this->setFields[] = 'source';
-        $this->source = $source;
+        $this->setFields[] = 'content';
+        $this->content = $content;
 
         return $this;
     }

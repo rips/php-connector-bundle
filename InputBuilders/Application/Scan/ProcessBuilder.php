@@ -25,6 +25,11 @@ class ProcessBuilder extends BaseBuilder
     /**
      * @var DateTime
      */
+    protected $startedAt;
+
+    /**
+     * @var DateTime
+     */
     protected $finishedAt;
 
     /**
@@ -75,12 +80,26 @@ class ProcessBuilder extends BaseBuilder
     }
 
     /**
+     * Set startedAt
+     *
+     * @param DateTime $startedAt
+     * @return $this
+     */
+    public function setStartedAt($startedAt)
+    {
+        $this->setFields[] = 'startedAt';
+        $this->startedAt = $startedAt;
+
+        return $this;
+    }
+
+    /**
      * Set finishedAt
      *
      * @param DateTime $finishedAt
      * @return $this
      */
-    public function setFinish($finishedAt)
+    public function setFinishedAt($finishedAt)
     {
         $this->setFields[] = 'finishedAt';
         $this->finishedAt = $finishedAt;

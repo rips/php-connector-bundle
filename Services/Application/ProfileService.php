@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\Services\Application;
 
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\InputBuilders\Application\Profile;
+use RIPS\ConnectorBundle\InputBuilders\Application\ProfileCloneBuilder;
 use RIPS\ConnectorBundle\InputBuilders\Application\ProfileBuilder;
 use RIPS\ConnectorBundle\Responses\Application\ProfilesResponse;
 use RIPS\ConnectorBundle\Responses\Application\ProfileResponse;
@@ -73,11 +73,11 @@ class ProfileService
     /**
      * @param $appId
      * @param $profileId
-     * @param Profile\CloneBuilder $input
+     * @param ProfileCloneBuilder $input
      * @param array $queryParams
      * @return ProfileResponse
      */
-    public function cloneById($appId, $profileId, Profile\CloneBuilder $input, array $queryParams = [])
+    public function cloneById($appId, $profileId, ProfileCloneBuilder $input, array $queryParams = [])
     {
         $response = $this->api->applications()->profiles()->cloneById($appId, $profileId, $input->toArray(), $queryParams);
 

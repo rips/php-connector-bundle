@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\InputBuilders\Application\Profile;
+namespace RIPS\ConnectorBundle\InputBuilders\Application;
 
 use RIPS\ConnectorBundle\InputBuilders\BaseBuilder;
 
-class CloneBuilder extends BaseBuilder
+class ProfileCloneBuilder extends BaseBuilder
 {
     /**
      * @var string

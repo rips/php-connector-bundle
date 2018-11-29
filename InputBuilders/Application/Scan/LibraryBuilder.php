@@ -17,6 +17,11 @@ class LibraryBuilder extends BaseBuilder
     protected $version;
 
     /**
+     * @var string
+     */
+    protected $type;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -40,6 +45,20 @@ class LibraryBuilder extends BaseBuilder
     {
         $this->setFields[] = 'version';
         $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->setFields[] = 'type';
+        $this->type = $type;
 
         return $this;
     }

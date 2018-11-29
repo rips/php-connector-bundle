@@ -37,7 +37,7 @@ class ScanBuilder extends BaseBuilder
     protected $historyInherited;
 
     /**
-     * @var array
+     * @var int[]
      */
     protected $issueTypes;
 
@@ -45,6 +45,11 @@ class ScanBuilder extends BaseBuilder
      * @var string
      */
     protected $version;
+
+    /**
+     * @var int
+     */
+    protected $analysisDepth;
 
     /**
      * @var int
@@ -67,9 +72,19 @@ class ScanBuilder extends BaseBuilder
     protected $comment;
 
     /**
-     * @var array
+     * @var int
      */
-    protected $languages;
+    protected $phase;
+
+    /**
+     * @var int
+     */
+    protected $percent;
+
+    /**
+     * @var int
+     */
+    protected $loc;
 
     /**
      * Set profile
@@ -182,7 +197,21 @@ class ScanBuilder extends BaseBuilder
     
         return $this;
     }
-    
+
+    /**
+     * Set analysisDepth
+     *
+     * @param string $analysisDepth
+     * @return $this
+     */
+    public function setAnalysisDepth($analysisDepth)
+    {
+        $this->setFields[] = 'analysisDepth';
+        $this->analysisDepth = $analysisDepth;
+
+        return $this;
+    }
+
     /**
      * Set upload
      *
@@ -240,15 +269,43 @@ class ScanBuilder extends BaseBuilder
     }
 
     /**
-     * Set languages
+     * Set phase
      *
-     * @param array $languages
+     * @param int $phase
      * @return $this
      */
-    public function setLanguages($languages)
+    public function setPhase($phase)
     {
-        $this->setFields[] = 'languages';
-        $this->languages = $languages;
+        $this->setFields[] = 'phase';
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Set percent
+     *
+     * @param int $percent
+     * @return $this
+     */
+    public function setPercent($percent)
+    {
+        $this->setFields[] = 'percent';
+        $this->percent = $percent;
+
+        return $this;
+    }
+
+    /**
+     * Set loc
+     *
+     * @param int $loc
+     * @return $this
+     */
+    public function setLoc($loc)
+    {
+        $this->setFields[] = 'loc';
+        $this->loc = $loc;
 
         return $this;
     }
