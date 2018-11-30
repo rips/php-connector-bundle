@@ -484,22 +484,6 @@ class ScanEntity
     }
 
     /**
-     * Get process of php-engine
-     *
-     * @return Scan\ProcessEntity|null
-     */
-    public function getProcess()
-    {
-        foreach ($this->processes as $process) {
-            if ($process->getName() === 'php-engine') {
-                return $process;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Set php object
      *
      * @param Scan\PhpEntity $php
