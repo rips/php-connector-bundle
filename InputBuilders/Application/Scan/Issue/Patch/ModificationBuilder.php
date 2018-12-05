@@ -32,6 +32,11 @@ class ModificationBuilder extends BaseBuilder
     protected $content;
 
     /**
+     * @var string
+     */
+    protected $originalContent;
+
+    /**
      * @var integer
      */
     protected $file;
@@ -102,6 +107,20 @@ class ModificationBuilder extends BaseBuilder
     {
         $this->setFields[] = 'content';
         $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Set originalContent
+     *
+     * @param string $originalContent
+     * @return $this
+     */
+    public function setOriginalContent($originalContent)
+    {
+        $this->setFields[] = 'originalContent';
+        $this->originalContent = $originalContent;
 
         return $this;
     }

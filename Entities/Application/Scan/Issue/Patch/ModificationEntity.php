@@ -42,6 +42,11 @@ class ModificationEntity
     protected $highlightedContent;
 
     /**
+     * @var string
+     */
+    protected $originalContent;
+
+    /**
      * @var Scan\FileEntity
      */
     protected $file;
@@ -81,7 +86,7 @@ class ModificationEntity
     }
 
     /**
-     * get virtualLine
+     * Get virtualLine
      *
      * @return int
      */
@@ -104,7 +109,7 @@ class ModificationEntity
     }
 
     /**
-     * get virtualLine
+     * Get virtualLine
      *
      * @return int
      */
@@ -127,7 +132,7 @@ class ModificationEntity
     }
 
     /**
-     * get columnStart
+     * Get columnStart
      *
      * @return int
      */
@@ -150,7 +155,7 @@ class ModificationEntity
     }
 
     /**
-     * get columnEnd
+     * Get columnEnd
      *
      * @return int
      */
@@ -173,7 +178,7 @@ class ModificationEntity
     }
 
     /**
-     * get content
+     * Get content
      *
      * @return string
      */
@@ -203,6 +208,29 @@ class ModificationEntity
     public function getHighlightedContent()
     {
         return $this->highlightedContent;
+    }
+
+    /**
+     * Set originalContent
+     *
+     * @param  string $originalContent
+     * @return $this
+     */
+    public function setOriginalContent($originalContent)
+    {
+        $this->originalContent = $originalContent;
+
+        return $this;
+    }
+
+    /**
+     * Get originalContent
+     *
+     * @return string
+     */
+    public function getOriginalContent()
+    {
+        return $this->originalContent;
     }
 
     /**

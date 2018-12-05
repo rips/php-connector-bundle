@@ -64,6 +64,10 @@ class ModificationHydrator
             $hydrated->setHighlightedContent($modification->highlighted_content);
         }
 
+        if (isset($modification->original_content)) {
+            $hydrated->setOriginalContent($modification->original_content);
+        }
+
         if (isset($modification->file)) {
             $hydrated->setFile(FileHydrator::hydrate($modification->file));
         }
