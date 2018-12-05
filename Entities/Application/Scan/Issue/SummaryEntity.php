@@ -76,7 +76,7 @@ class SummaryEntity
     }
 
     /**
-     * get line
+     * Get line
      *
      * @return int
      */
@@ -99,7 +99,7 @@ class SummaryEntity
     }
 
     /**
-     * get content
+     * Get content
      *
      * @return string
      */
