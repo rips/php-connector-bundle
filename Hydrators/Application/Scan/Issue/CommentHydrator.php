@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
@@ -55,6 +56,10 @@ class CommentHydrator
 
         if (isset($comment->source)) {
             $hydrated->setSource($comment->source);
+        }
+
+        if (isset($comment->issue)) {
+            $hydrated->setIssue(IssueHydrator::hydrate($comment->issue));
         }
 
         return $hydrated;
