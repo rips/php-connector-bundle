@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
@@ -56,6 +57,10 @@ class ReviewHydrator
 
         if (isset($review->source)) {
             $hydrated->setSource($review->source);
+        }
+
+        if (isset($review->issue)) {
+            $hydrated->setIssue(IssueHydrator::hydrate($review->issue));
         }
 
         return $hydrated;
