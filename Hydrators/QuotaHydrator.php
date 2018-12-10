@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
@@ -101,7 +102,7 @@ class QuotaHydrator
         }
 
         if (isset($quota->trial_issue_types) && is_array($quota->trial_issue_types)) {
-            $hydrated->setTrialIssueTypes($quota->trial_issue_types);
+            $hydrated->setTrialIssueTypes(TypeHydrator::hydrateCollection($quota->trial_issue_types));
         }
 
         if (isset($quota->issue_type_limit)) {
