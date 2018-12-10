@@ -68,6 +68,14 @@ class ProcessHydrator
             $hydrated->setMemory($process->memory);
         }
 
+        if (isset($process->phase)) {
+            $hydrated->setPhase($process->phase);
+        }
+
+        if (isset($process->percent)) {
+            $hydrated->setPercent($process->percent);
+        }
+
         return $hydrated;
     }
 }

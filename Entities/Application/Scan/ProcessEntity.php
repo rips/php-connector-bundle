@@ -47,6 +47,16 @@ class ProcessEntity
     protected $memory;
 
     /**
+     * @var int
+     */
+    protected $phase;
+
+    /**
+     * @var int
+     */
+    protected $percent;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -216,5 +226,52 @@ class ProcessEntity
     public function getMemory()
     {
         return $this->memory;
+    }
+
+
+    /**
+     * Set phase
+     *
+     * @param int
+     * @return $this
+     */
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Get phase
+     *
+     * @return int
+     */
+    public function getPhase()
+    {
+        return $this->phase;
+    }
+
+    /**
+     * Set Percentage
+     *
+     * @param int $percent
+     * @return $this
+     */
+    public function setPercent($percent)
+    {
+        $this->percent = $percent;
+
+        return $this;
+    }
+
+    /**
+     * Get Percentage
+     *
+     * @return int
+     */
+    public function getPercent()
+    {
+        return $this->percent;
     }
 }
