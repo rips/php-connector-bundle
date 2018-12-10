@@ -64,6 +64,10 @@ class ProcessHydrator
             $hydrated->setFinished($process->finished);
         }
 
+        if (isset($process->memory)) {
+            $hydrated->setMemory($process->memory);
+        }
+
         return $hydrated;
     }
 }

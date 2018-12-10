@@ -42,6 +42,11 @@ class ProcessEntity
     protected $finished;
 
     /**
+     * @var int
+     */
+    protected $memory;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -188,5 +193,28 @@ class ProcessEntity
     public function getFinished()
     {
         return $this->finished;
+    }
+
+    /**
+     * Set memory
+     *
+     * @param int $memory
+     * @return $this
+     */
+    public function setMemory($memory)
+    {
+        $this->memory = $memory;
+
+        return $this;
+    }
+
+    /**
+     * Get memory
+     *
+     * @return int
+     */
+    public function getMemory()
+    {
+        return $this->memory;
     }
 }
