@@ -38,6 +38,21 @@ class ProcessBuilder extends BaseBuilder
     protected $finished;
 
     /**
+     * @var int
+     */
+    protected $memory;
+
+    /**
+     * @var int
+     */
+    protected $phase;
+
+    /**
+     * @var int
+     */
+    protected $percent;
+
+    /**
      * Set pid
      *
      * @param string $pid
@@ -117,6 +132,48 @@ class ProcessBuilder extends BaseBuilder
     {
         $this->setFields[] = 'finished';
         $this->finished = $finished;
+
+        return $this;
+    }
+
+    /**
+     * Set memory
+     *
+     * @param int $memory
+     * @return $this
+     */
+    public function setMemory($memory)
+    {
+        $this->setFields[] = 'memory';
+        $this->memory = $memory;
+
+        return $this;
+    }
+
+    /**
+     * Set phase
+     *
+     * @param int $phase
+     * @return $this
+     */
+    public function setPhase($phase)
+    {
+        $this->setFields[] = 'phase';
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Set percent
+     *
+     * @param int $percent
+     * @return $this
+     */
+    public function setPercent($percent)
+    {
+        $this->setFields[] = 'percent';
+        $this->percent = $percent;
 
         return $this;
     }
