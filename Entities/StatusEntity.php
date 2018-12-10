@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
+
 class StatusEntity
 {
     /**
@@ -30,7 +32,7 @@ class StatusEntity
     protected $census;
 
     /**
-     * @var array
+     * @var TypeEntity[]
      */
     protected $trialIssueTypes;
 
@@ -162,7 +164,7 @@ class StatusEntity
     /**
      * Get trialIssueTypes
      *
-     * @return array
+     * @return TypeEntity[]
      */
     public function getTrialIssueTypes()
     {
@@ -172,10 +174,10 @@ class StatusEntity
     /**
      * Set trialIssueTypes
      *
-     * @param array $trialIssueTypes
+     * @param TypeEntity[] $trialIssueTypes
      * @return $this
      */
-    public function setTrialIssueTypes(array $trialIssueTypes)
+    public function setTrialIssueTypes($trialIssueTypes)
     {
         $this->trialIssueTypes = $trialIssueTypes;
     

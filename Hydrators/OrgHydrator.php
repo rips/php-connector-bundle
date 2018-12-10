@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\OrgEntity;
@@ -52,8 +53,8 @@ class OrgHydrator
             $hydrated->setQuotas(QuotaHydrator::hydrateCollection($organization->quotas));
         }
 
-        if (isset($organization->trial_issue_types)) {
-            $hydrated->setTrialIssueTypes($organization->trial_issue_types);
+        if (isset($organization->trial_issue_types) && is_array($organization->trial_issue_types)) {
+            $hydrated->setTrialIssueTypes(TypeHydrator::hydrateCollection($organization->trial_issue_types));
         }
 
         if (isset($organization->disabled)) {

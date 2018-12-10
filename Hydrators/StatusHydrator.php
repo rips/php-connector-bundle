@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\StatusEntity;
 
@@ -38,7 +39,7 @@ class StatusHydrator
         }
 
         if (isset($status->trial_issue_types) && is_array($status->trial_issue_types)) {
-            $hydrated->setTrialIssueTypes($status->trial_issue_types);
+            $hydrated->setTrialIssueTypes(TypeHydrator::hydrateCollection($status->trial_issue_types));
         }
 
         if (isset($status->user)) {

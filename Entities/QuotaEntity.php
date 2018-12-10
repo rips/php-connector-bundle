@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class QuotaEntity
 {
@@ -87,7 +88,7 @@ class QuotaEntity
     protected $notify;
 
     /**
-     * @var array
+     * @var TypeEntity[]
      */
     protected $trialIssueTypes;
 
@@ -472,7 +473,7 @@ class QuotaEntity
     /**
      * Set trialIssueTypes
      *
-     * @param array $trialIssueTypes
+     * @param TypeEntity[] $trialIssueTypes
      * @return $this
      */
     public function setTrialIssueTypes($trialIssueTypes)
@@ -485,7 +486,7 @@ class QuotaEntity
     /**
      * Get trialIssueTypes
      *
-     * @return array
+     * @return TypeEntity[]
      */
     public function getTrialIssueTypes()
     {
