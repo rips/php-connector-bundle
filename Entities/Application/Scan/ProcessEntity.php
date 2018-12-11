@@ -57,6 +57,11 @@ class ProcessEntity
     protected $percent;
 
     /**
+     * @var int
+     */
+    protected $weight;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -253,7 +258,7 @@ class ProcessEntity
     }
 
     /**
-     * Set Percentage
+     * Set percent
      *
      * @param int $percent
      * @return $this
@@ -266,12 +271,35 @@ class ProcessEntity
     }
 
     /**
-     * Get Percentage
+     * Get percent
      *
      * @return int
      */
     public function getPercent()
     {
         return $this->percent;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param int $weight
+     * @return $this
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }

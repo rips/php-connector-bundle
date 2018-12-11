@@ -53,6 +53,11 @@ class ProcessBuilder extends BaseBuilder
     protected $percent;
 
     /**
+     * @var int
+     */
+    protected $weight;
+
+    /**
      * Set pid
      *
      * @param string $pid
@@ -174,6 +179,20 @@ class ProcessBuilder extends BaseBuilder
     {
         $this->setFields[] = 'percent';
         $this->percent = $percent;
+
+        return $this;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param int $weight
+     * @return $this
+     */
+    public function setWeight($weight)
+    {
+        $this->setFields[] = 'weight';
+        $this->weight = $weight;
 
         return $this;
     }
