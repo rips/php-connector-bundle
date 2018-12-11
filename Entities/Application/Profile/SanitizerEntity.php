@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Profile;
 
-use RIPS\ConnectorBundle\Entities\Application\ProfileEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class SanitizerEntity
@@ -31,11 +30,6 @@ class SanitizerEntity
      * @var string
      */
     protected $characters;
-
-    /**
-     * @var ProfileEntity
-     */
-    protected $profile;
 
     /**
      * @var TypeEntity
@@ -153,29 +147,6 @@ class SanitizerEntity
     public function setCharacters($characters)
     {
         $this->characters = $characters;
-    
-        return $this;
-    }
-    
-    /**
-     * Get profile
-     *
-     * @return ProfileEntity
-     */
-    public function getProfile()
-    {
-        return $this->profile;
-    }
-    
-    /**
-     * Set profile
-     *
-     * @param ProfileEntity $profile
-     * @return $this
-     */
-    public function setProfile($profile)
-    {
-        $this->profile = $profile;
     
         return $this;
     }

@@ -24,7 +24,7 @@ class ValidatorsResponse extends BaseResponse
     /**
      * @return ValidatorEntity[]
      */
-    public function getValidator()
+    public function getValidators()
     {
         return $this->validators;
     }

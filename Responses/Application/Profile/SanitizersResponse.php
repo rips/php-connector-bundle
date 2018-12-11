@@ -24,7 +24,7 @@ class SanitizersResponse extends BaseResponse
     /**
      * @return SanitizerEntity[]
      */
-    public function getSanitizer()
+    public function getSanitizers()
     {
         return $this->sanitizers;
     }

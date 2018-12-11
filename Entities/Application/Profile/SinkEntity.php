@@ -2,7 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Profile;
 
-use RIPS\ConnectorBundle\Entities\Application\ProfileEntity;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class SinkEntity
@@ -32,11 +31,6 @@ class SinkEntity
      */
     protected $type;
 
-    /**
-     * @var ProfileEntity
-     */
-    protected $profile;
-    
     /**
      * Get id
      *
@@ -148,29 +142,6 @@ class SinkEntity
     public function setType($type)
     {
         $this->type = $type;
-    
-        return $this;
-    }
-    
-    /**
-     * Get profile
-     *
-     * @return ProfileEntity
-     */
-    public function getProfile()
-    {
-        return $this->profile;
-    }
-    
-    /**
-     * Set profile
-     *
-     * @param ProfileEntity $profile
-     * @return $this
-     */
-    public function setProfile($profile)
-    {
-        $this->profile = $profile;
     
         return $this;
     }
