@@ -24,7 +24,7 @@ class ExtensionsResponse extends BaseResponse
     /**
      * @return ExtensionEntity[]
      */
-    public function getExtension()
+    public function getExtensions()
     {
         return $this->extensions;
     }

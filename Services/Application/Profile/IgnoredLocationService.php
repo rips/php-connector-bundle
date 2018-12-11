@@ -4,11 +4,11 @@ namespace RIPS\ConnectorBundle\Services\Application\Profile;
 
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\InputBuilders\Application\Profile\IgnoreBuilder;
-use RIPS\ConnectorBundle\Responses\Application\Profile\IgnoresResponse;
-use RIPS\ConnectorBundle\Responses\Application\Profile\IgnoreResponse;
+use RIPS\ConnectorBundle\InputBuilders\Application\Profile\IgnoredLocationBuilder;
+use RIPS\ConnectorBundle\Responses\Application\Profile\IgnoredLocationsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Profile\IgnoredLocationResponse;
 
-class IgnoreService
+class IgnoredLocationService
 {
     /**
      * @var APIService
@@ -31,13 +31,13 @@ class IgnoreService
      * @param int $appId
      * @param int $profileId
      * @param array $queryParams
-     * @return IgnoresResponse
+     * @return IgnoredLocationsResponse
      */
     public function getAll($appId, $profileId, array $queryParams)
     {
-        $response = $this->api->applications()->profiles()->ignores()->getAll($appId, $profileId, $queryParams);
+        $response = $this->api->applications()->profiles()->ignoredLocations()->getAll($appId, $profileId, $queryParams);
 
-        return new IgnoresResponse($response);
+        return new IgnoredLocationsResponse($response);
     }
 
     /**
@@ -47,13 +47,13 @@ class IgnoreService
      * @param int $profileId
      * @param int $ignoreId
      * @param array $queryParams
-     * @return IgnoreResponse
+     * @return IgnoredLocationResponse
      */
     public function getById($appId, $profileId, $ignoreId, array $queryParams = [])
     {
-        $response = $this->api->applications()->profiles()->ignores()->getById($appId, $profileId, $ignoreId, $queryParams);
+        $response = $this->api->applications()->profiles()->ignoredLocations()->getById($appId, $profileId, $ignoreId, $queryParams);
 
-        return new IgnoreResponse($response);
+        return new IgnoredLocationResponse($response);
     }
 
     /**
@@ -61,15 +61,15 @@ class IgnoreService
      *
      * @param int $appId
      * @param int $profileId
-     * @param IgnoreBuilder $input
+     * @param IgnoredLocationBuilder $input
      * @param array $queryParams
-     * @return IgnoreResponse
+     * @return IgnoredLocationResponse
      */
-    public function create($appId, $profileId, IgnoreBuilder $input, array $queryParams = [])
+    public function create($appId, $profileId, IgnoredLocationBuilder $input, array $queryParams = [])
     {
-        $response = $this->api->applications()->profiles()->ignores()->create($appId, $profileId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->profiles()->ignoredLocations()->create($appId, $profileId, $input->toArray(), $queryParams);
 
-        return new IgnoreResponse($response);
+        return new IgnoredLocationResponse($response);
     }
 
     /**
@@ -78,15 +78,15 @@ class IgnoreService
      * @param int $appId
      * @param int $profileId
      * @param int $ignoreId
-     * @param IgnoreBuilder $input
+     * @param IgnoredLocationBuilder $input
      * @param array $queryParams
-     * @return IgnoreResponse
+     * @return IgnoredLocationResponse
      */
-    public function update($appId, $profileId, $ignoreId, IgnoreBuilder $input, array $queryParams = [])
+    public function update($appId, $profileId, $ignoreId, IgnoredLocationBuilder $input, array $queryParams = [])
     {
-        $response = $this->api->applications()->profiles()->ignores()->update($appId, $profileId, $ignoreId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->profiles()->ignoredLocations()->update($appId, $profileId, $ignoreId, $input->toArray(), $queryParams);
 
-        return new IgnoreResponse($response);
+        return new IgnoredLocationResponse($response);
     }
 
     /**
@@ -99,7 +99,7 @@ class IgnoreService
      */
     public function deleteAll($appId, $profileId, array $queryParams = [])
     {
-        $response = $this->api->applications()->profiles()->ignores()->deleteAll($appId, $profileId, $queryParams);
+        $response = $this->api->applications()->profiles()->ignoredLocations()->deleteAll($appId, $profileId, $queryParams);
 
         return new BaseResponse($response);
     }
@@ -115,7 +115,7 @@ class IgnoreService
      */
     public function deleteById($appId, $profileId, $ignoreId, array $queryParams = [])
     {
-        $response = $this->api->applications()->profiles()->ignores()->deleteById($appId, $profileId, $ignoreId, $queryParams);
+        $response = $this->api->applications()->profiles()->ignoredLocations()->deleteById($appId, $profileId, $ignoreId, $queryParams);
 
         return new BaseResponse($response);
     }

@@ -49,9 +49,14 @@ class ProfileEntity
     protected $sanitizers;
 
     /**
-     * @var Profile\IgnoreEntity[]
+     * @var Profile\IgnoredCodeEntity[]
      */
-    protected $ignores;
+    protected $ignoredCodes;
+
+    /**
+     * @var Profile\IgnoredLocationEntity[]
+     */
+    protected $ignoredLocations;
 
     /**
      * @var Profile\ExtensionEntity[]
@@ -263,28 +268,51 @@ class ProfileEntity
     }
     
     /**
-     * Get ignores
+     * Get ignoredCodes
      *
-     * @return Profile\IgnoreEntity[]
+     * @return Profile\IgnoredCodeEntity[]
      */
-    public function getIgnores()
+    public function getIgnoredCodes()
     {
-        return $this->ignores;
+        return $this->ignoredCodes;
     }
-    
+
     /**
-     * Set ignores
+     * Set ignoredCodes
      *
-     * @param Profile\IgnoreEntity[] $ignores
+     * @param Profile\IgnoredCodeEntity[] $ignoredCodes
      * @return $this
      */
-    public function setIgnores($ignores)
+    public function setIgnoredCodes($ignoredCodes)
     {
-        $this->ignores = $ignores;
+        $this->ignoredCodes = $ignoredCodes;
     
         return $this;
     }
-    
+
+    /**
+     * Get ignoredLocations
+     *
+     * @return Profile\IgnoredLocationEntity[]
+     */
+    public function getIgnoredLocations()
+    {
+        return $this->ignoredLocations;
+    }
+
+    /**
+     * Set ignoredLocations
+     *
+     * @param Profile\IgnoredLocationEntity[] $ignoredLocations
+     * @return $this
+     */
+    public function setIgnoredLocations($ignoredLocations)
+    {
+        $this->ignoredLocations = $ignoredLocations;
+
+        return $this;
+    }
+
     /**
      * Get extensions
      *

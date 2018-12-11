@@ -24,7 +24,7 @@ class ControllersResponse extends BaseResponse
     /**
      * @return ControllerEntity[]
      */
-    public function getController()
+    public function getControllers()
     {
         return $this->controllers;
     }

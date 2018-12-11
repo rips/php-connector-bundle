@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Profile\IgnoredCodeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Profile\IgnoredLocationHydrator;
 use \stdClass;
 use RIPS\ConnectorBundle\Entities\Application\ProfileEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Profile\SourceHydrator;
@@ -77,8 +79,12 @@ class ProfileHydrator
             $hydrated->setSanitizers(SanitizerHydrator::hydrateCollection($profile->sanitizers));
         }
 
-        if (isset($profile->ignores) && is_array($profile->ignores)) {
-            $hydrated->setIgnores(IgnoreHydrator::hydrateCollection($profile->ignores));
+        if (isset($profile->ignored_codes) && is_array($profile->ignored_codes)) {
+            $hydrated->setIgnoredCodes(IgnoredCodeHydrator::hydrateCollection($profile->ignored_codes));
+        }
+
+        if (isset($profile->ignored_locations) && is_array($profile->ignored_locations)) {
+            $hydrated->setIgnoredLocations(IgnoredLocationHydrator::hydrateCollection($profile->ignored_locations));
         }
 
         if (isset($profile->extensions) && is_array($profile->extensions)) {

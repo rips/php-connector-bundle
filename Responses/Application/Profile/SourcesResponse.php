@@ -24,7 +24,7 @@ class SourcesResponse extends BaseResponse
     /**
      * @return SourceEntity[]
      */
-    public function getSource()
+    public function getSources()
     {
         return $this->sources;
     }

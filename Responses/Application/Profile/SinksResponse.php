@@ -24,7 +24,7 @@ class SinksResponse extends BaseResponse
     /**
      * @return SinkEntity[]
      */
-    public function getSink()
+    public function getSinks()
     {
         return $this->sinks;
     }

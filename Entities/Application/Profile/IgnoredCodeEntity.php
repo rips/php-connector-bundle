@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Profile;
 
-class ControllerEntity
+class IgnoredCodeEntity
 {
     /**
      * @var int
@@ -22,12 +22,7 @@ class ControllerEntity
     /**
      * @var string
      */
-    protected $parameter;
-
-    /**
-     * @var string
-     */
-    protected $type;
+    protected $exclude;
 
     /**
      * Get id
@@ -97,49 +92,26 @@ class ControllerEntity
     
         return $this;
     }
-
-    /**
-     * Get parameter
-     *
-     * @return string
-     */
-    public function getParameter()
-    {
-        return $this->parameter;
-    }
-    
-    /**
-     * Set parameter
-     *
-     * @param string $parameter
-     * @return $this
-     */
-    public function setParameter($parameter)
-    {
-        $this->parameter = $parameter;
-    
-        return $this;
-    }
     
     /**
      * Get string
      *
      * @return string
      */
-    public function getType()
+    public function getExclude()
     {
-        return $this->type;
+        return $this->exclude;
     }
     
     /**
-     * Set type
+     * Set exclude
      *
-     * @param string $type
+     * @param string $exclude
      * @return $this
      */
-    public function setType($type)
+    public function setExclude($exclude)
     {
-        $this->type = $type;
+        $this->exclude = $exclude;
     
         return $this;
     }

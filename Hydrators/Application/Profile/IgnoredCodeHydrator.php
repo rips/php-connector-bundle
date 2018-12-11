@@ -3,16 +3,16 @@
 namespace RIPS\ConnectorBundle\Hydrators\Application\Profile;
 
 use stdClass;
-use RIPS\ConnectorBundle\Entities\Application\Profile\IgnoreEntity;
+use RIPS\ConnectorBundle\Entities\Application\Profile\IgnoredCodeEntity;
 
-class IgnoreHydrator
+class IgnoredCodeHydrator
 {
     /**
      * Hydrate a collection of ignore objects into a collection of
-     * IgnoreEntity objects
+     * IgnoredCodeEntity objects
      *
      * @param stdClass[] $ignores
-     * @return IgnoreEntity[]
+     * @return IgnoredCodeEntity[]
      */
     public static function hydrateCollection(array $ignores)
     {
@@ -26,14 +26,14 @@ class IgnoreHydrator
     }
 
     /**
-     * Hydrate a ignore object into a IgnoreEntity object
+     * Hydrate a ignore object into a IgnoredCodeEntity object
      *
      * @param stdClass $ignore
-     * @return IgnoreEntity
+     * @return IgnoredCodeEntity
      */
     public static function hydrate(stdClass $ignore)
     {
-        $hydrated = new IgnoreEntity();
+        $hydrated = new IgnoredCodeEntity();
 
         if (isset($ignore->id)) {
             $hydrated->setId($ignore->id);
@@ -47,20 +47,8 @@ class IgnoreHydrator
             $hydrated->setMethod($ignore->method);
         }
 
-        if (isset($ignore->type)) {
-            $hydrated->setType($ignore->type);
-        }
-
-        if (isset($ignore->folder)) {
-            $hydrated->setFolder($ignore->folder);
-        }
-
-        if (isset($ignore->full_path)) {
-            $hydrated->setFullPath($ignore->full_path);
-        }
-
-        if (isset($ignore->code_quality_folder)) {
-            $hydrated->setCodeQualityFolder($ignore->code_quality_folder);
+        if (isset($ignore->exclude)) {
+            $hydrated->setExclude($ignore->exclude);
         }
 
         return $hydrated;
