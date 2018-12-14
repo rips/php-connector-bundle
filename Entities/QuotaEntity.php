@@ -103,6 +103,11 @@ class QuotaEntity
     protected $updateOnly;
 
     /**
+     * @var boolean
+     */
+    protected $flexibleApplications;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -537,5 +542,28 @@ class QuotaEntity
     public function getUpdateOnly()
     {
         return $this->updateOnly;
+    }
+
+    /**
+     * Set flexibleApplications
+     *
+     * @param boolean $flexibleApplications
+     * @return $this
+     */
+    public function setFlexibleApplications($flexibleApplications)
+    {
+        $this->flexibleApplications = $flexibleApplications;
+
+        return $this;
+    }
+
+    /**
+     * Get flexibleApplications
+     *
+     * @return boolean
+     */
+    public function getFlexibleApplications()
+    {
+        return $this->flexibleApplications;
     }
 }
