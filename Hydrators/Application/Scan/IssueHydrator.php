@@ -122,6 +122,10 @@ class IssueHydrator
             $hydrated->setProcess(ProcessHydrator::hydrate($issue->process));
         }
 
+        if (isset($issue->comments_count)) {
+            $hydrated->setCommentsCount($issue->comments_count);
+        }
+
         return $hydrated;
     }
 }

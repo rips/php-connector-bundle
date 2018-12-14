@@ -110,6 +110,11 @@ class IssueEntity
     protected $process;
 
     /**
+     * @var int
+     */
+    protected $commentsCount;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -589,5 +594,28 @@ class IssueEntity
     public function getProcess()
     {
         return $this->process;
+    }
+
+    /**
+     * Set commentsCount
+     *
+     * @param int $commentsCount
+     * @return $this
+     */
+    public function setCommentsCount($commentsCount)
+    {
+        $this->commentsCount = $commentsCount;
+
+        return $this;
+    }
+
+    /**
+     * Get commentsCount
+     *
+     * @return int
+     */
+    public function getCommentsCount()
+    {
+        return $this->commentsCount;
     }
 }
