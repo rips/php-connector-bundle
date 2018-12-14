@@ -72,6 +72,11 @@ class ScanBuilder extends BaseBuilder
     protected $comment;
 
     /**
+     * @var string
+     */
+    protected $source;
+
+    /**
      * @var int
      */
     protected $phase;
@@ -264,6 +269,20 @@ class ScanBuilder extends BaseBuilder
     {
         $this->setFields[] = 'comment';
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->setFields[] = 'source';
+        $this->source = $source;
 
         return $this;
     }

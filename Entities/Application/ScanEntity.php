@@ -147,6 +147,11 @@ class ScanEntity
     protected $comment;
 
     /**
+     * @var string
+     */
+    protected $source;
+
+    /**
      * @var Scan\LibraryEntity[]
      */
     protected $libraries;
@@ -768,6 +773,26 @@ class ScanEntity
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     /**

@@ -150,6 +150,10 @@ class ScanHydrator
             $hydrated->setComment($scan->comment);
         }
 
+        if (isset($scan->source)) {
+            $hydrated->setSource($scan->source);
+        }
+
         if (isset($scan->libraries) && is_array($scan->libraries)) {
             $hydrated->setLibraries(LibraryHydrator::hydrateCollection($scan->libraries));
         }
