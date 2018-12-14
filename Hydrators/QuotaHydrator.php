@@ -113,6 +113,10 @@ class QuotaHydrator
             $hydrated->setUpdateOnly($quota->update_only);
         }
 
+        if (isset($quota->flexible_applications)) {
+            $hydrated->setFlexibleApplications($quota->flexible_applications);
+        }
+
         return $hydrated;
     }
 }

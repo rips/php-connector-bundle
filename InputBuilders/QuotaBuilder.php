@@ -77,6 +77,16 @@ class QuotaBuilder extends BaseBuilder
     protected $languages;
 
     /**
+     * @var boolean
+     */
+    protected $updateOnly;
+
+    /**
+     * @var boolean
+     */
+    protected $flexibleApplications;
+
+    /**
      * Set currentApplication
      *
      * @param int $currentApplication
@@ -268,6 +278,34 @@ class QuotaBuilder extends BaseBuilder
     {
         $this->setFields[] = 'languages';
         $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Set updateOnly
+     *
+     * @param bool $updateOnly
+     * @return $this
+     */
+    public function setUpdateOnly($updateOnly)
+    {
+        $this->setFields[] = 'updateOnly';
+        $this->updateOnly = $updateOnly;
+
+        return $this;
+    }
+
+    /**
+     * Set flexibleApplications
+     *
+     * @param bool $flexibleApplications
+     * @return $this
+     */
+    public function setFlexibleApplications($flexibleApplications)
+    {
+        $this->setFields[] = 'flexibleApplications';
+        $this->flexibleApplications = $flexibleApplications;
 
         return $this;
     }
