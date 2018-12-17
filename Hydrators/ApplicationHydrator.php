@@ -64,6 +64,10 @@ class ApplicationHydrator
             $hydrated->setOrganization(OrgHydrator::hydrate($application->organization));
         }
 
+        if (isset($application->auto_renew)) {
+            $hydrated->setAutoRenew($application->auto_renew);
+        }
+
         return $hydrated;
     }
 }

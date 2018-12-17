@@ -42,6 +42,11 @@ class ApplicationEntity
     protected $organization;
 
     /**
+     * @var bool
+     */
+    protected $autoRenew;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -199,5 +204,28 @@ class ApplicationEntity
     public function getOrganization()
     {
         return $this->organization;
+    }
+
+    /**
+     * Set autoRenew
+     *
+     * @param bool
+     * @return $this
+     */
+    public function setAutoRenew($autoRenew)
+    {
+        $this->autoRenew = $autoRenew;
+
+        return $this;
+    }
+
+    /**
+     * Get autoRenew
+     *
+     * @return bool
+     */
+    public function getAutoRenew()
+    {
+        return $this->autoRenew;
     }
 }
