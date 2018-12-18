@@ -45,6 +45,10 @@ class CallbackHydrator
             $hydrated->setInternal($callback->internal);
         }
 
+        if (isset($callback->observe_organization)) {
+            $hydrated->setObserveOrganization($callback->observe_organization);
+        }
+
         if (isset($callback->url)) {
             $hydrated->setUrl($callback->url);
         }

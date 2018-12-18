@@ -10,6 +10,11 @@ class CallbackBuilder extends BaseBuilder
     protected $internal;
 
     /**
+     * @var bool
+     */
+    protected $observeOrganization;
+
+    /**
      * @var string
      */
     protected $url;
@@ -50,6 +55,20 @@ class CallbackBuilder extends BaseBuilder
         $this->setFields[] = 'internal';
         $this->internal = $internal;
     
+        return $this;
+    }
+
+    /**
+     * Set observeOrganization
+     *
+     * @param bool $observeOrganization
+     * @return $this
+     */
+    public function setObserveOrganization($observeOrganization)
+    {
+        $this->setFields[] = 'observeOrganization';
+        $this->observeOrganization = $observeOrganization;
+
         return $this;
     }
 

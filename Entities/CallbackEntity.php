@@ -18,6 +18,11 @@ class CallbackEntity
     protected $internal;
 
     /**
+     * @var bool
+     */
+    protected $observeOrganization;
+
+    /**
      * @var string
      */
     protected $url;
@@ -95,6 +100,29 @@ class CallbackEntity
     public function setInternal($internal)
     {
         $this->internal = $internal;
+
+        return $this;
+    }
+
+    /**
+     * Get observeOrganization
+     *
+     * @return bool
+     */
+    public function getObserveOrganization()
+    {
+        return $this->observeOrganization;
+    }
+
+    /**
+     * Set observeOrganization
+     *
+     * @param bool $observeOrganization
+     * @return $this
+     */
+    public function setObserveOrganization($observeOrganization)
+    {
+        $this->observeOrganization = $observeOrganization;
 
         return $this;
     }
