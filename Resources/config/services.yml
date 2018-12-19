@@ -160,12 +160,7 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
-    RIPS\ConnectorBundle\Services\Application\Scan\Source\TypeService:
-        public: true
-        arguments:
-            - '@RIPS\ConnectorBundle\Services\APIService'
-
-    RIPS\ConnectorBundle\Services\Application\Scan\Sink\TypeService:
+    RIPS\ConnectorBundle\Services\Application\Scan\Property\TypeService:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'

@@ -1,11 +1,11 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Responses\Application\Scan\Sink;
+namespace RIPS\ConnectorBundle\Responses\Application\Scan\Property;
 
 use RIPS\Connector\Entities\Response;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
-use RIPS\ConnectorBundle\Entities\Application\Scan\Sink\TypeEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Sink\TypeHydrator;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Property\TypeEntity;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Property\TypeHydrator;
 
 class TypeResponse extends BaseResponse
 {
