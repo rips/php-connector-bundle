@@ -26,11 +26,17 @@ class FilterBuilder
     }
 
     /**
+     * @param FilterCondition|FilterExpression|null
      * @return string
      */
-    public function getFilterString()
+    public function getFilterString($input = null)
     {
-        return json_encode($this->condition->getFilterRepresentation());
+        if ($input === null) {
+            return json_encode($this->condition->getFilterRepresentation());
+        } else {
+            /** @var FilterCondition|FilterExpression $input */
+            return json_encode($input->getFilterRepresentation());
+        }
     }
 
     /**
@@ -147,13 +153,5 @@ class FilterBuilder
     public function lessThanEqual(string $key, $value)
     {
         return new Expression\LessThanEqual($key, $value);
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getFilterString();
     }
 }
