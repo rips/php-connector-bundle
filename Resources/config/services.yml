@@ -244,3 +244,8 @@ services:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\ActivityService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
