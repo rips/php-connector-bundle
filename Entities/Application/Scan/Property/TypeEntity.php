@@ -1,6 +1,6 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan\Sink;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Property;
 
 class TypeEntity
 {

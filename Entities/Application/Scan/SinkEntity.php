@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\Sink\TypeEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Property\TypeEntity;
 
 class SinkEntity
 {

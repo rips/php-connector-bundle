@@ -1,10 +1,10 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Services\Application\Scan\Sink;
+namespace RIPS\ConnectorBundle\Services\Application\Scan\Property;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Responses\Application\Scan\Sink\TypesResponse;
-use RIPS\ConnectorBundle\Responses\Application\Scan\Sink\TypeResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Property\TypesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Property\TypeResponse;
 
 class TypeService
 {

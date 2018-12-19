@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SourceEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\Source\TypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Property\TypeHydrator;
 
 class SourceHydrator
 {
