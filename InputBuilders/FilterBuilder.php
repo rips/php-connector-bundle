@@ -10,33 +10,13 @@ use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
 class FilterBuilder
 {
     /**
-     * @var FilterCondition
-     */
-    private $condition;
-
-    /**
-     * @param FilterCondition $condition
-     * @return $this
-     */
-    public function build($condition)
-    {
-        $this->condition = $condition;
-
-        return $this;
-    }
-
-    /**
-     * @param FilterCondition|FilterExpression|null
+     * @param FilterCondition|FilterExpression
      * @return string
      */
-    public function getFilterString($input = null)
+    public function getFilterString($input)
     {
-        if ($input === null) {
-            return json_encode($this->condition->getFilterRepresentation());
-        } else {
-            /** @var FilterCondition|FilterExpression $input */
-            return json_encode($input->getFilterRepresentation());
-        }
+        /** @var FilterCondition|FilterExpression $input */
+        return json_encode($input->getFilterRepresentation());
     }
 
     /**
