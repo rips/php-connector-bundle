@@ -73,8 +73,16 @@ class TypeHydrator
             $hydrated->setCwe($type->cwe);
         }
 
-        if (isset($type->owasp)) {
-            $hydrated->setOwasp($type->owasp);
+        if (isset($type->owasp2010)) {
+            $hydrated->setOwasp2010($type->owasp2010);
+        }
+
+        if (isset($type->owasp2013)) {
+            $hydrated->setOwasp2013($type->owasp2013);
+        }
+
+        if (isset($type->owasp2017)) {
+            $hydrated->setOwasp2017($type->owasp2017);
         }
 
         if (isset($type->sans)) {
@@ -85,8 +93,8 @@ class TypeHydrator
             $hydrated->setPcidss($type->pcidss);
         }
 
-        if (isset($type->asvs)) {
-            $hydrated->setAsvs($type->asvs);
+        if (isset($type->asvs301)) {
+            $hydrated->setAsvs301($type->asvs301);
         }
 
         if (isset($type->enabled)) {
