@@ -55,7 +55,17 @@ class TypeEntity
     /**
      * @var string
      */
-    protected $owasp;
+    protected $owasp2010;
+
+    /**
+     * @var string
+     */
+    protected $owasp2013;
+
+    /**
+     * @var string
+     */
+    protected $owasp2017;
 
     /**
      * @var string
@@ -70,7 +80,7 @@ class TypeEntity
     /**
      * @var string
      */
-    protected $asvs;
+    protected $asvs301;
 
     /**
      * @var bool
@@ -297,24 +307,66 @@ class TypeEntity
     }
 
     /**
-     * Set owasp
+     * Set owasp2010
      *
-     * @param  string $owasp
+     * @param  string $owasp2010
      * @return void
      */
-    public function setOwasp($owasp)
+    public function setOwasp2010($owasp2010)
     {
-        $this->owasp = $owasp;
+        $this->owasp2010 = $owasp2010;
     }
 
     /**
-     * Get owasp
+     * Get owasp2010
      *
      * @return string
      */
-    public function getOwasp()
+    public function getOwasp2010()
     {
-        return $this->owasp;
+        return $this->owasp2010;
+    }
+
+    /**
+     * Set owasp2013
+     *
+     * @param  string $owasp2013
+     * @return void
+     */
+    public function setOwasp2013($owasp2013)
+    {
+        $this->owasp2013 = $owasp2013;
+    }
+
+    /**
+     * Get owasp2013
+     *
+     * @return string
+     */
+    public function getOwasp2013()
+    {
+        return $this->owasp2013;
+    }
+
+    /**
+     * Set owasp2017
+     *
+     * @param  string $owasp2017
+     * @return void
+     */
+    public function setOwasp2017($owasp2017)
+    {
+        $this->owasp2017 = $owasp2017;
+    }
+
+    /**
+     * Get owasp2017
+     *
+     * @return string
+     */
+    public function getOwasp2017()
+    {
+        return $this->owasp2017;
     }
 
     /**
@@ -360,24 +412,24 @@ class TypeEntity
     }
 
     /**
-     * Set asvs
+     * Set asvs301
      *
-     * @param  string $asvs
+     * @param  string $asvs301
      * @return void
      */
-    public function setAsvs($asvs)
+    public function setAsvs301($asvs301)
     {
-        $this->asvs = $asvs;
+        $this->asvs301 = $asvs301;
     }
 
     /**
-     * Get asvs
+     * Get asvs301
      *
      * @return string
      */
-    public function getAsvs()
+    public function getAsvs301()
     {
-        return $this->asvs;
+        return $this->asvs301;
     }
 
     /**
