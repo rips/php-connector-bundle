@@ -2,9 +2,9 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use Exception;
 use RIPS\Connector\API;
-use RIPS\ConnectorBundle\Entities\StatusEntity;
-use RIPS\ConnectorBundle\Hydrators\StatusHydrator;
+use RIPS\ConnectorBundle\Responses\StatusResponse;
 
 class APIService
 {
@@ -16,26 +16,38 @@ class APIService
     /**
      * APIService constructor.
      *
-     * @param $username
+     * @param $email
      * @param $password
      * @param $config
+     * @throws Exception
      */
-    public function __construct($username, $password, $config)
+    public function __construct($email, $password, $config)
     {
-        $this->initialize($username, $password, $config);
+        $this->initialize($email, $password, $config);
     }
 
     /**
      * Initialize API instance
      *
-     * @param $username
+     * @param $email
      * @param $password
      * @param $config
      * @return void
+     * @throws Exception
      */
-    public function initialize($username, $password, $config)
+    public function initialize($email, $password, $config)
     {
-        $this->api = new API($username, $password, $config);
+        $this->api = new API($email, $password, $config);
+    }
+
+    /**
+     * Callback requests accessor
+     *
+     * @return \RIPS\Connector\Requests\CallbackRequests
+     */
+    public function callbacks()
+    {
+        return $this->api->callbacks;
     }
 
     /**
@@ -159,14 +171,22 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\LanguageRequests
+     */
+    public function languages()
+    {
+        return $this->api->languages;
+    }
+
+    /**
      * Get status of current session from API
      *
-     * @return StatusEntity
+     * @return StatusResponse
      */
     public function getStatus()
     {
-        $status = $this->api->status->getStatus();
+        $response = $this->api->status->getStatus();
 
-        return StatusHydrator::hydrate($status);
+        return new StatusResponse($response);
     }
 }

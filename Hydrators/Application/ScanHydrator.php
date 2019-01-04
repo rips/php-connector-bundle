@@ -8,17 +8,13 @@ use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\FileHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\PhpHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SourceHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\SinkHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomClassHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ComparisonHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\JavaHydrator;
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 
 class ScanHydrator
 {
@@ -62,16 +58,12 @@ class ScanHydrator
             $hydrated->setPath($scan->path);
         }
 
-        if (isset($scan->start)) {
-            $hydrated->setStart(new DateTime($scan->start));
+        if (isset($scan->started_at)) {
+            $hydrated->setStartedAt(new DateTime($scan->started_at));
         }
 
-        if (isset($scan->finish)) {
-            $hydrated->setFinish(new DateTime($scan->finish));
-        }
-
-        if (isset($scan->last_modification)) {
-            $hydrated->setLastModification(new DateTime($scan->last_modification));
+        if (isset($scan->finished_at)) {
+            $hydrated->setFinishedAt(new DateTime($scan->finished_at));
         }
 
         if (isset($scan->phase)) {
@@ -110,32 +102,8 @@ class ScanHydrator
             $hydrated->setPhp(PhpHydrator::hydrate($scan->php));
         }
 
-        if (isset($scan->sources) && is_array($scan->sources)) {
-            $hydrated->setSources(SourceHydrator::hydrateCollection($scan->sources));
-        }
-
-        if (isset($scan->sinks) && is_array($scan->sinks)) {
-            $hydrated->setSinks(SinkHydrator::hydrateCollection($scan->sinks));
-        }
-
-        if (isset($scan->concats) && is_array($scan->concats)) {
-            $hydrated->setConcats(ConcatHydrator::hydrateCollection($scan->concats));
-        }
-
-        if (isset($scan->files) && is_array($scan->files)) {
-            $hydrated->setFiles(FileHydrator::hydrateCollection($scan->files));
-        }
-
-        if (isset($scan->functions) && is_array($scan->functions)) {
-            $hydrated->setFunctions(CustomFunctionHydrator::hydrateCollection($scan->functions));
-        }
-
-        if (isset($scan->classes) && is_array($scan->classes)) {
-            $hydrated->setClasses(CustomClassHydrator::hydrateCollection($scan->classes));
-        }
-
-        if (isset($scan->issues) && is_array($scan->issues)) {
-            $hydrated->setIssues(IssueHydrator::hydrateCollection($scan->issues));
+        if (isset($scan->java)) {
+            $hydrated->setJava(JavaHydrator::hydrate($scan->java));
         }
 
         if (isset($scan->upload)) {
@@ -150,12 +118,8 @@ class ScanHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($scan->created_by));
         }
 
-        if (isset($scan->charged_quota)) {
-            $hydrated->setChargedQuota(QuotaHydrator::hydrate($scan->charged_quota));
-        }
-
-        if (isset($scan->custom)) {
-            $hydrated->setCustom(CustomHydrator::hydrate($scan->custom));
+        if (isset($scan->profile)) {
+            $hydrated->setProfile(ProfileHydrator::hydrate($scan->profile));
         }
 
         if (isset($scan->issue_types) && is_array($scan->issue_types)) {
@@ -166,20 +130,16 @@ class ScanHydrator
             $hydrated->setParent(self::hydrate($scan->parent));
         }
 
-        if (isset($scan->children) && is_array($scan->children)) {
-            $hydrated->setChildren(self::hydrateCollection($scan->children));
-        }
-
         if (isset($scan->severity_distributions)) {
             $hydrated->setSeverityDistributions((array)$scan->severity_distributions);
         }
 
-        if (isset($scan->callbacks)) {
-            $hydrated->setCallbacks($scan->callbacks);
+        if (isset($scan->analysis_depth)) {
+            $hydrated->setAnalysisDepth($scan->analysis_depth);
         }
 
         if (isset($scan->tags)) {
-            $hydrated->setCallbacks($scan->tags);
+            $hydrated->setTags($scan->tags);
         }
 
         if (isset($scan->max_issues_per_type)) {
@@ -190,6 +150,10 @@ class ScanHydrator
             $hydrated->setComment($scan->comment);
         }
 
+        if (isset($scan->source)) {
+            $hydrated->setSource($scan->source);
+        }
+
         if (isset($scan->libraries) && is_array($scan->libraries)) {
             $hydrated->setLibraries(LibraryHydrator::hydrateCollection($scan->libraries));
         }
@@ -198,6 +162,13 @@ class ScanHydrator
             $hydrated->setProcesses(ProcessHydrator::hydrateCollection($scan->processes));
         }
 
+        if (isset($scan->languages) && is_array($scan->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($scan->languages));
+        }
+
+        if (isset($scan->comparison)) {
+            $hydrated->setComparison(ComparisonHydrator::hydrate($scan->comparison));
+        }
         return $hydrated;
     }
 }

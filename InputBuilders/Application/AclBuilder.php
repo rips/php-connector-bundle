@@ -39,6 +39,11 @@ class AclBuilder extends BaseBuilder
     /**
      * @var boolean
      */
+    protected $scan;
+
+    /**
+     * @var boolean
+     */
     protected $manage;
     
     /**
@@ -122,6 +127,20 @@ class AclBuilder extends BaseBuilder
         $this->setFields[] = 'edit';
         $this->edit = $edit;
     
+        return $this;
+    }
+
+    /**
+     * Set scan
+     *
+     * @param boolean $scan
+     * @return $this
+     */
+    public function setScan($scan)
+    {
+        $this->setFields[] = 'scan';
+        $this->scan = $scan;
+
         return $this;
     }
 

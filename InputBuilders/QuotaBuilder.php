@@ -64,8 +64,28 @@ class QuotaBuilder extends BaseBuilder
     /**
      * @var int
      */
-    protected $organisation;
-    
+    protected $organization;
+
+    /**
+     * @var boolean
+     */
+    protected $notify;
+
+    /**
+     * @var int[]
+     */
+    protected $languages;
+
+    /**
+     * @var boolean
+     */
+    protected $updateOnly;
+
+    /**
+     * @var boolean
+     */
+    protected $flexibleApplications;
+
     /**
      * Set currentApplication
      *
@@ -221,16 +241,72 @@ class QuotaBuilder extends BaseBuilder
     }
     
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param int $organisation
+     * @param int $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->setFields[] = 'organisation';
-        $this->organisation = $organisation;
+        $this->setFields[] = 'organization';
+        $this->organization = $organization;
     
+        return $this;
+    }
+
+    /**
+     * Set notify
+     *
+     * @param bool $notify
+     * @return $this
+     */
+    public function setNotify($notify)
+    {
+        $this->setFields[] = 'notify';
+        $this->notify = $notify;
+
+        return $this;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param int[] $languages
+     * @return $this
+     */
+    public function setLanguages($languages)
+    {
+        $this->setFields[] = 'languages';
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Set updateOnly
+     *
+     * @param bool $updateOnly
+     * @return $this
+     */
+    public function setUpdateOnly($updateOnly)
+    {
+        $this->setFields[] = 'updateOnly';
+        $this->updateOnly = $updateOnly;
+
+        return $this;
+    }
+
+    /**
+     * Set flexibleApplications
+     *
+     * @param bool $flexibleApplications
+     * @return $this
+     */
+    public function setFlexibleApplications($flexibleApplications)
+    {
+        $this->setFields[] = 'flexibleApplications';
+        $this->flexibleApplications = $flexibleApplications;
+
         return $this;
     }
 }

@@ -2,11 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
-use RIPS\ConnectorBundle\Hydrators\Quota\AclHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class QuotaHydrator
 {
@@ -78,10 +77,6 @@ class QuotaHydrator
             $hydrated->setValidUntil(new DateTime($quota->valid_until));
         }
 
-        if (isset($quota->last_modification)) {
-            $hydrated->setLastModification(new DateTime($quota->last_modification));
-        }
-
         if (isset($quota->allowed_misses)) {
             $hydrated->setAllowedMisses($quota->allowed_misses);
         }
@@ -90,24 +85,36 @@ class QuotaHydrator
             $hydrated->setPublic($quota->public);
         }
 
-        if (isset($quota->license)) {
-            $hydrated->setLicense(LicenseHydrator::hydrate($quota->license));
+        if (isset($quota->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($quota->organization));
         }
 
-        if (isset($quota->scans) && is_array($quota->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($quota->scans));
+        if (isset($quota->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($quota->created_at));
         }
 
-        if (isset($quota->users) && is_array($quota->users)) {
-            $hydrated->setUsers(UserHydrator::hydrateCollection($quota->users));
+        if (isset($quota->languages) && is_array($quota->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($quota->languages));
         }
 
-        if (isset($quota->acls) && is_array($quota->acls)) {
-            $hydrated->setAcls(AclHydrator::hydrateCollection($quota->acls));
+        if (isset($quota->notify)) {
+            $hydrated->setNotify($quota->notify);
         }
 
-        if (isset($quota->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($quota->organisation));
+        if (isset($quota->trial_issue_types) && is_array($quota->trial_issue_types)) {
+            $hydrated->setTrialIssueTypes(TypeHydrator::hydrateCollection($quota->trial_issue_types));
+        }
+
+        if (isset($quota->issue_type_limit)) {
+            $hydrated->setIssueTypeLimit($quota->issue_type_limit);
+        }
+
+        if (isset($quota->update_only)) {
+            $hydrated->setUpdateOnly($quota->update_only);
+        }
+
+        if (isset($quota->flexible_applications)) {
+            $hydrated->setFlexibleApplications($quota->flexible_applications);
         }
 
         return $hydrated;

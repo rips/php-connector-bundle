@@ -10,27 +10,13 @@ use RIPS\ConnectorBundle\InputBuilders\FilterBuilder\FilterExpression;
 class FilterBuilder
 {
     /**
-     * @var FilterCondition
-     */
-    private $condition;
-
-    /**
-     * @param FilterCondition $condition
-     * @return $this
-     */
-    public function build($condition)
-    {
-        $this->condition = $condition;
-
-        return $this;
-    }
-
-    /**
+     * @param FilterCondition|FilterExpression
      * @return string
      */
-    public function getFilterString()
+    public function getFilterString($input)
     {
-        return json_encode($this->condition->getFilterRepresentation());
+        /** @var FilterCondition|FilterExpression $input */
+        return json_encode($input->getFilterRepresentation());
     }
 
     /**
@@ -147,13 +133,5 @@ class FilterBuilder
     public function lessThanEqual(string $key, $value)
     {
         return new Expression\LessThanEqual($key, $value);
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getFilterString();
     }
 }

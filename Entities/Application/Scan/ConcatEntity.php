@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class ConcatEntity
 {
     /**
@@ -17,14 +15,19 @@ class ConcatEntity
     protected $line;
 
     /**
+     * @var int
+     */
+    protected $startLine;
+
+    /**
+     * @var int
+     */
+    protected $endLine;
+
+    /**
      * @var FileEntity
      */
     protected $file;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
 
     /**
      * @var CustomFunctionEntity
@@ -37,9 +40,19 @@ class ConcatEntity
     protected $class;
 
     /**
-     * @var IssueEntity[]
+     * @var int
      */
-    protected $issues;
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
+     * @var TaintEntity
+     */
+    protected $taint;
 
     /**
      * Set id
@@ -88,6 +101,52 @@ class ConcatEntity
     }
 
     /**
+     * Set startLine
+     *
+     * @param int $startLine
+     * @return $this
+     */
+    public function setStartLine($startLine)
+    {
+        $this->startLine = $startLine;
+
+        return $this;
+    }
+
+    /**
+     * Get startLine
+     *
+     * @return int
+     */
+    public function getStartLine()
+    {
+        return $this->startLine;
+    }
+
+    /**
+     * Set endLine
+     *
+     * @param int $endLine
+     * @return $this
+     */
+    public function setEndLine($endLine)
+    {
+        $this->endLine = $endLine;
+
+        return $this;
+    }
+
+    /**
+     * Get endLine
+     *
+     * @return int
+     */
+    public function getEndLine()
+    {
+        return $this->endLine;
+    }
+
+    /**
      * Set file
      *
      * @param FileEntity $file
@@ -108,29 +167,6 @@ class ConcatEntity
     public function getFile()
     {
         return $this->file;
-    }
-
-    /**
-     * Set scan
-     *
-     * @param ScanEntity $scan
-     * @return $this
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-
-        return $this;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
     }
 
     /**
@@ -180,25 +216,71 @@ class ConcatEntity
     }
 
     /**
-     * Set issues
+     * Get start column
      *
-     * @param IssueEntity[] $issues
+     * @return int
+     */
+    public function getStartColumn()
+    {
+        return $this->startColumn;
+    }
+
+    /**
+     * Set start column
+     *
+     * @param int $startColumn
      * @return $this
      */
-    public function setIssues(array $issues)
+    public function setStartColumn(int $startColumn)
     {
-        $this->issues = $issues;
+        $this->startColumn = $startColumn;
 
         return $this;
     }
 
     /**
-     * Get issue
+     * Get end column
      *
-     * @return IssueEntity[]
+     * @return int
      */
-    public function getIssues()
+    public function getEndColumn()
     {
-        return $this->issues;
+        return $this->endColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Set taint
+     *
+     * @param TaintEntity $taint
+     * @return $this
+     */
+    public function setTaint(TaintEntity $taint)
+    {
+        $this->taint = $taint;
+
+        return $this;
+    }
+
+    /**
+     * Get taint
+     *
+     * @return TaintEntity
+     */
+    public function getTaint()
+    {
+        return $this->taint;
     }
 }

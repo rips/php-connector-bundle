@@ -3,7 +3,6 @@
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
 use DateTime;
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 
 class ProcessEntity
 {
@@ -30,12 +29,12 @@ class ProcessEntity
     /**
      * @var DateTime
      */
-    protected $start;
+    protected $startedAt;
 
     /**
      * @var DateTime
      */
-    protected $finish;
+    protected $finishedAt;
 
     /**
      * @var boolean
@@ -43,9 +42,24 @@ class ProcessEntity
     protected $finished;
 
     /**
-     * @var ScanEntity
+     * @var int
      */
-    protected $scan;
+    protected $memory;
+
+    /**
+     * @var int
+     */
+    protected $phase;
+
+    /**
+     * @var int
+     */
+    protected $percent;
+
+    /**
+     * @var int
+     */
+    protected $weight;
 
     /**
      * Set id
@@ -132,45 +146,45 @@ class ProcessEntity
     }
 
     /**
-     * Set start
+     * Set startedAt
      *
-     * @param DateTime $start
+     * @param DateTime $startedAt
      * @return void
      */
-    public function setStart($start)
+    public function setStartedAt($startedAt)
     {
-        $this->start = $start;
+        $this->startedAt = $startedAt;
     }
 
     /**
-     * Get start
+     * Get startedAt
      *
      * @return DateTime
      */
-    public function getStart()
+    public function getStartedAt()
     {
-        return $this->start;
+        return $this->startedAt;
     }
 
     /**
-     * Set finish
+     * Set finishedAt
      *
-     * @param DateTime $finish
+     * @param DateTime $finishedAt
      * @return void
      */
-    public function setFinish($finish)
+    public function setFinishedAt($finishedAt)
     {
-        $this->finish = $finish;
+        $this->finishedAt = $finishedAt;
     }
 
     /**
-     * Get finish
+     * Get finishedAt
      *
      * @return DateTime
      */
-    public function getFinish()
+    public function getFinishedAt()
     {
-        return $this->finish;
+        return $this->finishedAt;
     }
 
     /**
@@ -197,23 +211,95 @@ class ProcessEntity
     }
 
     /**
-     * Set scan
+     * Set memory
      *
-     * @param ScanEntity $scan
-     * @return void
+     * @param int $memory
+     * @return $this
      */
-    public function setScan($scan)
+    public function setMemory($memory)
     {
-        $this->scan = $scan;
+        $this->memory = $memory;
+
+        return $this;
     }
 
     /**
-     * Get scan
+     * Get memory
      *
-     * @return ScanEntity
+     * @return int
      */
-    public function getScan()
+    public function getMemory()
     {
-        return $this->scan;
+        return $this->memory;
+    }
+
+
+    /**
+     * Set phase
+     *
+     * @param int
+     * @return $this
+     */
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Get phase
+     *
+     * @return int
+     */
+    public function getPhase()
+    {
+        return $this->phase;
+    }
+
+    /**
+     * Set percent
+     *
+     * @param int $percent
+     * @return $this
+     */
+    public function setPercent($percent)
+    {
+        $this->percent = $percent;
+
+        return $this;
+    }
+
+    /**
+     * Get percent
+     *
+     * @return int
+     */
+    public function getPercent()
+    {
+        return $this->percent;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param int $weight
+     * @return $this
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }

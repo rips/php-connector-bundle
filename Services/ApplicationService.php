@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\InputBuilders\ApplicationBuilder;
-use RIPS\ConnectorBundle\Entities\ApplicationEntity;
+use RIPS\ConnectorBundle\Responses\ApplicationsResponse;
+use RIPS\ConnectorBundle\Responses\ApplicationResponse;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 
 class ApplicationService
 {
@@ -27,13 +28,13 @@ class ApplicationService
      * Get all applications
      *
      * @param array $queryParams
-     * @return ApplicationEntity[]
+     * @return ApplicationsResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $applications = $this->api->applications()->getAll($queryParams);
+        $response = $this->api->applications()->getAll($queryParams);
 
-        return ApplicationHydrator::hydrateCollection($applications);
+        return new ApplicationsResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class ApplicationService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return ApplicationEntity
+     * @return ApplicationResponse
      */
     public function getById($appId, array $queryParams = [])
     {
-        $application = $this->api->applications()->getById($appId, $queryParams);
+        $response = $this->api->applications()->getById($appId, $queryParams);
 
-        return ApplicationHydrator::hydrate($application);
+        return new ApplicationResponse($response);
     }
 
     /**
@@ -55,13 +56,13 @@ class ApplicationService
      *
      * @param ApplicationBuilder $input
      * @param array $queryParams
-     * @return ApplicationEntity
+     * @return ApplicationResponse
      */
     public function create(ApplicationBuilder $input, array $queryParams = [])
     {
-        $application = $this->api->applications()->create($input->toArray(), $queryParams);
+        $response = $this->api->applications()->create($input->toArray(), $queryParams);
 
-        return ApplicationHydrator::hydrate($application);
+        return new ApplicationResponse($response);
     }
 
     /**
@@ -70,24 +71,26 @@ class ApplicationService
      * @param int $appId
      * @param ApplicationBuilder $input
      * @param array $queryParams
-     * @return ApplicationEntity
+     * @return ApplicationResponse
      */
     public function update($appId, ApplicationBuilder $input, array $queryParams = [])
     {
-        $application = $this->api->applications()->update($appId, $input->toArray(), $queryParams);
+        $response = $this->api->applications()->update($appId, $input->toArray(), $queryParams);
 
-        return ApplicationHydrator::hydrate($application);
+        return new ApplicationResponse($response);
     }
 
     /**
      * Delete all applications
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll(array $queryParams = [])
     {
-        $this->api->applications()->deleteAll($queryParams);
+        $response = $this->api->applications()->deleteAll($queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -95,10 +98,12 @@ class ApplicationService
      *
      * @param int $appId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($appId, array $queryParams = [])
     {
-        $this->api->applications()->deleteById($appId, $queryParams);
+        $response = $this->api->applications()->deleteById($appId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

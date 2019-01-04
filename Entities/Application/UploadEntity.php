@@ -16,7 +16,7 @@ class UploadEntity
     /**
      * @var DateTime
      */
-    protected $submission;
+    protected $createdAt;
 
     /**
      * @var string
@@ -44,19 +44,9 @@ class UploadEntity
     protected $createdBy;
 
     /**
-     * @var ScanEntity[]
-     */
-    protected $scans;
-
-    /**
      * @var ApplicationEntity
      */
     protected $application;
-
-    /**
-     * @var boolean
-     */
-    protected $consumed;
 
     /**
      * Set id
@@ -82,26 +72,26 @@ class UploadEntity
     }
 
     /**
-     * Set submission
+     * Set createdAt
      *
-     * @param DateTime $submission
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setSubmission($submission)
+    public function setCreatedAt($createdAt)
     {
-        $this->submission = $submission;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get submission
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getSubmission()
+    public function getCreatedAt()
     {
-        return $this->submission;
+        return $this->createdAt;
     }
 
     /**
@@ -220,29 +210,6 @@ class UploadEntity
     }
 
     /**
-     * Set scans
-     *
-     * @param ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
-    }
-
-    /**
      * Set application
      *
      * @param ApplicationEntity $application
@@ -263,28 +230,5 @@ class UploadEntity
     public function getApplication()
     {
         return $this->application;
-    }
-
-    /**
-     * Set consumed
-     *
-     * @param boolean $consumed
-     * @return $this
-     */
-    public function setConsumed($consumed)
-    {
-        $this->consumed = $consumed;
-
-        return $this;
-    }
-
-    /**
-     * Get consumed
-     *
-     * @return boolean
-     */
-    public function getConsumed()
-    {
-        return $this->consumed;
     }
 }

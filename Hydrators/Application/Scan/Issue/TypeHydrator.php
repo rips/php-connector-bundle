@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Type\ResourceHydrator;
@@ -52,10 +53,6 @@ class TypeHydrator
             $hydrated->setName($type->name);
         }
 
-        if (isset($type->color)) {
-            $hydrated->setColor($type->color);
-        }
-
         if (isset($type->markup)) {
             $hydrated->setMarkup($type->markup);
         }
@@ -76,8 +73,16 @@ class TypeHydrator
             $hydrated->setCwe($type->cwe);
         }
 
-        if (isset($type->owasp)) {
-            $hydrated->setOwasp($type->owasp);
+        if (isset($type->owasp2010)) {
+            $hydrated->setOwasp2010($type->owasp2010);
+        }
+
+        if (isset($type->owasp2013)) {
+            $hydrated->setOwasp2013($type->owasp2013);
+        }
+
+        if (isset($type->owasp2017)) {
+            $hydrated->setOwasp2017($type->owasp2017);
         }
 
         if (isset($type->sans)) {
@@ -88,8 +93,8 @@ class TypeHydrator
             $hydrated->setPcidss($type->pcidss);
         }
 
-        if (isset($type->asvs)) {
-            $hydrated->setAsvs($type->asvs);
+        if (isset($type->asvs301)) {
+            $hydrated->setAsvs301($type->asvs301);
         }
 
         if (isset($type->enabled)) {
@@ -110,6 +115,10 @@ class TypeHydrator
 
         if (isset($type->inactive)) {
             $hydrated->setInactive($type->inactive);
+        }
+
+        if (isset($type->languages) && is_array($type->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($type->languages));
         }
 
         return $hydrated;

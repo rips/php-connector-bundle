@@ -10,42 +10,42 @@ class TypeHydrator
 {
     /**
      * Hydrate a collection of type objects into a collection of
-     * OriginEntity objects
+     * TypeEntity objects
      *
-     * @param stdClass[] $origins
+     * @param stdClass[] $types
      * @return TypeEntity[]
      */
-    public static function hydrateCollection(array $origins)
+    public static function hydrateCollection(array $types)
     {
         $hydrated = [];
 
-        foreach ($origins as $origin) {
-            $hydrated[] = self::hydrate($origin);
+        foreach ($types as $type) {
+            $hydrated[] = self::hydrate($type);
         }
 
         return $hydrated;
     }
 
     /**
-     * Hydrate a user object into a OriginEntity object
+     * Hydrate a user object into a TypeEntity object
      *
-     * @param stdClass $origin
+     * @param stdClass $type
      * @return TypeEntity
      */
-    public static function hydrate(stdClass $origin)
+    public static function hydrate(stdClass $type)
     {
         $hydrated = new TypeEntity();
 
-        if (isset($origin->id)) {
-            $hydrated->setId($origin->id);
+        if (isset($type->id)) {
+            $hydrated->setId($type->id);
         }
 
-        if (isset($origin->tag)) {
-            $hydrated->setTag($origin->tag);
+        if (isset($type->tag)) {
+            $hydrated->setTag($type->tag);
         }
 
-        if (isset($origin->name)) {
-            $hydrated->setName($origin->name);
+        if (isset($type->name)) {
+            $hydrated->setName($type->name);
         }
         return $hydrated;
     }

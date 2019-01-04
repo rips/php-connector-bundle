@@ -64,28 +64,32 @@ class LogHydrator
             $hydrated->setIp($log->ip);
         }
 
-        if (isset($log->user)) {
-            $hydrated->setUser(UserHydrator::hydrate($log->user));
+        if (isset($log->created_by)) {
+            $hydrated->setCreatedBy(UserHydrator::hydrate($log->created_by));
         }
 
-        if (isset($log->username)) {
-            $hydrated->setUsername($log->username);
+        if (isset($log->email)) {
+            $hydrated->setEmail($log->email);
         }
 
-        if (isset($log->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($log->organisation));
+        if (isset($log->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($log->organization));
         }
 
-        if (isset($log->organisation_name)) {
-            $hydrated->setOrganisationName($log->organisation_name);
+        if (isset($log->organization_name)) {
+            $hydrated->setOrganizationName($log->organization_name);
         }
 
         if (isset($log->context)) {
             $hydrated->setContext($log->context);
         }
 
-        if (isset($log->created)) {
-            $hydrated->setCreated(new DateTime($log->created));
+        if (isset($log->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($log->created_at));
+        }
+
+        if (isset($log->user_agent)) {
+            $hydrated->setUserAgent($log->user_agent);
         }
 
         return $hydrated;

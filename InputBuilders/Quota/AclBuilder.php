@@ -39,7 +39,7 @@ class AclBuilder extends BaseBuilder
     /**
      * @var boolean
      */
-    protected $scan;
+    protected $use;
 
     /**
      * @var boolean
@@ -129,21 +129,21 @@ class AclBuilder extends BaseBuilder
     
         return $this;
     }
-    
+
     /**
-     * Set scan
+     * Set use
      *
-     * @param boolean $scan
+     * @param boolean $use
      * @return $this
      */
-    public function setScan($scan)
+    public function setUse($use)
     {
-        $this->setFields[] = 'scan';
-        $this->scan = $scan;
-    
+        $this->setFields[] = 'use';
+        $this->use = $use;
+
         return $this;
     }
-    
+
     /**
      * Set manage
      *

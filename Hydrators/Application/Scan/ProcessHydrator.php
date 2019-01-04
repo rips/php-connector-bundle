@@ -5,7 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class ProcessHydrator
 {
@@ -53,20 +52,32 @@ class ProcessHydrator
             $hydrated->setName($process->name);
         }
 
-        if (isset($process->start)) {
-            $hydrated->setStart(new DateTime($process->start));
+        if (isset($process->started_at)) {
+            $hydrated->setStartedAt(new DateTime($process->started_at));
         }
 
-        if (isset($process->finish)) {
-            $hydrated->setFinish(new DateTime($process->finish));
+        if (isset($process->finished_at)) {
+            $hydrated->setFinishedAt(new DateTime($process->finished_at));
         }
 
         if (isset($process->finished)) {
             $hydrated->setFinished($process->finished);
         }
 
-        if (isset($process->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($process->scan));
+        if (isset($process->memory)) {
+            $hydrated->setMemory($process->memory);
+        }
+
+        if (isset($process->phase)) {
+            $hydrated->setPhase($process->phase);
+        }
+
+        if (isset($process->percent)) {
+            $hydrated->setPercent($process->percent);
+        }
+
+        if (isset($process->weight)) {
+            $hydrated->setWeight($process->weight);
         }
 
         return $hydrated;

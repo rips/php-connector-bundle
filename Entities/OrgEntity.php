@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class OrgEntity
 {
@@ -22,42 +23,12 @@ class OrgEntity
     protected $validUntil;
 
     /**
-     * @var UserEntity[]
-     */
-    protected $users;
-
-    /**
-     * @var TeamEntity[]
-     */
-    protected $teams;
-
-    /**
-     * @var ApplicationEntity[]
-     */
-    protected $applications;
-
-    /**
      * @var QuotaEntity[]
      */
     protected $quotas;
 
     /**
-     * @var LicenseEntity[]
-     */
-    protected $licenses;
-
-    /**
-     * @var LogEntity[]
-     */
-    protected $logs;
-
-    /**
-     * @var array
-     */
-    protected $callbacks;
-
-    /**
-     * @var array
+     * @var TypeEntity[]
      */
     protected $trialIssueTypes;
 
@@ -136,75 +107,6 @@ class OrgEntity
     }
 
     /**
-     * Set users
-     *
-     * @param UserEntity[] $users
-     * @return $this
-     */
-    public function setUsers(array $users)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return UserEntity[]
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * Set teams
-     *
-     * @param TeamEntity[] $teams
-     * @return $this
-     */
-    public function setTeams(array $teams)
-    {
-        $this->teams = $teams;
-
-        return $this;
-    }
-
-    /**
-     * Get teams
-     *
-     * @return TeamEntity[]
-     */
-    public function getTeams()
-    {
-        return $this->teams;
-    }
-
-    /**
-     * Set applications
-     *
-     * @param ApplicationEntity[] $applications
-     * @return $this
-     */
-    public function setApplications(array $applications)
-    {
-        $this->applications = $applications;
-
-        return $this;
-    }
-
-    /**
-     * Get applications
-     *
-     * @return ApplicationEntity[]
-     */
-    public function getApplications()
-    {
-        return $this->applications;
-    }
-
-    /**
      * Set quotas
      *
      * @param QuotaEntity[] $quotas
@@ -224,83 +126,14 @@ class OrgEntity
     {
         return $this->quotas;
     }
-    
-    /**
-     * Get licenses
-     *
-     * @return LicenseEntity[]
-     */
-    public function getLicenses()
-    {
-        return $this->licenses;
-    }
-    
-    /**
-     * Set licenses
-     *
-     * @param LicenseEntity[] $licenses
-     * @return $this
-     */
-    public function setLicenses($licenses)
-    {
-        $this->licenses = $licenses;
-    
-        return $this;
-    }
-
-    /**
-     * Set logs
-     *
-     * @param LogEntity[] $logs
-     * @return $this
-     */
-    public function setLogs(array $logs)
-    {
-        $this->logs = $logs;
-
-        return $this;
-    }
-
-    /**
-     * Get logs
-     *
-     * @return LogEntity[]
-     */
-    public function getLogs()
-    {
-        return $this->logs;
-    }
-
-    /**
-     * Set callbacks
-     *
-     * @param array $callbacks
-     * @return $this
-     */
-    public function setCallbacks(array $callbacks)
-    {
-        $this->callbacks = $callbacks;
-
-        return $this;
-    }
-
-    /**
-     * Get callbacks
-     *
-     * @return array
-     */
-    public function getCallbacks()
-    {
-        return $this->callbacks;
-    }
 
     /**
      * Set trialIssueTypes
      *
-     * @param array $trialIssueTypes
+     * @param TypeEntity[] $trialIssueTypes
      * @return $this
      */
-    public function setTrialIssueTypes(array $trialIssueTypes)
+    public function setTrialIssueTypes($trialIssueTypes)
     {
         $this->trialIssueTypes = $trialIssueTypes;
 
@@ -308,9 +141,9 @@ class OrgEntity
     }
 
     /**
-     * Get callbacks
+     * Get trialIssueTypes
      *
-     * @return array
+     * @return TypeEntity[]
      */
     public function getTrialIssueTypes()
     {

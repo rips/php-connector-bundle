@@ -3,10 +3,9 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
-
-use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\CustomFunctionHydrator;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\CustomFunctionBuilder;
+use RIPS\ConnectorBundle\Responses\Application\Scan\CustomFunctionsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\CustomFunctionResponse;
 
 class CustomFunctionService
 {
@@ -16,7 +15,7 @@ class CustomFunctionService
     protected $api;
 
     /**
-     * Initialize new IssueService instance
+     * Initialize new CustomFunctionService instance
      *
      * @param APIService $api
      */
@@ -31,17 +30,17 @@ class CustomFunctionService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return CustomFunctionEntity[]
+     * @return CustomFunctionsResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $functions = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->functions()
             ->getAll($appId, $scanId, $queryParams);
 
-        return CustomFunctionHydrator::hydrateCollection($functions);
+        return new CustomFunctionsResponse($response);
     }
 
     /**
@@ -51,17 +50,17 @@ class CustomFunctionService
      * @param int $scanId
      * @param int $functionId
      * @param array $queryParams
-     * @return CustomFunctionEntity
+     * @return CustomFunctionResponse
      */
     public function getById($appId, $scanId, $functionId, array $queryParams = [])
     {
-        $function = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->functions()
             ->getById($appId, $scanId, $functionId, $queryParams);
 
-        return CustomFunctionHydrator::hydrate($function);
+        return new CustomFunctionResponse($response);
     }
 
     /**
@@ -71,16 +70,16 @@ class CustomFunctionService
      * @param int $scanId
      * @param CustomFunctionBuilder $input
      * @param array $queryParams
-     * @return CustomFunctionEntity
+     * @return CustomFunctionResponse
      */
     public function create($appId, $scanId, $input, array $queryParams = [])
     {
-        $function = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->functions()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return CustomFunctionHydrator::hydrate($function);
+        return new CustomFunctionResponse($response);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\CommentEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 
 class CommentHydrator
 {
@@ -46,12 +46,16 @@ class CommentHydrator
             $hydrated->setComment($comment->comment);
         }
 
-        if (isset($comment->submission)) {
-            $hydrated->setSubmission(new DateTime($comment->submission));
+        if (isset($comment->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($comment->created_at));
         }
 
         if (isset($comment->created_by)) {
             $hydrated->setCreatedBy(UserHydrator::hydrate($comment->created_by));
+        }
+
+        if (isset($comment->source)) {
+            $hydrated->setSource($comment->source);
         }
 
         if (isset($comment->issue)) {

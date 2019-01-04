@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class CustomFunctionEntity
 {
     /**
@@ -22,6 +20,16 @@ class CustomFunctionEntity
     protected $endLine;
 
     /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
      * @var string
      */
     protected $name;
@@ -37,24 +45,9 @@ class CustomFunctionEntity
     protected $class;
 
     /**
-     * @var ScanEntity
+     * @var string[]
      */
-    protected $scan;
-
-    /**
-     * @var SourceEntity[]
-     */
-    protected $sources;
-
-    /**
-     * @var SinkEntity[]
-     */
-    protected $sinks;
-
-    /**
-     * @var ConcatEntity[]
-     */
-    protected $concats;
+    protected $parameters;
 
     /**
      * Set id
@@ -123,6 +116,53 @@ class CustomFunctionEntity
     public function getEndLine()
     {
         return $this->endLine;
+    }
+
+
+    /**
+     * Set start column
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn(int $startColumn)
+    {
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get start column
+     *
+     * @return int
+     */
+    public function getStartColumn()
+    {
+        return $this->startColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get end column
+     *
+     * @return int
+     */
+    public function getEndColumn()
+    {
+        return $this->endColumn;
     }
 
     /**
@@ -195,94 +235,25 @@ class CustomFunctionEntity
     }
 
     /**
-     * Set scan
+     * Get parameters
      *
-     * @param ScanEntity $scan
+     * @return string[]
+     */
+    public function getParameters()
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * Set parameters
+     *
+     * @param string[] $parameters
      * @return $this
      */
-    public function setScan($scan)
+    public function setParameters(array $parameters)
     {
-        $this->scan = $scan;
+        $this->parameters = $parameters;
 
         return $this;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
-     * Set sources
-     *
-     * @param SourceEntity[] $sources
-     * @return $this
-     */
-    public function setSources(array $sources)
-    {
-        $this->sources = $sources;
-
-        return $this;
-    }
-
-    /**
-     * Get sources
-     *
-     * @return SourceEntity[]
-     */
-    public function getSources()
-    {
-        return $this->sources;
-    }
-
-    /**
-     * Set sinks
-     *
-     * @param SinkEntity[] $sinks
-     * @return $this
-     */
-    public function setSinks(array $sinks)
-    {
-        $this->sinks = $sinks;
-
-        return $this;
-    }
-
-    /**
-     * Get sinks
-     *
-     * @return SinkEntity[]
-     */
-    public function getSinks()
-    {
-        return $this->sinks;
-    }
-
-    /**
-     * Set concats
-     *
-     * @param ConcatEntity[] $concats
-     * @return $this
-     */
-    public function setConcats(array $concats)
-    {
-        $this->concats = $concats;
-
-        return $this;
-    }
-
-    /**
-     * Get concats
-     *
-     * @return ConcatEntity[]
-     */
-    public function getConcats()
-    {
-        return $this->concats;
     }
 }

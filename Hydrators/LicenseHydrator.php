@@ -40,16 +40,8 @@ class LicenseHydrator
             $hydrated->setId($license->id);
         }
 
-        if (isset($license->hardware_id)) {
-            $hydrated->setHardwareId($license->hardware_id);
-        }
-
-        if (isset($license->key)) {
-            $hydrated->setKey($license->key);
-        }
-
-        if (isset($license->submission)) {
-            $hydrated->setSubmission(new DateTime($license->submission));
+        if (isset($license->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($license->created_at));
         }
 
         if (isset($license->valid_until)) {
@@ -58,10 +50,6 @@ class LicenseHydrator
 
         if (isset($license->quota_distributed)) {
             $hydrated->setQuotaDistributed($license->quota_distributed);
-        }
-
-        if (isset($license->quotas) && is_array($license->quotas)) {
-            $hydrated->setQuotas(QuotaHydrator::hydrateCollection($license->quotas));
         }
 
         if (isset($license->created_by)) {
@@ -76,8 +64,8 @@ class LicenseHydrator
             $hydrated->setChild(self::hydrate($license->child));
         }
 
-        if (isset($license->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($license->organisation));
+        if (isset($license->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($license->organization));
         }
 
         return $hydrated;

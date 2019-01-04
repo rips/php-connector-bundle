@@ -19,7 +19,7 @@ class TeamEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var UserEntity[]
@@ -34,17 +34,7 @@ class TeamEntity
     /**
      * @var DateTime
      */
-    protected $lastModification;
-
-    /**
-     * @var Application\AclEntity[]
-     */
-    protected $applicationAcls;
-
-    /**
-     * @var Quota\AclEntity[]
-     */
-    protected $quotaAcls;
+    protected $createdAt;
     
     /**
      * Get id
@@ -93,24 +83,24 @@ class TeamEntity
     }
     
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
     
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
     
         return $this;
     }
@@ -160,73 +150,27 @@ class TeamEntity
     
         return $this;
     }
-    
+
     /**
-     * Get lastModification
+     * Set createdAt
+     *
+     * @param DateTime $createdAt
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getLastModification()
+    public function getCreatedAt()
     {
-        return $this->lastModification;
-    }
-    
-    /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-    
-        return $this;
-    }
-    
-    /**
-     * Get applicationAcls
-     *
-     * @return Application\AclEntity[]
-     */
-    public function getApplicationAcls()
-    {
-        return $this->applicationAcls;
-    }
-    
-    /**
-     * Set applicationAcls
-     *
-     * @param Application\AclEntity[] $applicationAcls
-     * @return $this
-     */
-    public function setApplicationAcls(array $applicationAcls)
-    {
-        $this->applicationAcls = $applicationAcls;
-    
-        return $this;
-    }
-    
-    /**
-     * Get quotaAcls
-     *
-     * @return Quota\AclEntity[]
-     */
-    public function getQuotaAcls()
-    {
-        return $this->quotaAcls;
-    }
-    
-    /**
-     * Set quotaAcls
-     *
-     * @param Quota\AclEntity[] $quotaAcls
-     * @return $this
-     */
-    public function setQuotaAcls(array $quotaAcls)
-    {
-        $this->quotaAcls = $quotaAcls;
-    
-        return $this;
+        return $this->createdAt;
     }
 }

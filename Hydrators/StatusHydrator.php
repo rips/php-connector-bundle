@@ -2,29 +2,12 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\StatusEntity;
 
 class StatusHydrator
 {
-    /**
-     * Hydrate a collection of statuses objects into a SettingEntity
-     * collection
-     *
-     * @param array $statuses
-     * @return StatusEntity[]
-     */
-    public static function hydrateCollection(array $statuses)
-    {
-        $hydrated = [];
-
-        foreach ($statuses as $status) {
-            $hydrated[] = self::hydrate($status);
-        }
-
-        return $hydrated;
-    }
-
     /**
      * Hydrate a status object into a StatusEntity
      *
@@ -56,11 +39,15 @@ class StatusHydrator
         }
 
         if (isset($status->trial_issue_types) && is_array($status->trial_issue_types)) {
-            $hydrated->setTrialIssueTypes($status->trial_issue_types);
+            $hydrated->setTrialIssueTypes(TypeHydrator::hydrateCollection($status->trial_issue_types));
         }
 
-        if (isset($status->file_extensions) && is_array($status->file_extensions)) {
-            $hydrated->setFileExtensions($status->file_extensions);
+        if (isset($status->user)) {
+            $hydrated->setUser(UserHydrator::hydrate($status->user));
+        }
+
+        if (isset($status->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($status->organization));
         }
 
         return $hydrated;

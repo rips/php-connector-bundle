@@ -46,8 +46,8 @@ class TeamHydrator
             $hydrated->setName($team->name);
         }
 
-        if (isset($team->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($team->organisation));
+        if (isset($team->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($team->organization));
         }
 
         if (isset($team->users) && is_array($team->users)) {
@@ -58,16 +58,8 @@ class TeamHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($team->created_by));
         }
 
-        if (isset($team->last_modification)) {
-            $hydrated->setLastModification(new DateTime($team->last_modification));
-        }
-
-        if (isset($team->application_acls) && is_array($team->application_acls)) {
-            $hydrated->setApplicationAcls(ApplicationAclHydrator::hydrateCollection($team->application_acls));
-        }
-
-        if (isset($team->quota_acls) && is_array($team->quota_acls)) {
-            $hydrated->setQuotaAcls(QuotaAclHydrator::hydrateCollection($team->quota_acls));
+        if (isset($team->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($team->created_at));
         }
 
         return $hydrated;

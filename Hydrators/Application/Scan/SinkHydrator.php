@@ -4,7 +4,7 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\SinkEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\Property\TypeHydrator;
 
 class SinkHydrator
 {
@@ -44,16 +44,20 @@ class SinkHydrator
             $hydrated->setLine($sink->line);
         }
 
+        if (isset($sink->start_line)) {
+            $hydrated->setStartLine($sink->start_line);
+        }
+
+        if (isset($sink->end_line)) {
+            $hydrated->setEndLine($sink->end_line);
+        }
+
         if (isset($sink->name)) {
             $hydrated->setName($sink->name);
         }
 
         if (isset($sink->file)) {
             $hydrated->setFile(FileHydrator::hydrate($sink->file));
-        }
-
-        if (isset($sink->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($sink->scan));
         }
 
         if (isset($sink->function)) {
@@ -64,8 +68,20 @@ class SinkHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($sink->class));
         }
 
-        if (isset($sink->issues)) {
-            $hydrated->setIssues(IssueHydrator::hydrateCollection($sink->issues));
+        if (isset($sink->start_column)) {
+            $hydrated->setStartColumn($sink->start_column);
+        }
+
+        if (isset($sink->end_column)) {
+            $hydrated->setEndColumn($sink->end_column);
+        }
+
+        if (isset($sink->type)) {
+            $hydrated->setType(TypeHydrator::hydrate($sink->type));
+        }
+
+        if (isset($sink->taint)) {
+            $hydrated->setTaint(TaintHydrator::hydrate($sink->taint));
         }
 
         return $hydrated;

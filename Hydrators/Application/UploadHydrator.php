@@ -42,8 +42,8 @@ class UploadHydrator
             $hydrated->setId($upload->id);
         }
 
-        if (isset($upload->submission)) {
-            $hydrated->setSubmission(new DateTime($upload->submission));
+        if (isset($upload->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($upload->created_at));
         }
 
         if (isset($upload->name)) {
@@ -66,16 +66,8 @@ class UploadHydrator
             $hydrated->setCreatedBy(UserHydrator::hydrate($upload->created_by));
         }
 
-        if (isset($upload->scans) && is_array($upload->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($upload->scans));
-        }
-
         if (isset($upload->application)) {
             $hydrated->setApplication(ApplicationHydrator::hydrate($upload->application));
-        }
-
-        if (isset($upload->consumed)) {
-            $hydrated->setConsumed($upload->consumed);
         }
 
         return $hydrated;

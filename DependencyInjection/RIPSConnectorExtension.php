@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class RIPSConnectorExtension extends Extension
 {
-    protected $params = ['username', 'password', 'base_uri', 'timeout', 'connect_timeout', 'oauth2'];
+    protected $params = ['email', 'password', 'base_uri', 'timeout', 'connect_timeout', 'oauth2'];
     /**
      * {@inheritdoc}
      */

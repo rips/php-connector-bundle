@@ -2,7 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Property\TypeEntity;
 
 class SinkEntity
 {
@@ -17,6 +17,16 @@ class SinkEntity
     protected $line;
 
     /**
+     * @var int
+     */
+    protected $startLine;
+
+    /**
+     * @var int
+     */
+    protected $endLine;
+
+    /**
      * @var string
      */
     protected $name;
@@ -25,11 +35,6 @@ class SinkEntity
      * @var FileEntity
      */
     protected $file;
-
-    /**
-     * @var ScanEntity
-     */
-    protected $scan;
 
     /**
      * @var CustomFunctionEntity
@@ -42,9 +47,24 @@ class SinkEntity
     protected $class;
 
     /**
-     * @var IssueEntity[]
+     * @var int
      */
-    protected $issues;
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
+     * @var TypeEntity
+     */
+    protected $type;
+
+    /**
+     * @var TaintEntity
+     */
+    protected $taint;
 
     /**
      * Set id
@@ -86,6 +106,52 @@ class SinkEntity
     public function getLine()
     {
         return $this->line;
+    }
+
+    /**
+     * Set startLine
+     *
+     * @param int $startLine
+     * @return $this
+     */
+    public function setStartLine($startLine)
+    {
+        $this->startLine = $startLine;
+
+        return $this;
+    }
+
+    /**
+     * Get startLine
+     *
+     * @return int
+     */
+    public function getStartLine()
+    {
+        return $this->startLine;
+    }
+
+    /**
+     * Set endLine
+     *
+     * @param int $endLine
+     * @return $this
+     */
+    public function setEndLine($endLine)
+    {
+        $this->endLine = $endLine;
+
+        return $this;
+    }
+
+    /**
+     * Get endLine
+     *
+     * @return int
+     */
+    public function getEndLine()
+    {
+        return $this->endLine;
     }
 
     /**
@@ -131,27 +197,6 @@ class SinkEntity
     }
 
     /**
-     * Set scan
-     *
-     * @param  ScanEntity $scan
-     * @return void
-     */
-    public function setScan($scan)
-    {
-        $this->scan = $scan;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
      * Set function
      *
      * @param CustomFunctionEntity $function
@@ -184,23 +229,94 @@ class SinkEntity
     }
 
     /**
-     * Set issues
+     * Set start column
      *
-     * @param IssueEntity[] $issues
-     * @return void
+     * @param int $startColumn
+     * @return $this
      */
-    public function setIssues($issues)
+    public function setStartColumn(int $startColumn)
     {
-        $this->issues = $issues;
+        $this->startColumn = $startColumn;
+
+        return $this;
     }
 
     /**
-     * Get issues
+     * Get start column
      *
-     * @return IssueEntity[]
+     * @return int
      */
-    public function getIssues()
+    public function getStartColumn()
     {
-        return $this->issues;
+        return $this->startColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get end column
+     *
+     * @return int
+     */
+    public function getEndColumn()
+    {
+        return $this->endColumn;
+    }
+
+    /**
+     * Set type
+     *
+     * @param TypeEntity $type
+     * @return $this
+     */
+    public function setType(TypeEntity $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return TypeEntity
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set taint
+     *
+     * @param TaintEntity $taint
+     * @return $this
+     */
+    public function setTaint(TaintEntity $taint)
+    {
+        $this->taint = $taint;
+
+        return $this;
+    }
+
+    /**
+     * Get taint
+     *
+     * @return TaintEntity
+     */
+    public function getTaint()
+    {
+        return $this->taint;
     }
 }

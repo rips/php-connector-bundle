@@ -3,6 +3,8 @@
 namespace RIPS\ConnectorBundle\Entities\Application;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ComparisonEntity;
+use RIPS\ConnectorBundle\Entities\LanguageEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
@@ -27,17 +29,12 @@ class ScanEntity
     /**
      * @var DateTime
      */
-    protected $start;
+    protected $startedAt;
 
     /**
      * @var DateTime
      */
-    protected $finish;
-
-    /**
-     * @var DateTime
-     */
-    protected $lastModification;
+    protected $finishedAt;
 
     /**
      * @var int
@@ -90,39 +87,9 @@ class ScanEntity
     protected $php;
 
     /**
-     * @var Scan\SourceEntity[]
+     * @var Scan\JavaEntity
      */
-    protected $sources;
-
-    /**
-     * @var Scan\SinkEntity[]
-     */
-    protected $sinks;
-
-    /**
-     * @var Scan\ConcatEntity[]
-     */
-    protected $concats;
-
-    /**
-     * @var Scan\FileEntity[]
-     */
-    protected $files;
-
-    /**
-     * @var Scan\CustomFunctionEntity[]
-     */
-    protected $functions;
-
-    /**
-     * @var Scan\CustomClassEntity[]
-     */
-    protected $classes;
-
-    /**
-     * @var Scan\IssueEntity[]
-     */
-    protected $issues;
+    protected $java;
 
     /**
      * @var UploadEntity
@@ -140,14 +107,9 @@ class ScanEntity
     protected $createdBy;
 
     /**
-     * @var QuotaEntity
+     * @var ProfileEntity
      */
-    protected $chargedQuota;
-
-    /**
-     * @var CustomEntity
-     */
-    protected $custom;
+    protected $profile;
 
     /**
      * @var Scan\Issue\TypeEntity[]
@@ -160,19 +122,14 @@ class ScanEntity
     protected $parent;
 
     /**
-     * @var ScanEntity[]
-     */
-    protected $children;
-
-    /**
      * @var array
      */
     protected $severityDistributions;
 
     /**
-     * @var array
+     * @var int
      */
-    protected $callbacks;
+    protected $analysisDepth;
 
     /**
      * @var array
@@ -190,9 +147,24 @@ class ScanEntity
     protected $comment;
 
     /**
+     * @var string
+     */
+    protected $source;
+
+    /**
      * @var Scan\LibraryEntity[]
      */
     protected $libraries;
+
+    /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
+
+    /**
+     * @var ComparisonEntity
+     */
+    protected $comparison;
 
     /**
      * Set id
@@ -264,72 +236,49 @@ class ScanEntity
     }
 
     /**
-     * Set start
+     * Set startedAt
      *
-     * @param DateTime $start
+     * @param DateTime $startedAt
      * @return $this
      */
-    public function setStart($start)
+    public function setStartedAt($startedAt)
     {
-        $this->start = $start;
+        $this->startedAt = $startedAt;
 
         return $this;
     }
 
     /**
-     * Get start
+     * Get startedAt
      *
      * @return DateTime
      */
-    public function getStart()
+    public function getStartedAt()
     {
-        return $this->start;
+        return $this->startedAt;
     }
 
     /**
-     * Set finish
+     * Set finishedAt
      *
-     * @param DateTime $finish
+     * @param DateTime $finishedAt
      * @return $this
      */
-    public function setFinish($finish)
+    public function setFinishedAt($finishedAt)
     {
-        $this->finish = $finish;
+        $this->finishedAt = $finishedAt;
 
         return $this;
     }
 
     /**
-     * Get finish
+     * Get finishedAt
      *
      * @return DateTime
      */
-    public function getFinish()
+    public function getFinishedAt()
     {
-        return $this->finish;
-    }
-
-    /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
+        return $this->finishedAt;
     }
 
     /**
@@ -540,22 +489,6 @@ class ScanEntity
     }
 
     /**
-     * Get process of php-engine
-     *
-     * @return Scan\ProcessEntity|null
-     */
-    public function getProcess()
-    {
-        foreach ($this->processes as $process) {
-            if ($process->getName() === 'php-engine') {
-                return $process;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Set php object
      *
      * @param Scan\PhpEntity $php
@@ -579,164 +512,26 @@ class ScanEntity
     }
 
     /**
-     * Set sources
+     * Set java object
      *
-     * @param Scan\SourceEntity[] $sources
+     * @param Scan\JavaEntity $java
      * @return $this
      */
-    public function setSources(array $sources)
+    public function setJava(Scan\JavaEntity $java)
     {
-        $this->sources = $sources;
+        $this->java = $java;
 
         return $this;
     }
 
     /**
-     * Get sources
+     * Get java object
      *
-     * @return Scan\SourceEntity[]
+     * @return Scan\JavaEntity
      */
-    public function getSources()
+    public function getJava()
     {
-        return $this->sources;
-    }
-
-    /**
-     * Set sinks
-     *
-     * @param Scan\SinkEntity[] $sinks
-     * @return $this
-     */
-    public function setSinks(array $sinks)
-    {
-        $this->sinks = $sinks;
-
-        return $this;
-    }
-
-    /**
-     * Get sinks
-     *
-     * @return Scan\SinkEntity[]
-     */
-    public function getSinks()
-    {
-        return $this->sinks;
-    }
-
-    /**
-     * Set concats
-     *
-     * @param Scan\ConcatEntity[] $concats
-     * @return $this
-     */
-    public function setConcats(array $concats)
-    {
-        $this->concats = $concats;
-
-        return $this;
-    }
-
-    /**
-     * Get concats
-     *
-     * @return Scan\ConcatEntity[]
-     */
-    public function getConcats()
-    {
-        return $this->concats;
-    }
-
-    /**
-     * Set files
-     *
-     * @param Scan\FileEntity[] $files
-     * @return $this
-     */
-    public function setFiles(array $files)
-    {
-        $this->files = $files;
-
-        return $this;
-    }
-
-    /**
-     * Get files
-     *
-     * @return Scan\FileEntity[]
-     */
-    public function getFiles()
-    {
-        return $this->files;
-    }
-
-    /**
-     * Set functions
-     *
-     * @param Scan\CustomFunctionEntity[] $functions
-     * @return $this
-     */
-    public function setFunctions(array $functions)
-    {
-        $this->functions = $functions;
-
-        return $this;
-    }
-
-    /**
-     * Get functions
-     *
-     * @return Scan\CustomFunctionEntity[]
-     */
-    public function getFunctions()
-    {
-        return $this->functions;
-    }
-
-    /**
-     * Set classes
-     *
-     * @param Scan\CustomClassEntity[] $classes
-     * @return $this
-     */
-    public function setClasses(array $classes)
-    {
-        $this->classes = $classes;
-
-        return $this;
-    }
-
-    /**
-     * Get classes
-     *
-     * @return Scan\CustomClassEntity[]
-     */
-    public function getClasses()
-    {
-        return $this->classes;
-    }
-
-    /**
-     * Set issues
-     *
-     * @param Scan\IssueEntity[] $issues
-     * @return $this
-     */
-    public function setIssues(array $issues)
-    {
-        $this->issues = $issues;
-
-        return $this;
-    }
-
-    /**
-     * Get issues
-     *
-     * @return Scan\IssueEntity[]
-     */
-    public function getIssues()
-    {
-        return $this->issues;
+        return $this->java;
     }
 
     /**
@@ -809,49 +604,26 @@ class ScanEntity
     }
 
     /**
-     * Set chargedQuota
+     * Set profile
      *
-     * @param QuotaEntity $chargedQuota
+     * @param ProfileEntity $profile
      * @return $this
      */
-    public function setChargedQuota($chargedQuota)
+    public function setProfile($profile)
     {
-        $this->chargedQuota = $chargedQuota;
+        $this->profile = $profile;
 
         return $this;
     }
 
     /**
-     * Get chargedQuota
+     * Get profile
      *
-     * @return QuotaEntity
+     * @return ProfileEntity
      */
-    public function getChargedQuota()
+    public function getProfile()
     {
-        return $this->chargedQuota;
-    }
-
-    /**
-     * Set custom
-     *
-     * @param CustomEntity $custom
-     * @return $this
-     */
-    public function setCustom($custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * Get custom
-     *
-     * @return CustomEntity
-     */
-    public function getCustom()
-    {
-        return $this->custom;
+        return $this->profile;
     }
 
     /**
@@ -901,29 +673,6 @@ class ScanEntity
     }
 
     /**
-     * Set children
-     *
-     * @param ScanEntity[] $children
-     * @return $this
-     */
-    public function setChildren(array $children)
-    {
-        $this->children = $children;
-
-        return $this;
-    }
-
-    /**
-     * Get children
-     *
-     * @return ScanEntity[]
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
      * Set severityDistributions
      *
      * @param array $severityDistributions
@@ -947,36 +696,23 @@ class ScanEntity
     }
 
     /**
-     * Set callbacks
+     * Set analysisDepth
      *
-     * @param array $callbacks
-     * @return $this
+     * @param int $analysisDepth
      */
-    public function setCallbacks(array $callbacks)
+    public function setAnalysisDepth($analysisDepth)
     {
-        $this->callbacks = $callbacks;
-
-        return $this;
+        $this->analysisDepth = $analysisDepth;
     }
 
     /**
-     * Get callbacks
+     * Get analysisDepth
      *
-     * @return array
+     * @return int
      */
-    public function getCallbacks()
+    public function getAnalysisDepth()
     {
-        return $this->callbacks;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return array
-     */
-    public function getTags()
-    {
-        return $this->tags;
+        return $this->analysisDepth;
     }
 
     /**
@@ -990,13 +726,13 @@ class ScanEntity
     }
 
     /**
-     * Get maxIssuesPerType
+     * Get tags
      *
-     * @return int
+     * @return array
      */
-    public function getMaxIssuesPerType()
+    public function getTags()
     {
-        return $this->maxIssuesPerType;
+        return $this->tags;
     }
 
     /**
@@ -1010,13 +746,13 @@ class ScanEntity
     }
 
     /**
-     * Get comment
+     * Get maxIssuesPerType
      *
-     * @return string
+     * @return int
      */
-    public function getComment()
+    public function getMaxIssuesPerType()
     {
-        return $this->comment;
+        return $this->maxIssuesPerType;
     }
 
     /**
@@ -1027,6 +763,36 @@ class ScanEntity
     public function setComment($comment)
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     /**
@@ -1050,5 +816,51 @@ class ScanEntity
     public function getLibraries()
     {
         return $this->libraries;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param LanguageEntity[] $languages
+     * @return $this
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Set scan comparison
+     *
+     * @param ComparisonEntity $comparison
+     * @return $this
+     */
+    public function setComparison(ComparisonEntity $comparison)
+    {
+        $this->comparison = $comparison;
+
+        return $this;
+    }
+
+    /**
+     * Get scan comparison
+     *
+     * @return ComparisonEntity
+     */
+    public function getComparison()
+    {
+        return $this->comparison;
     }
 }

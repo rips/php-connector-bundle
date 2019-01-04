@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
+
 class StatusEntity
 {
     /**
@@ -30,14 +32,19 @@ class StatusEntity
     protected $census;
 
     /**
-     * @var array
+     * @var TypeEntity[]
      */
     protected $trialIssueTypes;
 
     /**
-     * @var array
+     * @var UserEntity
      */
-    protected $fileExtensions;
+    protected $user;
+
+    /**
+     * @var OrgEntity
+     */
+    protected $organization;
 
     /**
      * Get version
@@ -157,7 +164,7 @@ class StatusEntity
     /**
      * Get trialIssueTypes
      *
-     * @return array
+     * @return TypeEntity[]
      */
     public function getTrialIssueTypes()
     {
@@ -167,10 +174,10 @@ class StatusEntity
     /**
      * Set trialIssueTypes
      *
-     * @param array $trialIssueTypes
+     * @param TypeEntity[] $trialIssueTypes
      * @return $this
      */
-    public function setTrialIssueTypes(array $trialIssueTypes)
+    public function setTrialIssueTypes($trialIssueTypes)
     {
         $this->trialIssueTypes = $trialIssueTypes;
     
@@ -178,24 +185,47 @@ class StatusEntity
     }
 
     /**
-     * Get fileExtensions
+     * Get user
      *
-     * @return array
+     * @return UserEntity
      */
-    public function getFileExtensions()
+    public function getUser()
     {
-        return $this->fileExtensions;
+        return $this->user;
     }
 
     /**
-     * Set fileExtensions
+     * Set user
      *
-     * @param array $fileExtensions
+     * @param UserEntity $user
      * @return $this
      */
-    public function setFileExtensions(array $fileExtensions)
+    public function setUser($user)
     {
-        $this->fileExtensions = $fileExtensions;
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get organization
+     *
+     * @return OrgEntity
+     */
+    public function getOrganization()
+    {
+        return $this->organization;
+    }
+
+    /**
+     * Set organization
+     *
+     * @param OrgEntity $organization
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->organization = $organization;
 
         return $this;
     }

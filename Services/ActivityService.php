@@ -2,8 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\ActivityHydrator;
-use RIPS\ConnectorBundle\Entities\ActivityEntity;
+use RIPS\ConnectorBundle\Responses\ActivitiesResponse;
+use RIPS\ConnectorBundle\Responses\ActivityResponse;
 
 class ActivityService
 {
@@ -26,13 +26,13 @@ class ActivityService
      * Get all activities
      *
      * @param array $queryParams
-     * @return ActivityEntity[]
+     * @return ActivitiesResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $activities = $this->api->activities()->getAll($queryParams);
+        $response = $this->api->activities()->getAll($queryParams);
 
-        return ActivityHydrator::hydrateCollection($activities);
+        return new ActivitiesResponse($response);
     }
 
     /**
@@ -40,12 +40,12 @@ class ActivityService
      *
      * @param int $activityId
      * @param array $queryParams
-     * @return ActivityEntity
+     * @return ActivityResponse
      */
     public function getById($activityId, array $queryParams = [])
     {
-        $activity = $this->api->activities()->getById($activityId, $queryParams);
+        $response = $this->api->activities()->getById($activityId, $queryParams);
 
-        return ActivityHydrator::hydrate($activity);
+        return new ActivityResponse($response);
     }
 }

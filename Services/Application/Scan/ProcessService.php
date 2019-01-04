@@ -2,11 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Process\AddBuilder;
-use RIPS\ConnectorBundle\InputBuilders\Application\Scan\Process\UpdateBuilder;
 use RIPS\ConnectorBundle\Services\APIService;
+use RIPS\ConnectorBundle\InputBuilders\Application\Scan\ProcessBuilder;
+use RIPS\ConnectorBundle\Responses\Application\Scan\ProcessesResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\ProcessResponse;
 
 class ProcessService
 {
@@ -16,7 +15,7 @@ class ProcessService
     protected $api;
 
     /**
-     * Initialize new OrgService instance
+     * Initialize new ProcessService instance
      *
      * @param APIService $api
      */
@@ -31,17 +30,17 @@ class ProcessService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return ProcessEntity[]
+     * @return ProcessesResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $processes = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->processes()
             ->getAll($appId, $scanId, $queryParams);
 
-        return ProcessHydrator::hydrateCollection($processes);
+        return new ProcessesResponse($response);
     }
 
     /**
@@ -51,17 +50,17 @@ class ProcessService
      * @param int $scanId
      * @param int $processId
      * @param array $queryParams
-     * @return ProcessEntity
+     * @return ProcessResponse
      */
     public function getById($appId, $scanId, $processId, array $queryParams = [])
     {
-        $process = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->processes()
             ->getById($appId, $scanId, $processId, $queryParams);
 
-        return ProcessHydrator::hydrate($process);
+        return new ProcessResponse($response);
     }
 
     /**
@@ -69,19 +68,19 @@ class ProcessService
      *
      * @param int $appId
      * @param int $scanId
-     * @param AddBuilder $input
+     * @param ProcessBuilder $input
      * @param array $queryParams
-     * @return ProcessEntity
+     * @return ProcessResponse
      */
     public function create($appId, $scanId, $input, array $queryParams = [])
     {
-        $process = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->processes()
             ->create($appId, $scanId, $input->toArray(), $queryParams);
 
-        return ProcessHydrator::hydrate($process);
+        return new ProcessResponse($response);
     }
 
     /**
@@ -90,18 +89,18 @@ class ProcessService
      * @param int $appId
      * @param int $scanId
      * @param int $processId
-     * @param UpdateBuilder $input
+     * @param ProcessBuilder $input
      * @param array $queryParams
-     * @return ProcessEntity
+     * @return ProcessResponse
      */
     public function update($appId, $scanId, $processId, $input, array $queryParams = [])
     {
-        $process = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->processes()
             ->update($appId, $scanId, $processId, $input->toArray(), $queryParams);
 
-        return ProcessHydrator::hydrate($process);
+        return new ProcessResponse($response);
     }
 }

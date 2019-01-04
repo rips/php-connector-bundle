@@ -2,9 +2,10 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
-use RIPS\ConnectorBundle\Hydrators\TeamHydrator;
 use RIPS\ConnectorBundle\InputBuilders\TeamBuilder;
-use RIPS\ConnectorBundle\Entities\TeamEntity;
+use RIPS\ConnectorBundle\Responses\BaseResponse;
+use RIPS\ConnectorBundle\Responses\TeamsResponse;
+use RIPS\ConnectorBundle\Responses\TeamResponse;
 
 class TeamService
 {
@@ -27,13 +28,13 @@ class TeamService
      * Get all teams
      *
      * @param array $queryParams
-     * @return TeamEntity[]
+     * @return TeamsResponse
      */
     public function getAll(array $queryParams = [])
     {
-        $teams = $this->api->teams()->getAll($queryParams);
+        $response = $this->api->teams()->getAll($queryParams);
 
-        return TeamHydrator::hydrateCollection($teams);
+        return new TeamsResponse($response);
     }
 
     /**
@@ -41,13 +42,13 @@ class TeamService
      *
      * @param int $teamId
      * @param array $queryParams
-     * @return TeamEntity
+     * @return TeamResponse
      */
     public function getById($teamId, array $queryParams = [])
     {
-        $team = $this->api->teams()->getById($teamId, $queryParams);
+        $response = $this->api->teams()->getById($teamId, $queryParams);
 
-        return TeamHydrator::hydrate($team);
+        return new TeamResponse($response);
     }
 
     /**
@@ -55,13 +56,13 @@ class TeamService
      *
      * @param TeamBuilder $input
      * @param array $queryParams
-     * @return TeamEntity
+     * @return TeamResponse
      */
     public function create(TeamBuilder $input, array $queryParams = [])
     {
-        $team = $this->api->teams()->create($input->toArray(), $queryParams);
+        $response = $this->api->teams()->create($input->toArray(), $queryParams);
 
-        return TeamHydrator::hydrate($team);
+        return new TeamResponse($response);
     }
 
     /**
@@ -70,24 +71,26 @@ class TeamService
      * @param int $teamId
      * @param TeamBuilder $input
      * @param array $queryParams
-     * @return TeamEntity
+     * @return TeamResponse
      */
     public function update($teamId, TeamBuilder $input, array $queryParams = [])
     {
-        $team = $this->api->teams()->update($teamId, $input->toArray(), $queryParams);
+        $response = $this->api->teams()->update($teamId, $input->toArray(), $queryParams);
 
-        return TeamHydrator::hydrate($team);
+        return new TeamResponse($response);
     }
 
     /**
      * Delete all teams
      *
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteAll(array $queryParams = [])
     {
-        $this->api->teams()->deleteAll($queryParams);
+        $response = $this->api->teams()->deleteAll($queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
@@ -95,10 +98,12 @@ class TeamService
      *
      * @param int $teamId
      * @param array $queryParams
-     * @return void
+     * @return BaseResponse
      */
     public function deleteById($teamId, array $queryParams = [])
     {
-        $this->api->teams()->deleteById($teamId, $queryParams);
+        $response = $this->api->teams()->deleteById($teamId, $queryParams);
+
+        return new BaseResponse($response);
     }
 }

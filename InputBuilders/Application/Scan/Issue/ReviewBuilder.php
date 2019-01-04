@@ -10,6 +10,11 @@ class ReviewBuilder extends BaseBuilder
      * @var int
      */
     protected $type;
+
+    /**
+     * @var string
+     */
+    protected $source;
     
     /**
      * Set type
@@ -22,6 +27,20 @@ class ReviewBuilder extends BaseBuilder
         $this->setFields[] = 'type';
         $this->type = $type;
     
+        return $this;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->setFields[] = 'source';
+        $this->source = $source;
+
         return $this;
     }
 }

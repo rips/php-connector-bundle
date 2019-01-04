@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
 
 class QuotaEntity
 {
@@ -57,11 +58,6 @@ class QuotaEntity
     protected $validUntil;
 
     /**
-     * @var DateTime
-     */
-    protected $lastModification;
-
-    /**
      * @var int
      */
     protected $allowedMisses;
@@ -72,34 +68,44 @@ class QuotaEntity
     protected $public;
 
     /**
-     * @var LicenseEntity
-     */
-    protected $license;
-
-    /**
-     * @var Application\ScanEntity[]
-     */
-    protected $scans;
-
-    /**
-     * @var ApplicationEntity[]
-     */
-    protected $applications;
-
-    /**
-     * @var UserEntity[]
-     */
-    protected $users;
-
-    /**
-     * @var Quota\AclEntity[]
-     */
-    protected $acls;
-
-    /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
+
+    /**
+     * @var DateTime
+     */
+    protected $createdAt;
+
+    /**
+     * @var LanguageEntity[]
+     */
+    protected $languages;
+
+    /**
+     * @var boolean
+     */
+    protected $notify;
+
+    /**
+     * @var TypeEntity[]
+     */
+    protected $trialIssueTypes;
+
+    /**
+     * @var int
+     */
+    protected $issueTypeLimit;
+
+    /**
+     * @var boolean
+     */
+    protected $updateOnly;
+
+    /**
+     * @var boolean
+     */
+    protected $flexibleApplications;
 
     /**
      * Set id
@@ -332,29 +338,6 @@ class QuotaEntity
     }
 
     /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
-    }
-
-    /**
      * Set allowedMisses
      *
      * @param int $allowedMisses
@@ -401,106 +384,14 @@ class QuotaEntity
     }
 
     /**
-     * Set license
-     *
-     * @param LicenseEntity $license
-     * @return $this
-     */
-    public function setLicense($license)
-    {
-        $this->license = $license;
-
-        return $this;
-    }
-
-    /**
-     * Get license
-     *
-     * @return LicenseEntity
-     */
-    public function getLicense()
-    {
-        return $this->license;
-    }
-
-    /**
-     * Set scans
-     *
-     * @param Application\ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return Application\ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
-    }
-
-    /**
-     * Set users
-     *
-     * @param UserEntity[] $users
-     * @return $this
-     */
-    public function setUsers(array $users)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return UserEntity[]
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * Set acls
-     *
-     * @param Quota\AclEntity[] $acls
-     * @return $this
-     */
-    public function setAcls(array $acls)
-    {
-        $this->acls = $acls;
-
-        return $this;
-    }
-
-    /**
-     * Get acls
-     *
-     * @return Quota\AclEntity[]
-     */
-    public function getAcls()
-    {
-        return $this->acls;
-    }
-
-    /**
      * Set org
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
 
         return $this;
     }
@@ -510,8 +401,169 @@ class QuotaEntity
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param DateTime $createdAt
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param LanguageEntity[] $languages
+     * @return $this
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return LanguageEntity[]
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Set notify
+     *
+     * @param boolean $notify
+     * @return $this
+     */
+    public function setNotify($notify)
+    {
+        $this->notify = $notify;
+
+        return $this;
+    }
+
+    /**
+     * Get notify
+     *
+     * @return boolean
+     */
+    public function getNotify()
+    {
+        return $this->notify;
+    }
+
+    /**
+     * Set trialIssueTypes
+     *
+     * @param TypeEntity[] $trialIssueTypes
+     * @return $this
+     */
+    public function setTrialIssueTypes($trialIssueTypes)
+    {
+        $this->trialIssueTypes = $trialIssueTypes;
+
+        return $this;
+    }
+
+    /**
+     * Get trialIssueTypes
+     *
+     * @return TypeEntity[]
+     */
+    public function getTrialIssueTypes()
+    {
+        return $this->trialIssueTypes;
+    }
+
+    /**
+     * Set issueTypeLimit
+     *
+     * @param int $issueTypeLimit
+     * @return $this
+     */
+    public function setIssueTypeLimit($issueTypeLimit)
+    {
+        $this->issueTypeLimit = $issueTypeLimit;
+
+        return $this;
+    }
+
+    /**
+     * Get issueTypeLimit
+     *
+     * @return int
+     */
+    public function getIssueTypeLimit()
+    {
+        return $this->issueTypeLimit;
+    }
+
+    /**
+     * Set updateOnly
+     *
+     * @param boolean $updateOnly
+     * @return $this
+     */
+    public function setUpdateOnly($updateOnly)
+    {
+        $this->updateOnly = $updateOnly;
+
+        return $this;
+    }
+
+    /**
+     * Get updateOnly
+     *
+     * @return boolean
+     */
+    public function getUpdateOnly()
+    {
+        return $this->updateOnly;
+    }
+
+    /**
+     * Set flexibleApplications
+     *
+     * @param boolean $flexibleApplications
+     * @return $this
+     */
+    public function setFlexibleApplications($flexibleApplications)
+    {
+        $this->flexibleApplications = $flexibleApplications;
+
+        return $this;
+    }
+
+    /**
+     * Get flexibleApplications
+     *
+     * @return boolean
+     */
+    public function getFlexibleApplications()
+    {
+        return $this->flexibleApplications;
     }
 }

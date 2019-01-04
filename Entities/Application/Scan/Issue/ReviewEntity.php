@@ -16,7 +16,7 @@ class ReviewEntity
     /**
      * @var DateTime
      */
-    protected $submission;
+    protected $createdAt;
 
     /**
      * @var Scan\Issue\Review\TypeEntity
@@ -27,6 +27,11 @@ class ReviewEntity
      * @var UserEntity
      */
     protected $createdBy;
+
+    /**
+     * @var string
+     */
+    protected $source;
 
     /**
      * @var Scan\IssueEntity
@@ -55,26 +60,26 @@ class ReviewEntity
     }
 
     /**
-     * Set submission
+     * Set createdAt
      *
-     * @param DateTime $submission
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setSubmission($submission)
+    public function setCreatedAt($createdAt)
     {
-        $this->submission = $submission;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get submission
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getSubmission()
+    public function getCreatedAt()
     {
-        return $this->submission;
+        return $this->createdAt;
     }
 
     /**
@@ -121,6 +126,29 @@ class ReviewEntity
     public function getCreatedBy()
     {
         return $this->createdBy;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     /**

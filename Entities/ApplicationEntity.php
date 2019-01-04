@@ -17,19 +17,9 @@ class ApplicationEntity
     protected $name;
 
     /**
-     * @var Application\ScanEntity[]
-     */
-    protected $scans;
-
-    /**
      * @var int
      */
-    protected $currentScan = 0;
-
-    /**
-     * @var Application\CustomEntity[]
-     */
-    protected $customs;
+    protected $currentScan;
 
     /**
      * @var UserEntity
@@ -42,39 +32,19 @@ class ApplicationEntity
     protected $chargedQuota;
 
     /**
-     * @var Application\UploadEntity[]
-     */
-    protected $uploads;
-
-    /**
-     * @var Application\AclEntity[]
-     */
-    protected $acls;
-
-    /**
      * @var DateTime
      */
-    protected $creation;
-
-    /**
-     * @var DateTime
-     */
-    protected $lastModification;
+    protected $createdAt;
 
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
-     * @var boolean
+     * @var bool
      */
-    protected $trial = false;
-
-    /**
-     * @var array
-     */
-    protected $defaultScanCallbacks;
+    protected $autoRenew;
 
     /**
      * Set id
@@ -123,29 +93,6 @@ class ApplicationEntity
     }
 
     /**
-     * Set scans
-     *
-     * @param Application\ScanEntity[] $scans
-     * @return $this
-     */
-    public function setScans(array $scans)
-    {
-        $this->scans = $scans;
-
-        return $this;
-    }
-
-    /**
-     * Get scans
-     *
-     * @return Application\ScanEntity[]
-     */
-    public function getScans()
-    {
-        return $this->scans;
-    }
-
-    /**
      * Set currentScan
      *
      * @param int $currentScan
@@ -167,29 +114,6 @@ class ApplicationEntity
     public function getCurrentScan()
     {
         return $this->currentScan;
-    }
-
-    /**
-     * Set customs
-     *
-     * @param Application\CustomEntity[] $customs
-     * @return $this
-     */
-    public function setCustoms(array $customs)
-    {
-        $this->customs = $customs;
-
-        return $this;
-    }
-
-    /**
-     * Get customs
-     *
-     * @return Application\CustomEntity[]
-     */
-    public function getCustoms()
-    {
-        return $this->customs;
     }
 
     /**
@@ -237,163 +161,71 @@ class ApplicationEntity
     }
 
     /**
-     * Set uploads
+     * Set createdAt
      *
-     * @param Application\UploadEntity[] $uploads
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setUploads(array $uploads)
+    public function setCreatedAt($createdAt)
     {
-        $this->uploads = $uploads;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get uploads
-     *
-     * @return Application\UploadEntity[]
-     */
-    public function getUploads()
-    {
-        return $this->uploads;
-    }
-
-    /**
-     * Set acls
-     *
-     * @param Application\AclEntity[] $acls
-     * @return $this
-     */
-    public function setAcls(array $acls)
-    {
-        $this->acls = $acls;
-
-        return $this;
-    }
-
-    /**
-     * Get acls
-     *
-     * @return Application\AclEntity[]
-     */
-    public function getAcls()
-    {
-        return $this->acls;
-    }
-
-    /**
-     * Set creation
-     *
-     * @param DateTime $creation
-     * @return $this
-     */
-    public function setCreation($creation)
-    {
-        $this->creation = $creation;
-
-        return $this;
-    }
-
-    /**
-     * Get creation
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getCreation()
+    public function getCreatedAt()
     {
-        return $this->creation;
+        return $this->createdAt;
     }
 
     /**
-     * Set lastModification
-     *
-     * @param DateTime $lastModification
-     * @return $this
-     */
-    public function setLastModification($lastModification)
-    {
-        $this->lastModification = $lastModification;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModification
-     *
-     * @return DateTime
-     */
-    public function getLastModification()
-    {
-        return $this->lastModification;
-    }
-
-    /**
-     * Set organisation
+     * Set organization
      *
      * @param OrgEntity
      * @return $this
      */
-    public function setOrganisation($org)
+    public function setOrganization($org)
     {
-        $this->organisation = $org;
+        $this->organization = $org;
 
         return $this;
     }
 
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
 
     /**
-     * Set trial
+     * Set autoRenew
      *
-     * @param boolean $trial
+     * @param bool
      * @return $this
      */
-    public function setTrial($trial)
+    public function setAutoRenew($autoRenew)
     {
-        $this->trial = $trial;
+        $this->autoRenew = $autoRenew;
 
         return $this;
     }
 
     /**
-     * Get trial
+     * Get autoRenew
      *
-     * @return boolean
+     * @return bool
      */
-    public function getTrial()
+    public function getAutoRenew()
     {
-        return $this->trial;
-    }
-
-    /**
-     * Set defaultScanCallbacks
-     *
-     * @param array $defaultScanCallbacks
-     * @return $this
-     */
-    public function setDefaultScanCallbacks(array $defaultScanCallbacks)
-    {
-        $this->defaultScanCallbacks = $defaultScanCallbacks;
-
-        return $this;
-    }
-
-    /**
-     * Get defaultScanCallbacks
-     *
-     * @return array
-     */
-    public function getDefaultScanCallbacks()
-    {
-        return $this->defaultScanCallbacks;
+        return $this->autoRenew;
     }
 }

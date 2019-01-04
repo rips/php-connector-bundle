@@ -2,8 +2,6 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
-use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
-
 class CustomClassEntity
 {
     /**
@@ -22,6 +20,16 @@ class CustomClassEntity
     protected $endLine;
 
     /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
      * @var string
      */
     protected $name;
@@ -32,29 +40,9 @@ class CustomClassEntity
     protected $file;
 
     /**
-     * @var ScanEntity
+     * @var string
      */
-    protected $scan;
-
-    /**
-     * @var CustomFunctionEntity[]
-     */
-    protected $functions;
-
-    /**
-     * @var SourceEntity[]
-     */
-    protected $sources;
-
-    /**
-     * @var SinkEntity[]
-     */
-    protected $sinks;
-
-    /**
-     * @var ConcatEntity[]
-     */
-    protected $concats;
+    protected $package;
 
     /**
      * Set id
@@ -126,6 +114,52 @@ class CustomClassEntity
     }
 
     /**
+     * Set start column
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn(int $startColumn)
+    {
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get start column
+     *
+     * @return int
+     */
+    public function getStartColumn()
+    {
+        return $this->startColumn;
+    }
+
+    /**
+     * Set end column
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn(int $endColumn)
+    {
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
+    /**
+     * Get end column
+     *
+     * @return int
+     */
+    public function getEndColumn()
+    {
+        return $this->endColumn;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
@@ -172,117 +206,25 @@ class CustomClassEntity
     }
 
     /**
-     * Set scan
+     * Get package
      *
-     * @param ScanEntity $scan
+     * @return string
+     */
+    public function getPackage()
+    {
+        return $this->package;
+    }
+
+    /**
+     * Set package
+     *
+     * @param string $package
      * @return $this
      */
-    public function setScan($scan)
+    public function setPackage(string $package)
     {
-        $this->scan = $scan;
+        $this->package = $package;
 
         return $this;
-    }
-
-    /**
-     * Get scan
-     *
-     * @return ScanEntity
-     */
-    public function getScan()
-    {
-        return $this->scan;
-    }
-
-    /**
-     * Set functions
-     *
-     * @param CustomFunctionEntity[] $functions
-     * @return $this
-     */
-    public function setFunctions(array $functions)
-    {
-        $this->functions = $functions;
-
-        return $this;
-    }
-
-    /**
-     * Get functions
-     *
-     * @return CustomFunctionEntity[]
-     */
-    public function getFunctions()
-    {
-        return $this->functions;
-    }
-
-    /**
-     * Set sources
-     *
-     * @param SourceEntity[] $sources
-     * @return $this
-     */
-    public function setSources(array $sources)
-    {
-        $this->sources = $sources;
-
-        return $this;
-    }
-
-    /**
-     * Get sources
-     *
-     * @return SourceEntity[]
-     */
-    public function getSources()
-    {
-        return $this->sources;
-    }
-
-    /**
-     * Set sinks
-     *
-     * @param SinkEntity[] $sinks
-     * @return $this
-     */
-    public function setSinks(array $sinks)
-    {
-        $this->sinks = $sinks;
-
-        return $this;
-    }
-
-    /**
-     * Get sinks
-     *
-     * @return SinkEntity[]
-     */
-    public function getSinks()
-    {
-        return $this->sinks;
-    }
-
-    /**
-     * Set concats
-     *
-     * @param ConcatEntity[] $concats
-     * @return $this
-     */
-    public function setConcats(array $concats)
-    {
-        $this->concats = $concats;
-
-        return $this;
-    }
-
-    /**
-     * Get concats
-     *
-     * @return ConcatEntity[]
-     */
-    public function getConcats()
-    {
-        return $this->concats;
     }
 }

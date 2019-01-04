@@ -2,11 +2,11 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\ReviewEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\IssueHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Review\TypeHydrator as ReviewTypeHydrator;
 
 class ReviewHydrator
@@ -43,8 +43,8 @@ class ReviewHydrator
             $hydrated->setId($review->id);
         }
 
-        if (isset($review->submission)) {
-            $hydrated->setSubmission(new DateTime($review->submission));
+        if (isset($review->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($review->created_at));
         }
 
         if (isset($review->type)) {
@@ -53,6 +53,10 @@ class ReviewHydrator
 
         if (isset($review->created_by)) {
             $hydrated->setCreatedBy(UserHydrator::hydrate($review->created_by));
+        }
+
+        if (isset($review->source)) {
+            $hydrated->setSource($review->source);
         }
 
         if (isset($review->issue)) {

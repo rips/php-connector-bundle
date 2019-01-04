@@ -5,10 +5,6 @@ namespace RIPS\ConnectorBundle\Hydrators;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\CustomHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\AclHydrator;
-use RIPS\ConnectorBundle\Hydrators\Application\UploadHydrator;
 
 class ApplicationHydrator
 {
@@ -48,16 +44,8 @@ class ApplicationHydrator
             $hydrated->setName($application->name);
         }
 
-        if (isset($application->scans) && is_array($application->scans)) {
-            $hydrated->setScans(ScanHydrator::hydrateCollection($application->scans));
-        }
-
         if (isset($application->current_scan)) {
             $hydrated->setCurrentScan($application->current_scan);
-        }
-
-        if (isset($application->customs) && is_array($application->customs)) {
-            $hydrated->setCustoms(CustomHydrator::hydrateCollection($application->customs));
         }
 
         if (isset($application->created_by)) {
@@ -68,32 +56,16 @@ class ApplicationHydrator
             $hydrated->setChargedQuota(QuotaHydrator::hydrate($application->charged_quota));
         }
 
-        if (isset($application->uploads) && is_array($application->uploads)) {
-            $hydrated->setUploads(UploadHydrator::hydrateCollection($application->uploads));
+        if (isset($application->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($application->created_at));
         }
 
-        if (isset($application->acls) && is_array($application->acls)) {
-            $hydrated->setAcls(AclHydrator::hydrateCollection($application->acls));
+        if (isset($application->organization)) {
+            $hydrated->setOrganization(OrgHydrator::hydrate($application->organization));
         }
 
-        if (isset($application->creation)) {
-            $hydrated->setCreation(new DateTime($application->creation));
-        }
-
-        if (isset($application->last_modification)) {
-            $hydrated->setLastModification(new DateTime($application->last_modification));
-        }
-
-        if (isset($application->organisation)) {
-            $hydrated->setOrganisation(OrgHydrator::hydrate($application->organisation));
-        }
-
-        if (isset($application->trial)) {
-            $hydrated->setTrial($application->trial);
-        }
-
-        if (isset($application->default_scan_callbacks)) {
-            $hydrated->setDefaultScanCallbacks($application->default_scan_callbacks);
+        if (isset($application->auto_renew)) {
+            $hydrated->setAutoRenew($application->auto_renew);
         }
 
         return $hydrated;

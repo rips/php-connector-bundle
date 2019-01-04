@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomClassEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class CustomClassHydrator
 {
@@ -48,6 +47,14 @@ class CustomClassHydrator
             $hydrated->setEndLine($customClass->end_line);
         }
 
+        if (isset($customClass->start_column)) {
+            $hydrated->setStartColumn($customClass->start_column);
+        }
+
+        if (isset($customClass->end_column)) {
+            $hydrated->setEndColumn($customClass->end_column);
+        }
+
         if (isset($customClass->name)) {
             $hydrated->setName($customClass->name);
         }
@@ -56,24 +63,8 @@ class CustomClassHydrator
             $hydrated->setFile(FileHydrator::hydrate($customClass->file));
         }
     
-        if (isset($customClass->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($customClass->scan));
-        }
-
-        if (isset($customClass->functions) && is_array($customClass->functions)) {
-            $hydrated->setFunctions(CustomFunctionHydrator::hydrateCollection($customClass->functions));
-        }
-
-        if (isset($customClass->sources) && is_array($customClass->sources)) {
-            $hydrated->setSources(SourceHydrator::hydrateCollection($customClass->sources));
-        }
-
-        if (isset($customClass->sinks) && is_array($customClass->sinks)) {
-            $hydrated->setSinks(SinkHydrator::hydrateCollection($customClass->sinks));
-        }
-
-        if (isset($customClass->concats) && is_array($customClass->concats)) {
-            $hydrated->setConcats(ConcatHydrator::hydrateCollection($customClass->concats));
+        if (isset($customClass->package)) {
+            $hydrated->setPackage($customClass->package);
         }
 
         return $hydrated;

@@ -8,11 +8,11 @@ This library provides easy access to RIPS and all of its features.
 
 Use composer to include the package:
 
-    composer require rips/connector-bundle:~2.16
+    composer require rips/connector-bundle:~3.0
 
 OR add the following to composer.json and run `composer update`.
 
-    "rips/connector-bundle": "~2.16"
+    "rips/connector-bundle": "~3.0"
 
 This library is intended for Symfony applications but it can also be used on its own.
 If used with Symfony, the installation of the connector bundle should automatically create an entry in the `bundles.php` file that looks like this:
@@ -28,7 +28,7 @@ If you are not using Symfony you can specify the options through the constructor
 
     rips_connector:
         base_uri: 'http://localhost:8080'
-        username: 'username'
+        email: 'email'
         password: 'password'
 
 # Usage
@@ -57,7 +57,7 @@ A basic example for a console application that gets a list of all users without 
     $users = $userService->getAll();
     
     foreach ($users as $user) {
-        echo $user->getUsername() . "\n";
+        echo $user->getEmail() . "\n";
     }
 
 
@@ -67,7 +67,7 @@ The bundle can be easily integrated in Symfony applications like this:
     
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use RIPS\ConnectorBundle\Services\UserService;
-    use RIPS\ConnectorBundle\InputBuilders\User\AddBuilder;
+    use RIPS\ConnectorBundle\InputBuilders\UserBuilder;
     use RIPS\Connector\Exceptions\ClientException;
     use RIPS\Connector\Exceptions\ServerExecption;
     
@@ -89,8 +89,7 @@ The bundle can be easily integrated in Symfony applications like this:
 
                 // Add a new user
                 $user = $this->userService->create(
-                    new AddBuilder([
-                    	'username'      => 'test',
+                    new UserBuilder([
                     	'email'         => 'test@ripstech.com',
                     	'plainPassword' => '***********'
                     ])

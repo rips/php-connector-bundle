@@ -12,19 +12,9 @@ class LicenseEntity
     protected $id;
 
     /**
-     * @var string
-     */
-    protected $hardwareId;
-
-    /**
-     * @var string
-     */
-    protected $key;
-
-    /**
      * @var DateTime
      */
-    protected $submission;
+    protected $createdAt;
 
     /**
      * @var DateTime
@@ -35,11 +25,6 @@ class LicenseEntity
      * @var boolean
      */
     protected $quotaDistributed;
-
-    /**
-     * @var QuotaEntity[]
-     */
-    protected $quotas;
 
     /**
      * @var UserEntity
@@ -59,7 +44,7 @@ class LicenseEntity
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
     
     /**
      * Get id
@@ -83,72 +68,26 @@ class LicenseEntity
     
         return $this;
     }
-    
+
     /**
-     * Get hardwareId
-     *
-     * @return string
-     */
-    public function getHardwareId()
-    {
-        return $this->hardwareId;
-    }
-    
-    /**
-     * Set hardwareId
-     *
-     * @param string $hardwareId
-     * @return $this
-     */
-    public function setHardwareId($hardwareId)
-    {
-        $this->hardwareId = $hardwareId;
-    
-        return $this;
-    }
-    
-    /**
-     * Get key
-     *
-     * @return string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-    
-    /**
-     * Set key
-     *
-     * @param string $key
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->key = $key;
-    
-        return $this;
-    }
-    
-    /**
-     * Get submission
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getSubmission()
+    public function getCreatedAt()
     {
-        return $this->submission;
+        return $this->createdAt;
     }
     
     /**
-     * Set submission
+     * Set createdAt
      *
-     * @param DateTime $submission
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setSubmission($submission)
+    public function setCreatedAt($createdAt)
     {
-        $this->submission = $submission;
+        $this->createdAt = $createdAt;
     
         return $this;
     }
@@ -195,29 +134,6 @@ class LicenseEntity
     public function setQuotaDistributed($quotaDistributed)
     {
         $this->quotaDistributed = $quotaDistributed;
-    
-        return $this;
-    }
-    
-    /**
-     * Get quotas
-     *
-     * @return QuotaEntity[]
-     */
-    public function getQuotas()
-    {
-        return $this->quotas;
-    }
-    
-    /**
-     * Set quotas
-     *
-     * @param QuotaEntity[] $quotas
-     * @return $this
-     */
-    public function setQuotas(array $quotas)
-    {
-        $this->quotas = $quotas;
     
         return $this;
     }
@@ -292,24 +208,24 @@ class LicenseEntity
     }
     
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
     
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
     
         return $this;
     }

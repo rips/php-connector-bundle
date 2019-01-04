@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
+use RIPS\ConnectorBundle\Responses\Application\Scan\ComparisonResponse;
 
 class ComparisonService
 {
@@ -27,14 +28,16 @@ class ComparisonService
      * @param $appId
      * @param $scanId
      * @param array $queryParams
-     * @return \stdClass
+     * @return ComparisonResponse
      */
     public function getComparison($appId, $scanId, array $queryParams = [])
     {
-        return $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->comparisons()
             ->getComparison($appId, $scanId, $queryParams);
+
+        return new ComparisonResponse($response);
     }
 }

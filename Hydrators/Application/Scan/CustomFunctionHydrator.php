@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\CustomFunctionEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class CustomFunctionHydrator
 {
@@ -48,6 +47,14 @@ class CustomFunctionHydrator
             $hydrated->setEndLine($customFunction->end_line);
         }
 
+        if (isset($customFunction->start_column)) {
+            $hydrated->setStartColumn($customFunction->start_column);
+        }
+
+        if (isset($customFunction->end_column)) {
+            $hydrated->setEndColumn($customFunction->end_column);
+        }
+
         if (isset($customFunction->name)) {
             $hydrated->setName($customFunction->name);
         }
@@ -60,20 +67,8 @@ class CustomFunctionHydrator
             $hydrated->setClass(CustomClassHydrator::hydrate($customFunction->class));
         }
 
-        if (isset($customFunction->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($customFunction->scan));
-        }
-
-        if (isset($customFunction->sources) && is_array($customFunction->sources)) {
-            $hydrated->setSources(SourceHydrator::hydrateCollection($customFunction->sources));
-        }
-
-        if (isset($customFunction->sinks) && is_array($customFunction->sinks)) {
-            $hydrated->setSinks(SinkHydrator::hydrateCollection($customFunction->sinks));
-        }
-
-        if (isset($customFunction->concats)) {
-            $hydrated->setConcats(ConcatHydrator::hydrateCollection($customFunction->concats));
+        if (isset($customFunction->parameters)) {
+            $hydrated->setParameters($customFunction->parameters);
         }
 
         return $hydrated;

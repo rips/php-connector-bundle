@@ -17,6 +17,16 @@ class CustomFunctionBuilder extends BaseBuilder
     protected $endLine;
 
     /**
+     * @var int
+     */
+    protected $startColumn;
+
+    /**
+     * @var int
+     */
+    protected $endColumn;
+
+    /**
      * @var string
      */
     protected $name;
@@ -30,6 +40,11 @@ class CustomFunctionBuilder extends BaseBuilder
      * @var int
      */
     protected $class;
+
+    /**
+     * @var array
+     */
+    protected $parameters;
     
     /**
      * Set startLine
@@ -58,7 +73,35 @@ class CustomFunctionBuilder extends BaseBuilder
     
         return $this;
     }
-    
+
+    /**
+     * Set startColumn
+     *
+     * @param int $startColumn
+     * @return $this
+     */
+    public function setStartColumn($startColumn)
+    {
+        $this->setFields[] = 'startColumn';
+        $this->startColumn = $startColumn;
+
+        return $this;
+    }
+
+    /**
+     * Set endColumn
+     *
+     * @param int $endColumn
+     * @return $this
+     */
+    public function setEndColumn($endColumn)
+    {
+        $this->setFields[] = 'endColumn';
+        $this->endColumn = $endColumn;
+
+        return $this;
+    }
+
     /**
      * Set name
      *
@@ -98,6 +141,20 @@ class CustomFunctionBuilder extends BaseBuilder
         $this->setFields[] = 'class';
         $this->class = $class;
     
+        return $this;
+    }
+
+    /**
+     * Set parameters
+     *
+     * @param array $parameters
+     * @return $this
+     */
+    public function setParameters($parameters)
+    {
+        $this->setFields[] = 'parameters';
+        $this->parameters = $parameters;
+
         return $this;
     }
 }

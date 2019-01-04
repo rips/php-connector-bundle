@@ -39,37 +39,42 @@ class LogEntity
     /**
      * @var string
      */
-    protected $ip = '';
+    protected $ip;
 
     /**
      * @var UserEntity
      */
-    protected $user;
+    protected $createdBy;
 
     /**
      * @var string
      */
-    protected $username = '';
+    protected $email;
 
     /**
      * @var OrgEntity
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * @var string
      */
-    protected $organisationName = '';
+    protected $organizationName;
 
     /**
      * @var string
      */
-    protected $context = '';
+    protected $context;
 
     /**
      * @var DateTime
      */
-    protected $created;
+    protected $createdAt;
+
+    /**
+     * @var string
+     */
+    protected $userAgent;
 
     /**
      * Set id
@@ -233,95 +238,95 @@ class LogEntity
     }
 
     /**
-     * Set user
+     * Set createdBy
      *
-     * @param  UserEntity $user
+     * @param  UserEntity $createdBy
      * @return $this
      */
-    public function setUser($user)
+    public function setCreatedBy($createdBy)
     {
-        $this->user = $user;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get createdBy
      *
      * @return UserEntity
      */
-    public function getUser()
+    public function getCreatedBy()
     {
-        return $this->user;
+        return $this->createdBy;
     }
 
     /**
-     * Set username
+     * Set email
      *
-     * @param string $username
+     * @param string $email
      * @return $this
      */
-    public function setUsername($username)
+    public function setEmail($email)
     {
-        $this->username = $username;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get email
      *
      * @return string
      */
-    public function getUsername()
+    public function getEmail()
     {
-        return $this->username;
+        return $this->email;
     }
 
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param OrgEntity $organisation
+     * @param OrgEntity $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
 
         return $this;
     }
 
     /**
-     * Get organisation
+     * Get organization
      *
      * @return OrgEntity
      */
-    public function getOrganisation()
+    public function getOrganization()
     {
-        return $this->organisation;
+        return $this->organization;
     }
 
     /**
-     * Set organisationName
+     * Set organizationName
      *
-     * @param  string $organisationName
+     * @param  string $organizationName
      * @return $this
      */
-    public function setOrganisationName($organisationName)
+    public function setOrganizationName($organizationName)
     {
-        $this->organisationName = $organisationName;
+        $this->organizationName = $organizationName;
 
         return $this;
     }
 
     /**
-     * Get organisationName
+     * Get organizationName
      *
      * @return string
      */
-    public function getOrganisationName()
+    public function getOrganizationName()
     {
-        return $this->organisationName;
+        return $this->organizationName;
     }
 
     /**
@@ -348,25 +353,48 @@ class LogEntity
     }
 
     /**
-     * Set created
+     * Set createdAt
      *
-     * @param DateTime $created
+     * @param DateTime $createdAt
      * @return $this
      */
-    public function setCreated($created)
+    public function setCreatedAt($createdAt)
     {
-        $this->created = $created;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get created
+     * Get createdAt
      *
      * @return DateTime
      */
-    public function getCreated()
+    public function getCreatedAt()
     {
-        return $this->created;
+        return $this->createdAt;
+    }
+
+    /**
+     * Set userAgent
+     *
+     * @param string $userAgent
+     * @return $this
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->userAgent = $userAgent;
+
+        return $this;
+    }
+
+    /**
+     * Get userAgent
+     *
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
     }
 }

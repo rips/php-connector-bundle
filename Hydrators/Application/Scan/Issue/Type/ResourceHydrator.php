@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\Type;
 
+use RIPS\ConnectorBundle\Hydrators\LanguageHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\Type\ResourceEntity;
@@ -54,6 +55,10 @@ class ResourceHydrator
 
         if (isset($resource->published_at)) {
             $hydrated->setPublishedAt(new DateTime($resource->published_at));
+        }
+
+        if (isset($resource->languages) && is_array($resource->languages)) {
+            $hydrated->setLanguages(LanguageHydrator::hydrateCollection($resource->languages));
         }
 
         return $hydrated;

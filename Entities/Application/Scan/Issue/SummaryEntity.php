@@ -32,9 +32,14 @@ class SummaryEntity
     protected $file;
 
     /**
-     * @var Scan\IssueEntity
+     * @var Scan\CustomFunctionEntity
      */
-    protected $issue;
+    protected $function;
+
+    /**
+     * @var Scan\CustomClassEntity
+     */
+    protected $class;
 
     /**
      * Set id
@@ -71,7 +76,7 @@ class SummaryEntity
     }
 
     /**
-     * get line
+     * Get line
      *
      * @return int
      */
@@ -94,7 +99,7 @@ class SummaryEntity
     }
 
     /**
-     * get content
+     * Get content
      *
      * @return string
      */
@@ -150,25 +155,48 @@ class SummaryEntity
     }
 
     /**
-     * Set issue
+     * Set function
      *
-     * @param Scan\IssueEntity $issue
+     * @param Scan\CustomFunctionEntity $function
      * @return $this
      */
-    public function setIssue($issue)
+    public function setFunction($function)
     {
-        $this->issue = $issue;
+        $this->function = $function;
 
         return $this;
     }
 
     /**
-     * Get issue
+     * Get function
      *
-     * @return Scan\IssueEntity
+     * @return Scan\CustomFunctionEntity
      */
-    public function getIssue()
+    public function getFunction()
     {
-        return $this->issue;
+        return $this->function;
+    }
+
+    /**
+     * Set class
+     *
+     * @param Scan\CustomClassEntity $class
+     * @return $this
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return Scan\CustomClassEntity
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 }

@@ -4,7 +4,6 @@ namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\EntrypointEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\ScanHydrator;
 
 class EntrypointHydrator
 {
@@ -48,20 +47,12 @@ class EntrypointHydrator
             $hydrated->setFile(FileHydrator::hydrate($entrypoint->file));
         }
 
-        if (isset($entrypoint->scan)) {
-            $hydrated->setScan(ScanHydrator::hydrate($entrypoint->scan));
-        }
-
         if (isset($entrypoint->function)) {
             $hydrated->setFunction(CustomFunctionHydrator::hydrate($entrypoint->function));
         }
 
         if (isset($entrypoint->class)) {
             $hydrated->setClass(CustomClassHydrator::hydrate($entrypoint->class));
-        }
-
-        if (isset($entrypoint->issues) && is_array($entrypoint->issues)) {
-            $hydrated->setIssues(IssueHydrator::hydrateCollection($entrypoint->issues));
         }
 
         return $hydrated;

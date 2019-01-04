@@ -3,8 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Services\APIService;
-use RIPS\ConnectorBundle\Entities\Application\Scan\ConcatEntity;
-use RIPS\ConnectorBundle\Hydrators\Application\Scan\ConcatHydrator;
+use RIPS\ConnectorBundle\Responses\Application\Scan\ConcatsResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\ConcatResponse;
 
 class ConcatService
 {
@@ -14,7 +14,7 @@ class ConcatService
     protected $api;
 
     /**
-     * Initialize new IssueService instance
+     * Initialize new ConcatService instance
      *
      * @param APIService $api
      */
@@ -29,17 +29,17 @@ class ConcatService
      * @param int $appId
      * @param int $scanId
      * @param array $queryParams
-     * @return ConcatEntity[]
+     * @return ConcatsResponse
      */
     public function getAll($appId, $scanId, array $queryParams = [])
     {
-        $concats = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->concats()
             ->getAll($appId, $scanId, $queryParams);
 
-        return ConcatHydrator::hydrateCollection($concats);
+        return new ConcatsResponse($response);
     }
 
     /**
@@ -49,16 +49,16 @@ class ConcatService
      * @param int $scanId
      * @param int $concatId
      * @param array $queryParams
-     * @return ConcatEntity
+     * @return ConcatResponse
      */
     public function getById($appId, $scanId, $concatId, array $queryParams = [])
     {
-        $concat = $this->api
+        $response = $this->api
             ->applications()
             ->scans()
             ->concats()
             ->getById($appId, $scanId, $concatId, $queryParams);
 
-        return ConcatHydrator::hydrate($concat);
+        return new ConcatResponse($response);
     }
 }

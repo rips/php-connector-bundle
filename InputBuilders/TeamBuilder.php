@@ -15,9 +15,9 @@ class TeamBuilder extends BaseBuilder
     protected $users;
 
     /**
-     * @var integer - organisation id
+     * @var integer - organization id
      */
-    protected $organisation;
+    protected $organization;
 
     /**
      * Set name
@@ -48,15 +48,15 @@ class TeamBuilder extends BaseBuilder
     }
 
     /**
-     * Set organisation
+     * Set organization
      *
-     * @param integer $organisation
+     * @param integer $organization
      * @return $this
      */
-    public function setOrganisation($organisation)
+    public function setOrganization($organization)
     {
-        $this->setFields[] = 'organisation';
-        $this->organisation =$organisation;
+        $this->setFields[] = 'organization';
+        $this->organization = $organization;
 
         return $this;
     }
