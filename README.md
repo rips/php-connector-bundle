@@ -28,7 +28,7 @@ If you are not using Symfony you can specify the options through the constructor
 
     rips_connector:
         base_uri: 'http://localhost:8080'
-        username: 'username'
+        email: 'email'
         password: 'password'
 
 # Usage
@@ -57,7 +57,7 @@ A basic example for a console application that gets a list of all users without 
     $users = $userService->getAll();
     
     foreach ($users as $user) {
-        echo $user->getUsername() . "\n";
+        echo $user->getEmail() . "\n";
     }
 
 
