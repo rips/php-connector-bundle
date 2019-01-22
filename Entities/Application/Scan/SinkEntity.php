@@ -229,6 +229,16 @@ class SinkEntity
     }
 
     /**
+     * Get class
+     *
+     * @return CustomClassEntity
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
      * Set start column
      *
      * @param int $startColumn
