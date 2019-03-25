@@ -2,9 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan\Export\Pdf;
 
+use RIPS\ConnectorBundle\Entities\Application\Scan\Export\Pdf\QueueEntity;
 use stdClass;
-
-use RIPS\ConnectorBundle\Entities\Application\Scan\QueueEntity;
 
 class QueueHydrator
 {

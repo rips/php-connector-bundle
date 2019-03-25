@@ -1,6 +1,6 @@
 <?php
 
-namespace RIPS\ConnectorBundle\Entities\Application\Scan;
+namespace RIPS\ConnectorBundle\Entities\Application\Scan\Export\Pdf;
 
 use DateTime;
 
