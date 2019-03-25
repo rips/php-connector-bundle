@@ -83,6 +83,11 @@ class TypeEntity
     protected $asvs301;
 
     /**
+     * @var string
+     */
+    protected $asvs401;
+
+    /**
      * @var bool
      */
     protected $enabled;
@@ -430,6 +435,27 @@ class TypeEntity
     public function getAsvs301()
     {
         return $this->asvs301;
+    }
+
+    /**
+     * Set asvs401
+     *
+     * @param  string $asvs401
+     * @return void
+     */
+    public function setAsvs401($asvs401)
+    {
+        $this->asvs401 = $asvs401;
+    }
+
+    /**
+     * Get asvs401
+     *
+     * @return string
+     */
+    public function getAsvs401()
+    {
+        return $this->asvs401;
     }
 
     /**

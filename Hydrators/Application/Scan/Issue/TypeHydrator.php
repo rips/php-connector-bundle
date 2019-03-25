@@ -97,6 +97,10 @@ class TypeHydrator
             $hydrated->setAsvs301($type->asvs301);
         }
 
+        if (isset($type->asvs401)) {
+            $hydrated->setAsvs401($type->asvs401);
+        }
+
         if (isset($type->enabled)) {
             $hydrated->setEnabled($type->enabled);
         }

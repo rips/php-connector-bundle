@@ -17,7 +17,7 @@ class LogService
     /**
      * Initialize new LogService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {
