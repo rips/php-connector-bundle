@@ -17,7 +17,7 @@ class CallbackService
     /**
      * Initialize new CallbackService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {

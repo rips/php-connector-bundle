@@ -179,6 +179,14 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\SystemRequests
+     */
+    public function systems()
+    {
+        return $this->api->systems;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusResponse

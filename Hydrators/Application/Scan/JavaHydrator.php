@@ -29,35 +29,35 @@ class JavaHydrator
     /**
      * Hydrate a java object into a JavaEntity object
      *
-     * @param \stdClass $php
+     * @param \stdClass $java
      * @return JavaEntity
      */
-    public static function hydrate(stdClass $php)
+    public static function hydrate(stdClass $java)
     {
         $hydrated = new JavaEntity();
 
-        if (isset($php->id)) {
-            $hydrated->setId($php->id);
+        if (isset($java->id)) {
+            $hydrated->setId($java->id);
         }
 
-        if (isset($php->major_version)) {
-            $hydrated->setMajorVersion($php->major_version);
+        if (isset($java->major_version)) {
+            $hydrated->setMajorVersion($java->major_version);
         }
 
-        if (isset($php->minor_version)) {
-            $hydrated->setMinorVersion($php->minor_version);
+        if (isset($java->minor_version)) {
+            $hydrated->setMinorVersion($java->minor_version);
         }
 
-        if (isset($php->release_version)) {
-            $hydrated->setReleaseVersion($php->release_version);
+        if (isset($java->release_version)) {
+            $hydrated->setReleaseVersion($java->release_version);
         }
 
-        if (isset($php->implementation)) {
-            $hydrated->setImplementation($php->implementation);
+        if (isset($java->implementation)) {
+            $hydrated->setImplementation($java->implementation);
         }
 
-        if (isset($php->setting)) {
-            $hydrated->setSetting(SettingHydrator::hydrate($php->setting));
+        if (isset($java->setting)) {
+            $hydrated->setSetting(SettingHydrator::hydrate($java->setting));
         }
 
         return $hydrated;
