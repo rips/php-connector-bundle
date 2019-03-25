@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\Responses\Application\Scan\Export\Pdf\QueueResponse;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 
@@ -58,6 +59,59 @@ class ExportService
             ->scans()
             ->exports()
             ->exportPdf($appId, $scanId, $outFile, $queryParams);
+
+        return new BaseResponse($response);
+    }
+
+    /**
+     * @param $appId
+     * @param $scanId
+     * @param array $queryParams
+     * @return QueueResponse
+     */
+    public function queuePdf($appId, $scanId, array $queryParams = [])
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->exports()
+            ->queuePdf($appId, $scanId, $queryParams);
+
+        return new QueueResponse($response);
+    }
+
+    /**
+     * @param $appId
+     * @param $scanId
+     * @param $queueId
+     * @param array $queryParams
+     * @return QueueResponse
+     */
+    public function getQueuedPdf($appId, $scanId, $queueId, array $queryParams = [])
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->exports()
+            ->getQueuedPdf($appId, $scanId, $queueId, $queryParams);
+
+        return new QueueResponse($response);
+    }
+
+    /**
+     * @param $appId
+     * @param $scanId
+     * @param $queueId
+     * @param array $queryParams
+     * @return BaseResponse
+     */
+    public function downloadQueuedPdf($appId, $scanId, $queueId, array $queryParams = [])
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->exports()
+            ->getQueuedPdf($appId, $scanId, $queueId, $queryParams);
 
         return new BaseResponse($response);
     }

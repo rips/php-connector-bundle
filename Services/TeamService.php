@@ -17,7 +17,7 @@ class TeamService
     /**
      * Initialize new TeamService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {

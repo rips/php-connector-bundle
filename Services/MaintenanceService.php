@@ -14,7 +14,7 @@ class MaintenanceService
     /**
      * Initialize new MaintenanceService instance
      *
-     * @param APIService
+     * @param APIService $api
      */
     public function __construct(APIService $api)
     {
