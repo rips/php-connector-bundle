@@ -54,7 +54,7 @@ A basic example for a console application that gets a list of all users without 
     $userService = new UserService($apiService);
     
     // Get all users
-    $users = $userService->getAll();
+    $users = $userService->getAll()->getUsers();
     
     foreach ($users as $user) {
         echo $user->getEmail() . "\n";
@@ -85,15 +85,15 @@ The bundle can be easily integrated in Symfony applications like this:
         {
             try {
                 // Get all users
-                $users = $this->userService->getAll();
+                $users = $this->userService->getAll()->getUsers();
 
                 // Add a new user
-                $user = $this->userService->create(
+                $response = $this->userService->create(
                     new UserBuilder([
                     	'email'         => 'test@ripstech.com',
                     	'plainPassword' => '***********'
                     ])
-                );
+                )->getResponse();
             } catch (ClientException $e) {
                 // 4** error
             } catch (ServerException $e) {
@@ -118,9 +118,10 @@ The directory structure attempts to follow the directory structure of the API co
 
 ### Entities
 
-Instead of returning `stdClass` objects or an array, data returned from the API is mapped to custom `Entity` classes that are returned by service classes.
+Instead of returning `stdClass` objects or an array, data returned from the API is mapped to custom `Entity` classes that are returned by response classes. The responses are returned by the service classes.
 
 The entities are just custom classes with getters/setters for all properties. In some cases they will have nested entities. For example: the `UserEntity` will have a nested `OrgEntity` as a user belongs to an organization.
+It is highly advised to check if sub objects exist before accessing them.
 
 ### Hydrators
 
