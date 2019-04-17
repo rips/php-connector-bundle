@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c783ca8dff8ca700f1da856a21b8bed4",
+    "content-hash": "a99f63739fd119662a3298521c16ec46",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -281,17 +281,11 @@
         },
         {
             "name": "rips/connector",
-            "version": "3.1.1",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/rips/php-connector.git",
-                "reference": "8a6cbd600ca164f4f65248dad8d6af7a579cc2d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rips/php-connector/zipball/8a6cbd600ca164f4f65248dad8d6af7a579cc2d9",
-                "reference": "8a6cbd600ca164f4f65248dad8d6af7a579cc2d9",
-                "shasum": ""
+                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
+                "reference": "e24cb01a64a52f1bb6b135e2292e2d57f228f995"
             },
             "require": {
                 "ext-json": "*",
@@ -308,18 +302,27 @@
                     "RIPS\\Connector\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "test/TestCase.php"
+                ],
+                "psr-4": {
+                    "RIPS\\Test\\": "test"
+                }
+            },
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2019-04-05T15:02:21+00:00"
+            "time": "2019-04-16T14:01:24+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "rips/connector": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

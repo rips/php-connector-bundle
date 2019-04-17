@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\InputBuilders\Application\Scan\ProcessBuilder;
 use RIPS\ConnectorBundle\Responses\Application\Scan\ProcessesResponse;
@@ -41,6 +42,17 @@ class ProcessService
             ->getAll($appId, $scanId, $queryParams);
 
         return new ProcessesResponse($response);
+    }
+
+    public function deleteAll($appId, $scanId)
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->processes()
+            ->deleteAll($appId, $scanId);
+
+        return new BaseResponse($response);
     }
 
     /**
