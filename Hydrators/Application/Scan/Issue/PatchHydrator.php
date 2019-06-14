@@ -49,6 +49,10 @@ class PatchHydrator
             $hydrated->setModifications(ModificationHydrator::hydrateCollection($patch->modifications));
         }
 
+        if (isset($patch->confidence)) {
+            $hydrated->setConfidence($patch->confidence);
+        }
+
         return $hydrated;
     }
 }
