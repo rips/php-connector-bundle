@@ -31,7 +31,7 @@ class PatchBuilder extends BaseBuilder
     }
 
     /**
-     * Set Confidence
+     * Set confidence
      *
      * @param int $confidence
      * @return $this
