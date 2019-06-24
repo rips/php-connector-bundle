@@ -57,6 +57,11 @@ class PhpEntity
     protected $setting;
 
     /**
+     * @var string[]
+     */
+    protected $secondOrders;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -265,5 +270,26 @@ class PhpEntity
     public function getSetting()
     {
         return $this->setting;
+    }
+
+    /**
+     * Set secondOrders
+     *
+     * @param string[] $secondOrders
+     * @return void
+     */
+    public function setSecondOrders($secondOrders)
+    {
+        $this->secondOrders = $secondOrders;
+    }
+
+    /**
+     * Get secondOrders
+     *
+     * @return string[]
+     */
+    public function getSecondOrders()
+    {
+        return $this->secondOrders;
     }
 }
