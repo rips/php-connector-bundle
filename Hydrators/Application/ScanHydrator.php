@@ -8,6 +8,7 @@ use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
 use RIPS\ConnectorBundle\Hydrators\UserHydrator;
 use RIPS\ConnectorBundle\Hydrators\ApplicationHydrator;
 use RIPS\ConnectorBundle\Hydrators\QuotaHydrator;
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\DigestHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\PhpHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\LibraryHydrator;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator as IssueTypeHydrator;
@@ -104,6 +105,10 @@ class ScanHydrator
 
         if (isset($scan->java)) {
             $hydrated->setJava(JavaHydrator::hydrate($scan->java));
+        }
+
+        if (isset($scan->digest)) {
+            $hydrated->setDigest(DigestHydrator::hydrate($scan->digest));
         }
 
         if (isset($scan->upload)) {
