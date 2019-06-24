@@ -64,6 +64,10 @@ class LdapHydrator
             $hydrated->setEmailKey($ldap->email_key);
         }
 
+        if (isset($ldap->identifier_key)) {
+            $hydrated->setIdentifierKey($ldap->identifier_key);
+        }
+
         if (isset($ldap->user_dn)) {
             $hydrated->setUserDn($ldap->user_dn);
         }
@@ -90,6 +94,10 @@ class LdapHydrator
 
         if (isset($ldap->last_sync_at)) {
             $hydrated->setLastSyncAt(new DateTime($ldap->last_sync_at));
+        }
+
+        if (isset($ldap->ca_certificate)) {
+            $hydrated->setCaCertificate($ldap->ca_certificate);
         }
 
         return $hydrated;
