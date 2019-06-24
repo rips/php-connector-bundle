@@ -27,6 +27,11 @@ class OrgBuilder extends BaseBuilder
     protected $disabled;
 
     /**
+     * @var int
+     */
+    protected $concurrentScans;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -78,6 +83,20 @@ class OrgBuilder extends BaseBuilder
     {
         $this->setFields[] = 'disabled';
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Set concurrentScans
+     *
+     * @param int $concurrentScans
+     * @return $this
+     */
+    public function setConcurrentScans($concurrentScans)
+    {
+        $this->setFields[] = 'concurrentScans';
+        $this->concurrentScans = $concurrentScans;
 
         return $this;
     }
