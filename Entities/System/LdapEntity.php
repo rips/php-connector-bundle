@@ -44,6 +44,11 @@ class LdapEntity
     /**
      * @var string
      */
+    protected $identifierKey;
+
+    /**
+     * @var string
+     */
     protected $userDn;
 
     /**
@@ -75,6 +80,11 @@ class LdapEntity
      * @var DateTime
      */
     protected $lastSyncAt;
+
+    /**
+     * @var string
+     */
+    protected $caCertificate;
 
 
     /**
@@ -217,6 +227,25 @@ class LdapEntity
     /**
      * @return string
      */
+    public function getIdentifierKey()
+    {
+        return $this->identifierKey;
+    }
+
+    /**
+     * @param string $identifierKey
+     * @return $this
+     */
+    public function setIdentifierKey($identifierKey)
+    {
+        $this->identifierKey = $identifierKey;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getUserDn()
     {
         return $this->userDn;
@@ -318,7 +347,7 @@ class LdapEntity
     }
 
     /**
-     * @param string $expiredAccounts
+     * @param  string $expiredAccounts
      * @return $this
      */
     public function setExpiredAccounts($expiredAccounts)
@@ -345,5 +374,24 @@ class LdapEntity
         $this->lastSyncAt = $lastSyncAt;
 
         return $this;
+    }
+
+    /**
+     * @param string $caCertificate
+     * @return $this
+     */
+    public function setCaCertificate($caCertificate)
+    {
+        $this->caCertificate = $caCertificate;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCaCertificate()
+    {
+        return $this->caCertificate;
     }
 }
