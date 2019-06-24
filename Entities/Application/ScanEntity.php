@@ -92,6 +92,11 @@ class ScanEntity
     protected $java;
 
     /**
+     * @var Scan\DigestEntity
+     */
+    protected $digest;
+
+    /**
      * @var UploadEntity
      */
     protected $upload;
@@ -862,5 +867,24 @@ class ScanEntity
     public function getComparison()
     {
         return $this->comparison;
+    }
+
+    /**
+     * @return Scan\DigestEntity
+     */
+    public function getDigest()
+    {
+        return $this->digest;
+    }
+
+    /**
+     * @param Scan\DigestEntity $digest
+     * @return ScanEntity
+     */
+    public function setDigest($digest)
+    {
+        $this->digest = $digest;
+
+        return $this;
     }
 }
