@@ -47,6 +47,11 @@ class PhpBuilder extends BaseBuilder
     protected $filterDefault;
 
     /**
+     * @var string[]
+     */
+    protected $secondOrders;
+
+    /**
      * Set majorVersion
      *
      * @param string $majorVersion
@@ -154,6 +159,20 @@ class PhpBuilder extends BaseBuilder
     {
         $this->setFields[] = 'filterDefault';
         $this->filterDefault = $filterDefault;
+
+        return $this;
+    }
+
+    /**
+     * Set secondOrders
+     *
+     * @param string[] $secondOrders
+     * @return $this
+     */
+    public function setSecondOrders($secondOrders)
+    {
+        $this->setFields[] = 'secondOrders';
+        $this->secondOrders = $secondOrders;
 
         return $this;
     }

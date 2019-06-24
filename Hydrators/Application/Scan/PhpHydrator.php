@@ -76,6 +76,10 @@ class PhpHydrator
             $hydrated->setSetting(SettingHydrator::hydrate($php->setting));
         }
 
+        if (isset($php->second_orders) && is_array($php->second_orders)) {
+            $hydrated->setSecondOrders($php->second_orders);
+        }
+
         return $hydrated;
     }
 }
