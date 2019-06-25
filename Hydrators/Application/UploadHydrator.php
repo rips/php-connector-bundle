@@ -70,6 +70,10 @@ class UploadHydrator
             $hydrated->setApplication(ApplicationHydrator::hydrate($upload->application));
         }
 
+        if (isset($upload->checksum)) {
+            $hydrated->setChecksum($upload->checksum);
+        }
+
         return $hydrated;
     }
 }
