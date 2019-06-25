@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "a99f63739fd119662a3298521c16ec46",
@@ -285,7 +285,7 @@
             "source": {
                 "type": "git",
                 "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
-                "reference": "e24cb01a64a52f1bb6b135e2292e2d57f228f995"
+                "reference": "f407f83859f99619f25b21bcfdf3cd0093e0ff25"
             },
             "require": {
                 "ext-json": "*",
@@ -314,7 +314,7 @@
                 "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2019-04-16T14:01:24+00:00"
+            "time": "2019-06-25T10:20:12+00:00"
         }
     ],
     "packages-dev": [],
