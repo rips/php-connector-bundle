@@ -44,6 +44,14 @@ class FileService
         return new FilesResponse($response);
     }
 
+    /**
+     * Get all files from path (file browser feature)
+     *
+     * @param int $appId
+     * @param int $scanId
+     * @param string $path
+     * @return FileBrowserResponse
+     */
     public function browsePath($appId, $scanId, $path)
     {
         $response = $this->api
