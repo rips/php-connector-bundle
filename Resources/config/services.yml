@@ -85,6 +85,11 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\Application\Scan\PitfallService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\Application\Scan\CustomClassService:
         public: true
         arguments:
@@ -161,6 +166,11 @@ services:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
     RIPS\ConnectorBundle\Services\Application\Scan\Property\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Application\Scan\Pitfall\TypeService:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
@@ -246,6 +256,11 @@ services:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
     RIPS\ConnectorBundle\Services\System\LdapService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\System\HealthService:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
