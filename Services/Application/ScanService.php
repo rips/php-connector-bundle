@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application;
 
+use RIPS\ConnectorBundle\Responses\Application\ScanStatsResponse;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\InputBuilders\Application\ScanBuilder;
@@ -38,6 +39,23 @@ class ScanService
         $response = $this->api->applications()->scans()->getAll($appId, $queryParams);
 
         return new ScansResponse($response);
+    }
+
+    /**
+     * Get stats
+     *
+     * @param int|null $appId
+     * @param array $queryParams
+     * @return ScanStatsResponse
+     */
+    public function getStats($appId, array $queryParams = [])
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->getStats($appId, $queryParams);
+
+        return new ScanStatsResponse($response);
     }
 
     /**
