@@ -71,7 +71,7 @@ class UploadHydrator
         }
 
         if (isset($upload->checksum)) {
-            $hydrated->setChecksum($upload->application);
+            $hydrated->setChecksum($upload->checksum);
         }
 
         return $hydrated;
