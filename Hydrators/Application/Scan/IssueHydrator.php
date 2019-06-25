@@ -82,6 +82,10 @@ class IssueHydrator
             $hydrated->setEntrypoint(EntrypointHydrator::hydrate($issue->entrypoint));
         }
 
+        if (isset($issue->pitfalls) && is_array($issue->pitfalls)) {
+            $hydrated->setPitfalls(PitfallHydrator::hydrateCollection($issue->pitfalls));
+        }
+
         if (isset($issue->parent)) {
             $hydrated->setParent(self::hydrate($issue->parent));
         }
