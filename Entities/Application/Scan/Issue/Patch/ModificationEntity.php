@@ -47,6 +47,11 @@ class ModificationEntity
     protected $originalContent;
 
     /**
+     * @var string
+     */
+    protected $highlightedOriginalContent;
+
+    /**
      * @var Scan\FileEntity
      */
     protected $file;
@@ -231,6 +236,29 @@ class ModificationEntity
     public function getOriginalContent()
     {
         return $this->originalContent;
+    }
+
+    /**
+     * Set highlightedOriginalContent
+     *
+     * @param  string $highlightedOriginalContent
+     * @return $this
+     */
+    public function setHighlightedOriginalContent($highlightedOriginalContent)
+    {
+        $this->highlightedOriginalContent = $highlightedOriginalContent;
+
+        return $this;
+    }
+
+    /**
+     * Get highlightedOriginalContent
+     *
+     * @return string
+     */
+    public function getHighlightedOriginalContent()
+    {
+        return $this->highlightedOriginalContent;
     }
 
     /**

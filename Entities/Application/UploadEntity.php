@@ -49,6 +49,11 @@ class UploadEntity
     protected $application;
 
     /**
+     * @var string
+     */
+    protected $checksum;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -230,5 +235,24 @@ class UploadEntity
     public function getApplication()
     {
         return $this->application;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChecksum()
+    {
+        return $this->checksum;
+    }
+
+    /**
+     * @param string $checksum
+     * @return UploadEntity
+     */
+    public function setChecksum($checksum)
+    {
+        $this->checksum = $checksum;
+
+        return $this;
     }
 }

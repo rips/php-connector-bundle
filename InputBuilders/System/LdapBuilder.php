@@ -39,6 +39,11 @@ class LdapBuilder extends BaseBuilder
     /**
      * @var string
      */
+    protected $identifierKey;
+
+    /**
+     * @var string
+     */
     protected $userDn;
 
     /**
@@ -65,6 +70,11 @@ class LdapBuilder extends BaseBuilder
      * @var string
      */
     protected $expiredAccounts;
+
+    /**
+     * @var string
+     */
+    protected $caCertificate;
 
     /**
      * Set enabled
@@ -151,6 +161,20 @@ class LdapBuilder extends BaseBuilder
     }
 
     /**
+     * Set identifierKey
+     *
+     * @param string $identifierKey
+     * @return $this
+     */
+    public function setIdentifierKey($identifierKey)
+    {
+        $this->setFields[] = 'identifierKey';
+        $this->identifierKey = $identifierKey;
+
+        return $this;
+    }
+
+    /**
      * Set userDn
      *
      * @param string $userDn
@@ -230,6 +254,20 @@ class LdapBuilder extends BaseBuilder
     {
         $this->setFields[] = 'expiredAccounts';
         $this->expiredAccounts = $expiredAccounts;
+
+        return $this;
+    }
+
+    /**
+     * Set caCertificate
+     *
+     * @param string $caCertificate
+     * @return $this
+     */
+    public function setCaCertificate($caCertificate)
+    {
+        $this->setFields[] = 'caCertificate';
+        $this->caCertificate = $caCertificate;
 
         return $this;
     }

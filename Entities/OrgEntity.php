@@ -38,6 +38,11 @@ class OrgEntity
     protected $disabled;
 
     /**
+     * @var int
+     */
+    protected $concurrentScans;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -171,5 +176,28 @@ class OrgEntity
     public function isDisabled()
     {
         return $this->disabled;
+    }
+
+    /**
+     * Set concurrentScans
+     *
+     * @param  int $concurrentScans
+     * @return $this
+     */
+    public function setConcurrentScans($concurrentScans)
+    {
+        $this->concurrentScans = $concurrentScans;
+
+        return $this;
+    }
+
+    /**
+     * Get concurrentScans
+     *
+     * @return int
+     */
+    public function getConcurrentScans()
+    {
+        return $this->concurrentScans;
     }
 }

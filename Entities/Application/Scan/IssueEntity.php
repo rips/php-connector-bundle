@@ -60,6 +60,11 @@ class IssueEntity
     protected $entrypoint;
 
     /**
+     * @var PitfallEntity[]
+     */
+    protected $pitfalls;
+
+    /**
      * @var IssueEntity
      */
     protected $parent;
@@ -365,6 +370,29 @@ class IssueEntity
     public function getEntrypoint()
     {
         return $this->entrypoint;
+    }
+
+    /**
+     * Set pitfalls
+     *
+     * @param PitfallEntity[] $pitfalls
+     * @return $this
+     */
+    public function setPitfalls($pitfalls)
+    {
+        $this->pitfalls = $pitfalls;
+
+        return $this;
+    }
+
+    /**
+     * Get pitfalls
+     *
+     * @return PitfallEntity[]
+     */
+    public function getPitfalls()
+    {
+        return $this->pitfalls;
     }
 
     /**

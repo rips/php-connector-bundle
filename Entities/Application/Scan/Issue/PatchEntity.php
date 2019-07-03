@@ -20,6 +20,11 @@ class PatchEntity
     protected $modifications;
 
     /**
+     * @var int
+     */
+    protected $confidence;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -77,12 +82,32 @@ class PatchEntity
     }
 
     /**
-     * Get types
+     * Get modifications
      *
      * @return Patch\ModificationEntity[]
      */
     public function getModifications()
     {
         return $this->modifications;
+    }
+
+    /**
+     * Get confidence
+     *
+     * @return int
+     */
+    public function getConfidence()
+    {
+        return $this->confidence;
+    }
+
+    /**
+     * Set confidence
+     *
+     * @param int $confidence
+     */
+    public function setConfidence($confidence)
+    {
+        $this->confidence = $confidence;
     }
 }

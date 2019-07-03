@@ -61,6 +61,10 @@ class OrgHydrator
             $hydrated->setDisabled($organization->disabled);
         }
 
+        if (isset($organization->concurrent_scans)) {
+            $hydrated->setConcurrentScans($organization->concurrent_scans);
+        }
+
         return $hydrated;
     }
 }

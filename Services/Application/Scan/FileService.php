@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
+use RIPS\ConnectorBundle\Responses\Application\Scan\FileBrowserResponse;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 use RIPS\ConnectorBundle\Responses\Application\Scan\FilesResponse;
@@ -41,6 +42,25 @@ class FileService
             ->getAll($appId, $scanId, $queryParams);
 
         return new FilesResponse($response);
+    }
+
+    /**
+     * Get all files from path (file browser feature)
+     *
+     * @param int $appId
+     * @param int $scanId
+     * @param string $path
+     * @return FileBrowserResponse
+     */
+    public function browsePath($appId, $scanId, $path)
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->files()
+            ->getBrowser($appId, $scanId, $path);
+
+        return new FileBrowserResponse($response);
     }
 
     /**

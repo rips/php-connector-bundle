@@ -10,6 +10,11 @@ class PatchBuilder extends BaseBuilder
      * @var int
      */
     protected $type;
+
+    /**
+     * @var int
+     */
+    protected $confidence;
     
     /**
      * Set type
@@ -22,6 +27,20 @@ class PatchBuilder extends BaseBuilder
         $this->setFields[] = 'type';
         $this->type = $type;
     
+        return $this;
+    }
+
+    /**
+     * Set confidence
+     *
+     * @param int $confidence
+     * @return $this
+     */
+    public function setConfidence($confidence)
+    {
+        $this->setFields[] = 'confidence';
+        $this->confidence = $confidence;
+
         return $this;
     }
 }
