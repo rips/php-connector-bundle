@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f1d065ef77ec09e3b3fe3fce14fcdbe",
+    "content-hash": "7ff300048fe3eb2c6d12e75af7b0bb7b",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -285,16 +285,16 @@
         },
         {
             "name": "rips/connector",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rips/php-connector.git",
-                "reference": "dd0d15338d0b5ea7ad7f108cb1fe02b9592f3579"
+                "reference": "720b15dfbd60d327c8669ecc16c7c67353f1a03c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rips/php-connector/zipball/dd0d15338d0b5ea7ad7f108cb1fe02b9592f3579",
-                "reference": "dd0d15338d0b5ea7ad7f108cb1fe02b9592f3579",
+                "url": "https://api.github.com/repos/rips/php-connector/zipball/720b15dfbd60d327c8669ecc16c7c67353f1a03c",
+                "reference": "720b15dfbd60d327c8669ecc16c7c67353f1a03c",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +317,7 @@
                 "BSD-3-Clause"
             ],
             "description": "RIPS API connector package",
-            "time": "2019-06-26T12:03:06+00:00"
+            "time": "2019-08-19T13:56:01+00:00"
         }
     ],
     "packages-dev": [],
