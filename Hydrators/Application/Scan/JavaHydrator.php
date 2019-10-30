@@ -60,6 +60,10 @@ class JavaHydrator
             $hydrated->setSetting(SettingHydrator::hydrate($java->setting));
         }
 
+        if (isset($java->update_database)) {
+            $hydrated->setUpdateDatabase($java->update_database);
+        }
+
         return $hydrated;
     }
 }

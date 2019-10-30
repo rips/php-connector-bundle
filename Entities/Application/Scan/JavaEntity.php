@@ -37,6 +37,11 @@ class JavaEntity
     protected $setting;
 
     /**
+     * @var string
+     */
+    protected $updateDatabase;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -127,7 +132,7 @@ class JavaEntity
      * @param string $implementation
      * @return $this
      */
-    public function setImplementation(string $implementation)
+    public function setImplementation($implementation)
     {
         $this->implementation = $implementation;
 
@@ -163,5 +168,28 @@ class JavaEntity
     public function getSetting()
     {
         return $this->setting;
+    }
+
+    /**
+     * Set updateDatabase
+     *
+     * @param string $updateDatabase
+     * @return $this
+     */
+    public function setUpdateDatabase($updateDatabase)
+    {
+        $this->updateDatabase = $updateDatabase;
+
+        return $this;
+    }
+
+    /**
+     * Get updateDatabase
+     *
+     * @return string
+     */
+    public function getUpdateDatabase()
+    {
+        return $this->updateDatabase;
     }
 }
