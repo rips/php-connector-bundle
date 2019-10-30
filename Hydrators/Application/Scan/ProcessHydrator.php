@@ -80,6 +80,10 @@ class ProcessHydrator
             $hydrated->setWeight($process->weight);
         }
 
+        if (isset($process->parent)) {
+            $hydrated->setParent(self::hydrate($process->parent));
+        }
+
         return $hydrated;
     }
 }
