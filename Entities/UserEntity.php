@@ -67,6 +67,11 @@ class UserEntity
     protected $resetToken;
 
     /**
+     * @var string
+     */
+    protected $activationToken;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -340,5 +345,28 @@ class UserEntity
     public function getResetToken()
     {
         return $this->resetToken;
+    }
+
+    /**
+     * Set activationToken
+     *
+     * @param string $activationToken
+     * @return $this
+     */
+    public function setActivationToken($activationToken)
+    {
+        $this->activationToken = $activationToken;
+
+        return $this;
+    }
+
+    /**
+     * Get activationToken
+     *
+     * @return string
+     */
+    public function getActivationToken()
+    {
+        return $this->activationToken;
     }
 }

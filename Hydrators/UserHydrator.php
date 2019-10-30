@@ -84,6 +84,10 @@ class UserHydrator
             $hydrated->setResetToken($user->reset_token);
         }
 
+        if (isset($user->activation_token)) {
+            $hydrated->setActivationToken($user->activation_token);
+        }
+
         return $hydrated;
     }
 }
