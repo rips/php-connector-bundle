@@ -42,6 +42,11 @@ class ModificationBuilder extends BaseBuilder
     protected $file;
 
     /**
+     * @var bool
+     */
+    protected $whitespacesOnly;
+
+    /**
      * Set virtualLine
      *
      * @param integer $virtualLine
@@ -135,6 +140,20 @@ class ModificationBuilder extends BaseBuilder
     {
         $this->setFields[] = 'file';
         $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Set whitespacesOnly
+     *
+     * @param bool $whitespacesOnly
+     * @return $this
+     */
+    public function setWhitespacesOnly($whitespacesOnly)
+    {
+        $this->setFields[] = 'whitespacesOnly';
+        $this->whitespacesOnly = $whitespacesOnly;
 
         return $this;
     }

@@ -76,6 +76,10 @@ class ModificationHydrator
             $hydrated->setFile(FileHydrator::hydrate($modification->file));
         }
 
+        if (isset($modification->whitespaces_only)) {
+            $hydrated->setWhitespacesOnly($modification->whitespaces_only);
+        }
+
         return $hydrated;
     }
 }
