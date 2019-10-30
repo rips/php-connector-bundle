@@ -20,6 +20,11 @@ class DigestEntity
     protected $unresolvedMethods;
 
     /**
+     * @var int
+     */
+    protected $scannedFiles;
+
+    /**
      * @return int
      */
     public function getUnresolvedFunctions()
@@ -72,6 +77,25 @@ class DigestEntity
     public function setUnresolvedMethods($unresolvedMethods)
     {
         $this->unresolvedMethods = $unresolvedMethods;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScannedFiles()
+    {
+        return $this->scannedFiles;
+    }
+
+    /**
+     * @param int $scannedFiles
+     * @return DigestEntity
+     */
+    public function setScannedFiles($scannedFiles)
+    {
+        $this->scannedFiles = $scannedFiles;
 
         return $this;
     }
