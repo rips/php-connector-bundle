@@ -77,6 +77,16 @@ class LdapBuilder extends BaseBuilder
     protected $caCertificate;
 
     /**
+     * @var string
+     */
+    protected $firstnameKey;
+
+    /**
+     * @var string
+     */
+    protected $lastnameKey;
+
+    /**
      * Set enabled
      *
      * @param bool $enabled
@@ -268,6 +278,34 @@ class LdapBuilder extends BaseBuilder
     {
         $this->setFields[] = 'caCertificate';
         $this->caCertificate = $caCertificate;
+
+        return $this;
+    }
+
+    /**
+     * Set firstnameKey
+     *
+     * @param string $firstnameKey
+     * @return $this
+     */
+    public function setFirstnameKey($firstnameKey)
+    {
+        $this->setFields[] = 'firstnameKey';
+        $this->firstnameKey = $firstnameKey;
+
+        return $this;
+    }
+
+    /**
+     * Set lastnameKey
+     *
+     * @param string $lastnameKey
+     * @return $this
+     */
+    public function setLastnameKey($lastnameKey)
+    {
+        $this->setFields[] = 'lastnameKey';
+        $this->lastnameKey = $lastnameKey;
 
         return $this;
     }
