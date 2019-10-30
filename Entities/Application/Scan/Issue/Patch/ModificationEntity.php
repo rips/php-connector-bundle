@@ -57,6 +57,11 @@ class ModificationEntity
     protected $file;
 
     /**
+     * @var bool
+     */
+    protected $whitespacesOnly;
+
+    /**
      * Set id
      *
      * @param  int $id
@@ -282,5 +287,28 @@ class ModificationEntity
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Get whitespacesOnly
+     *
+     * @return bool
+     */
+    public function getWhitespacesOnly()
+    {
+        return $this->whitespacesOnly;
+    }
+
+    /**
+     * Set whitespacesOnly
+     *
+     * @param bool $whitespacesOnly
+     * @return $this
+     */
+    public function setWhitespacesOnly($whitespacesOnly)
+    {
+        $this->whitespacesOnly = $whitespacesOnly;
+
+        return $this;
     }
 }
