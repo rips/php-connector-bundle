@@ -58,6 +58,11 @@ class ProcessBuilder extends BaseBuilder
     protected $weight;
 
     /**
+     * @var int
+     */
+    protected $parent;
+
+    /**
      * Set pid
      *
      * @param string $pid
@@ -193,6 +198,20 @@ class ProcessBuilder extends BaseBuilder
     {
         $this->setFields[] = 'weight';
         $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param int $parent
+     * @return $this
+     */
+    public function setParent($parent)
+    {
+        $this->setFields[] = 'parent';
+        $this->parent = $parent;
 
         return $this;
     }

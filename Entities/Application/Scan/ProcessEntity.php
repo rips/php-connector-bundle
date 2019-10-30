@@ -62,6 +62,11 @@ class ProcessEntity
     protected $weight;
 
     /**
+     * @var ProcessEntity
+     */
+    protected $parent;
+
+    /**
      * Set id
      *
      * @param  integer $id
@@ -301,5 +306,28 @@ class ProcessEntity
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param ProcessEntity $parent
+     * @return $this
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return ProcessEntity
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }
