@@ -30,6 +30,11 @@ class ValidatorBuilder extends BaseBuilder
      * @var int
      */
     protected $issueType;
+
+    /**
+     * @var string
+     */
+    protected $behavior;
     
     /**
      * Set class
@@ -97,6 +102,20 @@ class ValidatorBuilder extends BaseBuilder
     {
         $this->setFields[] = 'issueType';
         $this->issueType = $issueType;
+
+        return $this;
+    }
+
+    /**
+     * Set behavior
+     *
+     * @param string $behavior
+     * @return $this
+     */
+    public function setBehavior($behavior)
+    {
+        $this->setFields[] = 'behavior';
+        $this->behavior = $behavior;
 
         return $this;
     }
