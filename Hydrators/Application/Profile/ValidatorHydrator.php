@@ -60,6 +60,10 @@ class ValidatorHydrator
             $hydrated->setIssueType(TypeHydrator::hydrate($validator->issueType));
         }
 
+        if (isset($validator->behavior)) {
+            $hydrated->setBehavior($validator->behavior);
+        }
+
         return $hydrated;
     }
 }
