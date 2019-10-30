@@ -174,6 +174,15 @@ class ScanHydrator
         if (isset($scan->comparison)) {
             $hydrated->setComparison(ComparisonHydrator::hydrate($scan->comparison));
         }
+
+        if (isset($scan->root_file)) {
+            $hydrated->setRootFile($scan->root_file);
+        }
+
+        if (isset($scan->root_path)) {
+            $hydrated->setRootPath($scan->root_path);
+        }
+
         return $hydrated;
     }
 }

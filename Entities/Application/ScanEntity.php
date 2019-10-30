@@ -172,6 +172,16 @@ class ScanEntity
     protected $comparison;
 
     /**
+     * @var string
+     */
+    protected $rootPath;
+
+    /**
+     * @var string
+     */
+    protected $rootFile;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -704,10 +714,13 @@ class ScanEntity
      * Set analysisDepth
      *
      * @param int $analysisDepth
+     * @return $this
      */
     public function setAnalysisDepth($analysisDepth)
     {
         $this->analysisDepth = $analysisDepth;
+
+        return $this;
     }
 
     /**
@@ -724,10 +737,13 @@ class ScanEntity
      * Set tags
      *
      * @param array $tags
+     * @return $this
      */
     public function setTags($tags)
     {
         $this->tags = $tags;
+
+        return $this;
     }
 
     /**
@@ -744,10 +760,13 @@ class ScanEntity
      * Set maxIssuesPerType
      *
      * @param int $maxIssuesPerType
+     * @return $this
      */
     public function setMaxIssuesPerType($maxIssuesPerType)
     {
         $this->maxIssuesPerType = $maxIssuesPerType;
+
+        return $this;
     }
 
     /**
@@ -764,10 +783,13 @@ class ScanEntity
      * Set comment
      *
      * @param string $comment
+     * @return $this
      */
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
     }
 
     /**
@@ -784,10 +806,13 @@ class ScanEntity
      * Set source
      *
      * @param string $source
+     * @return $this
      */
     public function setSource($source)
     {
         $this->source = $source;
+
+        return $this;
     }
 
     /**
@@ -886,5 +911,51 @@ class ScanEntity
         $this->digest = $digest;
 
         return $this;
+    }
+
+    /**
+     * Set rootFile
+     *
+     * @param string $rootFile
+     * @return $this
+     */
+    public function setRootFile($rootFile)
+    {
+        $this->rootFile = $rootFile;
+
+        return $this;
+    }
+
+    /**
+     * Get rootFile
+     *
+     * @return string
+     */
+    public function getRootFile()
+    {
+        return $this->rootFile;
+    }
+
+    /**
+     * Set rootPath
+     *
+     * @param string $rootPath
+     * @return $this
+     */
+    public function setRootPath($rootPath)
+    {
+        $this->rootPath = $rootPath;
+
+        return $this;
+    }
+
+    /**
+     * Get rootPath
+     *
+     * @return string
+     */
+    public function getRootPath()
+    {
+        return $this->rootPath;
     }
 }
