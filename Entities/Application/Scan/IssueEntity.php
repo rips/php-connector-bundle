@@ -120,6 +120,11 @@ class IssueEntity
     protected $commentsCount;
 
     /**
+     * @var int
+     */
+    protected $patchesCount;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -645,5 +650,28 @@ class IssueEntity
     public function getCommentsCount()
     {
         return $this->commentsCount;
+    }
+
+    /**
+     * Set patchesCount
+     *
+     * @param int $patchesCount
+     * @return $this
+     */
+    public function setPatchesCount($patchesCount)
+    {
+        $this->patchesCount = $patchesCount;
+
+        return $this;
+    }
+
+    /**
+     * Get patchesCount
+     *
+     * @return int
+     */
+    public function getPatchesCount()
+    {
+        return $this->patchesCount;
     }
 }
