@@ -130,6 +130,10 @@ class IssueHydrator
             $hydrated->setCommentsCount($issue->comments_count);
         }
 
+        if (isset($issue->patches_count)) {
+            $hydrated->setPatchesCount($issue->patches_count);
+        }
+
         return $hydrated;
     }
 }
