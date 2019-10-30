@@ -59,6 +59,10 @@ class SettingHydrator
             $hydrated->setJava(JavaHydrator::hydrate($setting->java));
         }
 
+        if (isset($setting->root_file)) {
+            $hydrated->setRootFile($setting->root_file);
+        }
+
         return $hydrated;
     }
 }
