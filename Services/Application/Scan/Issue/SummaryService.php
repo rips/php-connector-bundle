@@ -28,11 +28,11 @@ class SummaryService
      *
      * @param int $appId
      * @param int $scanId
-     * @param int $issueId
+     * @param int|null $issueId
      * @param array $queryParams
      * @return SummariesResponse
      */
-    public function getAll($appId, $scanId, $issueId, array $queryParams = [])
+    public function getAll($appId, $scanId, $issueId = null, array $queryParams = [])
     {
         $response = $this->api
             ->applications()
