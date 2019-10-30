@@ -36,6 +36,10 @@ class DigestHydrator
             $hydrated->setUnresolvedMethods($digest->unresolved_methods);
         }
 
+        if (isset($digest->scanned_files)) {
+            $hydrated->setScannedFiles($digest->scanned_files);
+        }
+
         return $hydrated;
     }
 }
