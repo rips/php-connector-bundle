@@ -86,6 +86,15 @@ class LdapEntity
      */
     protected $caCertificate;
 
+    /**
+     * @var string
+     */
+    protected $firstnameKey;
+
+    /**
+     * @var string
+     */
+    protected $lastnameKey;
 
     /**
      * Set id
@@ -393,5 +402,43 @@ class LdapEntity
     public function getCaCertificate()
     {
         return $this->caCertificate;
+    }
+
+    /**
+     * @param string $firstnameKey
+     * @return $this
+     */
+    public function setFirstnameKey($firstnameKey)
+    {
+        $this->firstnameKey = $firstnameKey;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstnameKey()
+    {
+        return $this->firstnameKey;
+    }
+
+    /**
+     * @param string $lastnameKey
+     * @return $this
+     */
+    public function setLastnameKey($lastnameKey)
+    {
+        $this->lastnameKey = $lastnameKey;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastnameKey()
+    {
+        return $this->lastnameKey;
     }
 }
