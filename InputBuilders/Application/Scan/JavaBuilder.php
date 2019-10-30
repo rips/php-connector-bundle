@@ -27,6 +27,11 @@ class JavaBuilder extends BaseBuilder
     protected $implementation;
 
     /**
+     * @var string
+     */
+    protected $updateDatabase;
+
+    /**
      * Set majorVersion
      *
      * @param string $majorVersion
@@ -78,6 +83,20 @@ class JavaBuilder extends BaseBuilder
     {
         $this->setFields[] = 'implementation';
         $this->implementation = $implementation;
+
+        return $this;
+    }
+
+    /**
+     * Set updateDatabase
+     *
+     * @param string $updateDatabase
+     * @return $this
+     */
+    public function setUpdateDatabase($updateDatabase)
+    {
+        $this->setFields[] = 'updateDatabase';
+        $this->updateDatabase = $updateDatabase;
 
         return $this;
     }
