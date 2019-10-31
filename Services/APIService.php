@@ -179,6 +179,14 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\ServerRequests
+     */
+    public function servers()
+    {
+        return $this->api->servers;
+    }
+
+    /**
      * @return \RIPS\Connector\Requests\SystemRequests
      */
     public function systems()

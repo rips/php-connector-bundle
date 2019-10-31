@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
+use RIPS\ConnectorBundle\Hydrators\ServerHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ScanEntity;
@@ -181,6 +182,10 @@ class ScanHydrator
 
         if (isset($scan->root_path)) {
             $hydrated->setRootPath($scan->root_path);
+        }
+
+        if (isset($scan->server)) {
+            $hydrated->setServer(ServerHydrator::hydrate($scan->server));
         }
 
         return $hydrated;
