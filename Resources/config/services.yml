@@ -195,6 +195,11 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\Application\ArtifactService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\Application\UploadService:
         public: true
         arguments:
