@@ -187,6 +187,14 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\MfaRequests
+     */
+    public function mfas()
+    {
+        return $this->api->mfas;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusResponse

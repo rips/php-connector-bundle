@@ -264,3 +264,8 @@ services:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\MfaService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
