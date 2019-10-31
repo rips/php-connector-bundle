@@ -32,6 +32,9 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('token_file_path')->end()
                 ->scalarNode('access_token')->end()
             ->end()
+            ->arrayNode('mfa')->canBeEnabled()->children()
+                ->scalarNode('token')->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

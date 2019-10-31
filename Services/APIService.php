@@ -18,12 +18,13 @@ class APIService
      *
      * @param $email
      * @param $password
-     * @param $config
+     * @param $guzzleConfig
+     * @param $clientConfig
      * @throws Exception
      */
-    public function __construct($email, $password, $config)
+    public function __construct($email, $password, $guzzleConfig, $clientConfig)
     {
-        $this->initialize($email, $password, $config);
+        $this->initialize($email, $password, $guzzleConfig, $clientConfig);
     }
 
     /**
@@ -31,13 +32,14 @@ class APIService
      *
      * @param $email
      * @param $password
-     * @param $config
+     * @param $guzzleConfig
+     * @param $clientConfig
      * @return void
      * @throws Exception
      */
-    public function initialize($email, $password, $config)
+    public function initialize($email, $password, $guzzleConfig, $clientConfig)
     {
-        $this->api = new API($email, $password, $config);
+        $this->api = new API($email, $password, $guzzleConfig, $clientConfig);
     }
 
     /**

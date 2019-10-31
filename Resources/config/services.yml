@@ -8,7 +8,9 @@ services:
               base_uri: '%rips_connector.base_uri%'
               timeout: '%rips_connector.timeout%'
               connect_timeout: '%rips_connector.connect_timeout%'
+            -
               oauth2: '%rips_connector.oauth2%'
+              mfa: '%rips_connector.mfa%'
 
     RIPS\ConnectorBundle\Services\CallbackService:
         public: true
