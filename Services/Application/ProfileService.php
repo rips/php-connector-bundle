@@ -27,7 +27,7 @@ class ProfileService
     }
 
     /**
-     * Get all profile profiles for an application
+     * Get all profiles for an application
      *
      * @param int $appId
      * @param array $queryParams
@@ -41,7 +41,7 @@ class ProfileService
     }
 
     /**
-     * Get profile for profile profile by id
+     * Get profile for an application by id
      *
      * @param int $appId
      * @param int $profileId
@@ -56,7 +56,7 @@ class ProfileService
     }
 
     /**
-     * Create a profile profile for an application
+     * Create a profile for an application
      *
      * @param int $appId
      * @param ProfileBuilder $input
@@ -85,7 +85,7 @@ class ProfileService
     }
 
     /**
-     * Update a profile profile by id
+     * Update a profile by id
      *
      * @param int $appId
      * @param int $profileId
@@ -101,7 +101,7 @@ class ProfileService
     }
 
     /**
-     * Delete all profile profiles for an application
+     * Delete all profiles for an application
      *
      * @param int $appId
      * @param array $queryParams
@@ -115,7 +115,7 @@ class ProfileService
     }
 
     /**
-     * Delete a profile profile for an application by id
+     * Delete a profile for an application by id
      *
      * @param int $appId
      * @param int $profileId
