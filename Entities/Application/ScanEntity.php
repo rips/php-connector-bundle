@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Entities\Application;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ComparisonEntity;
 use RIPS\ConnectorBundle\Entities\LanguageEntity;
+use RIPS\ConnectorBundle\Entities\ServerEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
@@ -180,6 +181,11 @@ class ScanEntity
      * @var string
      */
     protected $rootFile;
+
+    /**
+     * @var ServerEntity
+     */
+    protected $server;
 
     /**
      * Set id
@@ -957,5 +963,28 @@ class ScanEntity
     public function getRootPath()
     {
         return $this->rootPath;
+    }
+
+    /**
+     * Set server
+     *
+     * @param ServerEntity $server
+     * @return $this
+     */
+    public function setServer($server)
+    {
+        $this->server = $server;
+
+        return $this;
+    }
+
+    /**
+     * Get server
+     *
+     * @return ServerEntity
+     */
+    public function getServer()
+    {
+        return $this->server;
     }
 }
