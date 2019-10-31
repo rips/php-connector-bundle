@@ -230,6 +230,11 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\ServerService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\SettingService:
         public: true
         arguments:
