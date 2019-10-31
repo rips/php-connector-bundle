@@ -3,12 +3,8 @@
 namespace RIPS\ConnectorBundle\Services\System;
 
 use RIPS\ConnectorBundle\InputBuilders\System\LdapBuilder;
-use RIPS\ConnectorBundle\InputBuilders\TeamBuilder;
-use RIPS\ConnectorBundle\Responses\Application\Scan\Export\Pdf\QueueResponse;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Responses\System\LdapResponse;
-use RIPS\ConnectorBundle\Responses\TeamsResponse;
-use RIPS\ConnectorBundle\Responses\TeamResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 
 class LdapService
@@ -19,7 +15,7 @@ class LdapService
     protected $api;
 
     /**
-     * Initialize new TeamService instance
+     * Initialize new LdapService instance
      *
      * @param APIService $api
      */

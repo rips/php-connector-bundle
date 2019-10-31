@@ -260,6 +260,11 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\System\EmailService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\System\LdapService:
         public: true
         arguments:
