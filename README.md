@@ -8,11 +8,11 @@ This library provides easy access to RIPS and all of its features.
 
 Use composer to include the package:
 
-    composer require rips/connector-bundle:~3.2
+    composer require rips/connector-bundle:~3.3
 
 OR add the following to composer.json and run `composer update`.
 
-    "rips/connector-bundle": "~3.2"
+    "rips/connector-bundle": "~3.3"
 
 This library is intended for Symfony applications but it can also be used on its own.
 If used with Symfony, the installation of the connector bundle should automatically create an entry in the `bundles.php` file that looks like this:
