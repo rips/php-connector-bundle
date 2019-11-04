@@ -57,6 +57,11 @@ class ProcessEntity
     protected $percent;
 
     /**
+     * @var int|null
+     */
+    protected $originalPercent;
+
+    /**
      * @var int
      */
     protected $weight;
@@ -283,6 +288,25 @@ class ProcessEntity
     public function getPercent()
     {
         return $this->percent;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getOriginalPercent()
+    {
+        return $this->originalPercent;
+    }
+
+    /**
+     * @param int|null $originalPercent
+     * @return ProcessEntity
+     */
+    public function setOriginalPercent($originalPercent)
+    {
+        $this->originalPercent = $originalPercent;
+
+        return $this;
     }
 
     /**

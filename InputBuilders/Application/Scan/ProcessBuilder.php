@@ -53,6 +53,11 @@ class ProcessBuilder extends BaseBuilder
     protected $percent;
 
     /**
+     * @var int|null
+     */
+    protected $originalPercent;
+
+    /**
      * @var int
      */
     protected $weight;
@@ -184,6 +189,20 @@ class ProcessBuilder extends BaseBuilder
     {
         $this->setFields[] = 'percent';
         $this->percent = $percent;
+
+        return $this;
+    }
+
+    /**
+     * Set original percent
+     *
+     * @param int $originalPercent
+     * @return $this
+     */
+    public function setOriginalPercent($originalPercent)
+    {
+        $this->setFields[] = 'originalPercent';
+        $this->originalPercent = $originalPercent;
 
         return $this;
     }
