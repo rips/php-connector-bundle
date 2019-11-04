@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Hydrators;
 
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\TypeHydrator;
+use RIPS\ConnectorBundle\Hydrators\Status\CapabilitiesHydrator;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\StatusEntity;
 
@@ -24,6 +25,10 @@ class StatusHydrator
 
         if (isset($status->cloud)) {
             $hydrated->setCloud($status->cloud);
+        }
+
+        if (isset($status->capabilities)) {
+            $hydrated->setCapabilities(CapabilitiesHydrator::hydrate($status->capabilities));
         }
 
         if (isset($status->maintenance)) {

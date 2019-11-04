@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities;
 
 use RIPS\ConnectorBundle\Entities\Application\Scan\Issue\TypeEntity;
+use RIPS\ConnectorBundle\Entities\Status\CapabilitiesEntity;
 
 class StatusEntity
 {
@@ -15,6 +16,11 @@ class StatusEntity
      * @var boolean
      */
     protected $cloud;
+
+    /**
+     * @var CapabilitiesEntity
+     */
+    protected $capabilities;
 
     /**
      * @var boolean
@@ -89,6 +95,25 @@ class StatusEntity
     {
         $this->cloud = $cloud;
     
+        return $this;
+    }
+
+    /**
+     * @return CapabilitiesEntity
+     */
+    public function getCapabilities()
+    {
+        return $this->capabilities;
+    }
+
+    /**
+     * @param CapabilitiesEntity $capabilities
+     * @return StatusEntity
+     */
+    public function setCapabilities($capabilities)
+    {
+        $this->capabilities = $capabilities;
+
         return $this;
     }
     
