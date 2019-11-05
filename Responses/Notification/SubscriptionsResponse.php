@@ -9,8 +9,8 @@ use RIPS\ConnectorBundle\Responses\BaseResponse;
 
 class SubscriptionsResponse extends BaseResponse
 {
-    /** @var SubscriptionEntity */
-    private $subscription;
+    /** @var SubscriptionEntity[] */
+    private $subscriptions;
 
     /**
      * @param Response $response
@@ -18,14 +18,14 @@ class SubscriptionsResponse extends BaseResponse
     public function __construct(Response $response)
     {
         parent::__construct($response);
-        $this->subscription = SubscriptionHydrator::hydrate($response->getDecodedData());
+        $this->subscriptions = SubscriptionHydrator::hydrateCollection($response->getDecodedData());
     }
 
     /**
-     * @return SubscriptionEntity
+     * @return SubscriptionEntity[]
      */
-    public function getSubscription()
+    public function getSubscriptions()
     {
-        return $this->subscription;
+        return $this->subscriptions;
     }
 }
