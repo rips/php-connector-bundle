@@ -291,3 +291,18 @@ services:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Notification\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Notification\SubscriptionService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Notification\MessageService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
