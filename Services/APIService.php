@@ -73,6 +73,16 @@ class APIService
     }
 
     /**
+     * History requests accessor.
+     *
+     * @return \RIPS\Connector\Requests\HistoryRequests
+     */
+    public function histories()
+    {
+        return $this->api->history;
+    }
+
+    /**
      * License requests accessor
      *
      * @return \RIPS\Connector\Requests\LicenseRequests
