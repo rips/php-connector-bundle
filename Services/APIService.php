@@ -215,6 +215,14 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\NotificationRequests
+     */
+    public function notifications()
+    {
+        return $this->api->notifications;
+    }
+
+    /**
      * Get status of current session from API
      *
      * @return StatusResponse
