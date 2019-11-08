@@ -5,6 +5,7 @@ namespace RIPS\ConnectorBundle\Entities\Application;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\Scan\ComparisonEntity;
 use RIPS\ConnectorBundle\Entities\LanguageEntity;
+use RIPS\ConnectorBundle\Entities\ServerEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 use RIPS\ConnectorBundle\Entities\ApplicationEntity;
 use RIPS\ConnectorBundle\Entities\QuotaEntity;
@@ -170,6 +171,21 @@ class ScanEntity
      * @var ComparisonEntity
      */
     protected $comparison;
+
+    /**
+     * @var string
+     */
+    protected $rootPath;
+
+    /**
+     * @var string
+     */
+    protected $rootFile;
+
+    /**
+     * @var ServerEntity
+     */
+    protected $server;
 
     /**
      * Set id
@@ -704,10 +720,13 @@ class ScanEntity
      * Set analysisDepth
      *
      * @param int $analysisDepth
+     * @return $this
      */
     public function setAnalysisDepth($analysisDepth)
     {
         $this->analysisDepth = $analysisDepth;
+
+        return $this;
     }
 
     /**
@@ -724,10 +743,13 @@ class ScanEntity
      * Set tags
      *
      * @param array $tags
+     * @return $this
      */
     public function setTags($tags)
     {
         $this->tags = $tags;
+
+        return $this;
     }
 
     /**
@@ -744,10 +766,13 @@ class ScanEntity
      * Set maxIssuesPerType
      *
      * @param int $maxIssuesPerType
+     * @return $this
      */
     public function setMaxIssuesPerType($maxIssuesPerType)
     {
         $this->maxIssuesPerType = $maxIssuesPerType;
+
+        return $this;
     }
 
     /**
@@ -764,10 +789,13 @@ class ScanEntity
      * Set comment
      *
      * @param string $comment
+     * @return $this
      */
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
     }
 
     /**
@@ -784,10 +812,13 @@ class ScanEntity
      * Set source
      *
      * @param string $source
+     * @return $this
      */
     public function setSource($source)
     {
         $this->source = $source;
+
+        return $this;
     }
 
     /**
@@ -886,5 +917,74 @@ class ScanEntity
         $this->digest = $digest;
 
         return $this;
+    }
+
+    /**
+     * Set rootFile
+     *
+     * @param string $rootFile
+     * @return $this
+     */
+    public function setRootFile($rootFile)
+    {
+        $this->rootFile = $rootFile;
+
+        return $this;
+    }
+
+    /**
+     * Get rootFile
+     *
+     * @return string
+     */
+    public function getRootFile()
+    {
+        return $this->rootFile;
+    }
+
+    /**
+     * Set rootPath
+     *
+     * @param string $rootPath
+     * @return $this
+     */
+    public function setRootPath($rootPath)
+    {
+        $this->rootPath = $rootPath;
+
+        return $this;
+    }
+
+    /**
+     * Get rootPath
+     *
+     * @return string
+     */
+    public function getRootPath()
+    {
+        return $this->rootPath;
+    }
+
+    /**
+     * Set server
+     *
+     * @param ServerEntity $server
+     * @return $this
+     */
+    public function setServer($server)
+    {
+        $this->server = $server;
+
+        return $this;
+    }
+
+    /**
+     * Get server
+     *
+     * @return ServerEntity
+     */
+    public function getServer()
+    {
+        return $this->server;
     }
 }

@@ -35,6 +35,11 @@ class ValidatorEntity
      * @var TypeEntity
      */
     protected $issueType;
+
+    /**
+     * @var string
+     */
+    protected $behavior;
     
     /**
      * Get id
@@ -170,6 +175,29 @@ class ValidatorEntity
     public function setIssueType(TypeEntity $issueType)
     {
         $this->issueType = $issueType;
+
+        return $this;
+    }
+
+    /**
+     * Get behavior
+     *
+     * @return string
+     */
+    public function getBehavior()
+    {
+        return $this->behavior;
+    }
+
+    /**
+     * Set behavior
+     *
+     * @param string $behavior
+     * @return $this
+     */
+    public function setBehavior($behavior)
+    {
+        $this->behavior = $behavior;
 
         return $this;
     }

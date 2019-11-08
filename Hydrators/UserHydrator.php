@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\User\MfaHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\UserEntity;
@@ -82,6 +83,14 @@ class UserHydrator
 
         if (isset($user->reset_token)) {
             $hydrated->setResetToken($user->reset_token);
+        }
+
+        if (isset($user->activation_token)) {
+            $hydrated->setActivationToken($user->activation_token);
+        }
+
+        if (isset($user->mfa)) {
+            $hydrated->setMfa(MfaHydrator::hydrate($user->mfa));
         }
 
         return $hydrated;

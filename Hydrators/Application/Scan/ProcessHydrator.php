@@ -76,8 +76,16 @@ class ProcessHydrator
             $hydrated->setPercent($process->percent);
         }
 
+        if (isset($process->original_percent)) {
+            $hydrated->setOriginalPercent($process->original_percent);
+        }
+
         if (isset($process->weight)) {
             $hydrated->setWeight($process->weight);
+        }
+
+        if (isset($process->parent)) {
+            $hydrated->setParent(self::hydrate($process->parent));
         }
 
         return $hydrated;

@@ -57,9 +57,19 @@ class ProcessEntity
     protected $percent;
 
     /**
+     * @var int|null
+     */
+    protected $originalPercent;
+
+    /**
      * @var int
      */
     protected $weight;
+
+    /**
+     * @var ProcessEntity
+     */
+    protected $parent;
 
     /**
      * Set id
@@ -281,6 +291,25 @@ class ProcessEntity
     }
 
     /**
+     * @return int|null
+     */
+    public function getOriginalPercent()
+    {
+        return $this->originalPercent;
+    }
+
+    /**
+     * @param int|null $originalPercent
+     * @return ProcessEntity
+     */
+    public function setOriginalPercent($originalPercent)
+    {
+        $this->originalPercent = $originalPercent;
+
+        return $this;
+    }
+
+    /**
      * Set weight
      *
      * @param int $weight
@@ -301,5 +330,28 @@ class ProcessEntity
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param ProcessEntity $parent
+     * @return $this
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return ProcessEntity
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

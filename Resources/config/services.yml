@@ -8,7 +8,9 @@ services:
               base_uri: '%rips_connector.base_uri%'
               timeout: '%rips_connector.timeout%'
               connect_timeout: '%rips_connector.connect_timeout%'
+            -
               oauth2: '%rips_connector.oauth2%'
+              mfa: '%rips_connector.mfa%'
 
     RIPS\ConnectorBundle\Services\CallbackService:
         public: true
@@ -195,6 +197,11 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\Application\ArtifactService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\Application\UploadService:
         public: true
         arguments:
@@ -230,6 +237,11 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\ServerService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\SettingService:
         public: true
         arguments:
@@ -255,12 +267,47 @@ services:
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
+    RIPS\ConnectorBundle\Services\System\EmailService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
     RIPS\ConnectorBundle\Services\System\LdapService:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
 
     RIPS\ConnectorBundle\Services\System\HealthService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\MfaService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\User\StatisticsService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\History\ScanService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Notification\TypeService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Notification\SubscriptionService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Notification\MessageService:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'

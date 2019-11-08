@@ -92,6 +92,11 @@ class ScanBuilder extends BaseBuilder
     protected $loc;
 
     /**
+     * @var string
+     */
+    protected $rootFile;
+
+    /**
      * Set profile
      *
      * @param integer $profile
@@ -325,6 +330,20 @@ class ScanBuilder extends BaseBuilder
     {
         $this->setFields[] = 'loc';
         $this->loc = $loc;
+
+        return $this;
+    }
+
+    /**
+     * Set rootFile
+     *
+     * @param string $rootFile
+     * @return $this
+     */
+    public function setRootFile($rootFile)
+    {
+        $this->setFields[] = 'rootFile';
+        $this->rootFile = $rootFile;
 
         return $this;
     }

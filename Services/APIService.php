@@ -18,12 +18,13 @@ class APIService
      *
      * @param $email
      * @param $password
-     * @param $config
+     * @param array $guzzleConfig
+     * @param array $clientConfig
      * @throws Exception
      */
-    public function __construct($email, $password, $config)
+    public function __construct($email, $password, array $guzzleConfig = [], array $clientConfig = [])
     {
-        $this->initialize($email, $password, $config);
+        $this->initialize($email, $password, $guzzleConfig, $clientConfig);
     }
 
     /**
@@ -31,13 +32,14 @@ class APIService
      *
      * @param $email
      * @param $password
-     * @param $config
+     * @param array $guzzleConfig
+     * @param array $clientConfig
      * @return void
      * @throws Exception
      */
-    public function initialize($email, $password, $config)
+    public function initialize($email, $password, array $guzzleConfig = [], array $clientConfig = [])
     {
-        $this->api = new API($email, $password, $config);
+        $this->api = new API($email, $password, $guzzleConfig, $clientConfig);
     }
 
     /**
@@ -68,6 +70,16 @@ class APIService
     public function applications()
     {
         return $this->api->applications;
+    }
+
+    /**
+     * History requests accessor.
+     *
+     * @return \RIPS\Connector\Requests\HistoryRequests
+     */
+    public function histories()
+    {
+        return $this->api->history;
     }
 
     /**
@@ -179,11 +191,35 @@ class APIService
     }
 
     /**
+     * @return \RIPS\Connector\Requests\ServerRequests
+     */
+    public function servers()
+    {
+        return $this->api->servers;
+    }
+
+    /**
      * @return \RIPS\Connector\Requests\SystemRequests
      */
     public function systems()
     {
         return $this->api->systems;
+    }
+
+    /**
+     * @return \RIPS\Connector\Requests\MfaRequests
+     */
+    public function mfas()
+    {
+        return $this->api->mfas;
+    }
+
+    /**
+     * @return \RIPS\Connector\Requests\NotificationRequests
+     */
+    public function notifications()
+    {
+        return $this->api->notifications;
     }
 
     /**

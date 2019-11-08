@@ -42,6 +42,11 @@ class SettingBuilder extends BaseBuilder
     protected $maxIssuesPerType;
 
     /**
+     * @var string
+     */
+    protected $rootFile;
+
+    /**
      * Set issueTypes
      *
      * @param array $issueTypes
@@ -135,6 +140,20 @@ class SettingBuilder extends BaseBuilder
     {
         $this->setFields[] = 'maxIssuesPerType';
         $this->maxIssuesPerType = $maxIssuesPerType;
+
+        return $this;
+    }
+
+    /**
+     * Set rootFile
+     *
+     * @param string $rootFile
+     * @return $this
+     */
+    public function setRootFile($rootFile)
+    {
+        $this->setFields[] = 'rootFile';
+        $this->rootFile = $rootFile;
 
         return $this;
     }

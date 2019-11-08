@@ -58,6 +58,11 @@ class SettingEntity
     protected $java;
 
     /**
+     * @var string
+     */
+    protected $rootFile;
+
+    /**
      * Get id
      *
      * @return int
@@ -285,5 +290,28 @@ class SettingEntity
         $this->java = $java;
 
         return $this;
+    }
+
+    /**
+     * Set rootFile
+     *
+     * @param string $rootFile
+     * @return $this
+     */
+    public function setRootFile($rootFile)
+    {
+        $this->rootFile = $rootFile;
+
+        return $this;
+    }
+
+    /**
+     * Get rootFile
+     *
+     * @return string
+     */
+    public function getRootFile()
+    {
+        return $this->rootFile;
     }
 }

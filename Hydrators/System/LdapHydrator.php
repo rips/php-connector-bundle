@@ -100,6 +100,14 @@ class LdapHydrator
             $hydrated->setCaCertificate($ldap->ca_certificate);
         }
 
+        if (isset($ldap->firstname_key)) {
+            $hydrated->setFirstnameKey($ldap->firstname_key);
+        }
+
+        if (isset($ldap->lastname_key)) {
+            $hydrated->setLastnameKey($ldap->lastname_key);
+        }
+
         return $hydrated;
     }
 }

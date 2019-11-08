@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\User\MfaEntity;
 
 class UserEntity
 {
@@ -65,6 +66,16 @@ class UserEntity
      * @var string
      */
     protected $resetToken;
+
+    /**
+     * @var string
+     */
+    protected $activationToken;
+
+    /**
+     * @var MfaEntity
+     */
+    protected $mfa;
 
     /**
      * Set id
@@ -340,5 +351,47 @@ class UserEntity
     public function getResetToken()
     {
         return $this->resetToken;
+    }
+
+    /**
+     * Set activationToken
+     *
+     * @param string $activationToken
+     * @return $this
+     */
+    public function setActivationToken($activationToken)
+    {
+        $this->activationToken = $activationToken;
+
+        return $this;
+    }
+
+    /**
+     * Get activationToken
+     *
+     * @return string
+     */
+    public function getActivationToken()
+    {
+        return $this->activationToken;
+    }
+
+    /**
+     * @return MfaEntity
+     */
+    public function getMfa()
+    {
+        return $this->mfa;
+    }
+
+    /**
+     * @param MfaEntity $mfa
+     * @return UserEntity
+     */
+    public function setMfa($mfa)
+    {
+        $this->mfa = $mfa;
+
+        return $this;
     }
 }
