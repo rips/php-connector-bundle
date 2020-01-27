@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application\Scan;
 
+use DateTime;
 use stdClass;
 use RIPS\ConnectorBundle\Entities\Application\Scan\IssueEntity;
 use RIPS\ConnectorBundle\Hydrators\Application\Scan\Issue\ReviewHydrator;
@@ -132,6 +133,10 @@ class IssueHydrator
 
         if (isset($issue->patches_count)) {
             $hydrated->setPatchesCount($issue->patches_count);
+        }
+
+        if (isset($issue->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($issue->created_at));
         }
 
         return $hydrated;
