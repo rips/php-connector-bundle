@@ -17,8 +17,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('rips_connector');
+        // Fix deprecation on symfony/config 4.2 (ACPHP-152).
+        $treeBuilder = new TreeBuilder('rips_connector');
+        $rootNode = method_exists(TreeBuilder::class, 'getRootNode') ? $treeBuilder->getRootNode() : $treeBuilder->root('rips_connector');
 
         $rootNode
             ->children()
