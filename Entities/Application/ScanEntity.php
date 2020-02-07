@@ -38,6 +38,11 @@ class ScanEntity
     protected $finishedAt;
 
     /**
+     * @var DateTime
+     */
+    protected $workerFinishedAt;
+
+    /**
      * @var int
      */
     protected $phase;
@@ -300,6 +305,29 @@ class ScanEntity
     public function getFinishedAt()
     {
         return $this->finishedAt;
+    }
+
+    /**
+     * Set workerFinishedAt
+     *
+     * @param DateTime $workerFinishedAt
+     * @return $this
+     */
+    public function setWorkerFinishedAt($workerFinishedAt)
+    {
+        $this->workerFinishedAt = $workerFinishedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get workerFinishedAt
+     *
+     * @return DateTime
+     */
+    public function getWorkerFinishedAt()
+    {
+        return $this->workerFinishedAt;
     }
 
     /**
