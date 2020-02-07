@@ -65,6 +65,10 @@ class OrgHydrator
             $hydrated->setConcurrentScans($organization->concurrent_scans);
         }
 
+        if (isset($organization->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($organization->created_at));
+        }
+
         return $hydrated;
     }
 }

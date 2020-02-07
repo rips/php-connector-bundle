@@ -43,6 +43,11 @@ class OrgEntity
     protected $concurrentScans;
 
     /**
+     * @var DateTime
+     */
+    protected $createdAt;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -199,5 +204,28 @@ class OrgEntity
     public function getConcurrentScans()
     {
         return $this->concurrentScans;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param DateTime $createdAt
+     * @return OrgEntity
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 }
