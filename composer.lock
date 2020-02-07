@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0de4fa382cc7774e290bc2aba6fea3f7",
+    "content-hash": "f381429fc6ad23f644c7217c03274900",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -287,17 +287,11 @@
         },
         {
             "name": "rips/connector",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rips/php-connector.git",
-                "reference": "ab2d80893bf7ad50edd88b6da9d682949a8d0902"
-            },
+            "version": "3.4.0",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rips/php-connector/zipball/ab2d80893bf7ad50edd88b6da9d682949a8d0902",
-                "reference": "ab2d80893bf7ad50edd88b6da9d682949a8d0902",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/alexandre/Code/rips-connector",
+                "reference": "ac5fdc494413fb2da3c51cb6d83f458f3e1adb83"
             },
             "require": {
                 "ext-json": "*",
@@ -314,12 +308,18 @@
                     "RIPS\\Connector\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "test/TestCase.php"
+                ],
+                "psr-4": {
+                    "RIPS\\Test\\": "test"
+                }
+            },
             "license": [
                 "BSD-3-Clause"
             ],
-            "description": "RIPS API connector package",
-            "time": "2019-11-08T15:07:10+00:00"
+            "description": "RIPS API connector package"
         }
     ],
     "packages-dev": [],

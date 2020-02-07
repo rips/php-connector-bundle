@@ -1,7 +1,7 @@
 {
     "name": "rips/connector-bundle",
     "description": "RIPS API Connector bundle for Symfony",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "type": "symfony-bundle",
     "license": "BSD-3-Clause",
     "autoload": {
@@ -9,8 +9,14 @@
             "RIPS\\ConnectorBundle\\": ""
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git"
+        }
+    ],
     "require": {
         "ext-json": "*",
-        "rips/connector": "~3.3"
+        "rips/connector": "~3.4"
     }
 }
