@@ -22,6 +22,21 @@ class DigestEntity
     /**
      * @var int
      */
+    protected $resolvedFunctions;
+
+    /**
+     * @var int
+     */
+    protected $resolvedClasses;
+
+    /**
+     * @var int
+     */
+    protected $resolvedMethods;
+
+    /**
+     * @var int
+     */
     protected $scannedFiles;
 
     /**
@@ -77,6 +92,63 @@ class DigestEntity
     public function setUnresolvedMethods($unresolvedMethods)
     {
         $this->unresolvedMethods = $unresolvedMethods;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResolvedFunctions()
+    {
+        return $this->resolvedFunctions;
+    }
+
+    /**
+     * @param int $resolvedFunctions
+     * @return DigestEntity
+     */
+    public function setResolvedFunctions($resolvedFunctions)
+    {
+        $this->resolvedFunctions = $resolvedFunctions;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResolvedClasses()
+    {
+        return $this->resolvedClasses;
+    }
+
+    /**
+     * @param int $resolvedClasses
+     * @return DigestEntity
+     */
+    public function setResolvedClasses($resolvedClasses)
+    {
+        $this->resolvedClasses = $resolvedClasses;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResolvedMethods()
+    {
+        return $this->resolvedMethods;
+    }
+
+    /**
+     * @param int $resolvedMethods
+     * @return DigestEntity
+     */
+    public function setResolvedMethods($resolvedMethods)
+    {
+        $this->resolvedMethods = $resolvedMethods;
 
         return $this;
     }
