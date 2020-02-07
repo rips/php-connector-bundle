@@ -72,6 +72,10 @@ class ServerHydrator
             $hydrated->setCores($server->cores);
         }
 
+        if (isset($server->ami)) {
+            $hydrated->setAmi($server->ami);
+        }
+
         if (isset($server->last_seen_at)) {
             $hydrated->setLastSeenAt(new DateTime($server->last_seen_at));
         }
