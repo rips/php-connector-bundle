@@ -124,6 +124,11 @@ class IssueEntity
     /**
      * @var int
      */
+    protected $contextsCount;
+
+    /**
+     * @var int
+     */
     protected $patchesCount;
 
     /**
@@ -657,6 +662,29 @@ class IssueEntity
     public function getCommentsCount()
     {
         return $this->commentsCount;
+    }
+
+    /**
+     * Get contextsCount
+     *
+     * @return int
+     */
+    public function getContextsCount()
+    {
+        return $this->contextsCount;
+    }
+
+    /**
+     * Set contextsCount
+     *
+     * @param int $contextsCount
+     * @return IssueEntity
+     */
+    public function setContextsCount($contextsCount)
+    {
+        $this->contextsCount = $contextsCount;
+
+        return $this;
     }
 
     /**
