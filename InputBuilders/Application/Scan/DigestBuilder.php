@@ -29,6 +29,21 @@ class DigestBuilder extends BaseBuilder
     protected $unresolvedMethods;
 
     /**
+     * @var int
+     */
+    protected $resolvedFunctions;
+
+    /**
+     * @var int
+     */
+    protected $resolvedClasses;
+
+    /**
+     * @var int
+     */
+    protected $resolvedMethods;
+
+    /**
      * @param int $unresolvedFunctions
      * @return DigestBuilder
      */
@@ -60,6 +75,42 @@ class DigestBuilder extends BaseBuilder
     {
         $this->setFields[] = 'unresolvedMethods';
         $this->unresolvedMethods = $unresolvedMethods;
+
+        return $this;
+    }
+
+    /**
+     * @param int $resolvedFunctions
+     * @return DigestBuilder
+     */
+    public function setResolvedFunctions($resolvedFunctions)
+    {
+        $this->setFields[] = 'resolvedFunctions';
+        $this->resolvedFunctions = $resolvedFunctions;
+
+        return $this;
+    }
+
+    /**
+     * @param int $resolvedClasses
+     * @return DigestBuilder
+     */
+    public function setResolvedClasses($resolvedClasses)
+    {
+        $this->setFields[] = 'resolvedClasses';
+        $this->resolvedClasses = $resolvedClasses;
+
+        return $this;
+    }
+
+    /**
+     * @param int $resolvedMethods
+     * @return DigestBuilder
+     */
+    public function setResolvedMethods($resolvedMethods)
+    {
+        $this->setFields[] = 'resolvedMethods';
+        $this->resolvedMethods = $resolvedMethods;
 
         return $this;
     }
