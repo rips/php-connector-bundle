@@ -52,6 +52,11 @@ class ServerEntity
     protected $cores;
 
     /**
+     * @var string
+     */
+    protected $ami;
+
+    /**
      * @var DateTime
      */
     protected $lastSeenAt;
@@ -259,6 +264,29 @@ class ServerEntity
     public function setCores($cores)
     {
         $this->cores = $cores;
+
+        return $this;
+    }
+
+    /**
+     * Get AMI
+     *
+     * @return string
+     */
+    public function getAmi()
+    {
+        return $this->ami;
+    }
+
+    /**
+     * Set AMI
+     *
+     * @param string $ami
+     * @return ServerEntity
+     */
+    public function setAmi($ami)
+    {
+        $this->ami = $ami;
 
         return $this;
     }
