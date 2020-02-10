@@ -33,7 +33,7 @@ class SettingService
      */
     public function getAll(array $queryParams = [])
     {
-        $response = $this->api->settings()->getAll($queryParams);
+        $response = $this->api->orgs()->settings()->getAll($queryParams);
 
         return new SettingsResponse($response);
     }
@@ -47,7 +47,7 @@ class SettingService
      */
     public function getByKey($key, array $queryParams = [])
     {
-        $response = $this->api->settings()->getByKey($key, $queryParams);
+        $response = $this->api->orgs()->settings()->getByKey($key, $queryParams);
 
         return new SettingResponse($response);
     }
@@ -62,7 +62,7 @@ class SettingService
      */
     public function createOrUpdate($key, SettingBuilder $input, array $queryParams = [])
     {
-        $response = $this->api->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
+        $response = $this->api->orgs()->settings()->createOrUpdate($key, $input->toArray(), $queryParams);
 
         return new SettingResponse($response);
     }
@@ -75,7 +75,7 @@ class SettingService
      */
     public function deleteAll(array $queryParams = [])
     {
-        $response = $this->api->settings()->deleteAll($queryParams);
+        $response = $this->api->orgs()->settings()->deleteAll($queryParams);
 
         return new BaseResponse($response);
     }
@@ -89,7 +89,7 @@ class SettingService
      */
     public function deleteByKey($key, array $queryParams = [])
     {
-        $response = $this->api->settings()->deleteByKey($key, $queryParams);
+        $response = $this->api->orgs()->settings()->deleteByKey($key, $queryParams);
 
         return new BaseResponse($response);
     }
