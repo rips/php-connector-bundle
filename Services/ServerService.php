@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\InputBuilders\Server\SystemBuilder;
 use RIPS\ConnectorBundle\InputBuilders\ServerBuilder;
 use RIPS\ConnectorBundle\Responses\ServersResponse;
 use RIPS\ConnectorBundle\Responses\ServerResponse;
@@ -83,12 +84,13 @@ class ServerService
      * Ping an existing server
      *
      * @param int $serverId
+     * @param SystemBuilder $input
      * @param array $queryParams
      * @return ServerResponse
      */
-    public function ping($serverId, array $queryParams = [])
+    public function ping($serverId, SystemBuilder $input, array $queryParams = [])
     {
-        $response = $this->api->servers()->ping($serverId, $queryParams);
+        $response = $this->api->servers()->ping($serverId, $input, $queryParams);
 
         return new ServerResponse($response);
     }
