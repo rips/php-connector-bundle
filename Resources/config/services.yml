@@ -311,3 +311,8 @@ services:
         public: true
         arguments:
             - '@RIPS\ConnectorBundle\Services\APIService'
+
+    RIPS\ConnectorBundle\Services\Org\SettingService:
+        public: true
+        arguments:
+            - '@RIPS\ConnectorBundle\Services\APIService'
