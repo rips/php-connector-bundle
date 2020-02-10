@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Services\Application\Scan;
 
 use RIPS\ConnectorBundle\Responses\Application\Scan\Export\Pdf\QueueResponse;
+use RIPS\ConnectorBundle\Responses\Application\Scan\Export\Pdf\QueuesResponse;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Services\APIService;
 
@@ -96,6 +97,41 @@ class ExportService
             ->getQueuedPdf($appId, $scanId, $queueId, $queryParams);
 
         return new QueueResponse($response);
+    }
+
+    /**
+     * @param $appId
+     * @param $scanId
+     * @param array $queryParams
+     * @return QueuesResponse
+     */
+    public function getAllQueuedPdf($appId, $scanId, array $queryParams = [])
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->exports()
+            ->getAllQueuedPdf($appId, $scanId, $queryParams);
+
+        return new QueuesResponse($response);
+    }
+
+    /**
+     * @param $appId
+     * @param $scanId
+     * @param $queueId
+     * @param array $queryParams
+     * @return BaseResponse
+     */
+    public function deleteById($appId, $scanId, $queueId, array $queryParams = [])
+    {
+        $response = $this->api
+            ->applications()
+            ->scans()
+            ->exports()
+            ->deleteQueuedPdf($appId, $scanId, $queueId, $queryParams);
+
+        return new BaseResponse($response);
     }
 
     /**
