@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities\Application;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Application\Scan\ProcessEntity;
 use RIPS\ConnectorBundle\Entities\UserEntity;
 
 class ArtifactEntity
@@ -36,6 +37,16 @@ class ArtifactEntity
      * @var ScanEntity
      */
     protected $scan;
+
+    /**
+     * @var ProcessEntity
+     */
+    protected $process;
+
+    /**
+     * @var bool
+     */
+    protected $incompatible;
 
     /**
      * Set id
@@ -173,5 +184,43 @@ class ArtifactEntity
     public function getScan()
     {
         return $this->scan;
+    }
+
+    /**
+     * @return ProcessEntity
+     */
+    public function getProcess()
+    {
+        return $this->process;
+    }
+
+    /**
+     * @param ProcessEntity $process
+     * @return ArtifactEntity
+     */
+    public function setProcess($process)
+    {
+        $this->process = $process;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIncompatible()
+    {
+        return $this->incompatible;
+    }
+
+    /**
+     * @param bool $incompatible
+     * @return ArtifactEntity
+     */
+    public function setIncompatible($incompatible)
+    {
+        $this->incompatible = $incompatible;
+
+        return $this;
     }
 }
