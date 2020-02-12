@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f381429fc6ad23f644c7217c03274900",
+    "content-hash": "7dccb4839224c9552bc2caf68649ccad",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -287,11 +287,11 @@
         },
         {
             "name": "rips/connector",
-            "version": "3.4.0",
-            "dist": {
-                "type": "path",
-                "url": "/home/alexandre/Code/rips-connector",
-                "reference": "ac5fdc494413fb2da3c51cb6d83f458f3e1adb83"
+            "version": "dev-dev",
+            "source": {
+                "type": "git",
+                "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git",
+                "reference": "54bfa665018a9facd0be3b27a3894e0b91384cfa"
             },
             "require": {
                 "ext-json": "*",
@@ -319,13 +319,16 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "description": "RIPS API connector package"
+            "description": "RIPS API connector package",
+            "time": "2020-02-10T12:37:41+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "rips/connector": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

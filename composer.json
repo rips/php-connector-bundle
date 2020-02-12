@@ -17,6 +17,6 @@
     ],
     "require": {
         "ext-json": "*",
-        "rips/connector": "~3.4"
+        "rips/connector": "dev-dev"
     }
 }
