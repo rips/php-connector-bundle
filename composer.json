@@ -9,14 +9,8 @@
             "RIPS\\ConnectorBundle\\": ""
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://source.internal.ripstech.com/scm/rac/php-connector.git"
-        }
-    ],
     "require": {
         "ext-json": "*",
-        "rips/connector": "dev-dev"
+        "rips/connector": "^3.4"
     }
 }
