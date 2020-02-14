@@ -49,6 +49,10 @@ class SubscriptionHydrator
             $hydrated->setUser(UserHydrator::hydrate($subscription->user));
         }
 
+        if (isset($subscription->summary_interval)) {
+            $hydrated->setSummaryInterval($subscription->summary_interval);
+        }
+
         if (isset($subscription->scan)) {
             $hydrated->setScan(ScanHydrator::hydrate($subscription->scan));
         }

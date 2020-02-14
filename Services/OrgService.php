@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services;
 
+use RIPS\ConnectorBundle\InputBuilders\Org\InvitationBuilder;
 use RIPS\ConnectorBundle\InputBuilders\OrgBuilder;
 use RIPS\ConnectorBundle\Responses\BaseResponse;
 use RIPS\ConnectorBundle\Responses\OrgsResponse;
@@ -103,6 +104,20 @@ class OrgService
     public function deleteById($orgId, array $queryParams = [])
     {
         $response = $this->api->orgs()->deleteById($orgId, $queryParams);
+
+        return new BaseResponse($response);
+    }
+
+    /**
+     * Invite a new organization for trial.
+     *
+     * @param InvitationBuilder $input
+     * @param array $queryParams
+     * @return BaseResponse
+     */
+    public function invite(InvitationBuilder $input, array $queryParams = [])
+    {
+        $response = $this->api->orgs()->invite($input->toArray(), $queryParams);
 
         return new BaseResponse($response);
     }

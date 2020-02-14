@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Services\System;
 
+use RIPS\ConnectorBundle\InputBuilders\System\Email\TestBuilder;
 use RIPS\ConnectorBundle\InputBuilders\System\EmailBuilder;
 use RIPS\ConnectorBundle\Responses\System\EmailResponse;
 use RIPS\ConnectorBundle\Services\APIService;
@@ -24,7 +25,7 @@ class EmailService
     }
 
     /**
-     * Get LDAP settings
+     * Get Email settings
      *
      * @param array $queryParams
      * @return EmailResponse
@@ -37,7 +38,7 @@ class EmailService
     }
 
     /**
-     * Update LDAP settings
+     * Update Email settings
      *
      * @param EmailBuilder $input
      * @param array $queryParams
@@ -46,6 +47,20 @@ class EmailService
     public function update(EmailBuilder $input, array $queryParams = [])
     {
         $response = $this->api->systems()->email()->update($input->toArray(), $queryParams);
+
+        return new EmailResponse($response);
+    }
+
+    /**
+     * Test Email settings
+     *
+     * @param TestBuilder $input
+     * @param array $queryParams
+     * @return EmailResponse
+     */
+    public function test(TestBuilder $input, array $queryParams = [])
+    {
+        $response = $this->api->systems()->email()->test($input->toArray(), $queryParams);
 
         return new EmailResponse($response);
     }

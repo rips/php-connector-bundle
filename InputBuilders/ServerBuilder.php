@@ -47,6 +47,11 @@ class ServerBuilder extends BaseBuilder
     protected $cores;
 
     /**
+     * @var string
+     */
+    protected $ami;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -154,6 +159,20 @@ class ServerBuilder extends BaseBuilder
     {
         $this->setFields[] = 'cores';
         $this->cores = $cores;
+
+        return $this;
+    }
+
+    /**
+     * Set AMI
+     *
+     * @param string $ami
+     * @return ServerBuilder
+     */
+    public function setAmi($ami)
+    {
+        $this->setFields[] = 'ami';
+        $this->ami = $ami;
 
         return $this;
     }

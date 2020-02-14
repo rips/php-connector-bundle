@@ -22,6 +22,11 @@ class SubscriptionBuilder extends BaseBuilder
     protected $scan;
 
     /**
+     * @var string
+     */
+    protected $summaryInterval;
+
+    /**
      * @var int
      */
     protected $application;
@@ -68,6 +73,18 @@ class SubscriptionBuilder extends BaseBuilder
     {
         $this->setFields[] = 'scan';
         $this->scan = $scan;
+
+        return $this;
+    }
+
+    /**
+     * @param string $summaryInterval
+     * @return SubscriptionBuilder
+     */
+    public function setSummaryInterval($summaryInterval)
+    {
+        $this->setFields[] = 'summaryInterval';
+        $this->summaryInterval = $summaryInterval;
 
         return $this;
     }

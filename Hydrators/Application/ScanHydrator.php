@@ -68,6 +68,10 @@ class ScanHydrator
             $hydrated->setFinishedAt(new DateTime($scan->finished_at));
         }
 
+        if (isset($scan->worker_finished_at)) {
+            $hydrated->setWorkerFinishedAt(new DateTime($scan->worker_finished_at));
+        }
+
         if (isset($scan->phase)) {
             $hydrated->setPhase($scan->phase);
         }

@@ -17,6 +17,16 @@ class ArtifactBuilder extends BaseBuilder
     protected $scan;
 
     /**
+     * @var int
+     */
+    protected $process;
+
+    /**
+     * @var bool
+     */
+    protected $incompatible;
+
+    /**
      * Set name
      *
      * @param string $name
@@ -40,6 +50,30 @@ class ArtifactBuilder extends BaseBuilder
     {
         $this->setFields[] = 'scan';
         $this->scan = $scan;
+
+        return $this;
+    }
+
+    /**
+     * @param int $process
+     * @return ArtifactBuilder
+     */
+    public function setProcess($process)
+    {
+        $this->setFields[] = 'process';
+        $this->process = $process;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $incompatible
+     * @return ArtifactBuilder
+     */
+    public function setIncompatible($incompatible)
+    {
+        $this->setFields[] = 'incompatible';
+        $this->incompatible = $incompatible;
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators\Application;
 
+use RIPS\ConnectorBundle\Hydrators\Application\Scan\ProcessHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\Application\ArtifactEntity;
@@ -59,6 +60,14 @@ class ArtifactHydrator
 
         if (isset($artifact->scan)) {
             $hydrated->setScan(ScanHydrator::hydrate($artifact->scan));
+        }
+
+        if (isset($artifact->process)) {
+            $hydrated->setProcess(ProcessHydrator::hydrate($artifact->process));
+        }
+
+        if (isset($artifact->incompatible)) {
+            $hydrated->setIncompatible($artifact->incompatible);
         }
 
         return $hydrated;

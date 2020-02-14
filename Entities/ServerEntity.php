@@ -3,6 +3,7 @@
 namespace RIPS\ConnectorBundle\Entities;
 
 use DateTime;
+use RIPS\ConnectorBundle\Entities\Server\SystemEntity;
 
 class ServerEntity
 {
@@ -52,9 +53,19 @@ class ServerEntity
     protected $cores;
 
     /**
+     * @var string
+     */
+    protected $ami;
+
+    /**
      * @var DateTime
      */
     protected $lastSeenAt;
+
+    /**
+     * @var SystemEntity
+     */
+    protected $system;
 
     /**
      * Get id
@@ -264,6 +275,29 @@ class ServerEntity
     }
 
     /**
+     * Get AMI
+     *
+     * @return string
+     */
+    public function getAmi()
+    {
+        return $this->ami;
+    }
+
+    /**
+     * Set AMI
+     *
+     * @param string $ami
+     * @return ServerEntity
+     */
+    public function setAmi($ami)
+    {
+        $this->ami = $ami;
+
+        return $this;
+    }
+
+    /**
      * Set lastSeenAt
      *
      * @param DateTime $lastSeenAt
@@ -284,5 +318,24 @@ class ServerEntity
     public function getLastSeenAt()
     {
         return $this->lastSeenAt;
+    }
+
+    /**
+     * @return SystemEntity
+     */
+    public function getSystem()
+    {
+        return $this->system;
+    }
+
+    /**
+     * @param SystemEntity $system
+     * @return ServerEntity
+     */
+    public function setSystem($system)
+    {
+        $this->system = $system;
+
+        return $this;
     }
 }

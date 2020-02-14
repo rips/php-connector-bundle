@@ -24,6 +24,11 @@ class SubscriptionEntity
     protected $user;
 
     /**
+     * @var string
+     */
+    protected $summaryInterval;
+
+    /**
      * @var ScanEntity
      */
     protected $scan;
@@ -101,6 +106,25 @@ class SubscriptionEntity
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSummaryInterval()
+    {
+        return $this->summaryInterval;
+    }
+
+    /**
+     * @param string $summaryInterval
+     * @return SubscriptionEntity
+     */
+    public function setSummaryInterval($summaryInterval)
+    {
+        $this->summaryInterval = $summaryInterval;
 
         return $this;
     }

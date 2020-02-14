@@ -2,6 +2,8 @@
 
 namespace RIPS\ConnectorBundle\Entities\Application\Scan;
 
+use DateTime;
+
 class IssueEntity
 {
     /**
@@ -122,7 +124,17 @@ class IssueEntity
     /**
      * @var int
      */
+    protected $contextsCount;
+
+    /**
+     * @var int
+     */
     protected $patchesCount;
+
+    /**
+     * @var DateTime
+     */
+    protected $createdAt;
 
     /**
      * Set id
@@ -653,6 +665,29 @@ class IssueEntity
     }
 
     /**
+     * Get contextsCount
+     *
+     * @return int
+     */
+    public function getContextsCount()
+    {
+        return $this->contextsCount;
+    }
+
+    /**
+     * Set contextsCount
+     *
+     * @param int $contextsCount
+     * @return IssueEntity
+     */
+    public function setContextsCount($contextsCount)
+    {
+        $this->contextsCount = $contextsCount;
+
+        return $this;
+    }
+
+    /**
      * Set patchesCount
      *
      * @param int $patchesCount
@@ -673,5 +708,24 @@ class IssueEntity
     public function getPatchesCount()
     {
         return $this->patchesCount;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param DateTime $createdAt
+     * @return IssueEntity
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 }

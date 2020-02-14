@@ -2,6 +2,7 @@
 
 namespace RIPS\ConnectorBundle\Hydrators;
 
+use RIPS\ConnectorBundle\Hydrators\Server\SystemHydrator;
 use stdClass;
 use DateTime;
 use RIPS\ConnectorBundle\Entities\ServerEntity;
@@ -72,8 +73,16 @@ class ServerHydrator
             $hydrated->setCores($server->cores);
         }
 
+        if (isset($server->ami)) {
+            $hydrated->setAmi($server->ami);
+        }
+
         if (isset($server->last_seen_at)) {
             $hydrated->setLastSeenAt(new DateTime($server->last_seen_at));
+        }
+
+        if (isset($server->system)) {
+            $hydrated->setSystem(SystemHydrator::hydrate($server->system));
         }
 
         return $hydrated;
