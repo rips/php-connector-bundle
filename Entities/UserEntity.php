@@ -58,6 +58,11 @@ class UserEntity
     protected $lastLogin;
 
     /**
+     * @var DateTime
+     */
+    protected $createdAt;
+
+    /**
      * @var string
      */
     protected $confirmationToken;
@@ -391,6 +396,25 @@ class UserEntity
     public function setMfa($mfa)
     {
         $this->mfa = $mfa;
+
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param DateTime $createdAt
+     * @return UserEntity
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

@@ -77,6 +77,10 @@ class UserHydrator
             $hydrated->setLastLogin(new DateTime($user->last_login));
         }
 
+        if (isset($user->created_at)) {
+            $hydrated->setCreatedAt(new DateTime($user->created_at));
+        }
+
         if (isset($user->confirmation_token)) {
             $hydrated->setConfirmationToken($user->confirmation_token);
         }
